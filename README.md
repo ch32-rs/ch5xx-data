@@ -2,7 +2,7 @@
 
 The structured MCU DB of WCH MCUs, CH5xx RISC-V Series.
 
-These MCU are different from CH32V Series, majar differences are:
+These MCUs are different from CH32V Series, major differences are:
 
 - GPIO/RTC/PMU are all in SYS register block
 - Most peripheral registers are 8-bit (R8_ prefix)
@@ -23,4 +23,4 @@ These MCU are different from CH32V Series, majar differences are:
 
 And CH569/5.
 
-CH564 is not included, it's more list a CH32V series.
+CH564 is not included, it's more like a CH32V.
