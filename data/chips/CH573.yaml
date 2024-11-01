@@ -1,0 +1,63 @@
+name: CH573
+family: QingKe RISC-V-based, BLE MCU
+subfamily: RISC-V Core BLE Wireless MCU
+product_type: QingKe V3A core, BLE
+device_id: 1929379840
+packages:
+  - name: CH573X
+    package: QFN32
+  - name: CH573F
+    package: QFN28
+  - name: CH573Q
+    package: LQFP32
+memory:
+  - name: BANK_1
+    kind: flash
+    address: 0
+    size: 458752
+    settings:
+      erase_size: 1024
+      write_size: 256
+      erase_value: 255
+  - name: SRAM
+    kind: ram
+    address: 536870912
+    size: 18432
+docs:
+  - type: homepage
+    title: Homepage
+    name: ""
+    url: http://www.wch.cn/products/CH573.html
+cores:
+  - name: qingke-v4
+    peripherals:
+
+    interrupts:
+      - name: WWDG
+        number: 1
+    dma_channels:
+      - name: DMA1_CH1
+        dma: DMA1
+        channel: 0
+_raw:
+  Flash: 448K
+  VDD: 1.7/3.3
+  Core: RISC-V
+  url: http://www.wch.cn/products/CH573.html
+  BLE: "4.2"
+  row_no: 9f43e7849a3a4ce385020a544ccd0e33
+  RTC/WDOG: √/√
+  Freq: 20MHz
+  Timer: 4*26b
+  LEDC: "-"
+  DataFlash: 32K
+  LCD: "-"
+  UART/SPI/IIC: 4/1/-
+  USB: 1*H/1*D
+  SRAM: 18K
+  head: Part NO.
+  PWM: "12"
+  TouchKey/ADC: 10/10*12b
+  Package: QFN32/QFN28
+  GPIO: "22"
+  Part NO.: CH573

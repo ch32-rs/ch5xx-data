@@ -1,0 +1,59 @@
+name: CH583
+family: QingKe RISC-V-based, BLE MCU
+subfamily: RISC-V Core BLE5.3 Wireless MCU
+product_type: QingKe V4A core, BLE
+device_id: 2181038080
+packages:
+  - name: CH583M
+    package: QFN48
+memory:
+  - name: BANK_1
+    kind: flash
+    address: 0
+    size: 458752
+    settings:
+      erase_size: 1024
+      write_size: 256
+      erase_value: 255
+  - name: SRAM
+    kind: ram
+    address: 536870912
+    size: 32768
+docs:
+  - type: homepage
+    title: Homepage
+    name: ""
+    url: http://www.wch.cn/products/CH583.html
+cores:
+  - name: qingke-v4
+    peripherals:
+
+    interrupts:
+      - name: WWDG
+        number: 1
+    dma_channels:
+      - name: DMA1_CH1
+        dma: DMA1
+        channel: 0
+_raw:
+  Flash: 448K
+  BLE: "5.3"
+  row_no: 489bcda291ed4487af1052e9898561d3
+  VDD: 1.7/3.3
+  Freq: 20MHz
+  RTC/WDOG: √/√
+  Part NO.: CH583
+  LEDC: "-"
+  USB: 2*H/2*D
+  PWM: "12"
+  LCD: "-"
+  DataFlash: 32K
+  Timer: 4*26b
+  TouchKey/ADC: 14/14*12b
+  SRAM: 32K
+  GPIO: "40"
+  UART/SPI/IIC: 4/2/1
+  head: Part NO.
+  url: http://www.wch.cn/products/CH583.html
+  Core: RISC-V
+  Package: QFN48

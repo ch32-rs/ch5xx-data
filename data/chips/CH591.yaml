@@ -1,0 +1,63 @@
+name: CH591
+family: QingKe RISC-V-based, BLE MCU
+subfamily: BLE 5.4 MCU
+product_type: QingKe V4C core, BLE
+device_id: 2432696320
+packages:
+  - name: CH591F
+    package: QFN28
+  - name: CH591D
+    package: QFN20
+  - name: CH591R
+    package: TSSOP16
+memory:
+  - name: BANK_1
+    kind: flash
+    address: 0
+    size: 196608
+    settings:
+      erase_size: 1024
+      write_size: 256
+      erase_value: 255
+  - name: SRAM
+    kind: ram
+    address: 536870912
+    size: 26624
+docs:
+  - type: homepage
+    title: Homepage
+    name: ""
+    url: http://www.wch.cn/products/CH592.html
+cores:
+  - name: qingke-v4
+    peripherals:
+
+    interrupts:
+      - name: WWDG
+        number: 1
+    dma_channels:
+      - name: DMA1_CH1
+        dma: DMA1
+        channel: 0
+_raw:
+  Freq: 20MHz
+  Part NO.: CH591
+  Core: RISC-V
+  SRAM: 26K
+  UART/SPI/IIC: 2/1/-
+  RTC/WDOG: √/√
+  PWM: "10"
+  Timer: 4*26b
+  row_no: 4459858be5f145ea993f89cea2aad7e3
+  Flash: 192K
+  GPIO: "20"
+  LCD: 16*4
+  VDD: 2.3/3.3
+  BLE: "5.4"
+  url: http://www.wch.cn/products/CH592.html
+  LEDC: "-"
+  USB: 1*D
+  DataFlash: 32K
+  TouchKey/ADC: -/6*12b
+  head: Part NO.
+  Package: QFN28/QFN20/TSSOP16

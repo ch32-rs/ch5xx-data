@@ -1,0 +1,61 @@
+name: CH592
+family: QingKe RISC-V-based, BLE MCU
+subfamily: BLE 5.4 MCU
+product_type: QingKe V4C core, BLE
+device_id: 2449473536
+packages:
+  - name: CH592X
+    package: QFN32
+  - name: CH592F
+    package: QFN28
+memory:
+  - name: BANK_1
+    kind: flash
+    address: 0
+    size: 458752
+    settings:
+      erase_size: 1024
+      write_size: 256
+      erase_value: 255
+  - name: SRAM
+    kind: ram
+    address: 536870912
+    size: 26624
+docs:
+  - type: homepage
+    title: Homepage
+    name: ""
+    url: http://www.wch.cn/products/CH592.html
+cores:
+  - name: qingke-v4
+    peripherals:
+
+    interrupts:
+      - name: WWDG
+        number: 1
+    dma_channels:
+      - name: DMA1_CH1
+        dma: DMA1
+        channel: 0
+_raw:
+  Core: RISC-V
+  BLE: "5.4"
+  Timer: 4*26b
+  Freq: 20MHz
+  VDD: 1.7/3.3
+  head: Part NO.
+  TouchKey/ADC: 12/12*12b
+  url: http://www.wch.cn/products/CH592.html
+  PWM: "12"
+  USB: 1*H/1*D
+  Flash: 448K
+  LCD: 20*4
+  UART/SPI/IIC: 4/1/1
+  DataFlash: 32K
+  Part NO.: CH592
+  Package: QFN32/QFN28
+  row_no: 2626bb78642246beac86ef0601afe578
+  SRAM: 26K
+  GPIO: "24"
+  LEDC: "-"
+  RTC/WDOG: √/√

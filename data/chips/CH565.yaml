@@ -1,0 +1,64 @@
+name: CH565
+family: QingKe RISC-V-based MCU
+subfamily: USB3.0 Super-Speed Interface MCU
+product_type: QingKe V3A core
+device_id: 1761607680
+packages:
+  - name: CH565W
+    package: QFN68
+  - name: CH565M
+    package: QFN40
+memory:
+  - name: BANK_1
+    kind: flash
+    address: 0
+    size: 458752
+    settings:
+      erase_size: 1024
+      write_size: 256
+      erase_value: 255
+  - name: RAMS
+    kind: ram
+    address: 536870912
+    size: 16384
+  - name: RAMX
+    kind: ram
+    address: 537001984
+    size: 98304
+docs:
+  - type: homepage
+    title: 32位USB3.0超高速接口MCU CH569
+    name: Homepage
+    url: http://www.wch.cn/products/CH569.html
+cores:
+  - name: qingke-v4
+    peripherals:
+
+    interrupts:
+      - name: WWDG
+        number: 1
+    dma_channels:
+      - name: DMA1_CH1
+        dma: DMA1
+        channel: 0
+_raw:
+  Other Features: BUS8
+  Encrypt: AES/SM4
+  head: Part NO.
+  Package: QFN68/QFN40
+  Part NO.: CH569
+  SPI: "2"
+  SERDES/HSPI/DVP: 1.25Gb/3.8Gb/96MHz/1
+  RAM: 48K/80K
+  USB: (5Gbps) H/D/ (480Mbps) H/D
+  Flash: 448K
+  row_no: 87fc163029794917847dc18dd995acc7
+  UART: "4"
+  CAP: 3/4
+  Freq: 120MHz
+  ETH/SATA: 1000Mb/-
+  I/O: "49"
+  url: http://www.wch.cn/products/CH569.html
+  DataFlash: 32K
+  VDD: "3.3"
+  Timer: 3*26b
