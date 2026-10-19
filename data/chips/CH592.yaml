@@ -1,61 +1,49 @@
+# CH592, from the MounRiver CH59X SDK rather than a datasheet: none was
+# available. The CH592F and CH592X linker scripts both give 448KB of code and
+# 26KB of SRAM, and ISP592.h, which the CH591 templates ship unchanged, gives
+# the flash geometry: code erased in 4KB blocks and programmed a dword at a
+# time, data 32KB erased in 256B pages and programmed a byte at a time, both
+# through the ISP library. The data region's address is not stated anywhere in
+# the SDK, so it is not mapped here.
+#
+# The CH592 SFR header reads ID_CH592 = 0x92. Packages follow the SDK
+# templates, which stop at the package letter.
 name: CH592
 family: QingKe RISC-V-based, BLE MCU
-subfamily: BLE 5.4 MCU
-product_type: QingKe V4C core, BLE
-device_id: 2449473536
+subfamily: RISC-V Core BLE Wireless MCU
+product_type: QingKe V3C core, BLE
 packages:
-  - name: CH592X
-    package: QFN32
+  - name: CH592D
+    package: QFN20
+    device_id: 0x92000000
   - name: CH592F
     package: QFN28
+    device_id: 0x92000000
+  - name: CH592X
+    package: QFN32
+    device_id: 0x92000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 26624
+    address: 0x20000000
+    size: 26K
 docs:
   - type: homepage
-    title: Homepage
+    title: CH592 product page
     name: ""
-    url: http://www.wch.cn/products/CH592.html
+    url: https://www.wch.cn/products/CH592.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  Core: RISC-V
-  BLE: "5.4"
-  Timer: 4*26b
-  Freq: 20MHz
-  VDD: 1.7/3.3
-  head: Part NO.
-  TouchKey/ADC: 12/12*12b
-  url: http://www.wch.cn/products/CH592.html
-  PWM: "12"
-  USB: 1*H/1*D
-  Flash: 448K
-  LCD: 20*4
-  UART/SPI/IIC: 4/1/1
-  DataFlash: 32K
-  Part NO.: CH592
-  Package: QFN32/QFN28
-  row_no: 2626bb78642246beac86ef0601afe578
-  SRAM: 26K
-  GPIO: "24"
-  LEDC: "-"
-  RTC/WDOG: √/√
+  - name: qingke-v3c
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH59X.yaml"
+    include_interrupts: "../interrupts/CH59X.yaml"
