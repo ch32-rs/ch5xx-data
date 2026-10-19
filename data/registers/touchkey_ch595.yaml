@@ -1,0 +1,70 @@
+block/TouchKey:
+  description: Touch buttons.
+  items:
+  - name: R8_TKEY_CFG
+    description: RW, Touchkey configure.
+    byte_offset: 87
+    bit_size: 8
+    fieldset: R8_TKEY_CFG
+  - name: R32_TKEY_CFG2
+    description: RW, TouchKey configuration register 2.
+    byte_offset: 120
+    fieldset: R32_TKEY_CFG2
+  - name: R32_TKEY_SEL
+    description: RW, TouchKey selection register.
+    byte_offset: 124
+    fieldset: R32_TKEY_SEL
+fieldset/R32_TKEY_CFG2:
+  description: RW, TouchKey configuration register 2.
+  fields:
+  - name: RB_TKEY_TRANS
+    description: RW, Touch key Capacitive charge moving time.
+    bit_offset: 0
+    bit_size: 3
+  - name: RB_TKEY_CC
+    description: RW, Touch key capacitor charging time.
+    bit_offset: 3
+    bit_size: 2
+  - name: RB_TKADC_START_SEL
+    description: 'RW, Touch the key to start ADC time selection in advance, unit: moving cycle.'
+    bit_offset: 5
+    bit_size: 2
+  - name: RB_TKEY_EN
+    description: RW, TKEY module enable.
+    bit_offset: 7
+    bit_size: 1
+  - name: RB_TKEY_CTRANS_ACT
+    description: RW, TKEY module start signal and working status, automatic reset.
+    bit_offset: 8
+    bit_size: 1
+  - name: RB_TRANSFER_N
+    description: RW, Number of moving cycles.
+    bit_offset: 16
+    bit_size: 10
+fieldset/R32_TKEY_SEL:
+  description: RW, TouchKey selection register.
+  fields:
+  - name: RB_SEL_CS
+    description: RW, Selection of charge transfer channel.
+    bit_offset: 0
+    bit_size: 14
+  - name: RB_DRIVEROUT_EN
+    description: RW, TouchKey drive shield channel selection switch.
+    bit_offset: 16
+    bit_size: 14
+fieldset/R8_TKEY_CFG:
+  description: RW, Touchkey configure.
+  bit_size: 8
+  fields:
+  - name: RB_TKEY_DRV_EN
+    description: RW, Touchkey drive shield enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_ADC_PGA_CFG
+    description: RW, Select the running speed of PGA in ADC.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_TKEY_DMA_EN
+    description: RW, TouchKey DMA Enable.
+    bit_offset: 6
+    bit_size: 1

@@ -1,0 +1,58 @@
+# CH595 family, one description for every package. From CH595 datasheet V1.1
+# (CH595DS1), which covers both the datasheet and the reference manual.
+#
+# Memory map, tables 2-1 and 2-2:
+#
+#   0x00000000-0x0003BFFF  CodeFlash, 240KB
+#   0x0003C000-0x0003FFFF  BootLoader, 16KB
+#   0x00040100-0x000401FF  user info, 256B
+#   0x00040200-0x000402FF  InfoFlash, system configuration, 256B
+#   0x20000000-0x20007FFF  SRAM, 32KB (24KB RAM24K + 8KB RAM8K, both retained)
+#
+# Unlike CH585 there is no separate data flash and no ISP library. Erase and
+# program go through the flash controller at 0x40001800, which the SVD leaves
+# out: page 256B, sector 2KB, bank 64KB (CH59x_flash.h: FLASH_PAGE_SIZE 0x100,
+# FLASH_SECTOR_SIZE 0x800, FLASH_BANK_SIZE 0x10000, FLASH_MAX_SIZE 0x3C000).
+# Programming is page oriented, so the write size follows the page.
+#
+# The three packages differ in peripheral count, not in memory. That split is
+# not described yet; this is the full CH595X set.
+name: CH595
+family: QingKe RISC-V-based, BLE MCU
+subfamily: RISC-V Core BLE Wireless MCU
+product_type: QingKe V3C core, BLE
+packages:
+  - name: CH595X
+    package: QFN32
+    device_id: 0x95000000
+  - name: CH595F
+    package: QFN28
+    device_id: 0x95000000
+  - name: CH595D
+    package: QFN20
+    device_id: 0x95000000
+memory:
+  - name: CODEFLASH
+    kind: flash
+    address: 0
+    size: 240K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 256
+  - name: SRAM
+    kind: ram
+    address: 0x20000000
+    size: 32K
+docs:
+  - type: datasheet
+    title: CH595 datasheet
+    name: CH595DS1 V1.1
+    url: https://www.wch.cn/downloads/CH595DS1_PDF.html
+cores:
+  - name: qingke-v3c
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH595.yaml"
+    include_interrupts: "../interrupts/CH595.yaml"

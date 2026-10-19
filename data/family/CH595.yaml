@@ -1,0 +1,175 @@
+# Generated from svd/fixed/ch595x.svd by scripts/gen-from-svd.py.
+# Clocks, pins and interrupts-per-signal are filled in by hand.
+
+- name: SYS
+  address: 0x40001000
+  registers:
+    kind: sys
+    version: ch595
+    block: SYS
+
+- name: RTC
+  address: 0x40001000
+  registers:
+    kind: rtc
+    version: ch585
+    block: RTC
+
+- name: System_control
+  address: 0x40001000
+  registers:
+    kind: system_control
+    version: ch595
+    block: System_control
+
+- name: TouchKey
+  address: 0x40001000
+  registers:
+    kind: touchkey
+    version: ch595
+    block: TouchKey
+
+- name: ADC
+  address: 0x40001000
+  registers:
+    kind: adc
+    version: ch595
+    block: ADC
+
+- name: GPIO
+  address: 0x40001000
+  registers:
+    kind: gpio
+    version: ch595
+    block: GPIO
+
+- name: TMR0
+  address: 0x40002000
+  registers:
+    kind: tmr03
+    version: ch595
+    block: TMR03
+
+- name: TMR1
+  address: 0x40002400
+  registers:
+    kind: tmr12
+    version: ch595
+    block: TMR12
+
+- name: TMR2
+  address: 0x40002800
+  registers:
+    kind: tmr12
+    version: ch595
+    block: TMR12
+
+- name: TMR3
+  address: 0x40002C00
+  registers:
+    kind: tmr03
+    version: ch595
+    block: TMR03
+
+- name: UART0
+  address: 0x40003000
+  registers:
+    kind: uart0
+    version: ch595
+    block: UART0
+
+- name: UART1
+  address: 0x40003400
+  registers:
+    kind: uart
+    version: ch595
+    block: UART
+
+- name: UART2
+  address: 0x40003800
+  registers:
+    kind: uart
+    version: ch595
+    block: UART
+
+- name: UART3
+  address: 0x40003C00
+  registers:
+    kind: uart
+    version: ch595
+    block: UART
+
+- name: SPI0
+  address: 0x40004000
+  registers:
+    kind: spi0
+    version: ch595
+    block: SPI0
+
+- name: I2C0
+  address: 0x40004800
+  registers:
+    kind: i2c0
+    version: ch595
+    block: I2C0
+
+- name: PWMx
+  address: 0x40005000
+  registers:
+    kind: pwmx
+    version: ch585
+    block: PWMx
+
+- name: LCD
+  address: 0x40006000
+  registers:
+    kind: lcd
+    version: ch595
+    block: LCD
+
+- name: KEYSCAN
+  address: 0x40006040
+  registers:
+    kind: keyscan
+    version: ch595
+    block: KEYSCAN
+
+- name: ENCODER
+  address: 0x40006080
+  registers:
+    kind: encoder
+    version: ch595
+    block: ENCODER
+
+- name: USBFS
+  address: 0x40008000
+  registers:
+    kind: usbfs
+    version: ch585
+    block: USBFS
+
+
+# Placeholder: the vendor SVD lists BLE here but gives it no registers.
+- name: BLE
+  address: 0x4000C000
+
+- name: LED
+  address: 0x4000F000
+  registers:
+    kind: led
+    version: ch595
+    block: LED
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch585
+    block: PFIC
+
+- name: Systick
+  address: 0xE000F000
+  registers:
+    kind: systick
+    version: ch585
+    block: Systick
