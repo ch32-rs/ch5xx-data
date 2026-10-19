@@ -1,0 +1,26 @@
+# CH581. Same vector table as CH585 except the three slots that
+# belong to the removed peripherals (NFC 36, USB2 device 37, USB2 host 38),
+# which the CH581 startup file leaves as 0.
+#
+# Names follow the CH581 startup file: SPI rather than SPI0, PWMX rather
+# than PWMX_SPI1.
+ADC: 29
+BLEB: 20
+BLEL: 21
+GPIO_A: 17
+GPIO_B: 18
+I2C: 30
+LED: 39
+PWMX: 31
+RTC: 28
+SPI: 19
+TMR0: 16
+TMR1: 24
+TMR2: 25
+TMR3: 32
+UART0: 26
+UART1: 27
+UART2: 33
+UART3: 34
+USB: 22
+WDOG_BAT: 35

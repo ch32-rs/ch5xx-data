@@ -1,0 +1,41 @@
+# CH584X, from CH585/CH584 datasheet V1.6, table 2-2-2. Same peripherals and
+# 96KB SRAM as CH584, but the flash is different: 480KB of code and 512KB of
+# data. The data region is given no address range and the datasheet says to
+# read it through the example code, so only the code region is mapped here.
+#
+# Erase and program granularity is not stated separately for this part. The
+# code region follows the CH584 figures (4KB erase, dword programming); the
+# data region is left out until its geometry is known.
+name: CH584X
+family: QingKe RISC-V-based, BLE MCU
+subfamily: RISC-V Core BLE5.4 Wireless MCU
+product_type: QingKe V3C core, BLE
+packages:
+  - name: CH584X
+    package: QFN48
+    device_id: 0x84000000
+memory:
+  - name: CODEFLASH
+    kind: flash
+    address: 0
+    size: 480K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: SRAM
+    kind: ram
+    address: 0x20000000
+    size: 96K
+docs:
+  - type: datasheet
+    title: CH585/CH584 datasheet
+    name: CH585DS1 V1.6
+    url: https://www.wch.cn/downloads/CH585DS1_PDF.html
+cores:
+  - name: qingke-v3c
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH584.yaml"
+    include_interrupts: "../interrupts/CH584.yaml"

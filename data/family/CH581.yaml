@@ -1,0 +1,162 @@
+# CH581. The CH585 die with SPI1, USBHS and LCD removed, from the CH581 SFR
+# header, so this is data/family/CH585.yaml minus those three peripherals.
+# CH584 keeps LCD; it has its own list in data/family/CH584.yaml.
+#
+# Register blocks are shared with CH585 except SYS, which loses the clock,
+# pin and power fields that only gate the removed peripherals. See
+# data/registers/sys_ch581.yaml.
+
+
+- name: SYS
+  address: 0x40001000
+  registers:
+    kind: sys
+    version: ch581
+    block: SYS
+
+- name: RTC
+  address: 0x40001000
+  registers:
+    kind: rtc
+    version: ch585
+    block: RTC
+
+- name: System_control
+  address: 0x40001000
+  registers:
+    kind: system_control
+    version: ch585
+    block: System_control
+
+- name: TouchKey
+  address: 0x40001000
+  registers:
+    kind: touchkey
+    version: ch585
+    block: TouchKey
+
+- name: ADC
+  address: 0x40001000
+  registers:
+    kind: adc
+    version: ch585
+    block: ADC
+
+- name: GPIO
+  address: 0x40001000
+  registers:
+    kind: gpio
+    version: ch585
+    block: GPIO
+
+- name: TMR0
+  address: 0x40002000
+  registers:
+    kind: tmr
+    version: ch585
+    block: TMR
+
+- name: TMR1
+  address: 0x40002400
+  registers:
+    kind: tmr
+    version: ch585
+    block: TMR
+
+- name: TMR2
+  address: 0x40002800
+  registers:
+    kind: tmr
+    version: ch585
+    block: TMR
+
+- name: TMR3
+  address: 0x40002C00
+  registers:
+    kind: tmr
+    version: ch585
+    block: TMR
+
+- name: UART0
+  address: 0x40003000
+  registers:
+    kind: uart
+    version: ch585
+    block: UART
+
+- name: UART1
+  address: 0x40003400
+  registers:
+    kind: uart
+    version: ch585
+    block: UART
+
+- name: UART2
+  address: 0x40003800
+  registers:
+    kind: uart
+    version: ch585
+    block: UART
+
+- name: UART3
+  address: 0x40003C00
+  registers:
+    kind: uart
+    version: ch585
+    block: UART
+
+- name: SPI0
+  address: 0x40004000
+  registers:
+    kind: spi0
+    version: ch585
+    block: SPI0
+
+- name: I2C0
+  address: 0x40004800
+  registers:
+    kind: i2c0
+    version: ch585
+    block: I2C0
+
+- name: PWMx
+  address: 0x40005000
+  registers:
+    kind: pwmx
+    version: ch585
+    block: PWMx
+
+- name: USBFS
+  address: 0x40008000
+  registers:
+    kind: usbfs
+    version: ch585
+    block: USBFS
+
+
+# Placeholder: the vendor SVD lists BLE at this address but gives it no
+# registers, so there is nothing to generate yet. Kept so the base address
+# stays recorded.
+- name: BLE
+  address: 0x4000C000
+
+- name: LED
+  address: 0x4000F000
+  registers:
+    kind: led
+    version: ch585
+    block: LED
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch585
+    block: PFIC
+
+- name: Systick
+  address: 0xE000F000
+  registers:
+    kind: systick
+    version: ch585
+    block: Systick

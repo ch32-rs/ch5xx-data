@@ -1,5 +1,6 @@
-# CH585 family, one description for every package. CH584 is the same die with
-# USBHS and SPI1 removed and 96K of SRAM; it is not split out yet.
+# CH585 family. CH584 is the same die with USBHS and SPI1 removed and 96K of
+# SRAM (data/family/CH584.yaml). CH581 is a further cut that also drops LCD
+# (data/family/CH581.yaml).
 #
 # Memory map from CH585/CH584 datasheet V1.6, table 2-2-1. SRAM is 128KB
 # (96KB + 32KB retention) at 0x20000000, table 2-1.
@@ -14,8 +15,8 @@
 #         through the code address space (the datasheet points at the example
 #         code for reads)
 #
-# CH584X is the exception: 480KB code and 512KB data, data only through the
-# library. It is not described here.
+# CH584X is the exception: 480KB code and 512KB data, the data region with no
+# address of its own and readable only through the library. See CH584X.yaml.
 name: CH585
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE5.4 Wireless MCU

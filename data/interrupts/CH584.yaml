@@ -1,0 +1,23 @@
+# CH584. Same vector table as CH585 except the two USBHS slots (USB2 device
+# 37, USB2 host 38), which go with the USBHS module the datasheet removes.
+ADC: 29
+BLEB: 20
+BLEL: 21
+GPIO_A: 17
+GPIO_B: 18
+I2C: 30
+LED: 39
+NFC: 36
+PWMX_SPI1: 31
+RTC: 28
+SPI0: 19
+TMR0: 16
+TMR1: 24
+TMR2: 25
+TMR3: 32
+UART0: 26
+UART1: 27
+UART2: 33
+UART3: 34
+USB: 22
+WDOG_BAT: 35

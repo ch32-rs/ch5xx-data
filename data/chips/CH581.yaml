@@ -1,59 +1,53 @@
+# CH581, from the CH581 SFR header shipped in the MounRiver CH585 SDK
+# (CH581SFR.h) and the CH581M linker script. It is the CH585 die with SPI1,
+# USBHS and LCD removed and 96KB of SRAM. The CH585 datasheet does not mention
+# CH581; it describes CH584 as dropping only USBHS and SPI1, so the two are not
+# the same cut and CH581 keeps its own peripheral list.
+#
+# Flash geometry is identical to CH585. The header defines the same constants
+# (448KB code, 32KB data, 4KB code erase, dword programming, 256B data erase,
+# byte programming) and the same ISP library gates it.
+#
+# The IDE only ships a CH581M template. The chip id byte in the header is
+# ID_CH581 = 0x92.
 name: CH581
 family: QingKe RISC-V-based, BLE MCU
-subfamily: RISC-V Core BLE5.3 Wireless MCU
-product_type: QingKe V4A core, BLE
-device_id: 2164260864
+subfamily: RISC-V Core BLE5.4 Wireless MCU
+product_type: QingKe V3C core, BLE
 packages:
-  - name: CH581F
-    package: QFN28
+  - name: CH581M
+    package: QFN48
+    device_id: 0x81000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 196608
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 32768
+    address: 0x20000000
+    size: 96K
 docs:
-  - type: homepage
-    title: Homepage
-    name: ""
-    url: http://www.wch.cn/products/CH583.html
+  - type: datasheet
+    title: CH585/CH584 datasheet
+    name: CH585DS1 V1.6
+    url: https://www.wch.cn/downloads/CH585DS1_PDF.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  Freq: 20MHz
-  head: Part NO.
-  RTC/WDOG: √/√
-  Flash: 192K
-  LCD: "-"
-  SRAM: 32K
-  Timer: 4*26b
-  USB: 1*D
-  GPIO: "20"
-  row_no: 7ff4059f2c324afaa6caa9edff69ad27
-  Part NO.: CH581
-  PWM: "10"
-  VDD: 2.3/3.3
-  UART/SPI/IIC: 2/1/-
-  url: http://www.wch.cn/products/CH583.html
-  DataFlash: 32K
-  Core: RISC-V
-  TouchKey/ADC: -/6*12b
-  Package: QFN28
-  BLE: "5.3"
-  LEDC: "-"
+  - name: qingke-v3c
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH581.yaml"
+    include_interrupts: "../interrupts/CH581.yaml"
