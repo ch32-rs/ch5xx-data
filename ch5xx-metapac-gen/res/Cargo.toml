@@ -1,0 +1,61 @@
+[package]
+name = "ch5xx-metapac"
+version = "0.1.2"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/ch32-rs/ch5xx-data"
+homepage = "https://github.com/ch32-rs/ch5xx-data"
+description = "Peripheral Access Crate (PAC) for WCH CH5xx BLE MCUs, including metadata."
+authors = ["Andelf <andelf@gmail.com>"]
+documentation = "https://docs.rs/ch5xx-metapac"
+categories = ["embedded", "no-std", "hardware-support"]
+keywords = ["wch", "ch5xx", "svd2rust", "no_std", "embedded"]
+readme = "README.md"
+
+# `cargo publish` is unable to figure out which .rs files are needed due to the include! magic.
+include = [
+    "**/*.rs",
+    "**/*.x",
+    "src/chips/**/memory_x/**",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE-*",
+]
+
+[package.metadata.docs.rs]
+features = ["ch585", "pac", "metadata"]
+default-target = "riscv32imac-unknown-none-elf"
+targets = []
+
+[package.metadata.embassy_docs]
+features = ["pac", "metadata"]
+# QingKe V3C (CH57x/CH58x/CH59x) is RV32IMBC; no FPU, no ARM parts in this crate.
+flavors = [
+    { regex_feature = "ch5.*", target = "riscv32imac-unknown-none-elf" },
+]
+
+[dependencies]
+vcell = "0.1"
+
+[target.'cfg(target_arch = "riscv32")'.dependencies]
+riscv = "0.16.1"
+
+[target.'cfg(target_arch = "arm")'.dependencies]
+cortex-m = "0.7"
+
+[features]
+default = ["pac"]
+
+# Build the actual PAC. Set by default.
+# If you just want the metadata, unset it with `default-features = false`.
+pac = []
+
+# Build the chip metadata.
+# If set, a const `ch5xx_metapac::METADATA` will be exported, containing all the
+# metadata for the currently selected chip.
+metadata = []
+
+rt = []
+memory-x = []
+
+# Chip-selection features

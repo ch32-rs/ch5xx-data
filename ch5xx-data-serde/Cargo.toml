@@ -1,0 +1,11 @@
+[package]
+name = "ch5xx-data-serde"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.195", features = ["derive"] }
+serde_yaml = "0.9.30"
+
+[dev-dependencies]
+rayon = "1.7"

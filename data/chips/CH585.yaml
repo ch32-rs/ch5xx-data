@@ -1,43 +1,68 @@
+# CH585 family, one description for every package. CH584 is the same die with
+# USBHS and SPI1 removed and 96K of SRAM; it is not split out yet.
+#
+# Memory map from CH585/CH584 datasheet V1.6, table 2-2-1. SRAM is 128KB
+# (96KB + 32KB retention) at 0x20000000, table 2-1.
+#
+# Flash is not the CH32 kind. There is no user option byte and no flash
+# register block in the SVD; erasing and programming go through the ISP
+# library (ISP585.h), which gates code and data separately via RB_ROM_CODE_WE
+# and RB_ROM_DATA_WE. The two regions therefore differ:
+#
+#   code  erased in 4KB blocks, programmed a dword (4B) at a time
+#   data  erased in 256B pages, programmed a byte at a time, and not readable
+#         through the code address space (the datasheet points at the example
+#         code for reads)
+#
+# CH584X is the exception: 480KB code and 512KB data, data only through the
+# library. It is not described here.
 name: CH585
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE5.4 Wireless MCU
 product_type: QingKe V3C core, BLE
-device_id: 0x85000000
 packages:
-  - name: CH58M
-    package: QFN48T
+  - name: CH585M
+    package: QFN48
+    device_id: 0x85000000
   - name: CH585F
     package: QFN32
+    device_id: 0x85000000
   - name: CH585C
     package: QFN26C3
+    device_id: 0x85000000
+  - name: CH585D
+    package: QFN20
+    device_id: 0x85000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 32768
+    address: 0x20000000
+    size: 128K
 docs:
-  - type: homepage
-    title: Homepage
-    name: ""
-    url: http://www.wch.cn/products/CH585.html
+  - type: datasheet
+    title: CH585/CH584 datasheet
+    name: CH585DS1 V1.6
+    url: https://www.wch.cn/downloads/CH585DS1_PDF.html
 cores:
   - name: qingke-v3c
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  url: http://www.wch.cn/products/CH585.html
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH585.yaml"
+    include_interrupts: "../interrupts/CH585.yaml"

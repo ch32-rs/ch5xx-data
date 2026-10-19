@@ -1,0 +1,1229 @@
+block/USBHS:
+  description: USB register.
+  items:
+  - name: R8_USB2_CTRL
+    description: RW, USBHS control register.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_USB2_CTRL
+  - name: R8_USB2_BASE_MODE
+    description: RW, USBHS control register.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: R8_USB2_BASE_MODE
+  - name: R8_USB2_INT_EN
+    description: RW, USBHS interrupt enable register.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_USB2_INT_EN
+  - name: R8_USB2_DEV_AD
+    description: RW, USBHS device address register.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: R8_USB2_DEV_AD
+  - name: R8_USB2_WAKE_CTRL
+    description: RW1Z, USBHS remote wake-up register.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: R8_USB2_WAKE_CTRL
+  - name: R8_USB2_TEST_MODE
+    description: RW, USBHS test mode register.
+    byte_offset: 5
+    bit_size: 8
+    fieldset: R8_USB2_TEST_MODE
+  - name: R16_USB2_LPM_DATA
+    description: RW, USBHS power management register.
+    byte_offset: 6
+    bit_size: 16
+    fieldset: R16_USB2_LPM_DATA
+  - name: R8_USB2_INT_FG
+    description: RW1Z, USBHS interrupt flag register.
+    byte_offset: 8
+    bit_size: 8
+    fieldset: R8_USB2_INT_FG
+  - name: R8_USB2_INT_ST
+    description: RO, USBHS Interrupt Status Register.
+    byte_offset: 9
+    access: Read
+    bit_size: 8
+    fieldset: R8_USB2_INT_ST
+  - name: R8_USB2_MIS_ST
+    description: RO, USBHS Miscellaneous Status Register.
+    byte_offset: 10
+    access: Read
+    bit_size: 8
+    fieldset: R8_USB2_MIS_ST
+  - name: R16_USB2_FRAM_NO
+    description: RO, USBHS frame register.
+    byte_offset: 12
+    access: Read
+    bit_size: 16
+    fieldset: R16_USB2_FRAM_NO
+  - name: R16_USB2_BUS
+    description: RO, USBHS bus status memory.
+    byte_offset: 14
+    access: Read
+    bit_size: 16
+    fieldset: R16_USB2_BUS
+  - name: R16_UEP_TX_EN
+    description: RW, USBHS endpoint sends enable register.
+    byte_offset: 16
+    bit_size: 16
+    fieldset: R16_UEP_TX_EN
+  - name: R16_UEP_RX_EN
+    description: RW, USBHS endpoint receive enable register.
+    byte_offset: 18
+    bit_size: 16
+    fieldset: R16_UEP_RX_EN
+  - name: R16_UEP_T_TOG_AUTO
+    description: RW, USBHS endpoint receives automatic flip enable register.
+    byte_offset: 20
+    bit_size: 16
+    fieldset: R16_UEP_T_TOG_AUTO
+  - name: R16_UEP_R_TOG_AUTO
+    description: RW, USBHS endpoint receives automatic flip enable register.
+    byte_offset: 22
+    bit_size: 16
+    fieldset: R16_UEP_R_TOG_AUTO
+  - name: R8_UEP_T_BURST
+    description: RW, 0~7 endpoints burst send enable.
+    byte_offset: 24
+    bit_size: 8
+    fieldset: R8_UEP_T_BURST
+  - name: R8_UEP_T_BURST_MODE
+    description: RW, USBHS Endpoint Send Mode Register.
+    byte_offset: 25
+    bit_size: 8
+    fieldset: R8_UEP_T_BURST_MODE
+  - name: R8_UEP_R_BURST
+    description: RW, 0~7 endpoints burst receive enable.
+    byte_offset: 26
+    bit_size: 8
+    fieldset: R8_UEP_R_BURST
+  - name: R8_UEP_R_RES_MODE
+    description: RW, USBHS Endpoint Receive Mode Register.
+    byte_offset: 27
+    bit_size: 8
+    fieldset: R8_UEP_R_RES_MODE
+  - name: R32_UEP_AF_MODE
+    description: RW, USBHS Endpoint Reuse Register.
+    byte_offset: 28
+    fieldset: R32_UEP_AF_MODE
+  - name: R32_UEP0_DMA
+    description: RW, Starting address register of endpoint 0 buffer.
+    byte_offset: 32
+    fieldset: R32_UEP0_DMA
+  - name: R32_UEPn_RX_DMAn17
+    description: RW, Endpoint n receives the starting address register of the buffer(n=1~7).
+    byte_offset: 32
+    fieldset: R32_UEPn_RX_DMAn17
+  - name: R32_UEPn_TX_DMAn17
+    description: RW, Endpoint n sends the starting address register of the buffer(n=1~7).
+    byte_offset: 64
+    fieldset: R32_UEPn_TX_DMAn17
+  - name: R32_UEPn_MAX_LENn17
+    description: RW, Endpoint n maximum length packet register(n=1~7).
+    byte_offset: 92
+    fieldset: R32_UEPn_MAX_LENn17
+  - name: R16_UEP0_RX_LEN
+    description: RW, Endpoint 0 receives length register.
+    byte_offset: 124
+    bit_size: 16
+    fieldset: R16_UEP0_RX_LEN
+  - name: R16_UEPn_RX_LENn17
+    description: RW, Endpoint n single reception length register(n=1~7).
+    byte_offset: 128
+    bit_size: 16
+    fieldset: R16_UEPn_RX_LENn17
+  - name: R16_UEP0_T_LEN
+    description: RW, Endpoint 0 sends length register.
+    byte_offset: 156
+    bit_size: 16
+    fieldset: R16_UEP0_T_LEN
+  - name: R8_UEP0_TX_CTRL
+    description: RW, Endpoint 0 sends control register.
+    byte_offset: 158
+    bit_size: 8
+    fieldset: R8_UEP0_TX_CTRL
+  - name: R8_UEP0_RX_CTRL
+    description: RW, Endpoint 0 receives control register.
+    byte_offset: 159
+    bit_size: 8
+    fieldset: R8_UEP0_RX_CTRL
+  - name: R16_UEPn_T_LENn17
+    description: RW, Endpoint n sends data length(n=1~7).
+    byte_offset: 160
+    bit_size: 16
+    fieldset: R16_UEPn_T_LENn17
+  - name: R8_UEPn_TX_CTRLn17
+    description: RW, Endpoint n sends data length(n=1~7).
+    byte_offset: 162
+    bit_size: 8
+    fieldset: R8_UEPn_TX_CTRLn17
+  - name: R8_UEPn_RX_CTRLn17
+    description: RW, Endpoint n receives control registers(n=1~7).
+    byte_offset: 163
+    bit_size: 8
+    fieldset: R8_UEPn_RX_CTRLn17
+  - name: R16_UEP_T_ISO
+    description: RW, USBHS endpoint sends synchronization mode enable register.
+    byte_offset: 188
+    bit_size: 16
+    fieldset: R16_UEP_T_ISO
+  - name: R16_UEP_R_ISO
+    description: RW, USBHS endpoint receiving synchronization mode enable register.
+    byte_offset: 190
+    bit_size: 16
+    fieldset: R16_UEP_R_ISO
+  - name: R8_UH_CFG
+    description: RW, USBHS Host Configuration Register.
+    byte_offset: 256
+    bit_size: 8
+    fieldset: R8_UH_CFG
+  - name: R8_UH_INT_EN
+    description: RW, USBHS host interrupt enable register.
+    byte_offset: 258
+    bit_size: 8
+    fieldset: R8_UH_INT_EN
+  - name: R8_UH_DEV_ADDR
+    description: RW, USBHS host device address register.
+    byte_offset: 259
+    bit_size: 8
+    fieldset: R8_UH_DEV_ADDR
+  - name: R32_UH_CONTROL
+    description: RW, USBHS Host Control Register.
+    byte_offset: 260
+    fieldset: R32_UH_CONTROL
+  - name: R8_UH_INT_FLAG
+    description: RW1Z, USBHS host interrupt flag register.
+    byte_offset: 264
+    bit_size: 8
+    fieldset: R8_UH_INT_FLAG
+  - name: R8_UH_INT_ST
+    description: RW, USBHS host interrupt status register.
+    byte_offset: 265
+    bit_size: 8
+    fieldset: R8_UH_INT_ST
+  - name: R8_UH_MIS_ST
+    description: RW, USBHS host miscellaneous status register.
+    byte_offset: 266
+    bit_size: 8
+    fieldset: R8_UH_MIS_ST
+  - name: R32_UH_LPM
+    description: RW, USBHS Host Power Management Data Register.
+    byte_offset: 268
+    fieldset: R32_UH_LPM
+  - name: R32_UH_SPLIT
+    description: RW, USBHS Host SPLIT Register.
+    byte_offset: 272
+    fieldset: R32_UH_SPLIT
+  - name: R32_UH_FRAME
+    description: RW, USBHS Host Frame Register.
+    byte_offset: 276
+    fieldset: R32_UH_FRAME
+  - name: R32_UH_TX_LEN
+    description: RW, USBHS host sends length register.
+    byte_offset: 280
+    fieldset: R32_UH_TX_LEN
+  - name: R32_UH_RX_LEN
+    description: RW, USBHS host receives length register.
+    byte_offset: 284
+    fieldset: R32_UH_RX_LEN
+  - name: R32_UH_RX_MAX_LEN
+    description: RW, USBHS host receives maximum length register.
+    byte_offset: 288
+    fieldset: R32_UH_RX_MAX_LEN
+  - name: R32_UH_RX_DMA
+    description: RW, DMA receiving address register.
+    byte_offset: 292
+    fieldset: R32_UH_RX_DMA
+  - name: R32_UH_TX_DMA
+    description: RW, DMA sending address register.
+    byte_offset: 296
+    fieldset: R32_UH_TX_DMA
+  - name: R32_PORT_CTRL
+    description: WO, USBHS host port control register.
+    byte_offset: 300
+    access: Read
+    fieldset: R32_PORT_CTRL
+  - name: R8_PORT_CFG
+    description: RO, USBHS host port configuration register.
+    byte_offset: 304
+    access: Read
+    bit_size: 8
+    fieldset: R8_PORT_CFG
+  - name: R8_PORT_INT_EN
+    description: RO, USBHS host port configuration register.
+    byte_offset: 306
+    access: Read
+    bit_size: 8
+    fieldset: R8_PORT_INT_EN
+  - name: R8_PORT_TEST_CT
+    description: RW, USBHS host port test mode register.
+    byte_offset: 307
+    bit_size: 8
+    fieldset: R8_PORT_TEST_CT
+  - name: R16_PORT_STATUS
+    description: RO, USBHS Host Port Status Register.
+    byte_offset: 308
+    access: Read
+    bit_size: 16
+    fieldset: R16_PORT_STATUS
+  - name: R8_PORT_STATUS_CHG
+    description: RW1Z, USBHS Host Port Status Register.
+    byte_offset: 310
+    bit_size: 8
+    fieldset: R8_PORT_STATUS_CHG
+  - name: R32_ROOT_BC_CTRL
+    description: RW, USBHS host BC charging control register.
+    byte_offset: 316
+    fieldset: R32_ROOT_BC_CTRL
+  - name: R8_USBHS_PLL_CTRL
+    description: RW, USBHS PLL Clock Control Register.
+    byte_offset: 512
+    bit_size: 8
+    fieldset: R8_USBHS_PLL_CTRL
+fieldset/R16_PORT_STATUS:
+  description: RO, USBHS Host Port Status Register.
+  bit_size: 16
+  fields:
+  - name: PORT_C0NNECT
+    description: Port connection status.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_EN
+    description: Port Enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: PORT_SUSP
+    description: Port paused state.
+    bit_offset: 2
+    bit_size: 1
+  - name: PORT_RESTTING
+    description: Port reset status.
+    bit_offset: 4
+    bit_size: 1
+  - name: PORT_SLP
+    description: Port sleep.
+    bit_offset: 5
+    bit_size: 1
+  - name: PORT_LOW_SPD
+    description: Is the port connection speed low.
+    bit_offset: 9
+    bit_size: 1
+  - name: PORT_HIGH_SPD
+    description: Is the port connection speed high.
+    bit_offset: 10
+    bit_size: 1
+  - name: PORT_TEST
+    description: Is the port in test mode.
+    bit_offset: 11
+    bit_size: 1
+fieldset/R16_UEP0_RX_LEN:
+  description: RW, Endpoint 0 receives length register.
+  bit_size: 16
+  fields:
+  - name: UEPn_MAX_LEN60
+    description: UEPn_MAX_LEN[6:0].
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_UEP0_T_LEN:
+  description: RW, Endpoint 0 sends length register.
+  bit_size: 16
+  fields:
+  - name: UEP0_T_LEN60
+    description: Endpoint 0 sends data length.
+    bit_offset: 0
+    bit_size: 7
+fieldset/R16_UEP_RX_EN:
+  description: RW, USBHS endpoint receive enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_RX_EN150
+    description: 0~15 endpoints receive enable.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_UEP_R_ISO:
+  description: RW, USBHS endpoint receiving synchronization mode enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_R_ISO60
+    description: Enable the synchronization mode of the downstream endpoint (OUT).
+    bit_offset: 1
+    bit_size: 7
+fieldset/R16_UEP_R_TOG_AUTO:
+  description: RW, USBHS endpoint receives automatic flip enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_R_TOG_AUTO70
+    description: 0~7 endpoint synchronization trigger bit automatic flip enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R16_UEP_TX_EN:
+  description: RW, USBHS endpoint sends enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_TX_EN150
+    description: 0~15 endpoints send enable.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_UEP_T_ISO:
+  description: RW, USBHS endpoint sends synchronization mode enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_T_ISO60
+    description: Upload endpoint (IN) synchronization mode enabled.
+    bit_offset: 1
+    bit_size: 7
+fieldset/R16_UEP_T_TOG_AUTO:
+  description: RW, USBHS endpoint receives automatic flip enable register.
+  bit_size: 16
+  fields:
+  - name: UEP_T_TOG_AUTO70
+    description: 0~7 endpoint synchronization trigger bit automatic flip enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R16_UEPn_RX_LENn17:
+  description: RW, Endpoint n single reception length register(n=1~7).
+  bit_size: 16
+  fields:
+  - name: UEPn_RX_LEN150
+    description: Endpoint n receives data length in a single session(n=1~7).
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_UEPn_T_LENn17:
+  description: RW, Endpoint n sends data length(n=1~7).
+  bit_size: 16
+  fields:
+  - name: UEPn_T_LEN150
+    description: Endpoint n sends data length(n=1~7).
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_USB2_BUS:
+  description: RO, USBHS bus status memory.
+  bit_size: 16
+  fields:
+  - name: USB_WAKEUP
+    description: USB wake-up (highly effective).
+    bit_offset: 0
+    bit_size: 1
+  - name: USB_DP_ST
+    description: UDP status.
+    bit_offset: 2
+    bit_size: 1
+  - name: USB_DM_ST
+    description: UDM status.
+    bit_offset: 3
+    bit_size: 1
+fieldset/R16_USB2_FRAM_NO:
+  description: RO, USBHS frame register.
+  bit_size: 16
+  fields:
+  - name: USB_FRAME_NO100
+    description: Received frame number.
+    bit_offset: 0
+    bit_size: 11
+  - name: MICRO_FRAME20
+    description: Received microframe number.
+    bit_offset: 13
+    bit_size: 3
+fieldset/R16_USB2_LPM_DATA:
+  description: RW, USBHS power management register.
+  bit_size: 16
+  fields:
+  - name: LPM_DATA100
+    description: Power management data.
+    bit_offset: 0
+    bit_size: 11
+  - name: LPM_BUSY
+    description: Power management busy.
+    bit_offset: 15
+    bit_size: 1
+fieldset/R32_PORT_CTRL:
+  description: WO, USBHS host port control register.
+  fields:
+  - name: SET_PORT_RESET
+    description: Port sending reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: SET_PORT_SUSP
+    description: PORT enters suspended state.
+    bit_offset: 1
+    bit_size: 1
+  - name: CLR_PORT_SUSP
+    description: PORT exits suspended state.
+    bit_offset: 2
+    bit_size: 1
+  - name: SET_PORT_SLEEP
+    description: PORT enters SLEEP state (LPM).
+    bit_offset: 3
+    bit_size: 1
+  - name: CLR_PORT_EN
+    description: PORT exits the enabled state and enters the disabled state.
+    bit_offset: 4
+    bit_size: 1
+  - name: CLR_PORT_CONNECT
+    description: Put the port into port state.
+    bit_offset: 5
+    bit_size: 1
+  - name: CLR_PORT_SLEEP
+    description: PORT exits SLEEP state (LPM).
+    bit_offset: 8
+    bit_size: 1
+  - name: PORT_SLEEP_BESL
+    description: Wake up time control.
+    bit_offset: 12
+    bit_size: 4
+  - name: BUS_RST_LONG
+    description: Bus reset time selection.
+    bit_offset: 16
+    bit_size: 1
+fieldset/R32_ROOT_BC_CTRL:
+  description: RW, USBHS host BC charging control register.
+  fields:
+  - name: UDP_BC_CMPO
+    description: UDP pin BC protocol comparator status.
+    bit_offset: 0
+    bit_size: 1
+  - name: UDM_BC_CMPO
+    description: UDM pin BC protocol comparator status.
+    bit_offset: 1
+    bit_size: 1
+  - name: UDP_BC_CMPE
+    description: UDP pin BC protocol comparator enabled.
+    bit_offset: 4
+    bit_size: 1
+  - name: UDM_BC_CMPE
+    description: UDM pin BC protocol comparator enabled.
+    bit_offset: 5
+    bit_size: 1
+  - name: BC_AUTO_MODE
+    description: Automatic mode enabled.
+    bit_offset: 6
+    bit_size: 1
+  - name: UDP_BC_VSRC
+    description: UDP pin BC protocol source voltage enable.
+    bit_offset: 8
+    bit_size: 1
+  - name: UDM_BC_VSRC
+    description: UDM pin BC protocol source voltage enabled.
+    bit_offset: 9
+    bit_size: 1
+  - name: UDM_VSRC_ACT
+    description: In automatic mode, this bit represents the UDM output VBC_SRC, otherwise it is controlled by UDM-BC_CMPE.
+    bit_offset: 10
+    bit_size: 1
+fieldset/R32_UEP0_DMA:
+  description: RW, Starting address register of endpoint 0 buffer.
+  fields:
+  - name: UEP_T_AF60
+    description: 1-7 endpoint reuse enabled.
+    bit_offset: 1
+    bit_size: 7
+fieldset/R32_UEP_AF_MODE:
+  description: RW, USBHS Endpoint Reuse Register.
+  fields:
+  - name: UEP_T_AF60
+    description: 1-7 endpoint reuse enabled.
+    bit_offset: 1
+    bit_size: 7
+fieldset/R32_UEPn_MAX_LENn17:
+  description: RW, Endpoint n maximum length packet register(n=1~7).
+  fields:
+  - name: UEPn_MAX_LEN60
+    description: UEPn_MAX_LEN[6:0].
+    bit_offset: 0
+    bit_size: 7
+fieldset/R32_UEPn_RX_DMAn17:
+  description: RW, Endpoint n receives the starting address register of the buffer(n=1~7).
+  fields:
+  - name: UEPn_RX_DMA160
+    description: The starting address of the receiving buffer for endpoint n. The address must be aligned with 4 bytes.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UEPn_TX_DMAn17:
+  description: RW, Endpoint n sends the starting address register of the buffer(n=1~7).
+  fields:
+  - name: R32_UEPn_TX_DMA160
+    description: The starting address of the sending buffer for endpoint n. The address must be aligned with 4 bytes.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UH_CONTROL:
+  description: RW, USBHS Host Control Register.
+  fields:
+  - name: PID_MASK30
+    description: Transaction token package PID.
+    bit_offset: 0
+    bit_size: 4
+  - name: ENDP_MASK30
+    description: Transaction token package endpoint number.
+    bit_offset: 4
+    bit_size: 4
+  - name: TOG_MASK10
+    description: Sent data PID.
+    bit_offset: 8
+    bit_size: 2
+  - name: BUF_MODE
+    description: Data cache control bit.
+    bit_offset: 10
+    bit_size: 1
+  - name: HOST_ACTION
+    description: HOST enables transaction execution, and this bit is automatically reset to zero after the transaction is completed.
+    bit_offset: 16
+    bit_size: 1
+  - name: LPM_VALID
+    description: Sending LPM package is valid.
+    bit_offset: 17
+    bit_size: 1
+  - name: SPLIT_VALID
+    description: Sending SPLIT package is valid.
+    bit_offset: 18
+    bit_size: 1
+  - name: DOWN_LOWSPD
+    description: When the port is operating at full speed and needs to send low-speed packets (PRE), this bit must be enabled.
+    bit_offset: 19
+    bit_size: 1
+  - name: TX_NO_DATA
+    description: There is no data packet after the OUT/SETUP token packet, used for high-speed SPLIT packets.
+    bit_offset: 20
+    bit_size: 1
+  - name: RX_NO_DATA
+    description: Expected data packet after IN token packet, used for high-speed SPLIT packet.
+    bit_offset: 21
+    bit_size: 1
+  - name: TX_NO_RES
+    description: OUT/SETUP - DATA does not expect a response, used for synchronous transmission or high-speed SPLIT packets.
+    bit_offset: 22
+    bit_size: 1
+  - name: RX_NO_RES
+    description: IN-DATA no response, used for synchronous transmission or high-speed SPLIT packets.
+    bit_offset: 23
+    bit_size: 1
+fieldset/R32_UH_FRAME:
+  description: RW, USBHS Host Frame Register.
+  fields:
+  - name: FRAME_NO
+    description: frame number.
+    bit_offset: 0
+    bit_size: 11
+  - name: MICRO_FRAME_HS
+    description: Micro frame number.
+    bit_offset: 16
+    bit_size: 3
+  - name: SOF_CNT_EN
+    description: SOF Count Enable.
+    bit_offset: 24
+    bit_size: 1
+  - name: SOF_CNT_CLR
+    description: SOF count reset to zero.
+    bit_offset: 25
+    bit_size: 1
+fieldset/R32_UH_LPM:
+  description: RW, USBHS Host Power Management Data Register.
+  fields:
+  - name: LPM_DATA
+    description: Power management data.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_RX_DMA:
+  description: RW, DMA receiving address register.
+  fields:
+  - name: R32_UH_RX_DMA
+    description: Receiving Address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UH_RX_LEN:
+  description: RW, USBHS host receives length register.
+  fields:
+  - name: RX_LEN
+    description: Received data length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_RX_MAX_LEN:
+  description: RW, USBHS host receives maximum length register.
+  fields:
+  - name: UH_RX_MAX_LEN
+    description: Received data max length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_SPLIT:
+  description: RW, USBHS Host SPLIT Register.
+  fields:
+  - name: SPLIT_DATA
+    description: SPLIT_DATA.
+    bit_offset: 0
+    bit_size: 19
+fieldset/R32_UH_TX_DMA:
+  description: RW, DMA sending address register.
+  fields:
+  - name: R16_UH_TX_DMA_HS
+    description: Sending Address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UH_TX_LEN:
+  description: RW, USBHS host sends length register.
+  fields:
+  - name: TX_LEN
+    description: Sending data length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R8_PORT_CFG:
+  description: RO, USBHS host port configuration register.
+  bit_size: 8
+  fields:
+  - name: HOST_MODE
+    description: USB port mode selection.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_RPD
+    description: Enable 15K resistor pull-down in host mode.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_PORT_INT_EN:
+  description: RO, USBHS host port configuration register.
+  bit_size: 8
+  fields:
+  - name: PORT_CONNECT_IE
+    description: Port connection status change interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_EN_IE
+    description: Port enable status change interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: PORT_SUSP_IE
+    description: Port pause status change interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: PORT_RESET_IE
+    description: Port reset status change interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: PORT_SLP_IE
+    description: Port sleep state change interrupt enable.
+    bit_offset: 5
+    bit_size: 1
+fieldset/R8_PORT_STATUS_CHG:
+  description: RW1Z, USBHS Host Port Status Register.
+  bit_size: 8
+  fields:
+  - name: PORT_CONNECT_IF
+    description: Port connection status changes, write 1 to reset to zero.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_EN_IF
+    description: Port enable status changes, write 1 to reset to zero.
+    bit_offset: 1
+    bit_size: 1
+  - name: PORT_SUSP_IF
+    description: Port pause status changes, write 1 to reset to zero.
+    bit_offset: 2
+    bit_size: 1
+  - name: PORT_RESET_IF
+    description: Port reset status changes, write 1 to reset to zero.
+    bit_offset: 4
+    bit_size: 1
+  - name: PORT_SLP_IF
+    description: Port sleep status changes, write 1 to reset to zero.
+    bit_offset: 5
+    bit_size: 1
+fieldset/R8_PORT_TEST_CT:
+  description: RW, USBHS host port test mode register.
+  bit_size: 8
+  fields:
+  - name: TEST_J
+    description: Test output J.
+    bit_offset: 0
+    bit_size: 1
+  - name: TEST_K
+    description: Test output K.
+    bit_offset: 1
+    bit_size: 1
+  - name: TEST_FORCE_EN
+    description: Enable Test Mode.
+    bit_offset: 2
+    bit_size: 1
+fieldset/R8_UEP0_RX_CTRL:
+  description: RW, Endpoint 0 receives control register.
+  bit_size: 8
+  fields:
+  - name: RB_RES_MASK10
+    description: Endpoint 0 controls the received response.
+    bit_offset: 0
+    bit_size: 2
+  - name: UEP_TOG_MASK1
+    description: Expected synchronization trigger bit for receiving endpoint 0.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SETUP_IS
+    description: Is the transaction received by endpoint 0 a SETUP transaction.
+    bit_offset: 3
+    bit_size: 1
+  - name: ENDP_R_TOG_MATCH
+    description: The received synchronization trigger bit matches the expected synchronization trigger bit.
+    bit_offset: 4
+    bit_size: 1
+  - name: UEP_R_NAK_TOG
+    description: Endpoint 0 returns NAK for received data packet type.
+    bit_offset: 5
+    bit_size: 1
+  - name: UEP_R_NAK_ACT
+    description: Endpoint 0 receives NAK end flag, write 0 to clear.
+    bit_offset: 6
+    bit_size: 1
+  - name: ENDP_R_DONE
+    description: Endpoint 0 receives end flag, write 0 to clear.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UEP0_TX_CTRL:
+  description: RW, Endpoint 0 sends control register.
+  bit_size: 8
+  fields:
+  - name: RB_RES_MASK10
+    description: Endpoint 0 controls the response sent.
+    bit_offset: 0
+    bit_size: 2
+  - name: UEP_TOG_MASK10
+    description: Expected synchronization trigger bit for endpoint 0.
+    bit_offset: 2
+    bit_size: 2
+  - name: UEP_T_NAK_ACT
+    description: Endpoint 0 sends NAK end flag, write 0 to clear.
+    bit_offset: 6
+    bit_size: 1
+  - name: ENDP_T_DONE
+    description: Endpoint 0 sends end flag, write 0 to clear.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UEP_R_BURST:
+  description: RW, 0~7 endpoints burst receive enable.
+  bit_size: 8
+  fields:
+  - name: UEP_R_BURST_EN70
+    description: 0~7 endpoints burst receive enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UEP_R_RES_MODE:
+  description: RW, USBHS Endpoint Receive Mode Register.
+  bit_size: 8
+  fields:
+  - name: UEP_R_RES_MODE70
+    description: 0~7 endpoints burst receive enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UEP_T_BURST:
+  description: RW, 0~7 endpoints burst send enable.
+  bit_size: 8
+  fields:
+  - name: UEP_T_BURST_EN70
+    description: 0~7 endpoints burst send enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UEP_T_BURST_MODE:
+  description: RW, USBHS Endpoint Send Mode Register.
+  bit_size: 8
+  fields:
+  - name: UEP_T_BURST_EN70
+    description: 0~7 endpoints burst send enable.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UEPn_RX_CTRLn17:
+  description: RW, Endpoint n receives control registers(n=1~7).
+  bit_size: 8
+  fields:
+  - name: RB_RES_MASK10
+    description: Endpoint n controls the received response(n=1~7).
+    bit_offset: 0
+    bit_size: 2
+  - name: UEP_TOG_MASK10
+    description: Expected synchronization trigger bit for receiving endpoint n(n=1~7).
+    bit_offset: 2
+    bit_size: 2
+  - name: ENDP_R_TOG_MATCH
+    description: The synchronization trigger bit received by endpoint n matches the expected synchronization trigger bit(n=1~7).
+    bit_offset: 4
+    bit_size: 1
+  - name: UEP_R_NAK_TOG
+    description: Endpoint n receives the return NAK and packet type(n=1~7).
+    bit_offset: 5
+    bit_size: 1
+  - name: UEP_R_NAK_ACT
+    description: Endpoint n receives NAK end flag, writes 0 to clear(n=1~7).
+    bit_offset: 6
+    bit_size: 1
+  - name: ENDP_R_DONE
+    description: Endpoint n receives the end flag, write 0 to clear(n=1~7).
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UEPn_TX_CTRLn17:
+  description: RW, Endpoint n sends data length(n=1~7).
+  bit_size: 8
+  fields:
+  - name: RB_RES_MASK10
+    description: Endpoint n controls the response sent(n=1~7).
+    bit_offset: 0
+    bit_size: 2
+  - name: UEP_TOG_MASK10
+    description: Expected synchronization trigger bit for endpoint n's sending(n=1~7).
+    bit_offset: 2
+    bit_size: 2
+  - name: UEP_T_NAK_ACT
+    description: Endpoint n sends NAK end flag, write 0 to clear(n=1~7).
+    bit_offset: 6
+    bit_size: 1
+  - name: ENDP_T_DONE
+    description: Endpoint n sends an end flag, write 0 to clear(n=1~7).
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_CFG:
+  description: RW, USBHS Host Configuration Register.
+  bit_size: 8
+  fields:
+  - name: ROOT_LINK_RESET
+    description: USB connection control module reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: ROOT_SIE_RESET
+    description: USB protocol processor reset, software reset required.
+    bit_offset: 1
+    bit_size: 1
+  - name: ROOT_ALL_CLR
+    description: Clear interrupt flag and FIFO, software zeroing is required.
+    bit_offset: 2
+    bit_size: 1
+  - name: ROOT_PHY_SUSPENDM
+    description: PHY hangs, turn off the UTMI clock of the controller.
+    bit_offset: 3
+    bit_size: 1
+  - name: ROOT_DMA_EN
+    description: Enable DMA transmission.
+    bit_offset: 4
+    bit_size: 1
+  - name: ROOT_SOF_EN
+    description: Enable SOF packet transmission.
+    bit_offset: 5
+    bit_size: 1
+  - name: ROOT_FORCE_FS
+    description: Force full speed FS.
+    bit_offset: 6
+    bit_size: 1
+  - name: ROOT_LPM_EN
+    description: Enable LPM.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_DEV_ADDR:
+  description: RW, USBHS host device address register.
+  bit_size: 8
+  fields:
+  - name: DEV_ADDR70
+    description: Device Address.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UH_INT_EN:
+  description: RW, USBHS host interrupt enable register.
+  bit_size: 8
+  fields:
+  - name: WKUP_ACT_IE
+    description: Wake up interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RESUME_ACT_IE
+    description: Bus recovery interrupt enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: USB_ACT_IE
+    description: USB end or transfer completion interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: SOF_ACT_IE
+    description: Enable SOF packet sending interrupt.
+    bit_offset: 5
+    bit_size: 1
+  - name: TX_HALT_IE
+    description: Enable sending pause interrupt.
+    bit_offset: 6
+    bit_size: 1
+  - name: FIFO_OV_IE
+    description: FIFO overflow interrupt enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_INT_FLAG:
+  description: RW1Z, USBHS host interrupt flag register.
+  bit_size: 8
+  fields:
+  - name: RB_WKUP_IF
+    description: Wake up interrupt flag, write 1 to reset to zero.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_RESUME_ACT_IF
+    description: Bus recovery interrupt flag, write 1 to reset to zero.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_USB_ACT_IF
+    description: USB transaction transfer completion interrupt flag, write 1 to reset to zero.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SOF_ACT_IF
+    description: SOF packet sending completion interrupt flag, write 1 to reset to zero.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_TX_HALT_IF
+    description: Send abort interrupt flag.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_FIFO_OV_IF
+    description: FIFO overflow interrupt flag.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_INT_ST:
+  description: RW, USBHS host interrupt status register.
+  bit_size: 8
+  fields:
+  - name: THIS_PID_MASK30
+    description: Received PID.
+    bit_offset: 0
+    bit_size: 4
+  - name: PORT_RX_RESUME
+    description: This bit is 1, indicating that the port has received a wake-up signal.
+    bit_offset: 4
+    bit_size: 1
+fieldset/R8_UH_MIS_ST:
+  description: RW, USBHS host miscellaneous status register.
+  bit_size: 8
+  fields:
+  - name: RB_SOF_FREE
+    description: Port enabled status.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SOF_PRE
+    description: The USB bus SOF packet indicates a status of.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SOF_ST
+    description: USB bus SOF status.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_USB_WAKEUP
+    description: USB bus wake-up.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_LINESTATE_MASK
+    description: USB bus status.
+    bit_offset: 4
+    bit_size: 2
+  - name: RB_BUS_J
+    description: J on the USB bus.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_BUS_SE0
+    description: SEO on USB bus.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_BASE_MODE:
+  description: RW, USBHS control register.
+  bit_size: 8
+  fields:
+  - name: EXP_SPD10
+    description: Expected speed mode of the device.
+    bit_offset: 0
+    bit_size: 2
+fieldset/R8_USB2_CTRL:
+  description: RW, USBHS control register.
+  bit_size: 8
+  fields:
+  - name: LINK_RESET
+    description: LINK layer reset, highly effective.
+    bit_offset: 0
+    bit_size: 1
+  - name: SIE_RESET
+    description: USB protocol processor reset, including endpoint related registers, highly effective.
+    bit_offset: 1
+    bit_size: 1
+  - name: USB_ALL_CLR
+    description: Clear all interrupt flags.
+    bit_offset: 2
+    bit_size: 1
+  - name: PHY_SUSPENDM
+    description: USB PHY suspended.
+    bit_offset: 3
+    bit_size: 1
+  - name: DEV_DMA_EN
+    description: DMA transfer enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: DEV_EN
+    description: USB device enablement.
+    bit_offset: 5
+    bit_size: 1
+  - name: DEV_LPM_EN
+    description: LPM Enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_DEV_AD:
+  description: RW, USBHS device address register.
+  bit_size: 8
+  fields:
+  - name: RB_MASK_USB_ADDR60
+    description: USB device address.
+    bit_offset: 0
+    bit_size: 7
+fieldset/R8_USB2_INT_EN:
+  description: RW, USBHS interrupt enable register.
+  bit_size: 8
+  fields:
+  - name: BUS_REST_IE
+    description: USB bus reset interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: BUS_SUSP_IE
+    description: USB bus pause interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: BUS_SLEEP_IE
+    description: USB bus sleep interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: LPM_ACT_IE
+    description: LPM transmission end interrupt enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: RTX_ACT_IE
+    description: USB Transfer End Interrupt Enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: RX_SOF_IE
+    description: Receive SOF packet interrupt enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: LINK_RDY_IE
+    description: USB connection interruption enabled.
+    bit_offset: 6
+    bit_size: 1
+  - name: FIFO_OVER_IE
+    description: FIFO overflow interrupt.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_INT_FG:
+  description: RW1Z, USBHS interrupt flag register.
+  bit_size: 8
+  fields:
+  - name: RB_UIF_BUS_RST
+    description: USB bus reset interrupt flag bit, write 1 to reset to zero.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_UIF_SUSPEND_HS
+    description: USB bus hangs interrupt flag, write 1 to reset to zero.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_UIF_BUS_SLEEP
+    description: USB bus sleep interrupt flag, write 1 to reset to zero.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_UIF_LPM_ACT
+    description: LPM transmission end interrupt flag, write 1 to reset to zero.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_UIF_RTX_ACT
+    description: USB transfer end interrupt flag bit, cleared by RB-UMS_SHMOD bit.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_UIF_RX_SOF
+    description: Receive SOF packet interrupt flag, write 1 to reset to zero.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_UIF_LINK_RDY
+    description: USB connection interruption flag bit, write 1 to reset to zero.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_UIF_FIFO_OV_HS
+    description: FIFO overflow interrupt flag bit, write 1 to reset to zero.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_INT_ST:
+  description: RO, USBHS Interrupt Status Register.
+  bit_size: 8
+  fields:
+  - name: RB_UIS_EP_ID_MASK20
+    description: Endpoint number where data transmission occurs.
+    bit_offset: 0
+    bit_size: 3
+  - name: RB_UIS_EP_DIR
+    description: Endpoint data transmission direction.
+    bit_offset: 4
+    bit_size: 1
+fieldset/R8_USB2_MIS_ST:
+  description: RO, USBHS Miscellaneous Status Register.
+  bit_size: 8
+  fields:
+  - name: RB_UMS_READY
+    description: USB connection status.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_UMS_SUSPEND_HS
+    description: USB suspended status.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_UMS_SLEEP
+    description: USB sleep state.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_UMS_SIE_FREE_HS
+    description: USB idle state.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_UMS_SUSP_REQ
+    description: USB suspend request.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_UMS_HS_MOD
+    description: Is the host high-speed.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_TEST_MODE:
+  description: RW, USBHS test mode register.
+  bit_size: 8
+  fields:
+  - name: RB_TEST_J
+    description: Test mode, output J.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_TEST_K
+    description: Test mode, output K.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_TEST_PKT
+    description: Test mode, output a package.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_TEST_SE0NAK
+    description: Test mode, output SE0.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_TEST_EN
+    description: Enable Test Mode.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_USB2_WAKE_CTRL:
+  description: RW1Z, USBHS remote wake-up register.
+  bit_size: 8
+  fields:
+  - name: RB_RMT_WAKE
+    description: Remote wake-up, hardware auto reset.
+    bit_offset: 0
+    bit_size: 1
+fieldset/R8_USBHS_PLL_CTRL:
+  description: RW, USBHS PLL Clock Control Register.
+  bit_size: 8
+  fields:
+  - name: USBHS_PLL_CKSEL
+    description: Selection of internal reference clock source for USBHS.
+    bit_offset: 0
+    bit_size: 1
+  - name: USBHS_PLL_LOWPOW
+    description: USBHS PLL low-power mode (can only be enabled when USB20 application is at fixed low full speed, cannot be enabled when not at fixed low full speed).
+    bit_offset: 1
+    bit_size: 1
+  - name: USBHS_PLL_EN
+    description: USBHS PLL Enable.
+    bit_offset: 2
+    bit_size: 1

@@ -1,0 +1,266 @@
+block/System_control:
+  description: System control related registers.
+  items:
+  - name: R8_SAFE_ACCESS_SIG
+    description: WO, safe accessing sign register, must write SAFE_ACCESS_SIG1 then SAFE_ACCESS_SIG2 to enter safe accessing mode.
+    byte_offset: 64
+    bit_size: 8
+    fieldset: R8_SAFE_ACCESS_SIG
+  - name: R8_CHIP_ID
+    description: RF, chip ID register, always is ID_CH59*.
+    byte_offset: 65
+    access: Read
+    bit_size: 8
+    fieldset: R8_CHIP_ID
+  - name: R8_SAFE_ACCESS_ID
+    description: RF, safe accessing ID register, always 0x0C.
+    byte_offset: 66
+    access: Read
+    bit_size: 8
+    fieldset: R8_SAFE_ACCESS_ID
+  - name: R8_WDOG_COUNT
+    description: RW, watch-dog count, count by clock frequency Fsys/131072.
+    byte_offset: 67
+    bit_size: 8
+    fieldset: R8_WDOG_COUNT
+  - name: R8_RESET_STATUS_R8_GLOB_ROM_CFG
+    description: RWA, reset status, SAM or flash ROM configuration.
+    byte_offset: 68
+    access: Read
+    bit_size: 8
+    fieldset: R8_RESET_STATUS_R8_GLOB_ROM_CFG
+  - name: R8_GLOB_CFG_INFO
+    description: RO, global configuration information and status.
+    byte_offset: 69
+    access: Read
+    bit_size: 8
+    fieldset: R8_GLOB_CFG_INFO
+  - name: R8_RST_WDOG_CTRL
+    description: RWA, reset and watch-dog control, SAM.
+    byte_offset: 70
+    bit_size: 8
+    fieldset: R8_RST_WDOG_CTRL
+  - name: R8_GLOB_RESET_KEEP
+    description: RW, value keeper during global reset.
+    byte_offset: 71
+    bit_size: 8
+    fieldset: R8_GLOB_RESET_KEEP
+  - name: R8_PLL_CONFIG
+    description: RWA, PLL configuration control, SAM.
+    byte_offset: 75
+    bit_size: 8
+    fieldset: R8_PLL_CONFIG
+  - name: R8_XT32M_TUNE
+    description: RWA, external 32MHz oscillator tune control, SAM.
+    byte_offset: 78
+    bit_size: 8
+    fieldset: R8_XT32M_TUNE
+  - name: R16_OSC_CAL_CNT
+    description: RO, system clock count value for 32KHz multi-cycles.
+    byte_offset: 80
+    access: Read
+    bit_size: 16
+    fieldset: R16_OSC_CAL_CNT
+  - name: R8_OSC_CAL_OV_CNT
+    description: RO, oscillator frequency calibration overflow times.
+    byte_offset: 82
+    access: Read
+    bit_size: 8
+    fieldset: R8_OSC_CAL_OV_CNT
+  - name: R8_OSC_CAL_CTRL
+    description: RWA, oscillator frequency calibration control, SAM.
+    byte_offset: 83
+    bit_size: 8
+    fieldset: R8_OSC_CAL_CTRL
+fieldset/R16_OSC_CAL_CNT:
+  description: RO, system clock count value for 32KHz multi-cycles.
+  bit_size: 16
+  fields:
+  - name: RB_OSC_CAL_CNT
+    description: RO, system clock count value for 32KHz multi-cycles.
+    bit_offset: 0
+    bit_size: 14
+  - name: RB_OSC_CAL_OV_CLR
+    description: RW1, indicate R8_OSC_CAL_OV_CNT not zero, set 1 to clear R8_OSC_CAL_OV_CNT.
+    bit_offset: 14
+    bit_size: 1
+  - name: RB_OSC_CAL_IF
+    description: RW1, interrupt flag for oscillator capture end, set 1 to clear.
+    bit_offset: 15
+    bit_size: 1
+fieldset/R8_CHIP_ID:
+  description: RF, chip ID register, always is ID_CH59*.
+  bit_size: 8
+  fields:
+  - name: R8_CHIP_ID
+    description: RF,chip ID register.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_GLOB_CFG_INFO:
+  description: RO, global configuration information and status.
+  bit_size: 8
+  fields:
+  - name: RB_CFG_ROM_READ
+    description: 'RO, indicate protected status of Flash ROM code and data: 0=reading protect, 1=enable read by external programmer.'
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_CFG_RESET_EN
+    description: RO, manual reset input enable status.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_CFG_BOOT_EN
+    description: RO, boot-loader enable status.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_CFG_DEBUG_EN
+    description: RO, debug enable status.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_BOOT_LOADER
+    description: 'RO, indicate boot loader status: 0=application status (by software reset), 1=boot loader status.'
+    bit_offset: 5
+    bit_size: 1
+fieldset/R8_GLOB_RESET_KEEP:
+  description: RW, value keeper during global reset.
+  bit_size: 8
+  fields:
+  - name: R8_GLOB_RESET_KEEP
+    description: RW, value keeper during global reset.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_OSC_CAL_CTRL:
+  description: RWA, oscillator frequency calibration control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_OSC_CNT_TOTAL
+    description: RWA, total cycles mode for oscillator capture.
+    bit_offset: 0
+    bit_size: 3
+  - name: RB_OSC_CNT_HALT
+    description: 'RO, calibration counter halt status: 0=counting, 1=halt for reading count value.'
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_OSC_CAL_IE
+    description: RWA, interrupt enable for oscillator capture end.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_OSC_CNT_EN
+    description: RWA, calibration counter enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_OSC_CNT_END
+    description: 'RWA, select oscillator capture end mode: 0=normal, 1=append 2 cycles.'
+    bit_offset: 6
+    bit_size: 1
+fieldset/R8_OSC_CAL_OV_CNT:
+  description: RO, oscillator frequency calibration overflow times.
+  bit_size: 8
+  fields:
+  - name: R8_OSC_CAL_OV_CNT
+    description: RO, oscillator frequency calibration overflow times.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PLL_CONFIG:
+  description: RWA, PLL configuration control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_PLL_CFG_DAT
+    description: RWA, PLL configure data.
+    bit_offset: 0
+    bit_size: 6
+fieldset/R8_RESET_STATUS_R8_GLOB_ROM_CFG:
+  description: RWA, reset status, SAM or flash ROM configuration.
+  bit_size: 8
+  fields:
+  - name: RB_RESET_FLAG
+    description: RO, recent reset flag.
+    bit_offset: 0
+    bit_size: 3
+  - name: RB_ROM_CODE_OFS
+    description: 'RWA, code offset address selection in Flash ROM: 0=start address 0x000000, 1=start address 0x008000.'
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_ROM_CTRL_EN
+    description: RWA, enable flash ROM control interface enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_ROM_DATA_WE
+    description: RWA,enable flash ROM data and code area being erase/write.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_ROM_CODE_WE
+    description: RWA, enable flash ROM code area being erase or write.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_RST_WDOG_CTRL:
+  description: RWA, reset and watch-dog control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_SOFTWARE_RESET
+    description: WA or WZ, global software reset, high action, auto clear.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_WDOG_RST_EN
+    description: 'RWA, enable watch-dog reset if watch-dog timer overflow: 0=as timer only, 1=enable reset if timer overflow.'
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_WDOG_INT_EN
+    description: 'RWA, watch-dog timer overflow interrupt enable: 0=disable, 1=enable.'
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_WDOG_INT_FLAG
+    description: RW1, watch-dog timer overflow interrupt flag, cleared by RW1 or reload watch-dog count or __SEV(Send-Event).
+    bit_offset: 4
+    bit_size: 1
+fieldset/R8_SAFE_ACCESS_ID:
+  description: RF, safe accessing ID register, always 0x0C.
+  bit_size: 8
+  fields:
+  - name: R8_SAFE_ACCESS_ID
+    description: RF,safe accessing ID register.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SAFE_ACCESS_SIG:
+  description: WO, safe accessing sign register, must write SAFE_ACCESS_SIG1 then SAFE_ACCESS_SIG2 to enter safe accessing mode.
+  bit_size: 8
+  fields:
+  - name: R8_SAFE_ACCESS_SIG
+    description: WO, safe accessing sign register, must write 0x57 then 0xA8 to enter safe accessing mode.
+    bit_offset: 0
+    bit_size: 8
+  - name: RB_SAFE_ACC_MODE
+    description: 'RO, current safe accessing mode: 11=safe unlocked (SAM), other=locked (00..01..10..11).'
+    bit_offset: 0
+    bit_size: 2
+  - name: RB_CHIP_ID0
+    description: RO, Chip identification code.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SAFE_ACC_ACT
+    description: 'RO, indicate safe accessing status now: 0=locked, read only, 1=safe/unlocked (SAM), write enabled.'
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SAFE_ACC_TIMER
+    description: RO, safe accessing timer bit mask (16*clock number).
+    bit_offset: 4
+    bit_size: 3
+fieldset/R8_WDOG_COUNT:
+  description: RW, watch-dog count, count by clock frequency Fsys/131072.
+  bit_size: 8
+  fields:
+  - name: R8_WDOG_COUNT
+    description: RW,watch-dog count, count by clock frequency Fsys/131072.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_XT32M_TUNE:
+  description: RWA, external 32MHz oscillator tune control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_XT32M_I_BIAS
+    description: 'RWA, external 32MHz oscillator bias current tune: 00=75% current, 01=standard current, 10=125% current, 11=150% current.'
+    bit_offset: 0
+    bit_size: 2
+  - name: RB_XT32M_C_LOAD
+    description: 'RWA, external 32MHz oscillator load capacitor tune: Cap = RB_XT32M_C_LOAD * 2 + 10pF.'
+    bit_offset: 4
+    bit_size: 4

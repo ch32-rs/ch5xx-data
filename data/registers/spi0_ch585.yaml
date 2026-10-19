@@ -1,0 +1,281 @@
+block/SPI0:
+  description: SPI0 register.
+  items:
+  - name: R8_SPI0_CTRL_MOD
+    description: RW, SPI0 mode control.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_SPI0_CTRL_MOD
+  - name: R8_SPI0_CTRL_CFG
+    description: RW, SPI0 configuration control.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: R8_SPI0_CTRL_CFG
+  - name: R8_SPI0_INTER_EN
+    description: RW, SPI0 interrupt enable.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_SPI0_INTER_EN
+  - name: R8_SPI0_CLOCK_DIV__SPI0_SLAVE_PRE
+    description: RW, SPI0 master clock divisor;RW, SPI0 slave preset value.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: R8_SPI0_CLOCK_DIV__SPI0_SLAVE_PRE
+  - name: R8_SPI0_BUFFER
+    description: RW, SPI0 data buffer.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: R8_SPI0_BUFFER
+  - name: R8_SPI0_RUN_FLAG
+    description: RO, SPI0 work flag.
+    byte_offset: 5
+    access: Read
+    bit_size: 8
+    fieldset: R8_SPI0_RUN_FLAG
+  - name: R8_SPI0_INT_FLAG
+    description: RW1, SPI0 interrupt flag.
+    byte_offset: 6
+    bit_size: 8
+    fieldset: R8_SPI0_INT_FLAG
+  - name: R8_SPI0_FIFO_COUNT
+    description: RW, SPI0 FIFO count status.
+    byte_offset: 7
+    bit_size: 8
+    fieldset: R8_SPI0_FIFO_COUNT
+  - name: R16_SPI0_TOTAL_CNT
+    description: RW, SPI0 total byte count, only low 12 bit.
+    byte_offset: 12
+    bit_size: 16
+    fieldset: R16_SPI0_TOTAL_CNT
+  - name: R8_SPI0_FIFO
+    description: RO/WO, SPI0 FIFO register.
+    byte_offset: 16
+    bit_size: 8
+    fieldset: R8_SPI0_FIFO
+  - name: R8_SPI0_FIFO_COUNT1
+    description: RO, SPI0 FIFO count status.
+    byte_offset: 19
+    access: Read
+    bit_size: 8
+    fieldset: R8_SPI0_FIFO_COUNT1
+  - name: R32_SPI0_DMA_NOW
+    description: RW, SPI0 DMA current address.
+    byte_offset: 20
+    fieldset: R32_SPI0_DMA_NOW
+  - name: R32_SPI0_DMA_BEG
+    description: RW, SPI0 DMA begin address.
+    byte_offset: 24
+    fieldset: R32_SPI0_DMA_BEG
+  - name: R32_SPI0_DMA_END
+    description: RW, SPI0 DMA end address.
+    byte_offset: 28
+    fieldset: R32_SPI0_DMA_END
+fieldset/R16_SPI0_TOTAL_CNT:
+  description: RW, SPI0 total byte count, only low 12 bit.
+  bit_size: 16
+  fields:
+  - name: R16_SPI0_TOTAL_CNT
+    description: RW, SPI0 total byte count, only low 12 bit.
+    bit_offset: 0
+    bit_size: 12
+fieldset/R32_SPI0_DMA_BEG:
+  description: RW, SPI0 DMA begin address.
+  fields:
+  - name: R32_SPI0_DMA_BEG
+    description: RW, SPI0 DMA begin address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_SPI0_DMA_END:
+  description: RW, SPI0 DMA end address.
+  fields:
+  - name: R32_SPI0_DMA_END
+    description: RW, SPI0 DMA end address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_SPI0_DMA_NOW:
+  description: RW, SPI0 DMA current address.
+  fields:
+  - name: RB_SPI0_DMA_NOW
+    description: RW, SPI0 DMA current address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R8_SPI0_BUFFER:
+  description: RW, SPI0 data buffer.
+  bit_size: 8
+  fields:
+  - name: R8_SPI0_BUFFER
+    description: RW, SPI0 data buffer.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI0_CLOCK_DIV__SPI0_SLAVE_PRE:
+  description: RW, SPI0 master clock divisor;RW, SPI0 slave preset value.
+  bit_size: 8
+  fields:
+  - name: R8_SPI0_CLOCK_DIV__SPI0_SLAVE_PRE
+    description: RW, SPI0 master clock divisor;RW, SPI0 slave preset value.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI0_CTRL_CFG:
+  description: RW, SPI0 configuration control.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_DMA_ENABLE
+    description: RW, SPI0 DMA enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_DMA_LOOP
+    description: RW, SPI0 DMA address loop enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_AUTO_IF
+    description: RW, enable buffer/FIFO accessing to auto clear RB_SPI_IF_BYTE_END interrupt flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_BIT_ORDER
+    description: 'RW, SPI bit data order: 0=MSB first, 1=LSB first.'
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SPI_MST_DLY_EN
+    description: RW, SPI master input delay enable.
+    bit_offset: 6
+    bit_size: 1
+fieldset/R8_SPI0_CTRL_MOD:
+  description: RW, SPI0 mode control.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_MODE_SLAVE
+    description: 'RW, SPI0 slave mode: 0=master or host, 1=slave or device.'
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_ALL_CLEAR
+    description: RW, force clear SPI FIFO and count.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_2WIRE_MOD
+    description: 'RW, SPI0 enable 2 wire mode for slave: 0=3wire(SCK0,MOSI,MISO), 1=2wire(SCK0,MISO=MXSX).'
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_MST_SCK_MOD__SPI_SLV_CMD_MOD
+    description: 'RW, SPI master clock mode: 0=mode 0, 1=mode 3;RW, SPI0 slave command mode: 0=byte stream, 1=first byte command.'
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_FIFO_DIR
+    description: 'RW, SPI FIFO direction: 0=out(write @master mode), 1=in(read @master mode).'
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_SCK_OE
+    description: RW, SPI SCK output enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SPI_MOSI_OE
+    description: RW, SPI MOSI output enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_MISO_OE
+    description: RW, SPI MISO output enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI0_FIFO:
+  description: RO/WO, SPI0 FIFO register.
+  bit_size: 8
+  fields:
+  - name: R8_SPI0_FIFO
+    description: RO/WO, SPI0 FIFO register.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI0_FIFO_COUNT:
+  description: RW, SPI0 FIFO count status.
+  bit_size: 8
+  fields:
+  - name: R8_SPI0_FIFO_COUNT
+    description: RW, SPI0 FIFO count status.
+    bit_offset: 0
+    bit_size: 4
+fieldset/R8_SPI0_FIFO_COUNT1:
+  description: RO, SPI0 FIFO count status.
+  bit_size: 8
+  fields:
+  - name: R8_SPI0_FIFO_COUNT1
+    description: RO, SPI0 FIFO count status.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI0_INTER_EN:
+  description: RW, SPI0 interrupt enable.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_IE_CNT_END
+    description: RW, enable interrupt for SPI total byte count end.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_IE_BYTE_END
+    description: RW, enable interrupt for SPI byte exchanged.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_IE_FIFO_HF
+    description: RW, enable interrupt for SPI FIFO half.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_IE_DMA_END
+    description: RW, enable interrupt for SPI0 DMA completion.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_IE_FIFO_OV
+    description: RW, enable interrupt for SPI0 FIFO overflow.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_IE_FST_BYTE
+    description: RW, enable interrupt for SPI0 slave mode first byte received.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI0_INT_FLAG:
+  description: RW1, SPI0 interrupt flag.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_IF_CNT_END
+    description: RW1, interrupt flag for SPI total byte count end.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_IF_BYTE_END
+    description: RW1, interrupt flag for SPI byte exchanged.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_IF_FIFO_HF
+    description: RW1, interrupt flag for SPI FIFO half.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_IF_DMA_END
+    description: RW1, interrupt flag for SPI0 DMA completion.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_IF_FIFO_OV
+    description: RW1, interrupt flag for SPI0 FIFO overflow.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_FREE
+    description: RO, current SPI free status.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_IF_FST_BYTE
+    description: RW1, interrupt flag for SPI0 slave mode first byte received.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI0_RUN_FLAG:
+  description: RO, SPI0 work flag.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_SLV_CMD_ACT
+    description: RO, SPI0 slave first byte or command flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_FIFO_READY
+    description: RO, SPI FIFO ready status.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SPI_SLV_CS_LOAD
+    description: RO, SPI0 slave chip-select loading status.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_SLV_SELECT
+    description: RO, SPI0 slave selection status.
+    bit_offset: 7
+    bit_size: 1

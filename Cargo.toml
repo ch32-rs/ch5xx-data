@@ -1,0 +1,10 @@
+
+[workspace]
+resolver = "2"
+members = [
+    "ch5xx-data-gen",
+    "ch5xx-data-serde",
+    "ch5xx-metapac-gen",
+    "ch5xx-data-macros",
+]
+exclude = ["build"]

@@ -1,0 +1,25 @@
+# Generated from svd/fixed/ch585.svd.
+# Where the SVD gives several names for one number, the first is kept.
+ADC: 29
+BLEB: 20
+BLEL: 21
+GPIO_A: 17
+GPIO_B: 18
+I2C: 30
+LED: 39
+NFC: 36
+PWMX_SPI1: 31
+RTC: 28
+SPI0: 19
+TMR0: 16
+TMR1: 24
+TMR2: 25
+TMR3: 32
+UART0: 26
+UART1: 27
+UART2: 33
+UART3: 34
+USB: 22
+USB2DEVICE: 37
+USB2HOST: 38
+WDOG_BAT: 35

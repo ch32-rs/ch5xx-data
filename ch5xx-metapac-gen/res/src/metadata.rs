@@ -1,0 +1,266 @@
+pub mod ir {
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct IR {
+        pub blocks: &'static [Block],
+        pub fieldsets: &'static [FieldSet],
+        pub enums: &'static [Enum],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct Block {
+        pub name: &'static str,
+        pub extends: Option<&'static str>,
+
+        pub description: Option<&'static str>,
+        pub items: &'static [BlockItem],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct BlockItem {
+        pub name: &'static str,
+        pub description: Option<&'static str>,
+
+        pub array: Option<Array>,
+        pub byte_offset: u32,
+
+        pub inner: BlockItemInner,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub enum BlockItemInner {
+        Block(BlockItemBlock),
+        Register(Register),
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct Register {
+        pub access: Access,
+        pub bit_size: u32,
+        pub fieldset: Option<&'static str>,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct BlockItemBlock {
+        pub block: &'static str,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub enum Access {
+        ReadWrite,
+        Read,
+        Write,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct FieldSet {
+        pub name: &'static str,
+        pub extends: Option<&'static str>,
+
+        pub description: Option<&'static str>,
+        pub bit_size: u32,
+        pub fields: &'static [Field],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct Field {
+        pub name: &'static str,
+        pub description: Option<&'static str>,
+
+        pub bit_offset: BitOffset,
+        pub bit_size: u32,
+        pub array: Option<Array>,
+        pub enumm: Option<&'static str>,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub enum Array {
+        Regular(RegularArray),
+        Cursed(CursedArray),
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct RegularArray {
+        pub len: u32,
+        pub stride: u32,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct CursedArray {
+        pub offsets: &'static [u32],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub enum BitOffset {
+        Regular(RegularBitOffset),
+        Cursed(CursedBitOffset),
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct RegularBitOffset {
+        pub offset: u32,
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct CursedBitOffset {
+        pub ranges: &'static [core::ops::RangeInclusive<u32>],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct Enum {
+        pub name: &'static str,
+        pub description: Option<&'static str>,
+        pub bit_size: u32,
+        pub variants: &'static [EnumVariant],
+    }
+
+    #[derive(Debug, Eq, PartialEq, Clone)]
+    pub struct EnumVariant {
+        pub name: &'static str,
+        pub description: Option<&'static str>,
+        pub value: u64,
+    }
+}
+
+pub use crate::mem_layout::{Access, MemoryRegion, MemoryRegionKind, MemoryRole, Mode};
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct Metadata {
+    pub name: &'static str,
+    pub family: &'static str,
+    pub line: &'static str,
+    pub memory: &'static [MemoryRegion],
+    pub nv_structs: &'static [NvStructBinding],
+    pub memory_options: &'static [MemoryOption],
+    pub default_memory_option: &'static str,
+    pub peripherals: &'static [Peripheral],
+    // pub nvic_priority_bits: Option<u8>,
+    pub interrupts: &'static [Interrupt],
+    pub dma_channels: &'static [DmaChannel],
+}
+
+/// Binds `NvStruct` descriptors to a memory region by name. Split from
+/// `MemoryRegion` so the always-available `mem_layout` module stays free of
+/// `&'static ir::IR` references.
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct NvStructBinding {
+    pub region: &'static str,
+    pub structs: &'static [NvStruct],
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct MemoryOption {
+    pub name: &'static str,
+    pub region_sizes: &'static [(&'static str, u32)],
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct NvStruct {
+    pub name: &'static str,
+    pub offset: u32,
+    pub kind: &'static str,
+    pub version: &'static str,
+    pub block: &'static str,
+    pub defaults: &'static [(&'static str, u32)],
+    pub ir: &'static ir::IR,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct Interrupt {
+    pub name: &'static str,
+    pub number: u32,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct Package {
+    pub name: &'static str,
+    pub package: &'static str,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct Peripheral {
+    pub name: &'static str,
+    pub address: u64,
+    pub registers: Option<PeripheralRegisters>,
+    pub rcc: Option<PeripheralRcc>,
+    pub remap: Option<PeripheralRemapRegister>,
+    pub pins: &'static [PeripheralPin],
+    pub dma_channels: &'static [PeripheralDmaChannel],
+    pub interrupts: &'static [PeripheralInterrupt],
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralRegisters {
+    pub kind: &'static str,
+    pub version: &'static str,
+    pub block: &'static str,
+    pub ir: &'static ir::IR,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralInterrupt {
+    pub signal: &'static str,
+    pub interrupt: &'static str,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralRcc {
+    pub bus_clock: &'static str,
+    pub kernel_clock: PeripheralRccKernelClock,
+    pub enable: Option<PeripheralRccRegister>,
+    pub reset: Option<PeripheralRccRegister>,
+    pub stop_mode: StopMode,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralRccRegister {
+    pub register: &'static str,
+    pub field: &'static str,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralRemapRegister {
+    pub register: &'static str,
+    pub field: &'static str,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub enum PeripheralRccKernelClock {
+    Clock(&'static str),
+    Mux(PeripheralRccRegister),
+}
+
+#[derive(Debug, Eq, PartialEq, Clone, Default)]
+pub enum StopMode {
+    #[default]
+    Stop1, // Peripheral prevents chip from entering Stop1
+    Stop2,   // Peripheral prevents chip from entering Stop2
+    Standby, // Peripheral does not prevent chip from entering Stop
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralPin {
+    pub pin: &'static str,
+    pub signal: &'static str,
+    /// Central PCFR remap group (V0/V1/V2/V3/X0/L1/641/643). Mutually exclusive with `af`.
+    pub remap: Option<u8>,
+    /// Per-pin AF number for AFR-style mux (CH32H4). Mutually exclusive with `remap`.
+    pub af: Option<u8>,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct DmaChannel {
+    pub name: &'static str,
+    pub dma: &'static str,
+    pub channel: u32,
+    pub dmamux: Option<&'static str>,
+    pub dmamux_channel: Option<u32>,
+}
+
+#[derive(Debug, Eq, PartialEq, Clone)]
+pub struct PeripheralDmaChannel {
+    pub signal: &'static str,
+    pub channel: Option<&'static str>,
+    pub dmamux: Option<&'static str>,
+    pub dma: Option<&'static str>,
+    pub request: Option<u32>,
+}
