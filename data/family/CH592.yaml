@@ -1,5 +1,6 @@
-# Generated from svd/fixed/ch59xxx.svd by scripts/gen-from-svd.py.
-# Clocks, pins and interrupts-per-signal are filled in by hand.
+# CH591 and CH592. Generated from svd/fixed/ch59xxx.svd by
+# scripts/gen-from-svd.py. Clocks, pins and interrupts-per-signal are filled
+# in by hand. Named after CH592; CH591 includes the same list.
 
 - name: SYS
   address: 0x40001000

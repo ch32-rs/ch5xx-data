@@ -1,5 +1,5 @@
-# Generated from svd/fixed/ch59xxx.svd.
-# Where the SVD gives several names for one number, the first is kept.
+# CH591 and CH592. Generated from svd/fixed/ch59xxx.svd. Where the SVD gives
+# several names for one number, the first is kept.
 ADC: 29
 BLEB: 20
 BLEL: 21

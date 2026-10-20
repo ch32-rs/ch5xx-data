@@ -45,5 +45,5 @@ cores:
     arch: riscv
     peripherals: []
     include_peripherals:
-      - "../family/CH59X.yaml"
-    include_interrupts: "../interrupts/CH59X.yaml"
+      - "../family/CH592.yaml"
+    include_interrupts: "../interrupts/CH592.yaml"
