@@ -1,0 +1,114 @@
+# CH572 / CH570. Drafted from svd/fixed/ch572.svd (already split SYS).
+# Vendor SVD duplicates (empty UART, KEYSCAN+ENCODER mash-up, Systick
+# double CMPLR, TMR CTRL_MOD offset 0x400) were cleaned before extract.
+# USBFS layout matches CH585 so the block is reused. CH570 is the same
+# map without Bluetooth; the BLE placeholder stays for the address.
+
+- name: SYS
+  address: 0x40001000
+  registers:
+    kind: sys
+    version: ch572
+    block: SYS
+
+- name: RTC
+  address: 0x40001000
+  registers:
+    kind: rtc
+    version: ch572
+    block: RTC
+
+- name: System_control
+  address: 0x40001000
+  registers:
+    kind: system_control
+    version: ch572
+    block: System_control
+
+- name: CMP
+  address: 0x40001000
+  registers:
+    kind: cmp
+    version: ch572
+    block: CMP
+
+- name: KEYSCAN
+  address: 0x40001000
+  registers:
+    kind: keyscan
+    version: ch572
+    block: KEYSCAN
+
+- name: GPIO
+  address: 0x40001000
+  registers:
+    kind: gpio
+    version: ch572
+    block: GPIO
+
+- name: TMR0
+  address: 0x40002400
+  registers:
+    kind: tmr
+    version: ch572
+    block: TMR_FULL
+
+- name: ENCODER
+  address: 0x40002400
+  registers:
+    kind: encoder
+    version: ch572
+    block: ENCODER
+
+- name: UART0
+  address: 0x40003400
+  registers:
+    kind: uart
+    version: ch572
+    block: UART_FULL
+
+- name: SPI0
+  address: 0x40004000
+  registers:
+    kind: spi
+    version: ch572
+    block: SPI_FULL
+
+- name: I2C0
+  address: 0x40004800
+  registers:
+    kind: i2c
+    version: ch572
+    block: I2C
+
+- name: PWMx
+  address: 0x40005000
+  registers:
+    kind: pwmx
+    version: ch572
+    block: PWMx
+
+- name: USBFS
+  address: 0x40008000
+  registers:
+    kind: usbfs
+    version: ch585
+    block: USBFS
+
+# Placeholder: vendor SVD lists BLE with no registers. CH570 has no radio.
+- name: BLE
+  address: 0x4000C000
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch572
+    block: PFIC
+
+- name: Systick
+  address: 0xE000F000
+  registers:
+    kind: systick
+    version: ch572
+    block: Systick

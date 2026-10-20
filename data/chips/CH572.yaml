@@ -1,0 +1,45 @@
+# CH572, from the MounRiver CH572 SDK (CH572SFR.h, ISP572.h, Link.ld).
+# QingKe V3A, 2.4 GHz / BLE. CH570 shares the register map without Bluetooth.
+#
+# Flash 240KB (4KB erase, dword program); no separate data-flash region
+# (CODE_FLASH_SIZE / data-flash size is 0 in the SFR). SRAM 12KB @ 0x20000000.
+# Chip id byte ID_CH572 = 0x72. Packages follow Studio templates (pin counts).
+name: CH572
+family: QingKe RISC-V-based, BLE MCU
+subfamily: RISC-V Core 2.4G Wireless MCU
+product_type: QingKe V3A core, BLE
+packages:
+  - name: CH572D
+    package: QFN20
+    device_id: 0x72000000
+  - name: CH572Q
+    package: ESSOP10
+    device_id: 0x72000000
+  - name: CH572R
+    package: TSSOP16
+    device_id: 0x72000000
+memory:
+  - name: CODEFLASH
+    kind: flash
+    address: 0
+    size: 240K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: SRAM
+    kind: ram
+    address: 0x20000000
+    size: 12K
+docs:
+  - type: homepage
+    title: CH572 product page
+    name: ""
+    url: https://www.wch.cn/products/CH572.html
+cores:
+  - name: qingke-v3a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH572.yaml"
+    include_interrupts: "../interrupts/CH572.yaml"

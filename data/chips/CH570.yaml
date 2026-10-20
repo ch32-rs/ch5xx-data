@@ -1,0 +1,43 @@
+# CH570, from the MounRiver CH572 SDK. Same SFR/ISP/startup/Link.ld as CH572
+# (240KB flash, 12KB SRAM). Chip id byte ID_CH570 = 0x70. Studio describes
+# CH570 as CH572 without Bluetooth; family/interrupts reuse CH572 (BLE
+# placeholder kept for the address only).
+name: CH570
+family: QingKe RISC-V-based, Wireless MCU
+subfamily: RISC-V Core 2.4G Wireless MCU
+product_type: QingKe V3A core
+packages:
+  - name: CH570D
+    package: QFN20
+    device_id: 0x70000000
+  - name: CH570E
+    package: ESSOP8
+    device_id: 0x70000000
+  - name: CH570Q
+    package: ESSOP10
+    device_id: 0x70000000
+memory:
+  - name: CODEFLASH
+    kind: flash
+    address: 0
+    size: 240K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: SRAM
+    kind: ram
+    address: 0x20000000
+    size: 12K
+docs:
+  - type: homepage
+    title: CH572 product page
+    name: ""
+    url: https://www.wch.cn/products/CH572.html
+cores:
+  - name: qingke-v3a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH572.yaml"
+    include_interrupts: "../interrupts/CH572.yaml"
