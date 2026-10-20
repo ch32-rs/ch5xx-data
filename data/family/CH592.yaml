@@ -6,7 +6,7 @@
   address: 0x40001000
   registers:
     kind: sys
-    version: ch59x
+    version: ch592
     block: SYS
 
 - name: RTC
@@ -20,92 +20,92 @@
   address: 0x40001000
   registers:
     kind: system_control
-    version: ch59x
+    version: ch592
     block: System_control
 
 - name: TouchKey
   address: 0x40001000
   registers:
     kind: touchkey
-    version: ch59x
+    version: ch592
     block: TouchKey
 
 - name: ADC
   address: 0x40001000
   registers:
     kind: adc
-    version: ch59x
+    version: ch592
     block: ADC
 
 - name: GPIO
   address: 0x40001000
   registers:
     kind: gpio
-    version: ch59x
+    version: ch592
     block: GPIO
 
 - name: TMR0
   address: 0x40002000
   registers:
     kind: tmr03
-    version: ch59x
+    version: ch592
     block: TMR03
 
 - name: TMR1
   address: 0x40002400
   registers:
     kind: tmr12
-    version: ch59x
+    version: ch592
     block: TMR12
 
 - name: TMR2
   address: 0x40002800
   registers:
     kind: tmr12
-    version: ch59x
+    version: ch592
     block: TMR12
 
 - name: TMR3
   address: 0x40002C00
   registers:
     kind: tmr03
-    version: ch59x
+    version: ch592
     block: TMR03
 
 - name: UART0
   address: 0x40003000
   registers:
     kind: uart0
-    version: ch59x
+    version: ch592
     block: UART0
 
 - name: UART1
   address: 0x40003400
   registers:
     kind: uart
-    version: ch59x
+    version: ch592
     block: UART
 
 - name: UART2
   address: 0x40003800
   registers:
     kind: uart
-    version: ch59x
+    version: ch592
     block: UART
 
 - name: UART3
   address: 0x40003C00
   registers:
     kind: uart
-    version: ch59x
+    version: ch592
     block: UART
 
 - name: SPI0
   address: 0x40004000
   registers:
-    kind: spi0
-    version: ch59x
-    block: SPI0
+    kind: spi
+    version: ch592
+    block: SPI
 
 - name: I2C0
   address: 0x40004800
@@ -118,21 +118,21 @@
   address: 0x40005000
   registers:
     kind: pwmx
-    version: ch59x
+    version: ch592
     block: PWMx
 
 - name: LCD
   address: 0x40006000
   registers:
     kind: lcd
-    version: ch59x
+    version: ch592
     block: LCD
 
 - name: USB
   address: 0x40008000
   registers:
     kind: usb
-    version: ch59x
+    version: ch592
     block: USB
 
 

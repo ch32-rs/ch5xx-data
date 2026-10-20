@@ -72,13 +72,35 @@ impl Gen {
                 for irq in &mut core.interrupts {
                     irq.name = irq.name.to_ascii_uppercase();
                 }
+
+                // When one chip binds several versions of a kind (SPI ch585 +
+                // ch585_nodma), metadata must point at distinct mods.
+                let mut versions_by_kind: HashMap<String, HashSet<String>> = HashMap::new();
+                for p in &core.peripherals {
+                    if let Some(registers) = &p.registers {
+                        versions_by_kind
+                            .entry(registers.kind.clone())
+                            .or_default()
+                            .insert(registers.version.clone());
+                    }
+                }
+
                 for p in &mut core.peripherals {
                     for irq in &mut p.interrupts {
                         irq.interrupt = irq.interrupt.to_ascii_uppercase();
                     }
 
                     if let Some(registers) = &mut p.registers {
-                        registers.ir = format!(":ir_for:{}:", registers.kind);
+                        let multi = versions_by_kind
+                            .get(&registers.kind)
+                            .map(|s| s.len() > 1)
+                            .unwrap_or(false);
+                        let mod_name = if multi {
+                            format!("{}_{}", registers.kind, registers.version)
+                        } else {
+                            registers.kind.clone()
+                        };
+                        registers.ir = format!(":ir_for:{}:", mod_name);
                     }
                 }
             }

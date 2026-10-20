@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 use std::fmt::Write as _;
 use std::fs;
 use std::fs::File;
@@ -13,11 +13,37 @@ use crate::dump::split_prefixes_from_names;
 use crate::memory::{flash_write_size, gen_memory_files, primary_flash_regions};
 use crate::{gen_opts, stringify, Gen};
 
+/// PAC/metadata module name for a register kind.
+///
+/// One version of a kind keeps the short name (`spi`). When the same chip binds
+/// several versions of one kind (CH585 SPI0=`ch585` and SPI1=`ch585_nodma`),
+/// each version gets `{kind}_{version}` so the mods do not collide.
+fn peri_mod_name(kind: &str, version: &str, multi_version: bool) -> String {
+    if multi_version {
+        format!("{}_{}", kind, version)
+    } else {
+        kind.to_string()
+    }
+}
+
+fn versions_by_kind(core: &Core) -> BTreeMap<String, BTreeSet<String>> {
+    let mut map: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
+    for p in &core.peripherals {
+        if let Some(bi) = &p.registers {
+            map.entry(bi.kind.clone())
+                .or_default()
+                .insert(bi.version.clone());
+        }
+    }
+    map
+}
+
+/// mod_name -> (kind, version)
 fn build_chiptool_ir(
     chip: &Chip,
     core: &Core,
     core_index: usize,
-) -> (ir::IR, BTreeMap<String, String>, String) {
+) -> (ir::IR, BTreeMap<String, (String, String)>, String) {
     let mut ir = ir::IR::new();
 
     let mut dev = ir::Device {
@@ -27,7 +53,9 @@ fn build_chiptool_ir(
         nvic_priority_bits: None, // FIXME: not used for ch32
     };
 
-    let mut peripheral_versions: BTreeMap<String, String> = BTreeMap::new();
+    let versions_by_kind = versions_by_kind(core);
+    // mod_name -> (kind, version)
+    let mut peripheral_versions: BTreeMap<String, (String, String)> = BTreeMap::new();
 
     // CH32 numbers its ports GPIOA, GPIOB, ... at a fixed stride and gets a
     // GPIO(n) accessor. CH5xx has a single GPIO block, so there is nothing to index.
@@ -49,17 +77,13 @@ fn build_chiptool_ir(
         };
 
         if let Some(bi) = &p.registers {
-            if let Some(old_version) =
-                peripheral_versions.insert(bi.kind.clone(), bi.version.clone())
-            {
-                if old_version != bi.version {
-                    panic!(
-                        "Peripheral {} has multiple versions: {} and {}",
-                        bi.kind, old_version, bi.version
-                    );
-                }
-            }
-            ir_peri.block = Some(format!("{}::{}", bi.kind, bi.block));
+            let multi = versions_by_kind
+                .get(&bi.kind)
+                .map(|s| s.len() > 1)
+                .unwrap_or(false);
+            let mod_name = peri_mod_name(&bi.kind, &bi.version, multi);
+            peripheral_versions.insert(mod_name.clone(), (bi.kind.clone(), bi.version.clone()));
+            ir_peri.block = Some(format!("{}::{}", mod_name, bi.block));
 
             if bi.kind == "gpio" {
                 if let Some(gpio_base) = gpio_base {
@@ -91,11 +115,11 @@ fn build_chiptool_ir(
         None => String::new(),
     };
 
-    for (module, version) in &peripheral_versions {
+    for (mod_name, (module, version)) in &peripheral_versions {
         writeln!(
             &mut extra,
             "#[path=\"../../peripherals/{}_{}.rs\"] pub mod {};",
-            module, version, module
+            module, version, mod_name
         )
         .unwrap();
     }
@@ -267,7 +291,7 @@ pub(crate) fn build_memory_options(chip: &Chip) -> Vec<MemoryOption> {
 fn render_metadata_rs(
     chip: &Chip,
     core: &Core,
-    peripheral_versions: &BTreeMap<String, String>,
+    peripheral_versions: &BTreeMap<String, (String, String)>,
     memory_options: &[MemoryOption],
     default_memory_option: &str,
     metadata_dedup: &mut HashMap<String, String>,
@@ -289,14 +313,16 @@ fn render_metadata_rs(
 
     let n = metadata_dedup.len();
     let deduped_file = metadata_dedup.entry(data.clone()).or_insert_with(|| {
+        // ir tokens may be `:ir_for:kind:` or `:ir_for:kind_version:` when a chip
+        // binds several versions of one kind.
         let ir_regex = Regex::new("\":ir_for:([a-z0-9_]+):\"").unwrap();
         let mut data = ir_regex.replace_all(&data, "&$1::REGISTERS").to_string();
 
-        for (module, version) in peripheral_versions {
+        for (mod_name, (module, version)) in peripheral_versions {
             writeln!(
                 &mut data,
                 "#[path=\"../registers/{}_{}.rs\"] pub mod {};",
-                module, version, module
+                module, version, mod_name
             )
             .unwrap();
         }
@@ -398,7 +424,7 @@ impl Gen {
     ) {
         let (mut ir, peripheral_versions, extra) = build_chiptool_ir(chip, core, core_index);
 
-        for (module, version) in &peripheral_versions {
+        for (_mod_name, (module, version)) in &peripheral_versions {
             self.all_peripheral_versions
                 .insert((module.clone(), version.clone()));
         }

@@ -108,9 +108,9 @@
 - name: SPI0
   address: 0x40004000
   registers:
-    kind: spi0
+    kind: spi
     version: ch585
-    block: SPI0
+    block: SPI
 
 - name: I2C0
   address: 0x40004800

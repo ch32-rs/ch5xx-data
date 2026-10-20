@@ -102,16 +102,16 @@
 - name: SPI0
   address: 0x40004000
   registers:
-    kind: spi0
+    kind: spi
     version: ch585
-    block: SPI0
+    block: SPI
 
 - name: SPI1
   address: 0x40004400
   registers:
-    kind: spi1
-    version: ch585
-    block: SPI1
+    kind: spi
+    version: ch585_nodma
+    block: SPI
 
 - name: I2C0
   address: 0x40004800
