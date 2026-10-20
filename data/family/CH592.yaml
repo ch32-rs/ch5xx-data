@@ -47,57 +47,57 @@
 - name: TMR0
   address: 0x40002000
   registers:
-    kind: tmr03
-    version: ch592
-    block: TMR03
+    kind: tmr
+    version: ch592_nodma
+    block: TMR
 
 - name: TMR1
   address: 0x40002400
   registers:
-    kind: tmr12
+    kind: tmr
     version: ch592
-    block: TMR12
+    block: TMR
 
 - name: TMR2
   address: 0x40002800
   registers:
-    kind: tmr12
+    kind: tmr
     version: ch592
-    block: TMR12
+    block: TMR
 
 - name: TMR3
   address: 0x40002C00
   registers:
-    kind: tmr03
-    version: ch592
-    block: TMR03
+    kind: tmr
+    version: ch592_nodma
+    block: TMR
 
 - name: UART0
   address: 0x40003000
   registers:
-    kind: uart0
-    version: ch592
-    block: UART0
+    kind: uart
+    version: ch585
+    block: UART
 
 - name: UART1
   address: 0x40003400
   registers:
     kind: uart
-    version: ch592
+    version: ch592_nomodem
     block: UART
 
 - name: UART2
   address: 0x40003800
   registers:
     kind: uart
-    version: ch592
+    version: ch592_nomodem
     block: UART
 
 - name: UART3
   address: 0x40003C00
   registers:
     kind: uart
-    version: ch592
+    version: ch592_nomodem
     block: UART
 
 - name: SPI0

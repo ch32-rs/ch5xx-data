@@ -1,3 +1,6 @@
+# Reduced UART: no MSR / modem / address registers. Used by UART1–3 on
+# CH592 and CH595. Kind/block are UART; instance number is only in the family list.
+
 block/UART:
   description: UART register.
   items:
@@ -167,7 +170,7 @@ fieldset/R8_UART_LCR:
     description: RW, UART break control enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LCR_GP_BIT__RB_LCR_DLAB
+  - name: RB_LCR_GP_BIT__LCR_DLAB
     description: RW, UART general purpose bit;RW, UART reserved bit.
     bit_offset: 7
     bit_size: 1
@@ -211,7 +214,7 @@ fieldset/R8_UART_MCR:
   description: RW, UART modem control.
   bit_size: 8
   fields:
-  - name: RB_MCR_OUT2__RB_MCR_INT_OE
+  - name: RB_MCR_OUT2__MCR_INT_OE
     description: RW, UART control OUT2/UART interrupt output enable.
     bit_offset: 3
     bit_size: 1

@@ -1,3 +1,5 @@
+# Timer with R32 DMA. Used by TMR0–3 on CH58x. Kind/block are TMR.
+
 block/TMR:
   description: Timer0 register.
   items:

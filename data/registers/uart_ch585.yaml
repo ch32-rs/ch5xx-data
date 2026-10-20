@@ -1,3 +1,6 @@
+# Full UART: includes MSR / modem / address registers. Used by all UARTs on
+# CH58x and by UART0 on CH592/CH595. Kind/block are UART.
+
 block/UART:
   description: UART register.
   items:

@@ -43,17 +43,19 @@ kept local until they settle; commits focus on `data/` and the generators.
   point at another chip's version when the YAML is byte-identical. When
   merging identical files, keep the **smaller chip number** as the version
   (`i2c_ch585.yaml`, not `i2c_ch595.yaml`).
-- Capability variants append a suffix to the chip tag (`ch585_nodma`). Put a
-  short header on the file describing full vs reduced (e.g. SPI Master/Slave
-  + DMA vs Master-only without DMA).
+- Capability variants append a suffix to the chip tag (`ch585_nodma`,
+  `ch592_nomodem`). Put a short header on the file describing full vs reduced
+  (SPI Master/Slave + DMA vs Master-only; UART with MSR/modem vs without;
+  timer with DMA vs without).
 - Kind / block / instance are separate:
-  - **instance** is the peripheral name in the family list (`I2C0`, `SPI0`).
+  - **instance** is the peripheral name in the family list (`I2C0`, `SPI0`,
+    `UART0`, `TMR0`).
   - **kind** is the type slug in the filename and family `registers.kind`
-    (`i2c` → `i2c_<version>.yaml`, `spi` → `spi_<version>.yaml`).
+    (`i2c`, `spi`, `uart`, `tmr`).
   - **block** is the chiptool block name inside that file (`block/I2C`,
-    `block/SPI`).
-  Do not bake the instance number into kind or block (`spi0` / `SPI0` as the
-  type is wrong; the instance stays `SPI0`).
+    `block/SPI`, `block/UART`, `block/TMR`).
+  Do not bake the instance number into kind or block (`uart0` / `tmr03` as the
+  type is wrong; the instance stays `UART0` / `TMR0`).
 - Packages inside a chip file stop at the package letter (`CH585M`, `CH592F`).
   Temperature-grade digits are not part of the name.
 
@@ -97,11 +99,11 @@ These differ from CH32 and drive the data model:
 - BLE is present in the address map (`0x4000C000`) but the vendor SVD gives it
   no registers. Keep a register-less placeholder so the base address stays
   recorded.
-- Instance grouping is per chip. Timers and UARTs only share a block when the
-  extracted YAML is the same. On CH585 all four timers share one block; on
-  CH595 / CH592, TMR0/TMR3 have no DMA and TMR1/TMR2 do, so they are two
-  blocks. Pass the grouping explicitly to the extract script; do not hard-code
-  one rule for every SVD.
+- Instance grouping is per chip. Same kind, different capability → different
+  `version` (not a different kind). On CH585 all four timers share `tmr/ch585`;
+  on CH592/CH595, TMR0/TMR3 use `tmr/*_nodma` and TMR1/TMR2 use `tmr/<chip>`.
+  UART0 on CH592/CH595 reuses `uart/ch585` (has modem); UART1–3 use
+  `uart/ch592_nomodem`. Pass grouping explicitly to the extract script.
 
 ## Workflow for a new chip
 
