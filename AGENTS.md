@@ -40,7 +40,15 @@ kept local until they settle; commits focus on `data/` and the generators.
 - `data/registers/<kind>_<version>.yaml` carries the register layout. The
   `version` is a lowercase chip tag (`ch585`, `ch595`, `ch59x`, `ch581`). A
   family entry may point at another chip's version when the YAML is
-  byte-identical (`version: ch585` from a CH595 or CH592 family entry).
+  byte-identical. When merging identical files, keep the **smaller chip
+  number** as the version (`i2c_ch585.yaml`, not `i2c_ch595.yaml`).
+- Kind / block / instance are separate:
+  - **instance** is the peripheral name in the family list (`I2C0`).
+  - **kind** is the type slug in the filename and family `registers.kind`
+    (`i2c` → `i2c_<version>.yaml`).
+  - **block** is the chiptool block name inside that file (`block/I2C`).
+  Do not bake the instance number into kind or block (`i2c0` / `I2C0` as the
+  type is wrong; the instance stays `I2C0`).
 - Packages inside a chip file stop at the package letter (`CH585M`, `CH592F`).
   Temperature-grade digits are not part of the name.
 

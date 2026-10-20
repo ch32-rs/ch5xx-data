@@ -109,9 +109,9 @@
 - name: I2C0
   address: 0x40004800
   registers:
-    kind: i2c0
-    version: ch595
-    block: I2C0
+    kind: i2c
+    version: ch585
+    block: I2C
 
 - name: PWMx
   address: 0x40005000
