@@ -1,0 +1,23 @@
+# CH569 / CH565. From openwch/ch569 startup_CH56x.S external vectors
+# (QingKe IRQ base 16). Vendor SVD has no interrupt entries.
+WDOG: 16
+TMR0: 17
+GPIO: 18
+SPI0: 19
+USBSS: 20
+USBSS_LINK: 21
+TMR1: 22
+TMR2: 23
+UART0: 24
+USBHS: 25
+EMMC: 26
+DVP: 27
+HSPI: 28
+SPI1: 29
+UART1: 30
+UART2: 31
+UART3: 32
+SERDES: 33
+ETH: 34
+PMT: 35
+ECDC: 36

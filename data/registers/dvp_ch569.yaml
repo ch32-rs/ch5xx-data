@@ -1,0 +1,223 @@
+block/DVP:
+  description: DVP register.
+  items:
+  - name: R8_DVP_CR0
+    description: DVP control register0.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_DVP_CR0
+  - name: R8_DVP_CR1
+    description: DVP control register1.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: R8_DVP_CR1
+  - name: R8_DVP_INT_EN
+    description: DVP interrupt enable register.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_DVP_INT_EN
+  - name: R16_DVP_ROW_NUM
+    description: DVP row number of a frame indicator register.
+    byte_offset: 4
+    bit_size: 16
+    fieldset: R16_DVP_ROW_NUM
+  - name: R16_DVP_COL_NUM
+    description: DVP row number of a frame indicator register.
+    byte_offset: 6
+    bit_size: 16
+    fieldset: R16_DVP_COL_NUM
+  - name: R32_DVP_DMA_BUF0
+    description: DVP dma buffer0 addr.
+    byte_offset: 8
+    fieldset: R32_DVP_DMA_BUF0
+  - name: R32_DVP_DMA_BUF1
+    description: DVP dma buffer1 addr.
+    byte_offset: 12
+    fieldset: R32_DVP_DMA_BUF1
+  - name: R8_DVP_INT_FLAG
+    description: DVP interrupt flag register.
+    byte_offset: 16
+    fieldset: R8_DVP_INT_FLAG
+  - name: R8_DVP_FIFO_ST
+    description: DVP receive fifo status.
+    byte_offset: 17
+    access: Read
+    bit_size: 8
+    fieldset: R8_DVP_FIFO_ST
+  - name: R16_DVP_ROW_CNT
+    description: DVP row count value.
+    byte_offset: 20
+    access: Read
+    bit_size: 16
+    fieldset: R16_DVP_ROW_CNT
+  - name: R16_DVP_COL_CNT
+    description: DVP col count value.
+    byte_offset: 22
+    access: Read
+    bit_size: 16
+    fieldset: R16_DVP_COL_CNT
+fieldset/R16_DVP_COL_CNT:
+  description: DVP col count value.
+  bit_size: 16
+  fields:
+  - name: RB_DVP_COL_CNT
+    description: DVP receive fifo ready.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_DVP_COL_NUM:
+  description: DVP row number of a frame indicator register.
+  bit_size: 16
+  fields:
+  - name: RB_DVP_COL_NUM
+    description: the number of PCLK cyccles contained in a row of data in RGB mode.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_DVP_ROW_CNT:
+  description: DVP row count value.
+  bit_size: 16
+  fields:
+  - name: RB_DVP_ROW_CNT
+    description: DVP receive fifo full.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_DVP_ROW_NUM:
+  description: DVP row number of a frame indicator register.
+  bit_size: 16
+  fields:
+  - name: RB_DVP_ROW_NUM
+    description: the number of rows contained in a frame of image data.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R32_DVP_DMA_BUF0:
+  description: DVP dma buffer0 addr.
+  fields:
+  - name: RB_DVP_DMA_BUF0
+    description: the receiving address 0 of DMA.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_DVP_DMA_BUF1:
+  description: DVP dma buffer1 addr.
+  fields:
+  - name: RB_DVP_DMA_BUF1
+    description: the receiving address1 of DMA.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R8_DVP_CR0:
+  description: DVP control register0.
+  bit_size: 8
+  fields:
+  - name: RB_DVP_ENABLE
+    description: DVP enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DVP_V_POLAR
+    description: DVP VSYNC polarity control.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DVP_H_POLAR
+    description: DVP HSYNC polarity control.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DVP_P_POLAR
+    description: DVP PCLK polarity control.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_DVP_MSK_DAT_MOD
+    description: DVP data bit width confguration.
+    bit_offset: 4
+    bit_size: 2
+  - name: RB_DVP_JPEG
+    description: DVP JPEG mode.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_DVP_RAW_CM
+    description: DVP row count mode.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_DVP_CR1:
+  description: DVP control register1.
+  bit_size: 8
+  fields:
+  - name: RB_DVP_DMA_ENABLE
+    description: DVP dma enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DVP_ALL_CLR
+    description: DVP all clear, high action.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DVP_RCV_CLR
+    description: DVP receive logic clear, high action.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DVP_BUF_TOG
+    description: DVP bug toggle by software.
+    bit_offset: 3
+    bit_size: 1
+fieldset/R8_DVP_FIFO_ST:
+  description: DVP receive fifo status.
+  bit_size: 8
+  fields:
+  - name: RB_DVP_FIFO_RDY
+    description: DVP receive fifo ready.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DVP_FIFO_FULL
+    description: DVP receive fifo full.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DVP_FIFO_OV
+    description: DVP receive fifo overflow.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DVP_MSK_FIFO_CNT
+    description: DVP receive fifo count.
+    bit_offset: 4
+    bit_size: 3
+fieldset/R8_DVP_INT_EN:
+  description: DVP interrupt enable register.
+  bit_size: 8
+  fields:
+  - name: RB_DVP_IE_STR_FRM
+    description: DVP frame start interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DVP_IE_ROW_DONE
+    description: DVP row received done interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DVP_IE_FRM_DONE
+    description: DVP frame received done interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DVP_IE_FIFO_OV
+    description: DVP receive fifo overflow interrupt enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_DVP_IE_STP_FRM
+    description: DVP frame stop interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+fieldset/R8_DVP_INT_FLAG:
+  description: DVP interrupt flag register.
+  fields:
+  - name: RB_DVP_IF_STR_FRM
+    description: interrupt flag for DVP frame start.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DVP_IF_ROW_DONE
+    description: interrupt flag for DVP row receive done.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DVP_IF_FRM_DONE
+    description: interrupt flag for DVP frame receive done.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DVP_IF_FIFO_OV
+    description: interrupt flag for DVP receive fifo overflow.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_DVP_IF_STP_FRM
+    description: interrupt flag for DVP frame stop.
+    bit_offset: 4
+    bit_size: 1

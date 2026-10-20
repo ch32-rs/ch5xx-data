@@ -1,64 +1,50 @@
+# CH565, same EVT/SFR map as CH569. Packages QFN68/QFN40. Chip id byte = 0x65.
+# Family and interrupts reuse the CH569 files.
 name: CH565
 family: QingKe RISC-V-based MCU
 subfamily: USB3.0 Super-Speed Interface MCU
 product_type: QingKe V3A core
-device_id: 1761607680
 packages:
   - name: CH565W
     package: QFN68
+    device_id: 0x65000000
   - name: CH565M
     package: QFN40
+    device_id: 0x65000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 1
   - name: RAMS
     kind: ram
-    address: 536870912
-    size: 16384
+    address: 0x20000000
+    size: 16K
   - name: RAMX
     kind: ram
-    address: 537001984
-    size: 98304
+    address: 0x20020000
+    size: 96K
 docs:
   - type: homepage
-    title: 32位USB3.0超高速接口MCU CH569
-    name: Homepage
-    url: http://www.wch.cn/products/CH569.html
+    title: CH569 product page
+    name: ""
+    url: https://www.wch.cn/products/CH569.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  Other Features: BUS8
-  Encrypt: AES/SM4
-  head: Part NO.
-  Package: QFN68/QFN40
-  Part NO.: CH569
-  SPI: "2"
-  SERDES/HSPI/DVP: 1.25Gb/3.8Gb/96MHz/1
-  RAM: 48K/80K
-  USB: (5Gbps) H/D/ (480Mbps) H/D
-  Flash: 448K
-  row_no: 87fc163029794917847dc18dd995acc7
-  UART: "4"
-  CAP: 3/4
-  Freq: 120MHz
-  ETH/SATA: 1000Mb/-
-  I/O: "49"
-  url: http://www.wch.cn/products/CH569.html
-  DataFlash: 32K
-  VDD: "3.3"
-  Timer: 3*26b
+  - name: qingke-v3a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH569.yaml"
+    include_interrupts: "../interrupts/CH569.yaml"

@@ -1,0 +1,336 @@
+block/ECDC:
+  description: ECDC register.
+  items:
+  - name: R16_ECEC_CTRL
+    description: ECED AES/SM4 register.
+    byte_offset: 0
+    bit_size: 16
+    fieldset: R16_ECEC_CTRL
+  - name: R8_ECDC_INT_EN
+    description: Interupt enable register.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_ECDC_INT_EN
+  - name: R8_ECDC_INT_FG
+    description: Interupt flag register.
+    byte_offset: 6
+    bit_size: 8
+    fieldset: R8_ECDC_INT_FG
+  - name: R32_ECDC_KEY_255T224
+    description: User key 224-255 register.
+    byte_offset: 8
+    fieldset: R32_ECDC_KEY_255T224
+  - name: R32_ECDC_KEY_223T192
+    description: User key 192-223 register.
+    byte_offset: 12
+    fieldset: R32_ECDC_KEY_223T192
+  - name: R32_ECDC_KEY_191T160
+    description: User key 160-191 register.
+    byte_offset: 16
+    fieldset: R32_ECDC_KEY_191T160
+  - name: R32_ECDC_KEY_159T128
+    description: User key 128-159 register.
+    byte_offset: 20
+    fieldset: R32_ECDC_KEY_159T128
+  - name: R32_ECDC_KEY_127T96
+    description: User key 96-127 register.
+    byte_offset: 24
+    fieldset: R32_ECDC_KEY_127T96
+  - name: R32_ECDC_KEY_95T64
+    description: User key 64-95 register.
+    byte_offset: 28
+    fieldset: R32_ECDC_KEY_95T64
+  - name: R32_ECDC_KEY_63T32
+    description: User key 32-63 register.
+    byte_offset: 32
+    fieldset: R32_ECDC_KEY_63T32
+  - name: R32_ECDC_KEY_31T0
+    description: User key 0-31 register.
+    byte_offset: 36
+    fieldset: R32_ECDC_KEY_31T0
+  - name: R32_ECDC_IV_127T96
+    description: CTR mode count 96-127 register.
+    byte_offset: 40
+    fieldset: R32_ECDC_IV_127T96
+  - name: R32_ECDC_IV_95T64
+    description: CTR mode count 64-95 register.
+    byte_offset: 44
+    fieldset: R32_ECDC_IV_95T64
+  - name: R32_ECDC_IV_63T32
+    description: CTR mode count 32-63 register.
+    byte_offset: 48
+    fieldset: R32_ECDC_IV_63T32
+  - name: R32_ECDC_IV_31T0
+    description: CTR mode count 0-31 register.
+    byte_offset: 52
+    fieldset: R32_ECDC_IV_31T0
+  - name: R32_ECDC_SGSD_127T96
+    description: Single encryption and decryption of original data 96-127 register.
+    byte_offset: 64
+    fieldset: R32_ECDC_SGSD_127T96
+  - name: R32_ECDC_SGSD_95T64
+    description: Single encryption and decryption of original data 64-95 register.
+    byte_offset: 68
+    fieldset: R32_ECDC_SGSD_95T64
+  - name: R32_ECDC_SGSD_63T32
+    description: Single encryption and decryption of original data 32-63 register.
+    byte_offset: 72
+    fieldset: R32_ECDC_SGSD_63T32
+  - name: R32_ECDC_SGSD_31T0
+    description: Single encryption and decryption of original data 0-31 register.
+    byte_offset: 76
+    fieldset: R32_ECDC_SGSD_31T0
+  - name: R32_ECDC_SGRT_127T96
+    description: Single encryption and decryption result 96-127 register.
+    byte_offset: 80
+    fieldset: R32_ECDC_SGRT_127T96
+  - name: R32_ECDC_SGRT_95T64
+    description: Single encryption and decryption result 64-95 register.
+    byte_offset: 84
+    fieldset: R32_ECDC_SGRT_95T64
+  - name: R32_ECDC_SGRT_63T32
+    description: Single encryption and decryption result 0-31 register.
+    byte_offset: 88
+    fieldset: R32_ECDC_SGRT_63T32
+  - name: RB_ECDC_SGRT_31T0
+    description: Single encryption and decryption result 0-31 register.
+    byte_offset: 92
+    fieldset: RB_ECDC_SGRT_31T0
+  - name: R32_ECDC_SRAM_ADDR
+    description: encryption and decryption sram start address register.
+    byte_offset: 96
+    fieldset: R32_ECDC_SRAM_ADDR
+  - name: R32_ECDC_SRAM_LEN
+    description: encryption and decryption sram size register.
+    byte_offset: 100
+    fieldset: R32_ECDC_SRAM_LEN
+fieldset/R16_ECEC_CTRL:
+  description: ECED AES/SM4 register.
+  bit_size: 16
+  fields:
+  - name: RB_ECDC_KEYEX_EN
+    description: enable key expansion.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_ECDC_RDPERI_EN
+    description: when write data to dma.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_ECDC_WRPERI_EN
+    description: when read data from dma.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_ECDC_MODE_SEL
+    description: ECDC mode select.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_ECDC_CLKDIV_MASK
+    description: Clock divide factor.
+    bit_offset: 4
+    bit_size: 3
+  - name: RB_ECDC_WRSRAM_EN
+    description: module dma enable.
+    bit_offset: 7
+    bit_size: 1
+  - name: RB_ECDC_ALGRM_MOD
+    description: Encryption and decryption algorithm mode selection.
+    bit_offset: 8
+    bit_size: 1
+  - name: RB_ECDC_CIPHER_MOD
+    description: Block cipher mode selection.
+    bit_offset: 9
+    bit_size: 1
+  - name: RB_ECDC_KLEN_MASK
+    description: Key length setting.
+    bit_offset: 10
+    bit_size: 2
+  - name: RB_ECDC_DAT_MOD
+    description: source data and result data is bit endian.
+    bit_offset: 13
+    bit_size: 1
+fieldset/R32_ECDC_IV_127T96:
+  description: CTR mode count 96-127 register.
+  fields:
+  - name: RB_ECDC_IV_127T96
+    description: CTR mode count 96-127 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_IV_31T0:
+  description: CTR mode count 0-31 register.
+  fields:
+  - name: RB_ECDC_IV_31T0
+    description: CTR mode count 0-31 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_IV_63T32:
+  description: CTR mode count 32-63 register.
+  fields:
+  - name: RB_ECDC_IV_63T32
+    description: CTR mode count 32-63 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_IV_95T64:
+  description: CTR mode count 64-95 register.
+  fields:
+  - name: RB_ECDC_IV_95T64
+    description: CTR mode count 64-95 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_127T96:
+  description: User key 96-127 register.
+  fields:
+  - name: RB_ECDC_KEY_127T96
+    description: User key 96-127 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_159T128:
+  description: User key 128-159 register.
+  fields:
+  - name: RB_ECDC_KEY_159T128
+    description: User key 128-159 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_191T160:
+  description: User key 160-191 register.
+  fields:
+  - name: RB_ECDC_KEY_191T160
+    description: User key 160-191 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_223T192:
+  description: User key 192-223 register.
+  fields:
+  - name: RB_ECDC_KEY_223T192
+    description: User key 192-223 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_255T224:
+  description: User key 224-255 register.
+  fields:
+  - name: RB_ECDC_KEY_255T224
+    description: User key 224-255 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_31T0:
+  description: User key 0-31 register.
+  fields:
+  - name: RB_ECDC_KEY_31T0
+    description: User key 0-31 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_63T32:
+  description: User key 32-63 register.
+  fields:
+  - name: RB_ECDC_KEY_63T32
+    description: User key 32-63 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_KEY_95T64:
+  description: User key 64-95 register.
+  fields:
+  - name: RB_ECDC_KEY_95T64
+    description: User key 64-95 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGRT_127T96:
+  description: Single encryption and decryption result 96-127 register.
+  fields:
+  - name: RB_ECDC_SGRT_127T96
+    description: Single encryption and decryption result 96-127 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGRT_63T32:
+  description: Single encryption and decryption result 0-31 register.
+  fields:
+  - name: RB_ECDC_SGRT_63T32
+    description: Single encryption and decryption result 0-31 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGRT_95T64:
+  description: Single encryption and decryption result 64-95 register.
+  fields:
+  - name: RB_ECDC_SGRT_95T64
+    description: Single encryption and decryption result 64-95 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGSD_127T96:
+  description: Single encryption and decryption of original data 96-127 register.
+  fields:
+  - name: RB_ECDC_SGSD_127T96
+    description: Single encryption and decryption of original data 96-127 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGSD_31T0:
+  description: Single encryption and decryption of original data 0-31 register.
+  fields:
+  - name: RB_ECDC_SGSD_31T0
+    description: Single encryption and decryption of original data 0-31 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGSD_63T32:
+  description: Single encryption and decryption of original data 32-63 register.
+  fields:
+  - name: RB_ECDC_SGSD_63T32
+    description: Single encryption and decryption of original data 32-63 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SGSD_95T64:
+  description: Single encryption and decryption of original data 64-95 register.
+  fields:
+  - name: RB_ECDC_SGSD_95T64
+    description: Single encryption and decryption of original data 64-95 register.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_ECDC_SRAM_ADDR:
+  description: encryption and decryption sram start address register.
+  fields:
+  - name: RB_ECDC_SRAM_ADDR
+    description: encryption and decryption sram start address register.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_ECDC_SRAM_LEN:
+  description: encryption and decryption sram size register.
+  fields:
+  - name: RB_ECDC_SRAM_LEN
+    description: encryption and decryption sram size register.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R8_ECDC_INT_EN:
+  description: Interupt enable register.
+  bit_size: 8
+  fields:
+  - name: RB_ECDC_IE_EKDONE
+    description: Key extension completion interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_ECDC_IE_SINGLE
+    description: Single encryption and decryption completion interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_ECDC_IE_WRSRAM
+    description: Memory to memory encryption and decryption completion interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+fieldset/R8_ECDC_INT_FG:
+  description: Interupt flag register.
+  bit_size: 8
+  fields:
+  - name: RB_ECDC_IF_EKDONE
+    description: Key extension completion interrupt flag.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_ECDC_IF_SINGLE
+    description: Single encryption and decryption completion interrupt flag.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_ECDC_IF_WRSRAM
+    description: Memory to memory encryption and decryption completion interrupt flag.
+    bit_offset: 2
+    bit_size: 1
+fieldset/RB_ECDC_SGRT_31T0:
+  description: Single encryption and decryption result 0-31 register.
+  fields:
+  - name: RB_ECDC_SGRT_31T0
+    description: Single encryption and decryption result 0-31 register.
+    bit_offset: 0
+    bit_size: 32

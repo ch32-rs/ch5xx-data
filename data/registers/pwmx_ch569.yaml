@@ -1,0 +1,122 @@
+block/PWMx:
+  description: PWMX register.
+  items:
+  - name: R8_PWM_CTRL_MOD
+    description: PWM mode control.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_PWM_CTRL_MOD
+  - name: R8_PWM_CTRL_CFG
+    description: PWM configuration control.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: R8_PWM_CTRL_CFG
+  - name: R8_PWM_CLOCK_DIV
+    description: PWM clock divisor.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_PWM_CLOCK_DIV
+  - name: R8_PWM0_DATA
+    description: PWM data holding.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: R8_PWM0_DATA
+  - name: R8_PWM1_DATA
+    description: PWM1 data holding.
+    byte_offset: 5
+    bit_size: 8
+    fieldset: R8_PWM1_DATA
+  - name: R8_PWM2_DATA
+    description: PWM2 data holding.
+    byte_offset: 6
+    bit_size: 8
+    fieldset: R8_PWM2_DATA
+  - name: R8_PWM3_DATA
+    description: PWM3 data holding.
+    byte_offset: 7
+    bit_size: 8
+    fieldset: R8_PWM3_DATA
+fieldset/R8_PWM0_DATA:
+  description: PWM data holding.
+  bit_size: 8
+  fields:
+  - name: R8_PWM0_DATA
+    description: PWM0 data holding.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PWM1_DATA:
+  description: PWM1 data holding.
+  bit_size: 8
+  fields:
+  - name: R8_PWM1_DATA
+    description: PWM1 data holding.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PWM2_DATA:
+  description: PWM2 data holding.
+  bit_size: 8
+  fields:
+  - name: R8_PWM2_DATA
+    description: PWM2 data holding.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PWM3_DATA:
+  description: PWM3 data holding.
+  bit_size: 8
+  fields:
+  - name: R8_PWM3_DATA
+    description: PWM3 data holding.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PWM_CLOCK_DIV:
+  description: PWM clock divisor.
+  bit_size: 8
+  fields:
+  - name: R8_PWM_CLOCK_DIV
+    description: PWM clock divisor.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_PWM_CTRL_CFG:
+  description: PWM configuration control.
+  bit_size: 8
+  fields:
+  - name: RB_PWM_CYCLE_SEL
+    description: PWM cycle selection.
+    bit_offset: 0
+    bit_size: 1
+fieldset/R8_PWM_CTRL_MOD:
+  description: PWM mode control.
+  bit_size: 8
+  fields:
+  - name: RB_PWM0_OUT_EN
+    description: PWM0 output enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_PWM1_OUT_EN
+    description: PWM1 output enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_PWM2_OUT_EN
+    description: PWM2 output enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_PWM3_OUT_EN
+    description: PWM3 output enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_PWM0_POLAR
+    description: PWM0 output polarity.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_PWM1_POLAR
+    description: PWM1 output polarity.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_PWM2_POLAR
+    description: PWM2 output polarity.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_PWM3_POLAR
+    description: PWM3 output polarity.
+    bit_offset: 7
+    bit_size: 1

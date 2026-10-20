@@ -1,0 +1,157 @@
+# CH569 / CH565. Drafted from svd/fixed/ch56xxx.svd after splitting the
+# monolithic SYS blob into SYS / System_control / GPIO. USBSS / SERDES /
+# ETH are 0-register placeholders. CH565 shares this full list for now
+# (Studio/docs mention HSPI vs DVP packaging differences without a
+# separate register map).
+
+- name: SYS
+  address: 0x40001000
+  registers:
+    kind: sys
+    version: ch569
+    block: SYS
+
+- name: System_control
+  address: 0x40001000
+  registers:
+    kind: system_control
+    version: ch569
+    block: System_control
+
+- name: GPIO
+  address: 0x40001000
+  registers:
+    kind: gpio
+    version: ch569
+    block: GPIO
+
+- name: TMR0
+  address: 0x40002000
+  registers:
+    kind: tmr
+    version: ch569
+    block: TMR_NODMA
+
+- name: TMR1
+  address: 0x40002400
+  registers:
+    kind: tmr
+    version: ch569
+    block: TMR_FULL
+
+- name: TMR2
+  address: 0x40002800
+  registers:
+    kind: tmr
+    version: ch569
+    block: TMR_FULL
+
+- name: UART0
+  address: 0x40003000
+  registers:
+    kind: uart
+    version: ch569
+    block: UART_FULL
+
+- name: UART1
+  address: 0x40003400
+  registers:
+    kind: uart
+    version: ch569
+    block: UART_NOMODEM
+
+- name: UART2
+  address: 0x40003800
+  registers:
+    kind: uart
+    version: ch569
+    block: UART_NOMODEM
+
+- name: UART3
+  address: 0x40003C00
+  registers:
+    kind: uart
+    version: ch569
+    block: UART_NOMODEM
+
+- name: SPI0
+  address: 0x40004000
+  registers:
+    kind: spi
+    version: ch569
+    block: SPI_FULL
+
+- name: SPI1
+  address: 0x40004400
+  registers:
+    kind: spi
+    version: ch569
+    block: SPI_FULL
+
+- name: PWMx
+  address: 0x40005000
+  registers:
+    kind: pwmx
+    version: ch569
+    block: PWMx
+
+- name: HSPI
+  address: 0x40006000
+  registers:
+    kind: hspi
+    version: ch569
+    block: HSPI
+
+- name: ECDC
+  address: 0x40007000
+  registers:
+    kind: ecdc
+    version: ch569
+    block: ECDC
+
+# Placeholder: vendor SVD lists USBSS with no registers.
+- name: USBSS
+  address: 0x40008000
+
+- name: USBHS
+  address: 0x40009000
+  registers:
+    kind: usbhs
+    version: ch569
+    block: USBHS
+
+- name: EMMC
+  address: 0x4000A000
+  registers:
+    kind: emmc
+    version: ch569
+    block: EMMC
+
+# Placeholder: vendor SVD lists SERDES with no registers.
+- name: SERDES
+  address: 0x4000B000
+
+# Placeholder: vendor SVD lists ETH with no registers.
+- name: ETH
+  address: 0x4000C000
+
+- name: DVP
+  address: 0x4000E000
+  registers:
+    kind: dvp
+    version: ch569
+    block: DVP
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch569
+    block: PFIC
+
+- name: Systick
+  address: 0xE000F000
+  registers:
+    kind: systick
+    version: ch569
+    block: Systick

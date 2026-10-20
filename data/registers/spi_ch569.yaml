@@ -1,0 +1,279 @@
+# SPI on CH569. SPI0/SPI1 share SPI_FULL (from SPI0 extract).
+
+block/SPI_FULL:
+  description: SPI_FULL register.
+  items:
+  - name: R8_SPI_FULL_CTRL_MOD
+    description: SPI_FULL mode control.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_SPI_FULL_CTRL_MOD
+  - name: R8_SPI_FULL_CTRL_CFG
+    description: SPI_FULL configuration control.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: R8_SPI_FULL_CTRL_CFG
+  - name: R8_SPI_FULL_INTER_EN
+    description: SPI_FULL interrupt enable.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_SPI_FULL_INTER_EN
+  - name: R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE
+    description: SPI_FULL master clock divisor_ SPI_FULL slave preset value.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE
+  - name: R8_SPI_FULL_BUFFER
+    description: SPI_FULL data buffer.
+    byte_offset: 4
+    access: Read
+    bit_size: 8
+    fieldset: R8_SPI_FULL_BUFFER
+  - name: R8_SPI_FULL_RUN_FLAG
+    description: SPI_FULL work flag.
+    byte_offset: 5
+    access: Read
+    bit_size: 8
+    fieldset: R8_SPI_FULL_RUN_FLAG
+  - name: R8_SPI_FULL_INT_FLAG
+    description: SPI_FULL interrupt flag.
+    byte_offset: 6
+    bit_size: 8
+    fieldset: R8_SPI_FULL_INT_FLAG
+  - name: R8_SPI_FULL_FIFO_COUNT
+    description: SPI_FULL FIFO count status.
+    byte_offset: 7
+    bit_size: 8
+    fieldset: R8_SPI_FULL_FIFO_COUNT
+  - name: R16_SPI_FULL_TOTAL_CNT
+    description: SPI_FULL total byte count, only low 12 bit.
+    byte_offset: 12
+    bit_size: 16
+    fieldset: R16_SPI_FULL_TOTAL_CNT
+  - name: R8_SPI_FULL_FIFO
+    description: SPI_FULL FIFO register.
+    byte_offset: 16
+    bit_size: 8
+    fieldset: R8_SPI_FULL_FIFO
+  - name: R8_SPI_FULL_FIFO_COUNT1
+    description: SPI_FULL FIFO count status.
+    byte_offset: 19
+    bit_size: 8
+    fieldset: R8_SPI_FULL_FIFO_COUNT1
+  - name: R32_SPI_FULL_DMA_NOW
+    description: SPI_FULL DMA current address.
+    byte_offset: 20
+    fieldset: R32_SPI_FULL_DMA_NOW
+  - name: R32_SPI_FULL_DMA_BEG
+    description: SPI_FULL DMA begin address.
+    byte_offset: 24
+    fieldset: R32_SPI_FULL_DMA_BEG
+  - name: R32_SPI_FULL_DMA_END
+    description: SPI_FULL DMA end address.
+    byte_offset: 28
+    fieldset: R32_SPI_FULL_DMA_END
+fieldset/R16_SPI_FULL_TOTAL_CNT:
+  description: SPI_FULL total byte count, only low 12 bit.
+  bit_size: 16
+  fields:
+  - name: R16_SPI_FULL_TOTAL_CNT
+    description: SPI total byte count, only low 12 bit.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R32_SPI_FULL_DMA_BEG:
+  description: SPI_FULL DMA begin address.
+  fields:
+  - name: R16_SPI_FULL_DMA_BEG
+    description: SPI DMA begin address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_SPI_FULL_DMA_END:
+  description: SPI_FULL DMA end address.
+  fields:
+  - name: R16_SPI_FULL_DMA_END
+    description: SPI DMA end address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_SPI_FULL_DMA_NOW:
+  description: SPI_FULL DMA current address.
+  fields:
+  - name: R16_SPI_FULL_DMA_NOW
+    description: SPI DMA current address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R8_SPI_FULL_BUFFER:
+  description: SPI_FULL data buffer.
+  bit_size: 8
+  fields:
+  - name: R8_SPI_FULL_BUFFER
+    description: SPI data buffer.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE:
+  description: SPI_FULL master clock divisor_ SPI_FULL slave preset value.
+  bit_size: 8
+  fields:
+  - name: R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE
+    description: master clock divisor _ SPI_FULL slave preset value.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI_FULL_CTRL_CFG:
+  description: SPI_FULL configuration control.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_DMA_ENABLE
+    description: SPI DMA enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_DMA_LOOP
+    description: SPI DMA address loop enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_AUTO_IF
+    description: enable buffer or FIFO accessing to auto clear RB_SPI_IF_BYTE_END interrupt flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_BIT_ORDER
+    description: SPI bit data order.
+    bit_offset: 5
+    bit_size: 1
+fieldset/R8_SPI_FULL_CTRL_MOD:
+  description: SPI_FULL mode control.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_MODE_SLAVE
+    description: SPI slave mode.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_ALL_CLEAR
+    description: force clear SPI FIFO and count.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_2WIRE_MOD
+    description: SPI enable 2 wire mode.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_MST_SCK_MOD_RB_SPI_SLV_CMD_MOD
+    description: SPI master clock mode _SPI slave command mode.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_FIFO_DIR
+    description: SPI FIFO direction.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_SCK_OE
+    description: SPI SCK output enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SPI_MOSI_OE
+    description: SPI MOSI output enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_MISO_OE
+    description: SPI MISO output enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI_FULL_FIFO:
+  description: SPI_FULL FIFO register.
+  bit_size: 8
+  fields:
+  - name: R8_SPI_FULL_FIFO
+    description: SPI FIFO register.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI_FULL_FIFO_COUNT:
+  description: SPI_FULL FIFO count status.
+  bit_size: 8
+  fields:
+  - name: R8_SPI_FULL_FIFO_COUNT
+    description: SPI FIFO count status.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI_FULL_FIFO_COUNT1:
+  description: SPI_FULL FIFO count status.
+  bit_size: 8
+  fields:
+  - name: R8_SPI_FULL_FIFO_COUNT1
+    description: SPI FIFO count statu.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SPI_FULL_INTER_EN:
+  description: SPI_FULL interrupt enable.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_IE_CNT_END
+    description: enable interrupt for SPI total byte count end.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_IE_BYTE_END
+    description: enable interrupt for SPI byte exchanged.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_IE_FIFO_HF
+    description: enable interrupt for SPI FIFO half.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_IE_DMA_END
+    description: enable interrupt for SPI DMA completion.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_IE_FIFO_OV
+    description: enable interrupt for SPI FIFO overflow.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_IE_FST_BYTE
+    description: enable interrupt for SPI slave mode first byte received.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI_FULL_INT_FLAG:
+  description: SPI_FULL interrupt flag.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_IF_CNT_END
+    description: interrupt flag for SPI total byte count end.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SPI_IF_BYTE_END
+    description: interrupt flag for SPI byte exchanged.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SPI_IF_FIFO_HF
+    description: interrupt flag for SPI FIFO half.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SPI_IF_DMA_END
+    description: interrupt flag for SPI DMA completion.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SPI_IF_FIFO_OV
+    description: interrupt flag for SPI FIFO overflow.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_FREE
+    description: current SPI free status.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_IF_FST_BYTE
+    description: interrupt flag for SPI slave mode first byte received.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_SPI_FULL_RUN_FLAG:
+  description: SPI_FULL work flag.
+  bit_size: 8
+  fields:
+  - name: RB_SPI_SLV_CMD_ACT
+    description: SPI slave command flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SPI_FIFO_READY
+    description: SPI FIFO ready status.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SPI_SLV_CS_LOAD
+    description: SPI slave chip-select loading status.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SPI_SLV_SELECT
+    description: SPI slave selection status.
+    bit_offset: 7
+    bit_size: 1
