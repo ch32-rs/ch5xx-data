@@ -1,6 +1,6 @@
-# SPI register block. Kind/block are SPI; instance number is only in the family list.
+# SPI register block. Kind is spi; full layout is block/SPI_FULL; instance number is only in the family list.
 
-block/SPI:
+block/SPI_FULL:
   description: SPI register.
   items:
   - name: R8_SPI_CTRL_MOD

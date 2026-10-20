@@ -54,63 +54,63 @@
   registers:
     kind: tmr
     version: ch585
-    block: TMR
+    block: TMR_FULL
 
 - name: TMR1
   address: 0x40002400
   registers:
     kind: tmr
     version: ch585
-    block: TMR
+    block: TMR_FULL
 
 - name: TMR2
   address: 0x40002800
   registers:
     kind: tmr
     version: ch585
-    block: TMR
+    block: TMR_FULL
 
 - name: TMR3
   address: 0x40002C00
   registers:
     kind: tmr
     version: ch585
-    block: TMR
+    block: TMR_FULL
 
 - name: UART0
   address: 0x40003000
   registers:
     kind: uart
     version: ch585
-    block: UART
+    block: UART_FULL
 
 - name: UART1
   address: 0x40003400
   registers:
     kind: uart
     version: ch585
-    block: UART
+    block: UART_FULL
 
 - name: UART2
   address: 0x40003800
   registers:
     kind: uart
     version: ch585
-    block: UART
+    block: UART_FULL
 
 - name: UART3
   address: 0x40003C00
   registers:
     kind: uart
     version: ch585
-    block: UART
+    block: UART_FULL
 
 - name: SPI0
   address: 0x40004000
   registers:
     kind: spi
     version: ch585
-    block: SPI
+    block: SPI_FULL
 
 - name: I2C0
   address: 0x40004800

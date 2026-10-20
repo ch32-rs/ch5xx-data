@@ -1,7 +1,7 @@
-# Timer with R32 DMA. Used by TMR0–3 on CH58x. Kind/block are TMR.
+# Timer with R32 DMA. Used by TMR0–3 on CH58x. Kind is tmr; full layout is block/TMR_FULL.
 
-block/TMR:
-  description: Timer0 register.
+block/TMR_FULL:
+  description: Timer register.
   items:
   - name: R8_TMR_CTRL_MOD
     description: RW, TMR mode control.
