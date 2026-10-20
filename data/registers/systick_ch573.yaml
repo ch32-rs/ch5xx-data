@@ -1,0 +1,85 @@
+block/Systick:
+  description: Systick register.
+  items:
+  - name: R32_STK_CTLR
+    description: Systick counter control register.
+    byte_offset: 0
+    fieldset: R32_STK_CTLR
+  - name: R32_STK_CNTL
+    description: Systick counter low register.
+    byte_offset: 4
+    fieldset: R32_STK_CNTL
+  - name: R32_STK_CNTH
+    description: Systick counter high register.
+    byte_offset: 8
+    fieldset: R32_STK_CNTH
+  - name: R32_STK_CMPLR
+    description: Systick compare low register.
+    byte_offset: 12
+    fieldset: R32_STK_CMPLR
+  - name: R32_STK_CMPHR
+    description: Systick compare high register.
+    byte_offset: 16
+    fieldset: R32_STK_CMPHR
+  - name: R32_STK_CNTFG
+    description: Systick counter flag.
+    byte_offset: 20
+    fieldset: R32_STK_CNTFG
+fieldset/R32_STK_CMPHR:
+  description: Systick compare high register.
+  fields:
+  - name: CMPH
+    description: RW,CMPH.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_STK_CMPLR:
+  description: Systick compare low register.
+  fields:
+  - name: CMPL
+    description: RW,CMPL.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_STK_CNTFG:
+  description: Systick counter flag.
+  fields:
+  - name: SWIE
+    description: RW0,System soft interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: CNTIF
+    description: RW,Systick counter clear zero flag.
+    bit_offset: 1
+    bit_size: 1
+fieldset/R32_STK_CNTH:
+  description: Systick counter high register.
+  fields:
+  - name: CNTH
+    description: RW,CNTH.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_STK_CNTL:
+  description: Systick counter low register.
+  fields:
+  - name: CNTL
+    description: RW,CNTL.
+    bit_offset: 0
+    bit_size: 32
+fieldset/R32_STK_CTLR:
+  description: Systick counter control register.
+  fields:
+  - name: STE
+    description: Systick counter enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: STIE
+    description: Systick counter interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: STCLK
+    description: System counter clock Source selection.
+    bit_offset: 2
+    bit_size: 1
+  - name: STRELOAD
+    description: System counter reload control.
+    bit_offset: 8
+    bit_size: 1

@@ -1,63 +1,56 @@
+# CH573, from the MounRiver CH57X SDK (CH573SFR.h, ISP573.h, CH573X Link.ld).
+# QingKe V3A, BLE 4.2. CH571 shares the same register map with 192KB code flash.
+# Studio marketing text claims further CH571 feature cuts; without a datasheet
+# those are not modelled — both parts include data/family/CH573.yaml.
+#
+# Flash geometry from ISP573.h: 448KB code (4KB erase, dword program),
+# 32KB data at 0x70000 (256B erase, byte program). SRAM 18KB at 0x20003800
+# (linker; SFR quotes a 32KB window from 0x20000000).
+# Chip id byte ID_CH573 = 0x73.
 name: CH573
 family: QingKe RISC-V-based, BLE MCU
-subfamily: RISC-V Core BLE Wireless MCU
+subfamily: RISC-V Core BLE4.2 Wireless MCU
 product_type: QingKe V3A core, BLE
-device_id: 1929379840
 packages:
   - name: CH573X
     package: QFN32
+    device_id: 0x73000000
   - name: CH573F
     package: QFN28
+    device_id: 0x73000000
   - name: CH573Q
     package: LQFP32
+    device_id: 0x73000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 18432
+    address: 0x20003800
+    size: 18K
 docs:
   - type: homepage
-    title: Homepage
+    title: CH573 product page
     name: ""
-    url: http://www.wch.cn/products/CH573.html
+    url: https://www.wch.cn/products/CH573.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  Flash: 448K
-  VDD: 1.7/3.3
-  Core: RISC-V
-  url: http://www.wch.cn/products/CH573.html
-  BLE: "4.2"
-  row_no: 9f43e7849a3a4ce385020a544ccd0e33
-  RTC/WDOG: √/√
-  Freq: 20MHz
-  Timer: 4*26b
-  LEDC: "-"
-  DataFlash: 32K
-  LCD: "-"
-  UART/SPI/IIC: 4/1/-
-  USB: 1*H/1*D
-  SRAM: 18K
-  head: Part NO.
-  PWM: "12"
-  TouchKey/ADC: 10/10*12b
-  Package: QFN32/QFN28
-  GPIO: "22"
-  Part NO.: CH573
+  - name: qingke-v3a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH573.yaml"
+    include_interrupts: "../interrupts/CH573.yaml"

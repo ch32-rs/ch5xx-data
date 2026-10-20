@@ -1,0 +1,22 @@
+# CH573 / CH571. Vendor CH57Xxx.svd stores IRQs as 1-based indices with gaps;
+# numbers below follow the CH57X startup vector (same layout as
+# ch32-data/data/interrupts/CH57X.yaml) so they match QingKe external IRQs
+# used by the other CH5xx chips (TMR0 = 16).
+TMR0: 16
+GPIO_A: 17
+GPIO_B: 18
+SPI0: 19
+BLEB: 20
+BLEL: 21
+USB: 22
+TMR1: 24
+TMR2: 25
+UART0: 26
+UART1: 27
+RTC: 28
+ADC: 29
+PWMX: 31
+TMR3: 32
+UART2: 33
+UART3: 34
+WDOG_BAT: 35

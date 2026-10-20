@@ -1,0 +1,466 @@
+# Split from CH57X SYS blob for CH573. Kind sys.
+
+block/SYS:
+  description: SYS register.
+  items:
+  - name: R8_RESET_STATUS_R8_GLOB_ROM_CFG
+    description: RWA, reset status, SAM or flash ROM configuration.
+    byte_offset: 4
+    access: Read
+    bit_size: 8
+    fieldset: R8_RESET_STATUS_R8_GLOB_ROM_CFG
+  - name: R16_CLK_SYS_CFG
+    description: RWA, system clock configuration, SAM.
+    byte_offset: 8
+    bit_size: 16
+    fieldset: R16_CLK_SYS_CFG
+  - name: R8_HFCK_PWR_CTRL
+    description: RWA, high frequency clock module power control, SAM.
+    byte_offset: 10
+    bit_size: 8
+    fieldset: R8_HFCK_PWR_CTRL
+  - name: R8_SLP_CLK_OFF0
+    description: RWA, sleep clock off control byte 0, SAM.
+    byte_offset: 12
+    bit_size: 8
+    fieldset: R8_SLP_CLK_OFF0
+  - name: R8_SLP_CLK_OFF1
+    description: RWA, sleep clock off control byte 1, SAM.
+    byte_offset: 13
+    bit_size: 8
+    fieldset: R8_SLP_CLK_OFF1
+  - name: R8_SLP_WAKE_CTRL
+    description: RWA, wake control, SAM.
+    byte_offset: 14
+    bit_size: 8
+    fieldset: R8_SLP_WAKE_CTRL
+  - name: R8_SLP_POWER_CTRL
+    description: RWA, peripherals power down control, SAM.
+    byte_offset: 15
+    bit_size: 8
+    fieldset: R8_SLP_POWER_CTRL
+  - name: R16_PIN_ALTERNATE
+    description: RW, function pin alternate configuration.
+    byte_offset: 24
+    bit_size: 16
+    fieldset: R16_PIN_ALTERNATE
+  - name: R16_PIN_ANALOG_IE
+    description: RW, analog pin enable and digital input disable.
+    byte_offset: 26
+    bit_size: 16
+    fieldset: R16_PIN_ANALOG_IE
+  - name: R16_POWER_PLAN
+    description: RWA, power plan before sleep instruction, SAM.
+    byte_offset: 32
+    bit_size: 16
+    fieldset: R16_POWER_PLAN
+  - name: R8_AUX_POWER_ADJ
+    description: RWA, aux power adjust control, SAM.
+    byte_offset: 34
+    bit_size: 8
+    fieldset: R8_AUX_POWER_ADJ
+  - name: R8_BAT_DET_CTRL
+    description: RWA, battery voltage detector control, SAM.
+    byte_offset: 36
+    bit_size: 8
+    fieldset: R8_BAT_DET_CTRL
+  - name: R8_BAT_DET_CFG
+    description: RWA, battery voltage detector configuration, SAM.
+    byte_offset: 37
+    bit_size: 8
+    fieldset: R8_BAT_DET_CFG
+  - name: R8_BAT_STATUS
+    description: RO, battery status.
+    byte_offset: 38
+    access: Read
+    bit_size: 8
+    fieldset: R8_BAT_STATUS
+  - name: R16_INT32K_TUNE
+    description: RWA, internal 32KHz oscillator tune control, SAM.
+    byte_offset: 44
+    bit_size: 16
+    fieldset: R16_INT32K_TUNE
+  - name: R8_XT32K_TUNE
+    description: RWA, external 32KHz oscillator tune control, SAM.
+    byte_offset: 46
+    bit_size: 8
+    fieldset: R8_XT32K_TUNE
+  - name: R8_CK32K_CONFIG
+    description: RWA, 32KHz oscillator configure.
+    byte_offset: 47
+    bit_size: 8
+    fieldset: R8_CK32K_CONFIG
+
+fieldset/R16_CLK_SYS_CFG:
+  description: RWA, system clock configuration, SAM.
+  bit_size: 16
+  fields:
+  - name: RB_CLK_PLL_DIV
+    description: RWA, output clock divider from PLL or CK32M.
+    bit_offset: 0
+    bit_size: 5
+  - name: RB_CLK_SYS_MOD
+    description: 'RWA, system clock source mode: 00=divided from 32MHz, 01=divided from PLL-480MHz, 10=directly from 32MHz, 11=directly from 32KHz.'
+    bit_offset: 6
+    bit_size: 2
+
+fieldset/R16_INT32K_TUNE:
+  description: RWA, internal 32KHz oscillator tune control, SAM.
+  bit_size: 16
+  fields:
+  - name: RB_INT32K_TUNE
+    description: RWA, internal 32KHz oscillator frequency tune.
+    bit_offset: 0
+    bit_size: 12
+
+fieldset/R16_PIN_ALTERNATE:
+  description: RW, function pin alternate configuration.
+  bit_size: 16
+  fields:
+  - name: RB_PIN_TMR0
+    description: RW, TMR0 alternate pin enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_PIN_TMR1
+    description: RW, TMR1 alternate pin enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_PIN_TMR2
+    description: RW, TMR2 alternate pin enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_PIN_UART0
+    description: RW, RXD0/TXD0 alternate pin enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_PIN_UART1
+    description: RW, RXD1/TXD1 alternate pin enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_PIN_SPI0
+    description: RW, SCS/SCK0/MOSI/MISO alternate pin enable.
+    bit_offset: 8
+    bit_size: 1
+
+fieldset/R16_PIN_ANALOG_IE:
+  description: RW, analog pin enable and digital input disable.
+  bit_size: 16
+  fields:
+  - name: RB_PIN_USB_DP_PU
+    description: RW,USB UDP internal pullup resistance enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_PIN_USB_IE
+    description: 'RW, USB analog I/O enable: 0=analog I/O disable, 1=analog I/O enable.'
+    bit_offset: 7
+    bit_size: 1
+  - name: RB_PIN_ADC8_9_IE
+    description: 'RW, ADC/TouchKey channel 9/8 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 8
+    bit_size: 1
+  - name: RB_PIN_ADC0_IE
+    description: 'RW, ADC/TouchKey channel0 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 9
+    bit_size: 1
+  - name: RB_PIN_ADC1_IE
+    description: 'RW, ADC/TouchKey channel1 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 10
+    bit_size: 1
+  - name: RB_PIN_ADC12_IE
+    description: 'RW, ADC/TouchKey channel12 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 11
+    bit_size: 1
+  - name: RB_PIN_ADC13_IE
+    description: 'RW, ADC/TouchKey channel13 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 12
+    bit_size: 1
+  - name: RB_PIN_XT32K_IE
+    description: 'RW, external 32KHz oscillator digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 13
+    bit_size: 1
+  - name: RB_PIN_ADC2_3_IE
+    description: 'RW, ADC/TouchKey channel 2/3 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 14
+    bit_size: 1
+  - name: RB_PIN_ADC4_5_IE
+    description: 'RW, ADC/TouchKey channel 4/5 digital input disable: 0=digital input enable, 1=digital input disable.'
+    bit_offset: 15
+    bit_size: 1
+
+fieldset/R16_POWER_PLAN:
+  description: RWA, power plan before sleep instruction, SAM.
+  bit_size: 16
+  fields:
+  - name: RB_PWR_XROM
+    description: RWA, power for retention 2KB SRAM.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_PWR_RAM2K
+    description: RWA, power for retention 2KB SRAM.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_PWR_CORE
+    description: RWA, power retention for core and base peripherals.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_PWR_EXTEND
+    description: RWA, power retention for USB and BLE.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_PWR_RAM16K
+    description: RWA, power for main SRAM.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_PWR_SYS_EN
+    description: RWA, power for system.
+    bit_offset: 7
+    bit_size: 1
+  - name: RB_PWR_LDO_EN
+    description: RWA, LDO enable.
+    bit_offset: 8
+    bit_size: 1
+  - name: RB_PWR_DCDC_EN
+    description: 'RWA, DC/DC converter enable: 0=DC/DC disable and bypass, 1=DC/DC enable.'
+    bit_offset: 9
+    bit_size: 1
+  - name: RB_PWR_DCDC_PRE
+    description: RWA, DC/DC converter pre-enable.
+    bit_offset: 10
+    bit_size: 1
+  - name: RB_PWR_MUST_0010
+    description: RWA, power plan enable, auto clear after sleep executed.
+    bit_offset: 11
+    bit_size: 4
+  - name: RB_PWR_PLAN_EN
+    description: RWA, must write 0010.
+    bit_offset: 15
+    bit_size: 1
+
+fieldset/R8_AUX_POWER_ADJ:
+  description: RWA, aux power adjust control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_ULPLDO_ADJ
+    description: RWA, Ultra-Low-Power LDO voltage adjust.
+    bit_offset: 0
+    bit_size: 3
+
+fieldset/R8_BAT_DET_CFG:
+  description: RWA, battery voltage detector configuration, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_BAT_LOW_VTH
+    description: RWA, select threshold voltage of battery voltage low.
+    bit_offset: 0
+    bit_size: 2
+
+fieldset/R8_BAT_DET_CTRL:
+  description: RWA, battery voltage detector control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_BAT_DET_EN_RB_BAT_LOW_VTHX
+    description: RWA, battery voltage detector enable/select monitor threshold voltage.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_BAT_MON_EN
+    description: RWA, battery voltage monitor enable under sleep mode.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_BAT_LOWER_IE
+    description: RWA, interrupt enable for battery lower voltage.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_BAT_LOW_IE
+    description: RWA, interrupt enable for battery low voltage.
+    bit_offset: 3
+    bit_size: 1
+
+fieldset/R8_BAT_STATUS:
+  description: RO, battery status.
+  bit_size: 8
+  fields:
+  - name: RB_BAT_STAT_LOWER
+    description: RO, battery lower voltage status, high action.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_BAT_STAT_LOW
+    description: RO, battery low voltage status, high action.
+    bit_offset: 1
+    bit_size: 1
+
+fieldset/R8_CK32K_CONFIG:
+  description: RWA, 32KHz oscillator configure.
+  bit_size: 8
+  fields:
+  - name: RB_CLK_XT32K_PON
+    description: RWA, external 32KHz oscillator power on.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_CLK_INT32K_PON
+    description: RWA, internal 32KHz oscillator power on.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_CLK_OSC32K_XT
+    description: 'RWA, 32KHz oscillator source selection: 0=RC, 1=XT.'
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_32K_CLK_PIN
+    description: RO, 32KHz oscillator clock pin status.
+    bit_offset: 7
+    bit_size: 1
+
+fieldset/R8_HFCK_PWR_CTRL:
+  description: RWA, high frequency clock module power control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_CLK_XT32M_PON
+    description: 'RWA, external 32MHz oscillator power control: 0=power down, 1-power on.'
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_CLK_PLL_PON
+    description: 'RWA, PLL power control: 0=power down, 1-power on.'
+    bit_offset: 4
+    bit_size: 1
+
+fieldset/R8_RESET_STATUS_R8_GLOB_ROM_CFG:
+  description: RWA, reset status, SAM or flash ROM configuration.
+  bit_size: 8
+  fields:
+  - name: RB_RESET_FLAG
+    description: RO, recent reset flag.
+    bit_offset: 0
+    bit_size: 3
+  - name: RB_ROM_CODE_OFS
+    description: 'RWA, code offset address selection in Flash ROM: 0=start address 0x000000, 1=start address 0x008000.'
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_ROM_CTRL_EN
+    description: RWA, enable flash ROM control interface enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_ROM_DATA_WE
+    description: RWA,enable flash ROM data and code area being erase/write.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_ROM_CODE_WE
+    description: RWA, enable flash ROM code area being erase or write.
+    bit_offset: 7
+    bit_size: 1
+
+fieldset/R8_SLP_CLK_OFF0:
+  description: RWA, sleep clock off control byte 0, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_SLP_CLK_TMR0
+    description: RWA, close TMR0 clock.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SLP_CLK_TMR1
+    description: RWA, close TMR1 clock.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SLP_CLK_TMR2
+    description: RWA, close TMR2 clock.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SLP_CLK_TMR3
+    description: RWA, close TMR3 clock.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SLP_CLK_UART0
+    description: RWA, close UART0 clock.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SLP_CLK_UART1
+    description: RWA, close UART1 clock.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_SLP_CLK_UART2
+    description: RWA, close UART2 clock.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_SLP_CLK_UART3
+    description: RWA, close UART3 clock.
+    bit_offset: 7
+    bit_size: 1
+
+fieldset/R8_SLP_CLK_OFF1:
+  description: RWA, sleep clock off control byte 1, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_SLP_CLK_SPI0
+    description: RWA, close SPI0 clock.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SLP_CLK_PWMX
+    description: RWA, close PWMx clock.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SLP_CLK_USB
+    description: RWA, close USB clock.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SLP_CLK_BLE
+    description: RWA, close BLE clock.
+    bit_offset: 7
+    bit_size: 1
+
+fieldset/R8_SLP_POWER_CTRL:
+  description: RWA, peripherals power down control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_SLP_CLK_RAMX
+    description: RWA, close main SRAM clock.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SLP_CLK_RAM2K
+    description: RWA, close retention 2KB SRAM clock.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_RAM_RET_LV
+    description: RWA, SRAM retention voltage selection.
+    bit_offset: 6
+    bit_size: 1
+
+fieldset/R8_SLP_WAKE_CTRL:
+  description: RWA, wake control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_SLP_USB_WAKE
+    description: RWA, enable USB waking.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SLP_RTC_WAKE
+    description: RWA, enable RTC waking.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_SLP_GPIO_WAKE
+    description: RWA, enable GPIO waking.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SLP_BAT_WAKE
+    description: RWA, enable BAT waking.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_WAKE_EV_MODE
+    description: RWA, event wakeup mode.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_WAKE_DELAY
+    description: RWA, wakeup delay.
+    bit_offset: 7
+    bit_size: 1
+
+fieldset/R8_XT32K_TUNE:
+  description: RWA, external 32KHz oscillator tune control, SAM.
+  bit_size: 8
+  fields:
+  - name: RB_XT32K_I_TUNE
+    description: 'RWA, external 32KHz oscillator current tune: 00=75% current, 01=standard current, 10=150% current, 11=200% current.'
+    bit_offset: 0
+    bit_size: 2
+  - name: RB_XT32K_C_LOAD
+    description: 'RWA, external 32KHz oscillator load capacitor tune: Cap = RB_XT32K_C_LOAD + 12pF.'
+    bit_offset: 4
+    bit_size: 4
+

@@ -13,7 +13,7 @@
   address: 0x40001000
   registers:
     kind: rtc
-    version: ch583
+    version: ch573
     block: RTC
 
 - name: System_control
@@ -41,7 +41,7 @@
   address: 0x40001000
   registers:
     kind: gpio
-    version: ch583
+    version: ch573
     block: GPIO
 
 - name: TMR0
@@ -118,7 +118,7 @@
   address: 0x40005000
   registers:
     kind: pwmx
-    version: ch583
+    version: ch573
     block: PWMx
 
 - name: USB

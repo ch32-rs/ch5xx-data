@@ -1,4 +1,4 @@
-# Split from CH58X SYS blob for CH583. Kind gpio.
+# Split from CH57X SYS blob for CH573. Kind gpio.
 
 block/GPIO:
   description: GPIO register.

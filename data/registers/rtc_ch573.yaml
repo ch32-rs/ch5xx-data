@@ -1,4 +1,4 @@
-# Split from CH58X SYS blob for CH583. Kind rtc.
+# Split from CH57X SYS blob for CH573. Kind rtc.
 
 block/RTC:
   description: RTC register.
