@@ -1,0 +1,167 @@
+# CH583 (and the shared CH58X register set). Drafted from
+# svd/fixed/ch58xxx.svd by scripts/gen-from-svd.py, then the SYS blob at
+# 0x40001000 was split into SYS / RTC / System_control / TouchKey / ADC /
+# GPIO the same way CH585 does. Clocks, pins and interrupts-per-signal are
+# filled in by hand.
+#
+# CH582 is the same list with SPI1 removed (CH583/CH582 datasheet V1.9).
+
+- name: SYS
+  address: 0x40001000
+  registers:
+    kind: sys
+    version: ch583
+    block: SYS
+
+- name: RTC
+  address: 0x40001000
+  registers:
+    kind: rtc
+    version: ch583
+    block: RTC
+
+- name: System_control
+  address: 0x40001000
+  registers:
+    kind: system_control
+    version: ch583
+    block: System_control
+
+- name: TouchKey
+  address: 0x40001000
+  registers:
+    kind: touchkey
+    version: ch583
+    block: TouchKey
+
+- name: ADC
+  address: 0x40001000
+  registers:
+    kind: adc
+    version: ch583
+    block: ADC
+
+- name: GPIO
+  address: 0x40001000
+  registers:
+    kind: gpio
+    version: ch583
+    block: GPIO
+
+- name: TMR0
+  address: 0x40002000
+  registers:
+    kind: tmr
+    version: ch583
+    block: TMR_NODMA
+
+- name: TMR1
+  address: 0x40002400
+  registers:
+    kind: tmr
+    version: ch583
+    block: TMR_FULL
+
+- name: TMR2
+  address: 0x40002800
+  registers:
+    kind: tmr
+    version: ch583
+    block: TMR_FULL
+
+- name: TMR3
+  address: 0x40002C00
+  registers:
+    kind: tmr
+    version: ch583
+    block: TMR_NODMA
+
+- name: UART0
+  address: 0x40003000
+  registers:
+    kind: uart
+    version: ch583
+    block: UART_FULL
+
+- name: UART1
+  address: 0x40003400
+  registers:
+    kind: uart
+    version: ch583
+    block: UART_NOMODEM
+
+- name: UART2
+  address: 0x40003800
+  registers:
+    kind: uart
+    version: ch583
+    block: UART_NOMODEM
+
+- name: UART3
+  address: 0x40003C00
+  registers:
+    kind: uart
+    version: ch583
+    block: UART_NOMODEM
+
+- name: SPI0
+  address: 0x40004000
+  registers:
+    kind: spi
+    version: ch583
+    block: SPI_FULL
+
+- name: SPI1
+  address: 0x40004400
+  registers:
+    kind: spi
+    version: ch583
+    block: SPI_NODMA
+
+- name: I2C0
+  address: 0x40004800
+  registers:
+    kind: i2c
+    version: ch583
+    block: I2C
+
+- name: PWMx
+  address: 0x40005000
+  registers:
+    kind: pwmx
+    version: ch583
+    block: PWMx
+
+- name: USB
+  address: 0x40008000
+  registers:
+    kind: usb
+    version: ch583
+    block: USB
+
+- name: USB2
+  address: 0x40008400
+  registers:
+    kind: usb2
+    version: ch583
+    block: USB2
+
+# Placeholder: the vendor SVD lists BLE at this address but gives it no
+# registers, so there is nothing to generate yet. Kept so the base address
+# stays recorded.
+- name: BLE
+  address: 0x4000C000
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch583
+    block: PFIC
+
+- name: Systick
+  address: 0xE000F000
+  registers:
+    kind: systick
+    version: ch585
+    block: Systick

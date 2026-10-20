@@ -1,59 +1,48 @@
+# CH583, from CH583/CH582 datasheet V1.9 and the MounRiver CH58X SDK
+# (CH583SFR.h, ISP583.h, CH583M Link.ld). QingKe V4A, BLE 5.0, dual USB FS,
+# SPI0+SPI1. CH582 is the same die without SPI1 (data/family/CH582.yaml).
+#
+# Flash geometry from ISP583.h: 448KB code (4KB erase, dword program),
+# 32KB data at 0x70000 (256B erase, byte program). SRAM 32KB at 0x20000000.
+# Chip id byte ID_CH583 = 0x83.
 name: CH583
 family: QingKe RISC-V-based, BLE MCU
-subfamily: RISC-V Core BLE5.3 Wireless MCU
+subfamily: RISC-V Core BLE5.0 Wireless MCU
 product_type: QingKe V4A core, BLE
-device_id: 2181038080
 packages:
   - name: CH583M
     package: QFN48
+    device_id: 0x83000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 32768
+    address: 0x20000000
+    size: 32K
 docs:
-  - type: homepage
-    title: Homepage
-    name: ""
-    url: http://www.wch.cn/products/CH583.html
+  - type: datasheet
+    title: CH583/CH582 datasheet
+    name: CH583DS1 V1.9
+    url: https://www.wch.cn/downloads/CH583DS1_PDF.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  Flash: 448K
-  BLE: "5.3"
-  row_no: 489bcda291ed4487af1052e9898561d3
-  VDD: 1.7/3.3
-  Freq: 20MHz
-  RTC/WDOG: √/√
-  Part NO.: CH583
-  LEDC: "-"
-  USB: 2*H/2*D
-  PWM: "12"
-  LCD: "-"
-  DataFlash: 32K
-  Timer: 4*26b
-  TouchKey/ADC: 14/14*12b
-  SRAM: 32K
-  GPIO: "40"
-  UART/SPI/IIC: 4/2/1
-  head: Part NO.
-  url: http://www.wch.cn/products/CH583.html
-  Core: RISC-V
-  Package: QFN48
+  - name: qingke-v4a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH583.yaml"
+    include_interrupts: "../interrupts/CH583.yaml"

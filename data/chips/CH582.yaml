@@ -1,61 +1,49 @@
+# CH582, from CH583/CH582 datasheet V1.9 and the MounRiver CH58X SDK.
+# Same flash/SRAM and SFR set as CH583, but without SPI1. Register blocks
+# and interrupts are the CH583 ones; only the family list drops SPI1.
+#
+# Chip id byte ID_CH582 = 0x82. Packages follow the SDK templates.
 name: CH582
 family: QingKe RISC-V-based, BLE MCU
-subfamily: RISC-V Core BLE5.3 Wireless MCU
+subfamily: RISC-V Core BLE5.0 Wireless MCU
 product_type: QingKe V4A core, BLE
-device_id: 2181038080
 packages:
   - name: CH582M
     package: QFN48
+    device_id: 0x82000000
   - name: CH582F
     package: QFN28
+    device_id: 0x82000000
 memory:
-  - name: BANK_1
+  - name: CODEFLASH
     kind: flash
     address: 0
-    size: 458752
-    settings:
-      erase_size: 1024
-      write_size: 256
-      erase_value: 255
+    size: 448K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
-    address: 536870912
-    size: 32768
+    address: 0x20000000
+    size: 32K
 docs:
-  - type: homepage
-    title: Homepage
-    name: ""
-    url: http://www.wch.cn/products/CH583.html
+  - type: datasheet
+    title: CH583/CH582 datasheet
+    name: CH583DS1 V1.9
+    url: https://www.wch.cn/downloads/CH583DS1_PDF.html
 cores:
-  - name: qingke-v4
-    peripherals:
-
-    interrupts:
-      - name: WWDG
-        number: 1
-    dma_channels:
-      - name: DMA1_CH1
-        dma: DMA1
-        channel: 0
-_raw:
-  RTC/WDOG: √/√
-  Flash: 448K
-  PWM: "12"
-  USB: 2*H/2*D
-  LEDC: "-"
-  VDD: 2.3/3.3
-  url: http://www.wch.cn/products/CH583.html
-  BLE: "5.3"
-  TouchKey/ADC: 14/14*12b
-  Timer: 4*26b
-  Part NO.: CH582
-  Core: RISC-V
-  DataFlash: 32K
-  GPIO: "40"
-  Package: QFN48/QFN28
-  SRAM: 32K
-  head: Part NO.
-  row_no: 4be5186a4c7d40a69ccd6eeac0be3fd2
-  UART/SPI/IIC: 4/1/1
-  Freq: 20MHz
-  LCD: "-"
+  - name: qingke-v4a
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH582.yaml"
+    include_interrupts: "../interrupts/CH583.yaml"
