@@ -1,0 +1,323 @@
+block/ETHERNET_DMA:
+  description: 'Ethernet: DMA controller operation.'
+  items:
+  - name: DMABMR
+    description: Ethernet DMA bus mode register.
+    byte_offset: 0
+    fieldset: DMABMR
+  - name: DMATPDR
+    description: Ethernet DMA transmit poll demand. register.
+    byte_offset: 4
+    fieldset: DMATPDR
+  - name: DMARPDR
+    description: EHERNET DMA receive poll demand. register.
+    byte_offset: 8
+    fieldset: DMARPDR
+  - name: DMARDLAR
+    description: Ethernet DMA receive descriptor list address. register.
+    byte_offset: 12
+    fieldset: DMARDLAR
+  - name: DMATDLAR
+    description: Ethernet DMA transmit descriptor list. address register.
+    byte_offset: 16
+    fieldset: DMATDLAR
+  - name: DMASR
+    description: Ethernet DMA status register.
+    byte_offset: 20
+    fieldset: DMASR
+  - name: DMAOMR
+    description: Ethernet DMA operation mode. register.
+    byte_offset: 24
+    fieldset: DMAOMR
+  - name: DMAIER
+    description: Ethernet DMA interrupt enable. register.
+    byte_offset: 28
+    fieldset: DMAIER
+  - name: DMAMFBOCR
+    description: Ethernet DMA missed frame and buffer. overflow counter register.
+    byte_offset: 32
+    access: Read
+    fieldset: DMAMFBOCR
+  - name: DMACHTDR
+    description: Ethernet DMA current host transmit. descriptor register.
+    byte_offset: 72
+    access: Read
+    fieldset: DMACHTDR
+  - name: DMACHRDR
+    description: Ethernet DMA current host receive descriptor. register.
+    byte_offset: 76
+    access: Read
+    fieldset: DMACHRDR
+  - name: DMACHTBAR
+    description: Ethernet DMA current host transmit buffer. address register.
+    byte_offset: 80
+    access: Read
+    fieldset: DMACHTBAR
+  - name: DMACHRBAR
+    description: Ethernet DMA current host receive buffer. address register.
+    byte_offset: 84
+    access: Read
+    fieldset: DMACHRBAR
+fieldset/DMABMR:
+  description: Ethernet DMA bus mode register.
+  fields:
+  - name: SR
+    description: Software reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: DSL
+    description: Descriptor skip length.
+    bit_offset: 2
+    bit_size: 5
+fieldset/DMACHRBAR:
+  description: Ethernet DMA current host receive buffer. address register.
+  fields:
+  - name: HRBAP
+    description: Host receive buffer address. pointer.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMACHRDR:
+  description: Ethernet DMA current host receive descriptor. register.
+  fields:
+  - name: HRDAP
+    description: Host receive descriptor address. pointer.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMACHTBAR:
+  description: Ethernet DMA current host transmit buffer. address register.
+  fields:
+  - name: HTBAP
+    description: Host transmit buffer address. pointer.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMACHTDR:
+  description: Ethernet DMA current host transmit. descriptor register.
+  fields:
+  - name: HTDAP
+    description: Host transmit descriptor address. pointer.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMAIER:
+  description: Ethernet DMA interrupt enable. register.
+  fields:
+  - name: TIE
+    description: Transmit interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: TPSIE
+    description: Transmit process stopped interrupt. enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: TBUIE
+    description: Transmit buffer unavailable interrupt. enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: TJTIE
+    description: Transmit jabber timeout interrupt. enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: ROIE
+    description: Overflow interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: TUIE
+    description: Underflow interrupt enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: RIE
+    description: Receive interrupt enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: RBUIE
+    description: Receive buffer unavailable interrupt. enable.
+    bit_offset: 7
+    bit_size: 1
+  - name: RPSIE
+    description: Receive process stopped interrupt. enable.
+    bit_offset: 8
+    bit_size: 1
+  - name: RWTIE
+    description: receive watchdog timeout interrupt. enable.
+    bit_offset: 9
+    bit_size: 1
+  - name: ETIE
+    description: Early transmit interrupt. enable.
+    bit_offset: 10
+    bit_size: 1
+  - name: PHYLINK_IER
+    description: Early send interrupt enable bit.
+    bit_offset: 11
+    bit_size: 1
+  - name: ERS
+    description: Early receive interrupt. enable.
+    bit_offset: 14
+    bit_size: 1
+  - name: AISE
+    description: Abnormal interrupt summary. enable.
+    bit_offset: 15
+    bit_size: 1
+  - name: NISE
+    description: Normal interrupt summary. enable.
+    bit_offset: 16
+    bit_size: 1
+fieldset/DMAMFBOCR:
+  description: Ethernet DMA missed frame and buffer. overflow counter register.
+  fields:
+  - name: MFC
+    description: Missed frames by the. controller.
+    bit_offset: 0
+    bit_size: 16
+  - name: OMFC
+    description: Overflow bit for missed frame. counter.
+    bit_offset: 16
+    bit_size: 1
+  - name: MFA
+    description: Missed frames by the. application.
+    bit_offset: 17
+    bit_size: 11
+  - name: OFOC
+    description: Overflow bit for FIFO overflow. counter.
+    bit_offset: 28
+    bit_size: 1
+fieldset/DMAOMR:
+  description: Ethernet DMA operation mode. register.
+  fields:
+  - name: SR
+    description: SR.
+    bit_offset: 1
+    bit_size: 1
+  - name: FUGF
+    description: FUGF.
+    bit_offset: 6
+    bit_size: 1
+  - name: FEF
+    description: FEF.
+    bit_offset: 7
+    bit_size: 1
+  - name: ST
+    description: ST.
+    bit_offset: 13
+    bit_size: 1
+  - name: FTF
+    description: FTF.
+    bit_offset: 20
+    bit_size: 1
+  - name: TSF
+    description: TSF.
+    bit_offset: 21
+    bit_size: 1
+  - name: DTCEFD
+    description: DTCEFD.
+    bit_offset: 26
+    bit_size: 1
+fieldset/DMARDLAR:
+  description: Ethernet DMA receive descriptor list address. register.
+  fields:
+  - name: RDLAR
+    description: Start of receive list.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMARPDR:
+  description: EHERNET DMA receive poll demand. register.
+  fields:
+  - name: RPDR
+    description: Receive poll demand.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMASR:
+  description: Ethernet DMA status register.
+  fields:
+  - name: TS
+    description: Transmit status.
+    bit_offset: 0
+    bit_size: 1
+  - name: TPSS
+    description: Transmit process stopped. status.
+    bit_offset: 1
+    bit_size: 1
+  - name: TBUS
+    description: Transmit buffer unavailable. status.
+    bit_offset: 2
+    bit_size: 1
+  - name: TJTS
+    description: Transmit jabber timeout. status.
+    bit_offset: 3
+    bit_size: 1
+  - name: ROS
+    description: Receive overflow status.
+    bit_offset: 4
+    bit_size: 1
+  - name: TUS
+    description: Transmit underflow status.
+    bit_offset: 5
+    bit_size: 1
+  - name: RS
+    description: Receive status.
+    bit_offset: 6
+    bit_size: 1
+  - name: RBUS
+    description: Receive buffer unavailable. status.
+    bit_offset: 7
+    bit_size: 1
+  - name: RPSS
+    description: Receive process stopped. status.
+    bit_offset: 8
+    bit_size: 1
+  - name: PWTS
+    description: Receive watchdog timeout. status.
+    bit_offset: 9
+    bit_size: 1
+  - name: ETS
+    description: Early transmit status.
+    bit_offset: 10
+    bit_size: 1
+  - name: PHYLINK_SR
+    description: read interrupt source.
+    bit_offset: 11
+    bit_size: 1
+  - name: ERS
+    description: Early receive status.
+    bit_offset: 14
+    bit_size: 1
+  - name: AIS
+    description: Abnormal interrupt summary.
+    bit_offset: 15
+    bit_size: 1
+  - name: NIS
+    description: Normal interrupt summary.
+    bit_offset: 16
+    bit_size: 1
+  - name: RPS
+    description: Receive process state.
+    bit_offset: 17
+    bit_size: 3
+  - name: TPS
+    description: Transmit process state.
+    bit_offset: 20
+    bit_size: 3
+  - name: EBS
+    description: Error bits status.
+    bit_offset: 23
+    bit_size: 3
+  - name: MMCS
+    description: MMC status.
+    bit_offset: 27
+    bit_size: 1
+  - name: TSTS
+    description: Time stamp trigger status.
+    bit_offset: 29
+    bit_size: 1
+fieldset/DMATDLAR:
+  description: Ethernet DMA transmit descriptor list. address register.
+  fields:
+  - name: TDLAR
+    description: Start of transmit list.
+    bit_offset: 0
+    bit_size: 32
+fieldset/DMATPDR:
+  description: Ethernet DMA transmit poll demand. register.
+  fields:
+  - name: TPDR
+    description: Transmit poll demand.
+    bit_offset: 0
+    bit_size: 32

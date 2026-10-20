@@ -1,0 +1,180 @@
+# CH564. Drafted from svd/fixed/ch564.svd after splitting SYS into SYS /
+# System_control / GPIO / SLV. Peripheral base map is 0x40400000 (ETH
+# stays at 0x40028xxx as in the fixed SVD). TIMER* renamed to TMR*.
+# UART2/UART3 are derivedFrom UART1 in the SVD (same UART_FULL block).
+# Header vs SVD disagree on some ETH/USB_HSI bases — trust the fixed SVD.
+
+- name: SYS
+  address: 0x40400000
+  registers:
+    kind: sys
+    version: ch564
+    block: SYS
+
+- name: System_control
+  address: 0x40400000
+  registers:
+    kind: system_control
+    version: ch564
+    block: System_control
+
+- name: GPIO
+  address: 0x40400000
+  registers:
+    kind: gpio
+    version: ch564
+    block: GPIO
+
+- name: SLV
+  address: 0x40400000
+  registers:
+    kind: slv
+    version: ch564
+    block: SLV
+
+- name: USBHS_DEV
+  address: 0x40404000
+  registers:
+    kind: usbhs_dev
+    version: ch564
+    block: USBHS_DEV
+
+- name: USBHS_HOST
+  address: 0x40404800
+  registers:
+    kind: usbhs_host
+    version: ch564
+    block: USBHS_HOST
+
+- name: USBHS_HSI
+  address: 0x40405000
+  registers:
+    kind: usbhs_hsi
+    version: ch564
+    block: USBHS_HSI
+
+- name: TMR0
+  address: 0x40408000
+  registers:
+    kind: tmr
+    version: ch564
+    block: TMR_FULL
+
+- name: TMR1
+  address: 0x40408400
+  registers:
+    kind: tmr
+    version: ch564
+    block: TMR_FULL
+
+- name: TMR2
+  address: 0x40408800
+  registers:
+    kind: tmr
+    version: ch564
+    block: TMR_FULL
+
+- name: TMR3
+  address: 0x40408C00
+  registers:
+    kind: tmr
+    version: ch564
+    block: TMR_NODMA
+
+- name: UART2
+  address: 0x40409000
+  registers:
+    kind: uart
+    version: ch564
+    block: UART_FULL
+
+- name: UART3
+  address: 0x40409800
+  registers:
+    kind: uart
+    version: ch564
+    block: UART_FULL
+
+- name: ADC
+  address: 0x4040A000
+  registers:
+    kind: adc
+    version: ch564
+    block: ADC
+
+- name: SPI0
+  address: 0x4040C000
+  registers:
+    kind: spi
+    version: ch564
+    block: SPI_FULL
+
+- name: SPI1
+  address: 0x4040C800
+  registers:
+    kind: spi
+    version: ch564
+    block: SPI_NODMA
+
+- name: UART0
+  address: 0x4040D000
+  registers:
+    kind: uart
+    version: ch564
+    block: UART_FULL
+
+- name: UART1
+  address: 0x4040D800
+  registers:
+    kind: uart
+    version: ch564
+    block: UART_FULL
+
+- name: USBPD
+  address: 0x4040E000
+  registers:
+    kind: usbpd
+    version: ch564
+    block: USBPD
+
+- name: I2C0
+  address: 0x4040F000
+  registers:
+    kind: i2c
+    version: ch564
+    block: I2C
+
+- name: ETHERNET_MAC
+  address: 0x40028000
+  registers:
+    kind: ethernet_mac
+    version: ch564
+    block: ETHERNET_MAC
+
+- name: ETHERNET_MMC
+  address: 0x40028100
+  registers:
+    kind: ethernet_mmc
+    version: ch564
+    block: ETHERNET_MMC
+
+- name: ETHERNET_PTP
+  address: 0x40028700
+  registers:
+    kind: ethernet_ptp
+    version: ch564
+    block: ETHERNET_PTP
+
+- name: ETHERNET_DMA
+  address: 0x40029000
+  registers:
+    kind: ethernet_dma
+    version: ch564
+    block: ETHERNET_DMA
+
+- name: PFIC
+  address: 0xE000E000
+  registers:
+    kind: pfic
+    version: ch564
+    block: PFIC

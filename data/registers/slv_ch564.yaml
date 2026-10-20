@@ -1,0 +1,358 @@
+block/SLV:
+  description: SLV register.
+  items:
+  - name: R8_SLV_CONFIG
+    description: SLV configuration register.
+    byte_offset: 20
+    bit_size: 8
+    fieldset: R8_SLV_CONFIG
+  - name: R8_SLV_DOUT
+    description: SLV data output register.
+    byte_offset: 22
+    bit_size: 8
+    fieldset: R8_SLV_DOUT
+  - name: R8_SLV_STATUS
+    description: SLV status output register.
+    byte_offset: 23
+    bit_size: 8
+    fieldset: R8_SLV_STATUS
+  - name: R8_INT_FLAG_SLV
+    description: SLV interrupt flag register.
+    byte_offset: 66
+    bit_size: 8
+    fieldset: R8_INT_FLAG_SLV
+  - name: R8_INT_SLV_DIN
+    description: SLV data input register.
+    byte_offset: 67
+    bit_size: 8
+    fieldset: R8_INT_SLV_DIN
+  - name: R8_DMA_EN_SLV
+    description: SLV DMA enable register.
+    byte_offset: 384
+    bit_size: 8
+    fieldset: R8_DMA_EN_SLV
+  - name: R8_DMA_MODE_CTRL_SLV
+    description: SLV DMA mode control register.
+    byte_offset: 385
+    bit_size: 8
+    fieldset: R8_DMA_MODE_CTRL_SLV
+  - name: R8_DMA_MODE_EN_SLV
+    description: SLV DMA mode enable register.
+    byte_offset: 386
+    bit_size: 8
+    fieldset: R8_DMA_MODE_EN_SLV
+  - name: R8_DMA_INT_FLAG_SLV
+    description: SLV DMA interrupt flag register.
+    byte_offset: 388
+    bit_size: 8
+    fieldset: R8_DMA_INT_FLAG_SLV
+  - name: R32_WR_DMA_START_ADDR_SLV
+    description: DMA receive mode start address register.
+    byte_offset: 392
+    fieldset: R32_WR_DMA_START_ADDR_SLV
+  - name: R32_WR_DMA_END_ADDR_SLV
+    description: DMA receive mode end address register.
+    byte_offset: 396
+    fieldset: R32_WR_DMA_END_ADDR_SLV
+  - name: R32_RD_DMA_START_ADDR_SLV
+    description: DMA send mode start address register.
+    byte_offset: 404
+    fieldset: R32_RD_DMA_START_ADDR_SLV
+  - name: R32_RD_DMA_END_ADDR_SLV
+    description: DMA send mode end address register.
+    byte_offset: 408
+    fieldset: R32_RD_DMA_END_ADDR_SLV
+  - name: R32_DMA_END_NOW_SLV
+    description: DMA current address register.
+    byte_offset: 412
+    fieldset: R32_DMA_END_NOW_SLV
+  - name: R8_DMA_CMD0_SLV
+    description: DMA mode command word0 register.
+    byte_offset: 416
+    bit_size: 8
+    fieldset: R8_DMA_CMD0_SLV
+  - name: R8_DMA_CMD1_SLV
+    description: DMA mode command word1 register.
+    byte_offset: 417
+    bit_size: 8
+    fieldset: R8_DMA_CMD1_SLV
+  - name: R8_SLV_RESET_CMD
+    description: DMA reset the command word register.
+    byte_offset: 420
+    bit_size: 8
+    fieldset: R8_SLV_RESET_CMD
+  - name: R8_SLV_BUSY
+    description: SLV busy flag register.
+    byte_offset: 421
+    bit_size: 8
+    fieldset: R8_SLV_BUSY
+  - name: R8_OTHER_DATA
+    description: Non-DMA writes to the data register.
+    byte_offset: 432
+    bit_size: 8
+    fieldset: R8_OTHER_DATA
+  - name: R16_DMA_DEC_LEN
+    description: DMA parses length register.
+    byte_offset: 436
+    bit_size: 16
+    fieldset: R16_DMA_DEC_LEN
+  - name: R16_DMA_DEC_OFFSET
+    description: DMA resolves the offset address register.
+    byte_offset: 438
+    bit_size: 16
+    fieldset: R16_DMA_DEC_OFFSET
+fieldset/R16_DMA_DEC_LEN:
+  description: DMA parses length register.
+  bit_size: 16
+  fields:
+  - name: DMA_DEC_LEN
+    description: parse the resulting DMA length.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_DMA_DEC_OFFSET:
+  description: DMA resolves the offset address register.
+  bit_size: 16
+  fields:
+  - name: DMA_DEC_OFFSET
+    description: Resolved DMA address offset.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R32_DMA_END_NOW_SLV:
+  description: DMA current address register.
+  fields:
+  - name: DMA_NOW_ADDR_SLV
+    description: DMA current address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_RD_DMA_END_ADDR_SLV:
+  description: DMA send mode end address register.
+  fields:
+  - name: RD_DMA_START_ADDR_SLV
+    description: DMA send mode end address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_RD_DMA_START_ADDR_SLV:
+  description: DMA send mode start address register.
+  fields:
+  - name: RD_DMA_START_ADDR_SLV
+    description: DMA send mode start address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_WR_DMA_END_ADDR_SLV:
+  description: DMA receive mode end address register.
+  fields:
+  - name: WR_DMA_START_ADDR_SLV
+    description: DMA receive mode end address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R32_WR_DMA_START_ADDR_SLV:
+  description: DMA receive mode start address register.
+  fields:
+  - name: WR_DMA_START_ADDR_SLV
+    description: DMA receive mode start address.
+    bit_offset: 0
+    bit_size: 18
+fieldset/R8_DMA_CMD0_SLV:
+  description: DMA mode command word0 register.
+  bit_size: 8
+  fields:
+  - name: DMA_CMD0_SLV
+    description: command word required to start DMA mode.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_DMA_CMD1_SLV:
+  description: DMA mode command word1 register.
+  bit_size: 8
+  fields:
+  - name: DMA_CMD1_SLV
+    description: command word required to start DMA mode.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_DMA_EN_SLV:
+  description: SLV DMA enable register.
+  bit_size: 8
+  fields:
+  - name: RB_DMA_EN_SLV
+    description: SLV DMA mode enable control bit.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_DMA_RESP_IE_SLV
+    description: SLV DMA error transmission interrupts enable control bit.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_DMA_END_IE_SLV
+    description: SLV DMA error transmission end enable control bit.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_DMA_LOOP_EN_SLV
+    description: SLV DMA cyclic address mode control bits.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_DMA_FIFO_OV_IE_SLV
+    description: The FIFO full state interrupts the enable bit.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_DMA_OTHER_IE_SLV
+    description: when in compatibility mode, Transmission of non-DMA data. state interrupts the enable bit.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_DMA_WR_8BIT
+    description: selection of transfer data length for DMA write operations.
+    bit_offset: 6
+    bit_size: 1
+fieldset/R8_DMA_INT_FLAG_SLV:
+  description: SLV DMA interrupt flag register.
+  bit_size: 8
+  fields:
+  - name: WR_DMA_END_IF
+    description: DMA receive mode transmission end flag bit.
+    bit_offset: 0
+    bit_size: 1
+  - name: WR_DMA_RESP_IF
+    description: DMA receive mode transmission error flag bit.
+    bit_offset: 1
+    bit_size: 1
+  - name: RD_DMA_END_IF
+    description: DMA occurrence mode transmission end flag bit.
+    bit_offset: 2
+    bit_size: 1
+  - name: RD_DMA_RESP_IF
+    description: DMA occurrence mode transmission error flag bit.
+    bit_offset: 3
+    bit_size: 1
+  - name: WR_DMA_OV_IF
+    description: input FIFO full flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: WR_OTHER_IF
+    description: data are written to the flag bit.
+    bit_offset: 5
+    bit_size: 1
+  - name: DATA_IN_FIFO_EMPTY
+    description: Whether DATA_IN_FIFO is empty.
+    bit_offset: 6
+    bit_size: 1
+fieldset/R8_DMA_MODE_CTRL_SLV:
+  description: SLV DMA mode control register.
+  bit_size: 8
+  fields:
+  - name: CMD0_WR_MODE
+    description: DMA transfer command word 0 read and write type.
+    bit_offset: 6
+    bit_size: 1
+  - name: CMD1_WR_MODE
+    description: DMA transfer command word 1 read and write type.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_DMA_MODE_EN_SLV:
+  description: SLV DMA mode enable register.
+  bit_size: 8
+  fields:
+  - name: CMD0_EN
+    description: DMA transfer command word 0 control bit.
+    bit_offset: 0
+    bit_size: 1
+  - name: CMD1_EN
+    description: DMA transfer command word 1 control bit.
+    bit_offset: 1
+    bit_size: 1
+  - name: DMA_CMD_MODE1
+    description: DMA transfer command word mode1.
+    bit_offset: 3
+    bit_size: 1
+fieldset/R8_INT_FLAG_SLV:
+  description: SLV interrupt flag register.
+  bit_size: 8
+  fields:
+  - name: RB_IF_SLV_CMD1
+    description: The state of the original SLV address line 1.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_IF_SLV_CMD1_SYNC
+    description: The status of the SLV address line 1 after synchronization.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_IF_SLV_CMD0
+    description: The original SLV command input flag bit.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_IF_SLV_CMD
+    description: The synchronized SLV command input flag bits.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_IF_SLV_WR
+    description: SLV data input interrupt flag bit.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_IF_SLV_RD
+    description: SLV data output interrupt flag bit.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_INT_SLV_DIN:
+  description: SLV data input register.
+  bit_size: 8
+  fields:
+  - name: INT_SLV_DIN
+    description: SLV data input.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_OTHER_DATA:
+  description: Non-DMA writes to the data register.
+  bit_size: 8
+  fields:
+  - name: OTHER_DATA
+    description: Non-DMA writes to the data.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SLV_BUSY:
+  description: SLV busy flag register.
+  bit_size: 8
+  fields:
+  - name: SLV_BUSY
+    description: SLV busy flag.
+    bit_offset: 0
+    bit_size: 1
+fieldset/R8_SLV_CONFIG:
+  description: SLV configuration register.
+  bit_size: 8
+  fields:
+  - name: RB_SLV_ENABLE
+    description: SLV enable bit.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SLV_IE_CMD
+    description: The command writes the interrupt enable bit.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SLV_IE_WR
+    description: Data writes the interrupt enable bit.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_SLV_IE_RD
+    description: Data read the interrupt enable bit.
+    bit_offset: 3
+    bit_size: 1
+fieldset/R8_SLV_DOUT:
+  description: SLV data output register.
+  bit_size: 8
+  fields:
+  - name: SLV_DOUT
+    description: SLV data output.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SLV_RESET_CMD:
+  description: DMA reset the command word register.
+  bit_size: 8
+  fields:
+  - name: SLV_RESET_CMD
+    description: A global reset is generated upon receipt of this command.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_SLV_STATUS:
+  description: SLV status output register.
+  bit_size: 8
+  fields:
+  - name: SLV_STATUS
+    description: SLV status output.
+    bit_offset: 0
+    bit_size: 8

@@ -1,0 +1,777 @@
+block/PFIC:
+  description: Programmable Fast Interrupt. Controller.
+  items:
+  - name: ISR1
+    description: Interrupt Status. Register.
+    byte_offset: 0
+    access: Read
+    fieldset: ISR1
+  - name: ISR2
+    description: Interrupt Status. Register.
+    byte_offset: 4
+    access: Read
+    fieldset: ISR2
+  - name: IPR1
+    description: Interrupt Pending Register.
+    byte_offset: 32
+    access: Read
+    fieldset: IPR1
+  - name: IPR2
+    description: Interrupt Pending Register.
+    byte_offset: 36
+    access: Read
+    fieldset: IPR2
+  - name: ITHRESDR
+    description: Interrupt Priority. Register.
+    byte_offset: 64
+    fieldset: ITHRESDR
+  - name: CFGR
+    description: Interrupt Config Register.
+    byte_offset: 72
+    fieldset: CFGR
+  - name: GISR
+    description: Interrupt Global Register.
+    byte_offset: 76
+    access: Read
+    fieldset: GISR
+  - name: VTFIDR
+    description: ID Config Register.
+    byte_offset: 80
+    fieldset: VTFIDR
+  - name: VTFADDRR0
+    description: Interrupt 0 address. Register.
+    byte_offset: 96
+    fieldset: VTFADDRR0
+  - name: VTFADDRR1
+    description: Interrupt 1 address. Register.
+    byte_offset: 100
+    fieldset: VTFADDRR1
+  - name: VTFADDRR2
+    description: Interrupt 2 address. Register.
+    byte_offset: 104
+    fieldset: VTFADDRR2
+  - name: VTFADDRR3
+    description: Interrupt 3 address. Register.
+    byte_offset: 108
+    fieldset: VTFADDRR3
+  - name: IENR1
+    description: Interrupt Setting Register.
+    byte_offset: 256
+    access: Write
+    fieldset: IENR1
+  - name: IENR2
+    description: Interrupt Setting Register.
+    byte_offset: 260
+    access: Write
+    fieldset: IENR2
+  - name: IRER1
+    description: Interrupt Clear Register.
+    byte_offset: 384
+    access: Write
+    fieldset: IRER1
+  - name: IRER2
+    description: Interrupt Clear Register.
+    byte_offset: 388
+    access: Write
+    fieldset: IRER2
+  - name: IPSR1
+    description: Interrupt Pending Register.
+    byte_offset: 512
+    access: Write
+    fieldset: IPSR1
+  - name: IPSR2
+    description: Interrupt Pending Register.
+    byte_offset: 516
+    access: Write
+    fieldset: IPSR2
+  - name: IPRR1
+    description: Interrupt Pending Clear Register.
+    byte_offset: 640
+    access: Write
+    fieldset: IPRR1
+  - name: IPRR2
+    description: Interrupt Pending Clear Register.
+    byte_offset: 644
+    access: Write
+    fieldset: IPRR2
+  - name: IACTR1
+    description: Interrupt ACTIVE Register.
+    byte_offset: 768
+    access: Read
+    fieldset: IACTR1
+  - name: IACTR2
+    description: Interrupt ACTIVE Register.
+    byte_offset: 772
+    access: Read
+    fieldset: IACTR2
+  - name: IPRIOR0
+    description: Interrupt Priority Register.
+    byte_offset: 1024
+    bit_size: 8
+  - name: IPRIOR1
+    description: Interrupt Priority Register.
+    byte_offset: 1025
+    bit_size: 8
+  - name: IPRIOR2
+    description: Interrupt Priority Register.
+    byte_offset: 1026
+    bit_size: 8
+  - name: IPRIOR3
+    description: Interrupt Priority Register.
+    byte_offset: 1027
+    bit_size: 8
+  - name: IPRIOR4
+    description: Interrupt Priority Register.
+    byte_offset: 1028
+    bit_size: 8
+  - name: IPRIOR5
+    description: Interrupt Priority Register.
+    byte_offset: 1029
+    bit_size: 8
+  - name: IPRIOR6
+    description: Interrupt Priority Register.
+    byte_offset: 1030
+    bit_size: 8
+  - name: IPRIOR7
+    description: Interrupt Priority Register.
+    byte_offset: 1031
+    bit_size: 8
+  - name: IPRIOR8
+    description: Interrupt Priority Register.
+    byte_offset: 1032
+    bit_size: 8
+  - name: IPRIOR9
+    description: Interrupt Priority Register.
+    byte_offset: 1033
+    bit_size: 8
+  - name: IPRIOR10
+    description: Interrupt Priority Register.
+    byte_offset: 1034
+    bit_size: 8
+  - name: IPRIOR11
+    description: Interrupt Priority Register.
+    byte_offset: 1035
+    bit_size: 8
+  - name: IPRIOR12
+    description: Interrupt Priority Register.
+    byte_offset: 1036
+    bit_size: 8
+  - name: IPRIOR13
+    description: Interrupt Priority Register.
+    byte_offset: 1037
+    bit_size: 8
+  - name: IPRIOR14
+    description: Interrupt Priority Register.
+    byte_offset: 1038
+    bit_size: 8
+  - name: IPRIOR15
+    description: Interrupt Priority Register.
+    byte_offset: 1039
+    bit_size: 8
+  - name: IPRIOR16
+    description: Interrupt Priority Register.
+    byte_offset: 1040
+    bit_size: 8
+  - name: IPRIOR17
+    description: Interrupt Priority Register.
+    byte_offset: 1041
+    bit_size: 8
+  - name: IPRIOR18
+    description: Interrupt Priority Register.
+    byte_offset: 1042
+    bit_size: 8
+  - name: IPRIOR19
+    description: Interrupt Priority Register.
+    byte_offset: 1043
+    bit_size: 8
+  - name: IPRIOR20
+    description: Interrupt Priority Register.
+    byte_offset: 1044
+    bit_size: 8
+  - name: IPRIOR21
+    description: Interrupt Priority Register.
+    byte_offset: 1045
+    bit_size: 8
+  - name: IPRIOR22
+    description: Interrupt Priority Register.
+    byte_offset: 1046
+    bit_size: 8
+  - name: IPRIOR23
+    description: Interrupt Priority Register.
+    byte_offset: 1047
+    bit_size: 8
+  - name: IPRIOR24
+    description: Interrupt Priority Register.
+    byte_offset: 1048
+    bit_size: 8
+  - name: IPRIOR25
+    description: Interrupt Priority Register.
+    byte_offset: 1049
+    bit_size: 8
+  - name: IPRIOR26
+    description: Interrupt Priority Register.
+    byte_offset: 1050
+    bit_size: 8
+  - name: IPRIOR27
+    description: Interrupt Priority Register.
+    byte_offset: 1051
+    bit_size: 8
+  - name: IPRIOR28
+    description: Interrupt Priority Register.
+    byte_offset: 1052
+    bit_size: 8
+  - name: IPRIOR29
+    description: Interrupt Priority Register.
+    byte_offset: 1053
+    bit_size: 8
+  - name: IPRIOR30
+    description: Interrupt Priority Register.
+    byte_offset: 1054
+    bit_size: 8
+  - name: IPRIOR31
+    description: Interrupt Priority Register.
+    byte_offset: 1055
+    bit_size: 8
+  - name: IPRIOR32
+    description: Interrupt Priority Register.
+    byte_offset: 1056
+    bit_size: 8
+  - name: IPRIOR33
+    description: Interrupt Priority Register.
+    byte_offset: 1057
+    bit_size: 8
+  - name: IPRIOR34
+    description: Interrupt Priority Register.
+    byte_offset: 1058
+    bit_size: 8
+  - name: IPRIOR35
+    description: Interrupt Priority Register.
+    byte_offset: 1059
+    bit_size: 8
+  - name: IPRIOR36
+    description: Interrupt Priority Register.
+    byte_offset: 1060
+    bit_size: 8
+  - name: IPRIOR37
+    description: Interrupt Priority Register.
+    byte_offset: 1061
+    bit_size: 8
+  - name: IPRIOR38
+    description: Interrupt Priority Register.
+    byte_offset: 1062
+    bit_size: 8
+  - name: IPRIOR39
+    description: Interrupt Priority Register.
+    byte_offset: 1063
+    bit_size: 8
+  - name: IPRIOR40
+    description: Interrupt Priority Register.
+    byte_offset: 1064
+    bit_size: 8
+  - name: IPRIOR41
+    description: Interrupt Priority Register.
+    byte_offset: 1065
+    bit_size: 8
+  - name: IPRIOR42
+    description: Interrupt Priority Register.
+    byte_offset: 1066
+    bit_size: 8
+  - name: IPRIOR43
+    description: Interrupt Priority Register.
+    byte_offset: 1067
+    bit_size: 8
+  - name: IPRIOR44
+    description: Interrupt Priority Register.
+    byte_offset: 1068
+    bit_size: 8
+  - name: IPRIOR45
+    description: Interrupt Priority Register.
+    byte_offset: 1069
+    bit_size: 8
+  - name: IPRIOR46
+    description: Interrupt Priority Register.
+    byte_offset: 1070
+    bit_size: 8
+  - name: IPRIOR47
+    description: Interrupt Priority Register.
+    byte_offset: 1071
+    bit_size: 8
+  - name: IPRIOR48
+    description: Interrupt Priority Register.
+    byte_offset: 1072
+    bit_size: 8
+  - name: IPRIOR49
+    description: Interrupt Priority Register.
+    byte_offset: 1073
+    bit_size: 8
+  - name: IPRIOR50
+    description: Interrupt Priority Register.
+    byte_offset: 1074
+    bit_size: 8
+  - name: IPRIOR51
+    description: Interrupt Priority Register.
+    byte_offset: 1075
+    bit_size: 8
+  - name: IPRIOR52
+    description: Interrupt Priority Register.
+    byte_offset: 1076
+    bit_size: 8
+  - name: IPRIOR53
+    description: Interrupt Priority Register.
+    byte_offset: 1077
+    bit_size: 8
+  - name: IPRIOR54
+    description: Interrupt Priority Register.
+    byte_offset: 1078
+    bit_size: 8
+  - name: IPRIOR55
+    description: Interrupt Priority Register.
+    byte_offset: 1079
+    bit_size: 8
+  - name: IPRIOR56
+    description: Interrupt Priority Register.
+    byte_offset: 1080
+    bit_size: 8
+  - name: IPRIOR57
+    description: Interrupt Priority Register.
+    byte_offset: 1081
+    bit_size: 8
+  - name: IPRIOR58
+    description: Interrupt Priority Register.
+    byte_offset: 1082
+    bit_size: 8
+  - name: IPRIOR59
+    description: Interrupt Priority Register.
+    byte_offset: 1083
+    bit_size: 8
+  - name: IPRIOR60
+    description: Interrupt Priority Register.
+    byte_offset: 1084
+    bit_size: 8
+  - name: IPRIOR61
+    description: Interrupt Priority Register.
+    byte_offset: 1085
+    bit_size: 8
+  - name: IPRIOR62
+    description: Interrupt Priority Register.
+    byte_offset: 1086
+    bit_size: 8
+  - name: IPRIOR63
+    description: Interrupt Priority Register.
+    byte_offset: 1087
+    bit_size: 8
+  - name: IPRIOR64
+    description: Interrupt Priority Register.
+    byte_offset: 1088
+    bit_size: 8
+  - name: IPRIOR65
+    description: Interrupt Priority Register.
+    byte_offset: 1089
+    bit_size: 8
+  - name: IPRIOR66
+    description: Interrupt Priority Register.
+    byte_offset: 1090
+    bit_size: 8
+  - name: IPRIOR67
+    description: Interrupt Priority Register.
+    byte_offset: 1091
+    bit_size: 8
+  - name: IPRIOR68
+    description: Interrupt Priority Register.
+    byte_offset: 1092
+    bit_size: 8
+  - name: SCTLR
+    description: System Control Register.
+    byte_offset: 3344
+    fieldset: SCTLR
+  - name: STK_CTLR
+    description: System counter control register.
+    byte_offset: 4096
+    fieldset: STK_CTLR
+  - name: STK_SR
+    description: System START.
+    byte_offset: 4100
+    fieldset: STK_SR
+  - name: STK_CNTL
+    description: System counter low register.
+    byte_offset: 4104
+    fieldset: STK_CNTL
+  - name: STK_CNTH
+    description: System counter high register.
+    byte_offset: 4108
+    fieldset: STK_CNTH
+  - name: STK_CMPLR
+    description: System compare low register.
+    byte_offset: 4112
+    fieldset: STK_CMPLR
+  - name: STK_CMPHR
+    description: System compare high register.
+    byte_offset: 4116
+    fieldset: STK_CMPHR
+fieldset/CFGR:
+  description: Interrupt Config Register.
+  fields:
+  - name: RSTSYS
+    description: RESETSYS.
+    bit_offset: 7
+    bit_size: 1
+  - name: KEYCODE
+    description: KEYCODE.
+    bit_offset: 16
+    bit_size: 16
+fieldset/GISR:
+  description: Interrupt Global Register.
+  fields:
+  - name: NESTSTA
+    description: NESTSTA.
+    bit_offset: 0
+    bit_size: 8
+  - name: GACTSTA
+    description: GACTSTA.
+    bit_offset: 8
+    bit_size: 1
+  - name: GPENDSTA
+    description: GPENDSTA.
+    bit_offset: 9
+    bit_size: 1
+fieldset/IACTR1:
+  description: Interrupt ACTIVE Register.
+  fields:
+  - name: IACTS2_3
+    description: IACTS.
+    bit_offset: 2
+    bit_size: 2
+  - name: IACTS12
+    description: IACTS.
+    bit_offset: 12
+    bit_size: 1
+  - name: IACTS14
+    description: IACTS.
+    bit_offset: 14
+    bit_size: 1
+  - name: IACTS16_31
+    description: IACTS.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IACTR2:
+  description: Interrupt ACTIVE Register.
+  fields:
+  - name: IACTS
+    description: IACTS.
+    bit_offset: 0
+    bit_size: 8
+fieldset/IENR1:
+  description: Interrupt Setting Register.
+  fields:
+  - name: INTEN12
+    description: INTEN12.
+    bit_offset: 12
+    bit_size: 1
+  - name: INTEN14
+    description: INTEN14.
+    bit_offset: 14
+    bit_size: 1
+  - name: INTEN16_31
+    description: INTEN16_31.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IENR2:
+  description: Interrupt Setting Register.
+  fields:
+  - name: INTEN
+    description: INTEN.
+    bit_offset: 0
+    bit_size: 8
+fieldset/IPR1:
+  description: Interrupt Pending Register.
+  fields:
+  - name: PENDSTA2_3
+    description: PENDSTA.
+    bit_offset: 2
+    bit_size: 2
+  - name: PENDSTA12
+    description: PENDSTA.
+    bit_offset: 12
+    bit_size: 1
+  - name: PENDSTA14
+    description: PENDSTA.
+    bit_offset: 14
+    bit_size: 1
+  - name: PENDSTA16_31
+    description: PENDSTA.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IPR2:
+  description: Interrupt Pending Register.
+  fields:
+  - name: PENDSTA
+    description: PENDSTA.
+    bit_offset: 0
+    bit_size: 8
+fieldset/IPRR1:
+  description: Interrupt Pending Clear Register.
+  fields:
+  - name: PENDRST2_3
+    description: PENDRESET.
+    bit_offset: 2
+    bit_size: 2
+  - name: PENDRST12
+    description: PENDRESET.
+    bit_offset: 12
+    bit_size: 1
+  - name: PENDRST14
+    description: PENDRESET.
+    bit_offset: 14
+    bit_size: 1
+  - name: PENDRST16_31
+    description: PENDRESET.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IPRR2:
+  description: Interrupt Pending Clear Register.
+  fields:
+  - name: PENDRST
+    description: PENDRESET.
+    bit_offset: 0
+    bit_size: 8
+fieldset/IPSR1:
+  description: Interrupt Pending Register.
+  fields:
+  - name: PENDSET2_3
+    description: PENDSET.
+    bit_offset: 2
+    bit_size: 2
+  - name: PENDSET12
+    description: PENDSET.
+    bit_offset: 12
+    bit_size: 1
+  - name: PENDSET14
+    description: PENDSET.
+    bit_offset: 14
+    bit_size: 1
+  - name: PENDSET16_31
+    description: PENDSET.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IPSR2:
+  description: Interrupt Pending Register.
+  fields:
+  - name: PENDSET
+    description: PENDSET.
+    bit_offset: 0
+    bit_size: 8
+fieldset/IRER1:
+  description: Interrupt Clear Register.
+  fields:
+  - name: INTRSET12
+    description: INTRSET.
+    bit_offset: 12
+    bit_size: 1
+  - name: INTRSET14
+    description: INTRSET.
+    bit_offset: 14
+    bit_size: 1
+  - name: INTRSET16_31
+    description: INTRSET.
+    bit_offset: 16
+    bit_size: 16
+fieldset/IRER2:
+  description: Interrupt Clear Register.
+  fields:
+  - name: INTRSET
+    description: INTRSET.
+    bit_offset: 0
+    bit_size: 8
+fieldset/ISR1:
+  description: Interrupt Status. Register.
+  fields:
+  - name: INTENSTA2_3
+    description: Interrupt ID Status.
+    bit_offset: 2
+    bit_size: 2
+  - name: INTENSTA12
+    description: Interrupt ID Status.
+    bit_offset: 12
+    bit_size: 1
+  - name: INTENSTA14
+    description: Interrupt ID Status.
+    bit_offset: 14
+    bit_size: 1
+  - name: INTENSTA16_31
+    description: Interrupt ID Status.
+    bit_offset: 16
+    bit_size: 16
+fieldset/ISR2:
+  description: Interrupt Status. Register.
+  fields:
+  - name: INTENSTA
+    description: Interrupt ID Status.
+    bit_offset: 0
+    bit_size: 8
+fieldset/ITHRESDR:
+  description: Interrupt Priority. Register.
+  fields:
+  - name: THRESHOLD
+    description: THRESHOLD.
+    bit_offset: 0
+    bit_size: 8
+fieldset/SCTLR:
+  description: System Control Register.
+  fields:
+  - name: SLEEPONEXIT
+    description: SLEEPONEXIT.
+    bit_offset: 1
+    bit_size: 1
+  - name: SLEEPDEEP
+    description: SLEEPDEEP.
+    bit_offset: 2
+    bit_size: 1
+  - name: WFITOWFE
+    description: WFITOWFE.
+    bit_offset: 3
+    bit_size: 1
+  - name: SEVONPEND
+    description: SEVONPEND.
+    bit_offset: 4
+    bit_size: 1
+  - name: SETEVENT
+    description: SETEVENT.
+    bit_offset: 5
+    bit_size: 1
+  - name: LOCKUP
+    description: Lock_up.
+    bit_offset: 6
+    bit_size: 1
+  - name: SYSRESET
+    description: SYSRESET.
+    bit_offset: 31
+    bit_size: 1
+fieldset/STK_CMPHR:
+  description: System compare high register.
+  fields:
+  - name: CMPH
+    description: CMPH.
+    bit_offset: 0
+    bit_size: 32
+fieldset/STK_CMPLR:
+  description: System compare low register.
+  fields:
+  - name: CMPL
+    description: CMPL.
+    bit_offset: 0
+    bit_size: 32
+fieldset/STK_CNTH:
+  description: System counter high register.
+  fields:
+  - name: CNTH
+    description: CNTH.
+    bit_offset: 0
+    bit_size: 32
+fieldset/STK_CNTL:
+  description: System counter low register.
+  fields:
+  - name: CNTL
+    description: CNTL.
+    bit_offset: 0
+    bit_size: 32
+fieldset/STK_CTLR:
+  description: System counter control register.
+  fields:
+  - name: STE
+    description: System counter enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: STIE
+    description: System counter interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: STCLK
+    description: System selects the clock source.
+    bit_offset: 2
+    bit_size: 1
+  - name: STRE
+    description: System reload register.
+    bit_offset: 3
+    bit_size: 1
+  - name: MODE
+    description: System Mode.
+    bit_offset: 4
+    bit_size: 1
+  - name: INIT
+    description: System Initialization update.
+    bit_offset: 5
+    bit_size: 1
+  - name: SWIE
+    description: System software triggered interrupts enable.
+    bit_offset: 31
+    bit_size: 1
+fieldset/STK_SR:
+  description: System START.
+  fields:
+  - name: CNTIF
+    description: CNTIF.
+    bit_offset: 0
+    bit_size: 1
+fieldset/VTFADDRR0:
+  description: Interrupt 0 address. Register.
+  fields:
+  - name: VTF0EN
+    description: VTF0EN.
+    bit_offset: 0
+    bit_size: 1
+  - name: ADDR0
+    description: ADDR0.
+    bit_offset: 1
+    bit_size: 31
+fieldset/VTFADDRR1:
+  description: Interrupt 1 address. Register.
+  fields:
+  - name: VTF1EN
+    description: VTF1EN.
+    bit_offset: 0
+    bit_size: 1
+  - name: ADDR1
+    description: ADDR1.
+    bit_offset: 1
+    bit_size: 31
+fieldset/VTFADDRR2:
+  description: Interrupt 2 address. Register.
+  fields:
+  - name: VTF2EN
+    description: VTF2EN.
+    bit_offset: 0
+    bit_size: 1
+  - name: ADDR2
+    description: ADDR2.
+    bit_offset: 1
+    bit_size: 31
+fieldset/VTFADDRR3:
+  description: Interrupt 3 address. Register.
+  fields:
+  - name: VTF3EN
+    description: VTF3EN.
+    bit_offset: 0
+    bit_size: 1
+  - name: ADDR3
+    description: ADDR3.
+    bit_offset: 1
+    bit_size: 31
+fieldset/VTFIDR:
+  description: ID Config Register.
+  fields:
+  - name: VTFID0
+    description: VTFID0.
+    bit_offset: 0
+    bit_size: 8
+  - name: VTFID1
+    description: VTFID1.
+    bit_offset: 8
+    bit_size: 8
+  - name: VTFID2
+    description: VTFID2.
+    bit_offset: 16
+    bit_size: 8
+  - name: VTFID3
+    description: VTFID3.
+    bit_offset: 24
+    bit_size: 8

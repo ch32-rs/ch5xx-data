@@ -1,0 +1,190 @@
+block/ETHERNET_MMC:
+  description: 'Ethernet: MAC management counters.'
+  items:
+  - name: MMCCR
+    description: Ethernet MMC control register. (ETH_MMCCR).
+    byte_offset: 0
+    fieldset: MMCCR
+  - name: MMCRIR
+    description: Ethernet MMC receive interrupt register. (ETH_MMCRIR).
+    byte_offset: 4
+    fieldset: MMCRIR
+  - name: MMCTIR
+    description: Ethernet MMC transmit interrupt register. (ETH_MMCTIR).
+    byte_offset: 8
+    fieldset: MMCTIR
+  - name: MMCRIMR
+    description: Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR).
+    byte_offset: 12
+    fieldset: MMCRIMR
+  - name: MMCTIMR
+    description: Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR).
+    byte_offset: 16
+    fieldset: MMCTIMR
+  - name: MMCTGFSCCR
+    description: Ethernet MMC transmitted good frames after a. single collision counter.
+    byte_offset: 76
+    access: Read
+    fieldset: MMCTGFSCCR
+  - name: MMCTGFMSCCR
+    description: Ethernet MMC transmitted good frames after. more than a single collision.
+    byte_offset: 80
+    access: Read
+    fieldset: MMCTGFMSCCR
+  - name: MMCTGFCR
+    description: Ethernet MMC transmitted good frames counter. register.
+    byte_offset: 104
+    access: Read
+    fieldset: MMCTGFCR
+  - name: MMCRFCECR
+    description: Ethernet MMC received frames with CRC error. counter register.
+    byte_offset: 148
+    access: Read
+    fieldset: MMCRFCECR
+  - name: MMCRFAECR
+    description: Ethernet MMC received frames with alignment. error counter register.
+    byte_offset: 152
+    access: Read
+    fieldset: MMCRFAECR
+  - name: MMCRAFCR
+    description: MMC receive the frame count register.
+    byte_offset: 156
+    access: Read
+    fieldset: MMCRAFCR
+  - name: STATE
+    description: Ethernet state machine register.
+    byte_offset: 160
+    access: Read
+    fieldset: STATE
+  - name: MMCRGUFCR
+    description: MMC received good unicast frames counter. register.
+    byte_offset: 196
+    access: Read
+    fieldset: MMCRGUFCR
+fieldset/MMCCR:
+  description: Ethernet MMC control register. (ETH_MMCCR).
+  fields:
+  - name: CR
+    description: Counter reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: CSR
+    description: Counter stop rollover.
+    bit_offset: 1
+    bit_size: 1
+  - name: ROR
+    description: Reset on read.
+    bit_offset: 2
+    bit_size: 1
+  - name: MCF
+    description: MMC counter freeze.
+    bit_offset: 3
+    bit_size: 1
+fieldset/MMCRAFCR:
+  description: MMC receive the frame count register.
+  fields:
+  - name: RAFCR
+    description: The number of all Ethernet MMC frame received.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCRFAECR:
+  description: Ethernet MMC received frames with alignment. error counter register.
+  fields:
+  - name: RFAEC
+    description: Received frames with alignment error. counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCRFCECR:
+  description: Ethernet MMC received frames with CRC error. counter register.
+  fields:
+  - name: RFCFC
+    description: Received frames with CRC error. counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCRGUFCR:
+  description: MMC received good unicast frames counter. register.
+  fields:
+  - name: RGUFC
+    description: Received good unicast frames. counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCRIMR:
+  description: Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR).
+  fields:
+  - name: RFCEM
+    description: Received frame CRC error. mask.
+    bit_offset: 5
+    bit_size: 1
+  - name: RFAEM
+    description: Received frames alignment error. mask.
+    bit_offset: 6
+    bit_size: 1
+  - name: RGUFM
+    description: Received good unicast frames. mask.
+    bit_offset: 17
+    bit_size: 1
+fieldset/MMCRIR:
+  description: Ethernet MMC receive interrupt register. (ETH_MMCRIR).
+  fields:
+  - name: RFCES
+    description: Received frames CRC error. status.
+    bit_offset: 5
+    bit_size: 1
+  - name: RGUFS
+    description: Received Good Unicast Frames. Status.
+    bit_offset: 17
+    bit_size: 1
+fieldset/MMCTGFCR:
+  description: Ethernet MMC transmitted good frames counter. register.
+  fields:
+  - name: TGFC
+    description: Transmitted good frames. counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCTGFMSCCR:
+  description: Ethernet MMC transmitted good frames after. more than a single collision.
+  fields:
+  - name: TGFMSCC
+    description: Transmitted good frames after more than. a single collision counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCTGFSCCR:
+  description: Ethernet MMC transmitted good frames after a. single collision counter.
+  fields:
+  - name: TGFSCC
+    description: Transmitted good frames after a single. collision counter.
+    bit_offset: 0
+    bit_size: 32
+fieldset/MMCTIMR:
+  description: Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR).
+  fields:
+  - name: TGFSCM
+    description: Transmitted good frames single collision. mask.
+    bit_offset: 14
+    bit_size: 1
+  - name: TGFMSCM
+    description: Transmitted good frames more single. collision mask.
+    bit_offset: 15
+    bit_size: 1
+  - name: TGFM
+    description: Transmitted good frames. mask.
+    bit_offset: 21
+    bit_size: 1
+fieldset/MMCTIR:
+  description: Ethernet MMC transmit interrupt register. (ETH_MMCTIR).
+  fields:
+  - name: TGFS
+    description: Transmitted good frames. status.
+    bit_offset: 21
+    bit_size: 1
+fieldset/STATE:
+  description: Ethernet state machine register.
+  fields:
+  - name: ETX_STATE
+    description: Ethernet receiving state machine.
+    bit_offset: 0
+    bit_size: 3
+  - name: ERX_STATE
+    description: Ethernet sending state machine.
+    bit_offset: 8
+    bit_size: 3

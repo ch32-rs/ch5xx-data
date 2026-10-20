@@ -1,0 +1,58 @@
+# CH564, from Studio EVT (ISP564.h, Link.ld, Core/core_riscv.h). QingKe V4J.
+# Address map is mostly 0x40400000; ETH remains at 0x40028xxx per fixed SVD.
+#
+# Flash+RAM is reconfigurable (GLOB_MEM_CFG). Default ld is FLASH 80K +
+# FLASH1 wait-zone + RAM 64K inside a 192KB code window. Model the full
+# 192KB CODEFLASH @ 0 and DATAFLASH 32KB @ 0x30000 (ISP564), with SRAM 64K
+# @ 0x20000000 for the default config. Packages from Studio templates;
+# GetCHIPID quotes 0x564x05x8 — use 0x64000000 as the package device_id.
+name: CH564
+family: QingKe RISC-V-based MCU
+subfamily: 480Mbps Hi-Speed USB and 100M Ethernet MCU
+product_type: QingKe V4J core
+packages:
+  - name: CH564C
+    package: QFN28
+    device_id: 0x64000000
+  - name: CH564F
+    package: QFN48
+    device_id: 0x64000000
+  - name: CH564L
+    package: LQFP128
+    device_id: 0x64000000
+  - name: CH564Q
+    package: LQFP64
+    device_id: 0x64000000
+memory:
+  - name: CODEFLASH
+    kind: flash
+    address: 0
+    size: 192K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x30000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 1
+  - name: SRAM
+    kind: ram
+    address: 0x20000000
+    size: 64K
+docs:
+  - type: homepage
+    title: CH564 product page
+    name: ""
+    url: https://www.wch.cn/products/CH564.html
+cores:
+  - name: qingke-v4j
+    arch: riscv
+    peripherals: []
+    include_peripherals:
+      - "../family/CH564.yaml"
+    include_interrupts: "../interrupts/CH564.yaml"

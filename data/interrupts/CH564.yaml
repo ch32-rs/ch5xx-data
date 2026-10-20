@@ -1,0 +1,26 @@
+# CH564. From svd/fixed/ch564.svd / startup_CH564.S (QingKe IRQ base 16).
+# Timer names use TMR* to match the family peripheral list.
+I2C_EV: 16
+I2C_ER: 17
+ETH: 18
+USBPD: 19
+TMR0: 20
+TMR1: 21
+TMR2: 22
+TMR3: 23
+SPI0: 24
+SPI1: 25
+UART0: 26
+UART1: 27
+PA: 28
+PB: 29
+PD: 30
+ADC: 31
+SLV: 32
+USBHS_HOST: 33
+USBHS_DEV: 34
+UART2: 35
+UART3: 36
+ETHWakeUP: 37
+USBWakeup: 38
+USBPDWakeUP: 39

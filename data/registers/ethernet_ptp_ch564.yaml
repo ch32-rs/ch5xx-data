@@ -1,0 +1,128 @@
+block/ETHERNET_PTP:
+  description: 'Ethernet: Precision time protocol.'
+  items:
+  - name: PTPTSCR
+    description: Ethernet PTP time stamp control register. (ETH_PTPTSCR).
+    byte_offset: 0
+    fieldset: PTPTSCR
+  - name: PTPSSIR
+    description: Ethernet PTP subsecond increment. register.
+    byte_offset: 4
+    fieldset: PTPSSIR
+  - name: PTPTSHR
+    description: Ethernet PTP time stamp high. register.
+    byte_offset: 8
+    access: Read
+    fieldset: PTPTSHR
+  - name: PTPTSLR
+    description: Ethernet PTP time stamp low register. (ETH_PTPTSLR).
+    byte_offset: 12
+    access: Read
+    fieldset: PTPTSLR
+  - name: PTPTSHUR
+    description: Ethernet PTP time stamp high update. register.
+    byte_offset: 16
+    fieldset: PTPTSHUR
+  - name: PTPTSLUR
+    description: Ethernet PTP time stamp low update register. (ETH_PTPTSLUR).
+    byte_offset: 20
+    fieldset: PTPTSLUR
+  - name: PTPTSAR
+    description: Ethernet PTP time stamp addend. register.
+    byte_offset: 24
+    fieldset: PTPTSAR
+  - name: PTPTTHR
+    description: Ethernet PTP target time high. register.
+    byte_offset: 28
+    fieldset: PTPTTHR
+  - name: PTPTTLR
+    description: Ethernet PTP target time low. register.
+    byte_offset: 32
+    fieldset: PTPTTLR
+fieldset/PTPSSIR:
+  description: Ethernet PTP subsecond increment. register.
+  fields:
+  - name: STSSI
+    description: System time subsecond. increment.
+    bit_offset: 0
+    bit_size: 8
+fieldset/PTPTSAR:
+  description: Ethernet PTP time stamp addend. register.
+  fields:
+  - name: TSA
+    description: Time stamp addend.
+    bit_offset: 0
+    bit_size: 32
+fieldset/PTPTSCR:
+  description: Ethernet PTP time stamp control register. (ETH_PTPTSCR).
+  fields:
+  - name: TSE
+    description: Time stamp enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: TSFCU
+    description: Time stamp fine or coarse. update.
+    bit_offset: 1
+    bit_size: 1
+  - name: TSSTI
+    description: Time stamp system time. initialize.
+    bit_offset: 2
+    bit_size: 1
+  - name: TSSTU
+    description: Time stamp system time. update.
+    bit_offset: 3
+    bit_size: 1
+  - name: TSITE
+    description: Time stamp interrupt trigger. enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: TSARU
+    description: Time stamp addend register. update.
+    bit_offset: 5
+    bit_size: 1
+fieldset/PTPTSHR:
+  description: Ethernet PTP time stamp high. register.
+  fields:
+  - name: TSHR
+    description: PTP System time value.
+    bit_offset: 0
+    bit_size: 32
+fieldset/PTPTSHUR:
+  description: Ethernet PTP time stamp high update. register.
+  fields:
+  - name: TSUS
+    description: Time stamp update second.
+    bit_offset: 0
+    bit_size: 32
+fieldset/PTPTSLR:
+  description: Ethernet PTP time stamp low register. (ETH_PTPTSLR).
+  fields:
+  - name: STSS
+    description: System time subseconds.
+    bit_offset: 0
+    bit_size: 31
+  - name: STPNS
+    description: System time positive or negative. sign.
+    bit_offset: 31
+    bit_size: 1
+fieldset/PTPTSLUR:
+  description: Ethernet PTP time stamp low update register. (ETH_PTPTSLUR).
+  fields:
+  - name: TSUSS
+    description: Time stamp update. subseconds.
+    bit_offset: 0
+    bit_size: 32
+fieldset/PTPTTHR:
+  description: Ethernet PTP target time high. register.
+  fields:
+  - name: TTSH
+    description: Target time stamp high.
+    bit_offset: 0
+    bit_size: 32
+fieldset/PTPTTLR:
+  description: Ethernet PTP target time low. register.
+  fields:
+  - name: TTSL
+    description: Target time stamp low.
+    bit_offset: 0
+    bit_size: 32

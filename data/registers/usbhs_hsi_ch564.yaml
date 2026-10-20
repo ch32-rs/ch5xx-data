@@ -1,0 +1,30 @@
+block/USBHS_HSI:
+  description: USBHS HSI calibration register.
+  items:
+  - name: HSI_CAL_CTRL
+    description: HSI clock calibration control register.
+    byte_offset: 40
+    fieldset: HSI_CAL_CTRL
+fieldset/HSI_CAL_CTRL:
+  description: HSI clock calibration control register.
+  fields:
+  - name: CAL_RST
+    description: the calibration module is globally reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: CAL_EN
+    description: alignment enabled.
+    bit_offset: 1
+    bit_size: 1
+  - name: SFT_RST
+    description: exti fine calibration mode and receive that BUS_RESET. should be set.
+    bit_offset: 2
+    bit_size: 1
+  - name: SOF_FREE
+    description: the uplink interface enters the enable mode.
+    bit_offset: 3
+    bit_size: 1
+  - name: CLK_SEL
+    description: clock selection.
+    bit_offset: 28
+    bit_size: 1

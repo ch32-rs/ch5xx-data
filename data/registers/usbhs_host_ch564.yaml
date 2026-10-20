@@ -1,0 +1,523 @@
+block/USBHS_HOST:
+  description: USBHS Host mode functions' registers.
+  items:
+  - name: R8_UH_CFG
+    description: USB host Configuration register.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: R8_UH_CFG
+  - name: R8_UH_INT_EN
+    description: USB host interrupt enable register.
+    byte_offset: 2
+    bit_size: 8
+    fieldset: R8_UH_INT_EN
+  - name: R8_UH_DEV_ADDR
+    description: USB host device address register.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: R8_UH_DEV_ADDR
+  - name: R32_UH_CONTROL
+    description: USB host control register.
+    byte_offset: 4
+    fieldset: R32_UH_CONTROL
+  - name: R8_UH_INT_FLAG
+    description: USB HOST interrupt flag register.
+    byte_offset: 8
+    bit_size: 8
+    fieldset: R8_UH_INT_FLAG
+  - name: R8_UH_INT_ST
+    description: USB host interrupt status.
+    byte_offset: 9
+    access: Read
+    bit_size: 8
+    fieldset: R8_UH_INT_ST
+  - name: R8_UH_MIS_ST
+    description: USB host miscellaneous status.
+    byte_offset: 10
+    bit_size: 8
+    fieldset: R8_UH_MIS_ST
+  - name: R32_UH_LPM
+    description: USB host power management data register.
+    byte_offset: 12
+    fieldset: R32_UH_LPM
+  - name: R32_UH_SPLIT
+    description: USB host SPLIT register.
+    byte_offset: 16
+    fieldset: R32_UH_SPLIT
+  - name: R32_UH_FRAME
+    description: USB host frame register.
+    byte_offset: 20
+    fieldset: R32_UH_FRAME
+  - name: R32_UH_TX_LEN
+    description: USB host send length register.
+    byte_offset: 24
+    fieldset: R32_UH_TX_LEN
+  - name: R32_UH_RX_LEN
+    description: USB host receive length register.
+    byte_offset: 28
+    fieldset: R32_UH_RX_LEN
+  - name: R32_UH_RX_MAX_LEN
+    description: USB host receives the maximum length register.
+    byte_offset: 32
+    fieldset: R32_UH_RX_MAX_LEN
+  - name: R32_UH_RX_DMA
+    description: DMA receive address register.
+    byte_offset: 36
+    fieldset: R32_UH_RX_DMA
+  - name: R32_UH_TX_DMA
+    description: DMA send address register.
+    byte_offset: 40
+    fieldset: R32_UH_TX_DMA
+  - name: PORT_CTRL
+    description: USB host port control register.
+    byte_offset: 44
+    fieldset: PORT_CTRL
+  - name: PORT_CFG
+    description: USB host port Configuration register.
+    byte_offset: 48
+    bit_size: 8
+    fieldset: PORT_CFG
+  - name: PORT_INT_EN
+    description: USB host port interrupt enable register.
+    byte_offset: 50
+    bit_size: 8
+    fieldset: PORT_INT_EN
+  - name: PORT_TEST_CT
+    description: USB host port test mode register.
+    byte_offset: 51
+    bit_size: 8
+    fieldset: PORT_TEST_CT
+  - name: PORT_STATUS
+    description: USB host port status register.
+    byte_offset: 52
+    bit_size: 16
+    fieldset: PORT_STATUS
+  - name: ROOT_BC_CTRL
+    description: USB host BC charging control register.
+    byte_offset: 60
+    fieldset: ROOT_BC_CTRL
+fieldset/PORT_CFG:
+  description: USB host port Configuration register.
+  bit_size: 8
+  fields:
+  - name: HOST_MODE
+    description: USB port mode selection.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_RPD
+    description: the 15k resistance drop-down function is enable in host. mode.
+    bit_offset: 7
+    bit_size: 1
+fieldset/PORT_CTRL:
+  description: USB host port control register.
+  fields:
+  - name: SET_PORT_RESET
+    description: PORT send reset.
+    bit_offset: 0
+    bit_size: 1
+  - name: SET_PORT_SUSP
+    description: the PORT is in a suspended state.
+    bit_offset: 1
+    bit_size: 1
+  - name: CLR_PORT_SUSP
+    description: the PORT exits the suspended state.
+    bit_offset: 2
+    bit_size: 1
+  - name: SET_PORT_SLEEP
+    description: the PORT goes to sleep(LPM).
+    bit_offset: 3
+    bit_size: 1
+  - name: CLR_PORT_EN
+    description: PORT exits the enabled state and enters the DISABLED state.
+    bit_offset: 4
+    bit_size: 1
+  - name: CLR_PORT_CONNECT
+    description: bring the PORT into the port state.
+    bit_offset: 5
+    bit_size: 1
+  - name: CLR_PORT_SLEEP
+    description: the PORT exits the sleep state (LPM).
+    bit_offset: 8
+    bit_size: 1
+  - name: PORT_SLEEP_BESL
+    description: wake-up time control.
+    bit_offset: 12
+    bit_size: 4
+  - name: BUS_RST_LONG
+    description: BUS reset time selection.
+    bit_offset: 16
+    bit_size: 1
+fieldset/PORT_INT_EN:
+  description: USB host port interrupt enable register.
+  bit_size: 8
+  fields:
+  - name: PORT_CONNECT_IE
+    description: port connection state change interrupt enabled.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_EN_IE
+    description: port enable state change interrupt enabled.
+    bit_offset: 1
+    bit_size: 1
+  - name: PORT_SUSP_IE
+    description: port pause state change interrupt enabled.
+    bit_offset: 2
+    bit_size: 1
+  - name: PORT_RESET_IE
+    description: port reset state change interrupt enabled.
+    bit_offset: 4
+    bit_size: 1
+  - name: PORT_SLP_IE
+    description: port sleep state change interrupt enabled.
+    bit_offset: 5
+    bit_size: 1
+fieldset/PORT_STATUS:
+  description: USB host port status register.
+  bit_size: 16
+  fields:
+  - name: PORT_C0NNECT
+    description: port connection state.
+    bit_offset: 0
+    bit_size: 1
+  - name: PORT_EN
+    description: port enabled.
+    bit_offset: 1
+    bit_size: 1
+  - name: PORT_SUSP
+    description: port pause state.
+    bit_offset: 2
+    bit_size: 1
+  - name: PORT_RESTTING
+    description: port reset status.
+    bit_offset: 4
+    bit_size: 1
+  - name: PORT_SLP
+    description: port sleep.
+    bit_offset: 5
+    bit_size: 1
+  - name: PORT_LOW_SPD
+    description: whether the port connection speed is low.
+    bit_offset: 9
+    bit_size: 1
+  - name: PORT_HIGH_SPD
+    description: whether the port connection speed is hign.
+    bit_offset: 10
+    bit_size: 1
+  - name: PORT_TEST
+    description: whether the port is in test mode.
+    bit_offset: 11
+    bit_size: 1
+fieldset/PORT_TEST_CT:
+  description: USB host port test mode register.
+  bit_size: 8
+  fields:
+  - name: TEST_J
+    description: test output J.
+    bit_offset: 0
+    bit_size: 1
+  - name: TEST_K
+    description: test output K.
+    bit_offset: 1
+    bit_size: 1
+  - name: TEST_FORCE_EN
+    description: test mode was enabled.
+    bit_offset: 2
+    bit_size: 1
+fieldset/R32_UH_CONTROL:
+  description: USB host control register.
+  fields:
+  - name: PID_MASK
+    description: transaction token packet PID.
+    bit_offset: 0
+    bit_size: 4
+  - name: ENDP_MASK
+    description: transaction token packet endpoint number.
+    bit_offset: 4
+    bit_size: 4
+  - name: TOG_MASK
+    description: send data PID.
+    bit_offset: 8
+    bit_size: 2
+  - name: BUF_MODE
+    description: DATA cache control bit.
+    bit_offset: 10
+    bit_size: 1
+  - name: HOST_ACTION
+    description: host enables the transaction.
+    bit_offset: 16
+    bit_size: 1
+  - name: LPM_VALID
+    description: valid to send LMP packet.
+    bit_offset: 17
+    bit_size: 1
+  - name: SPLIT_VALID
+    description: valid to send SPLIT packet.
+    bit_offset: 18
+    bit_size: 1
+  - name: DOWN_LOWSPD
+    description: this bit is enabled when the port is operating at full. speed and needs to send low speed packets(PRE).
+    bit_offset: 19
+    bit_size: 1
+  - name: TX_NO_DATA
+    description: OUT or SETUP token packet packets are followed by no data. packets for hign-speed SPLIT packets.
+    bit_offset: 20
+    bit_size: 1
+  - name: RX_NO_DATA
+    description: DATA packets are not expected after IN token packets and. are used for  high-speed SPLIT packets.
+    bit_offset: 21
+    bit_size: 1
+  - name: TX_NO_RES
+    description: OUT or SETUP DATA no reply is extended and is used for. synchronous transmission or hign-speed SPLIT packets.
+    bit_offset: 22
+    bit_size: 1
+  - name: RX_NO_RES
+    description: IN-DATA no answer,used for synchronous transfer or. high-speed SPLIT packets.
+    bit_offset: 23
+    bit_size: 1
+fieldset/R32_UH_FRAME:
+  description: USB host frame register.
+  fields:
+  - name: FRAME_NO
+    description: the frame number.
+    bit_offset: 0
+    bit_size: 11
+  - name: MICRO_FRAME
+    description: microfame number.
+    bit_offset: 16
+    bit_size: 3
+  - name: SOF_CNT_EN
+    description: SOF count enabled.
+    bit_offset: 24
+    bit_size: 1
+  - name: SOF_CNT_CLR
+    description: the SOF count is cleared.
+    bit_offset: 25
+    bit_size: 1
+fieldset/R32_UH_LPM:
+  description: USB host power management data register.
+  fields:
+  - name: LPM_DATA
+    description: power management data.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_RX_DMA:
+  description: DMA receive address register.
+  fields:
+  - name: R16_UH_RX_DMA
+    description: Received address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UH_RX_LEN:
+  description: USB host receive length register.
+  fields:
+  - name: RX_LEN
+    description: Received data length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_RX_MAX_LEN:
+  description: USB host receives the maximum length register.
+  fields:
+  - name: UH_RX_MAX_LEN
+    description: receives the maximum length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R32_UH_SPLIT:
+  description: USB host SPLIT register.
+  fields:
+  - name: SPLIT_DATA
+    description: SPLIT management data.
+    bit_offset: 0
+    bit_size: 19
+fieldset/R32_UH_TX_DMA:
+  description: DMA send address register.
+  fields:
+  - name: R16_UH_TX_DMA
+    description: Send address.
+    bit_offset: 0
+    bit_size: 17
+fieldset/R32_UH_TX_LEN:
+  description: USB host send length register.
+  fields:
+  - name: TX_LEN
+    description: send data length.
+    bit_offset: 0
+    bit_size: 11
+fieldset/R8_UH_CFG:
+  description: USB host Configuration register.
+  bit_size: 8
+  fields:
+  - name: ROOT_LINK_RESET
+    description: USB connection controller module resets.
+    bit_offset: 0
+    bit_size: 1
+  - name: ROOT_SIE_RESET
+    description: USB protocol processor reset.
+    bit_offset: 1
+    bit_size: 1
+  - name: ROOT_ALL_CLR
+    description: clear all interrupt flags.
+    bit_offset: 2
+    bit_size: 1
+  - name: ROOT_PHY_SUSPENDM
+    description: PHY suspend,close utmi clock.
+    bit_offset: 3
+    bit_size: 1
+  - name: ROOT_DMA_EN
+    description: DMA transfer enabled.
+    bit_offset: 4
+    bit_size: 1
+  - name: ROOT_SOF_EN
+    description: sof packet sending function enabled.
+    bit_offset: 5
+    bit_size: 1
+  - name: ROOT_FORCE_FS
+    description: forced full speed FS.
+    bit_offset: 6
+    bit_size: 1
+  - name: ROOT_LPM_EN
+    description: LPM enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_DEV_ADDR:
+  description: USB host device address register.
+  bit_size: 8
+  fields:
+  - name: DEV_ADDR
+    description: device address.
+    bit_offset: 0
+    bit_size: 8
+fieldset/R8_UH_INT_EN:
+  description: USB host interrupt enable register.
+  bit_size: 8
+  fields:
+  - name: WKUP_ACT_IE
+    description: Wakeup interrupt enabled.
+    bit_offset: 2
+    bit_size: 1
+  - name: RESUME_ACT_IE
+    description: bus recovery interrupt was enabled.
+    bit_offset: 3
+    bit_size: 1
+  - name: USB_ACT_IE
+    description: USB transfer end interrupt enabled.
+    bit_offset: 4
+    bit_size: 1
+  - name: SOF_ACT_IE
+    description: sof packet sending interruption is enabled.
+    bit_offset: 5
+    bit_size: 1
+  - name: TX_HALT_IE
+    description: send pause interrupt enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: FIFO_OV_IE
+    description: FIFO overflow interrupt enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_INT_FLAG:
+  description: USB HOST interrupt flag register.
+  bit_size: 8
+  fields:
+  - name: RB_WKUP_IF
+    description: Wakeup interrupt flag.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_RESUME_ACT_IF
+    description: bus recovery interrupt flag.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_USB_ACT_IF
+    description: USB transaction transfer completion interrupt flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: RB_SOF_ACT_IF
+    description: sof packet delivert completion interrupt flag.
+    bit_offset: 5
+    bit_size: 1
+  - name: RB_TX_HALT_IF
+    description: send pause interrupt flag.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_FIFO_OV_IF
+    description: FIFO overflow interrupt flag.
+    bit_offset: 7
+    bit_size: 1
+fieldset/R8_UH_INT_ST:
+  description: USB host interrupt status.
+  bit_size: 8
+  fields:
+  - name: THIS_PID_MASK
+    description: received PID.
+    bit_offset: 0
+    bit_size: 4
+  - name: PORT_RX_RESUME
+    description: A bit of indicates that the port received a wakeup signal.
+    bit_offset: 4
+    bit_size: 1
+fieldset/R8_UH_MIS_ST:
+  description: USB host miscellaneous status.
+  bit_size: 8
+  fields:
+  - name: RB_SOF_FREE
+    description: port enabled state.
+    bit_offset: 0
+    bit_size: 1
+  - name: RB_SOF_PRE
+    description: The state of the USB SOF packet is indicated as follows.
+    bit_offset: 1
+    bit_size: 1
+  - name: RB_SOF_ST
+    description: USB bus SOF status.
+    bit_offset: 2
+    bit_size: 1
+  - name: RB_USB_WAKEUP
+    description: USB bus wakes up.
+    bit_offset: 3
+    bit_size: 1
+  - name: RB_LINESTATE_MASK
+    description: USB bus status.
+    bit_offset: 4
+    bit_size: 2
+  - name: RB_BUS_J
+    description: J on USB bus.
+    bit_offset: 6
+    bit_size: 1
+  - name: RB_BUS_SE0
+    description: SE0 on USB bus.
+    bit_offset: 7
+    bit_size: 1
+fieldset/ROOT_BC_CTRL:
+  description: USB host BC charging control register.
+  fields:
+  - name: UDP_BC_CMPO
+    description: UDP pin BC protocol comparator status.
+    bit_offset: 0
+    bit_size: 1
+  - name: UDM_BC_CMPO
+    description: UDM pin BC protocol comparator status.
+    bit_offset: 1
+    bit_size: 1
+  - name: UDP_BC_CMPE
+    description: UDP pin BC protocol comparator enables.
+    bit_offset: 4
+    bit_size: 1
+  - name: UDM_BC_CMPE
+    description: UDM pin BC protocol comparator enables.
+    bit_offset: 5
+    bit_size: 1
+  - name: BC_AUTO_MODE
+    description: Automatic mode enables.
+    bit_offset: 6
+    bit_size: 1
+  - name: UDP_BC_VSRC
+    description: UDP pin BC protocol source voltage enabled.
+    bit_offset: 8
+    bit_size: 1
+  - name: UDM_BC_VSRC
+    description: UDM pin BC protocol source voltage enabled.
+    bit_offset: 9
+    bit_size: 1
+  - name: UDM_VSRC_ACT
+    description: In automatic mode, UDP outputs VBC_SRC ,otherwise it is. controlled by UDM_BC_CMPE.
+    bit_offset: 10
+    bit_size: 1
