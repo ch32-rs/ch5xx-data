@@ -1,6 +1,5 @@
-# CH571, from the MounRiver CH57X SDK. Same SFR/ISP/startup as CH573; Link.ld
-# cuts code flash to 192KB. Chip id byte ID_CH571 = 0x71. Family and interrupts
-# reuse the CH573 files (full SVD map) until a datasheet justifies cuts.
+# CH571. Same SFR/ISP/startup as CH573 with 192KB code flash. Chip id byte
+# ID_CH571 = 0x71. Shares CH573 family/IRQs.
 name: CH571
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE4.2 Wireless MCU

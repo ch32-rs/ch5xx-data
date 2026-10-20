@@ -1,5 +1,4 @@
-# CH565, same EVT/SFR map as CH569. Packages QFN68/QFN40. Chip id byte = 0x65.
-# Family and interrupts reuse the CH569 files.
+# CH565. Packages QFN68/QFN40. Chip id byte = 0x65. Shares CH569 family/IRQs.
 name: CH565
 family: QingKe RISC-V-based MCU
 subfamily: USB3.0 Super-Speed Interface MCU

@@ -1,7 +1,5 @@
-# CH570, from the MounRiver CH572 SDK. Same SFR/ISP/startup/Link.ld as CH572
-# (240KB flash, 12KB SRAM). Chip id byte ID_CH570 = 0x70. Studio describes
-# CH570 as CH572 without Bluetooth; family/interrupts reuse CH572 (BLE
-# placeholder kept for the address only).
+# CH570. Same SFR/ISP/startup as CH572 without Bluetooth. Chip id byte
+# ID_CH570 = 0x70. Shares CH572 family/IRQs.
 name: CH570
 family: QingKe RISC-V-based, Wireless MCU
 subfamily: RISC-V Core 2.4G Wireless MCU

@@ -1,12 +1,5 @@
-# CH569, from openwch/ch569 EVT (Link.ld) and product docs. QingKe V3A,
-# USB3.0 SS / HS, ETH, EMMC, SerDes, HSPI. CH565 shares the register map
-# (package / feature packaging differs).
-#
-# Flash: 448KB code @ 0. Data flash 32KB is quoted in marketing/docs; Link.ld
-# only maps the 448KB code region, so DATAFLASH is recorded at 0x70000 like
-# the other CH5xx parts. SRAM: RAMS 16KB @ 0x20000000 + RAMX 96KB window @
-# 0x20020000 (default ld uses 32KB of RAMX; SFR allows up to 96KB).
-# Chip id byte = 0x69.
+# CH569, from openwch/ch569 EVT (Link.ld) and product docs. QingKe V3A.
+# CH565 shares this register map. Chip id byte = 0x69.
 name: CH569
 family: QingKe RISC-V-based MCU
 subfamily: USB3.0 Super-Speed Interface MCU
