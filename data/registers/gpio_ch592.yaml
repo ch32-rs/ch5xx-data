@@ -69,6 +69,12 @@ block/GPIO:
     description: RW, PA pulldown for input or PA driving capability for output.
     byte_offset: 180
     fieldset: R32_PA_PD_DRV
+  # CH592/CH591 DS v1.9 (Chinese), pp. 43, 47; absent from SDK/SVD.
+  - name: R32_PA_SET
+    description: 'WZ, GPIO PA set output: 0=keep, 1=set high.'
+    byte_offset: 184
+    access: Write
+    fieldset: R32_PA_SET
   - name: R32_PB_DIR
     description: 'RW, GPIO PB I/O direction: 0=in, 1=out.'
     byte_offset: 192
@@ -94,6 +100,12 @@ block/GPIO:
     description: RW, PB pulldown for input or PB driving capability for output.
     byte_offset: 212
     fieldset: R32_PB_PD_DRV
+  # CH592/CH591 DS v1.9 (Chinese), pp. 43, 48; absent from SDK/SVD.
+  - name: R32_PB_SET
+    description: 'WZ, GPIO PB set output: 0=keep, 1=set high.'
+    byte_offset: 216
+    access: Write
+    fieldset: R32_PB_SET
 fieldset/R16_PA_INT_EDGE_TYPE:
   description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
   bit_size: 16
@@ -224,6 +236,17 @@ fieldset/R32_PA_PU:
     description: GPIO PA pullup resistance enable byte 0.
     bit_offset: 8
     bit_size: 8
+fieldset/R32_PA_SET:
+  description: 'WZ, GPIO PA set output: 0=keep, 1=set high.'
+  fields:
+  - name: R8_PA_SET_0
+    description: GPIO PA set output byte 0.
+    bit_offset: 0
+    bit_size: 8
+  - name: R8_PA_SET_1
+    description: GPIO PA set output byte 1.
+    bit_offset: 8
+    bit_size: 8
 fieldset/R32_PB_CLR:
   description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
   fields:
@@ -312,5 +335,20 @@ fieldset/R32_PB_PU:
     bit_size: 8
   - name: R8_PB_PU_2
     description: GPIO PB pullup resistance enable byte 2.
+    bit_offset: 16
+    bit_size: 8
+fieldset/R32_PB_SET:
+  description: 'WZ, GPIO PB set output: 0=keep, 1=set high.'
+  fields:
+  - name: R8_PB_SET_0
+    description: GPIO PB set output byte 0.
+    bit_offset: 0
+    bit_size: 8
+  - name: R8_PB_SET_1
+    description: GPIO PB set output byte 1.
+    bit_offset: 8
+    bit_size: 8
+  - name: R8_PB_SET_2
+    description: GPIO PB set output byte 2.
     bit_offset: 16
     bit_size: 8
