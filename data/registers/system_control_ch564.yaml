@@ -1,108 +1,108 @@
 block/System_control:
   description: System_control register.
   items:
-  - name: R8_SAFE_ACCESS_SIG
+  - name: SAFE_ACCESS_SIG
     description: safe accessing sign register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_SAFE_ACCESS_SIG
-  - name: R8_SAFE_ACCESS_ID
+    fieldset: SAFE_ACCESS_SIG
+  - name: SAFE_ACCESS_ID
     description: safe accessing ID register.
     byte_offset: 2
     access: Read
     bit_size: 8
-    fieldset: R8_SAFE_ACCESS_ID
-  - name: R8_WDOG_CLEAR
+    fieldset: SAFE_ACCESS_ID
+  - name: WDOG_CLEAR
     description: watch-dog clear register.
     byte_offset: 3
     access: Write
     bit_size: 8
-    fieldset: R8_WDOG_CLEAR
-  - name: R8_GLOB_MEM_CFG
+    fieldset: WDOG_CLEAR
+  - name: GLOB_MEM_CFG
     description: Memory configuration register.
     byte_offset: 4
     bit_size: 8
-    fieldset: R8_GLOB_MEM_CFG
-  - name: R8_GLOB_LOCK_PORT
+    fieldset: GLOB_MEM_CFG
+  - name: GLOB_LOCK_PORT
     description: Global port lock configuration register.
     byte_offset: 5
     bit_size: 8
-    fieldset: R8_GLOB_LOCK_PORT
-  - name: R8_GLOB_RST_CFG
+    fieldset: GLOB_LOCK_PORT
+  - name: GLOB_RST_CFG
     description: Globally reset the configuration register.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_GLOB_RST_CFG
-  - name: R8_GLOB_RESET_KEEP
+    fieldset: GLOB_RST_CFG
+  - name: GLOB_RESET_KEEP
     description: value keeper during global reset.
     byte_offset: 7
     bit_size: 8
-    fieldset: R8_GLOB_RESET_KEEP
-fieldset/R8_GLOB_LOCK_PORT:
+    fieldset: GLOB_RESET_KEEP
+fieldset/GLOB_LOCK_PORT:
   description: Global port lock configuration register.
   bit_size: 8
   fields:
-  - name: RB_GLOB_LOCK_PA
+  - name: GLOB_LOCK_PA
     description: PA port lock configuration.
     bit_offset: 0
     bit_size: 1
-  - name: RB_GLOB_LOCK_PB
+  - name: GLOB_LOCK_PB
     description: PB port lock configuration.
     bit_offset: 1
     bit_size: 1
-  - name: RB_GLOB_LOCK_PD
+  - name: GLOB_LOCK_PD
     description: PD port lock configuration.
     bit_offset: 3
     bit_size: 1
-fieldset/R8_GLOB_MEM_CFG:
+fieldset/GLOB_MEM_CFG:
   description: Memory configuration register.
   bit_size: 8
   fields:
-  - name: RB_GLOB_MEM_CFG
+  - name: GLOB_MEM_CFG
     description: Memory configuration.
     bit_offset: 0
     bit_size: 2
-  - name: RB_GLOB_CFG_FLAG
+  - name: GLOB_CFG_FLAG
     description: Memory configuration flag.
     bit_offset: 6
     bit_size: 2
-fieldset/R8_GLOB_RESET_KEEP:
+fieldset/GLOB_RESET_KEEP:
   description: value keeper during global reset.
   bit_size: 8
   fields:
-  - name: R8_GLOB_RESET_KEEP
+  - name: GLOB_RESET_KEEP
     description: value keeper during global reset.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_GLOB_RST_CFG:
+fieldset/GLOB_RST_CFG:
   description: Globally reset the configuration register.
   bit_size: 8
   fields:
-  - name: RB_GLOB_WDOG_EN
+  - name: GLOB_WDOG_EN
     description: enable watch-dog reset.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_SAFE_ACCESS_ID:
+fieldset/SAFE_ACCESS_ID:
   description: safe accessing ID register.
   bit_size: 8
   fields:
-  - name: R8_SAFE_ACCESS_ID
+  - name: SAFE_ACCESS_ID
     description: safe accessing ID.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_SAFE_ACCESS_SIG:
+fieldset/SAFE_ACCESS_SIG:
   description: safe accessing sign register.
   bit_size: 8
   fields:
-  - name: R8_SAFE_ACCESS_SIG
+  - name: SAFE_ACCESS_SIG
     description: safe accessing sign register.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_WDOG_CLEAR:
+fieldset/WDOG_CLEAR:
   description: watch-dog clear register.
   bit_size: 8
   fields:
-  - name: R8_WDOG_CLEAR
+  - name: WDOG_CLEAR
     description: watch-dog clear.
     bit_offset: 0
     bit_size: 8

@@ -1,86 +1,86 @@
 block/KEYSCAN:
   description: keys scanning.
   items:
-  - name: R16_KEY_SCAN_CTRL
+  - name: KEY_SCAN_CTRL
     description: RW, Key scan control register.
     byte_offset: 100
     bit_size: 16
-    fieldset: R16_KEY_SCAN_CTRL
-  - name: R8_KEY_SCAN_INT_EN
+    fieldset: KEY_SCAN_CTRL
+  - name: KEY_SCAN_INT_EN
     description: RW, Press button scan interrupt enable register.
     byte_offset: 102
     bit_size: 8
-    fieldset: R8_KEY_SCAN_INT_EN
-  - name: R8_KEY_SCAN_INT_FLAG
+    fieldset: KEY_SCAN_INT_EN
+  - name: KEY_SCAN_INT_FLAG
     description: RW, Press the button to scan the interrupt flag register.
     byte_offset: 103
     bit_size: 8
-    fieldset: R8_KEY_SCAN_INT_FLAG
-  - name: R32_KEY_SCAN_NUMB
+    fieldset: KEY_SCAN_INT_FLAG
+  - name: KEY_SCAN_NUMB
     description: RW, Scan key number register.
     byte_offset: 104
     access: Read
-    fieldset: R32_KEY_SCAN_NUMB
-fieldset/R16_KEY_SCAN_CTRL:
+    fieldset: KEY_SCAN_NUMB
+fieldset/KEY_SCAN_CTRL:
   description: RW, Key scan control register.
   bit_size: 16
   fields:
-  - name: RB_SCAN_START_EN
+  - name: SCAN_START_EN
     description: RW, Start scanning enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SCAN_CNT_END
+  - name: SCAN_CNT_END
     description: RW, Set the number of times to scan to the same key value.
     bit_offset: 1
     bit_size: 3
-  - name: RB_SCAN_CLK_DIV
+  - name: SCAN_CLK_DIV
     description: RW, Scan clock frequency division.
     bit_offset: 4
     bit_size: 4
-  - name: RB_PIN_SCAN_EN
+  - name: PIN_SCAN_EN
     description: RW, Enable I/O pins involved in key scanning.
     bit_offset: 8
     bit_size: 5
-  - name: RB_SCAN_1END_WAKE_EN
+  - name: SCAN_1END_WAKE_EN
     description: RW, Activate wake-up signal after a single scan.
     bit_offset: 13
     bit_size: 1
-  - name: RB_CLR_WAKEUP_EN
+  - name: CLR_WAKEUP_EN
     description: RW, Enable automatic clearing of wake-up signal after wake-up.
     bit_offset: 14
     bit_size: 1
-fieldset/R32_KEY_SCAN_NUMB:
+fieldset/KEY_SCAN_NUMB:
   description: RW, Scan key number register.
   fields:
-  - name: RB_KEY_SCAN_NUMB
+  - name: KEY_SCAN_NUMB
     description: RO, Current key number value.
     bit_offset: 0
     bit_size: 20
-  - name: RB_KEY_SCAN_CNT
+  - name: KEY_SCAN_CNT
     description: RO, Current number of key scans.
     bit_offset: 20
     bit_size: 3
-fieldset/R8_KEY_SCAN_INT_EN:
+fieldset/KEY_SCAN_INT_EN:
   description: RW, Press button scan interrupt enable register.
   bit_size: 8
   fields:
-  - name: RB_KEY_PRESSED_IE
+  - name: KEY_PRESSED_IE
     description: RW, Detected key press and interrupted when the same key value is reached the set value.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SCAN_1END_IE
+  - name: SCAN_1END_IE
     description: RW, Interrupt enable after a single scan is completed.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_KEY_SCAN_INT_FLAG:
+fieldset/KEY_SCAN_INT_FLAG:
   description: RW, Press the button to scan the interrupt flag register.
   bit_size: 8
   fields:
-  - name: RB_KEY_PRESSED_IF
+  - name: KEY_PRESSED_IF
     description: RW, Detected button press, and the same button value reaches the set value for the number of times interrupt flag.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SCAN_1END_IF
+  - name: SCAN_1END_IF
     description: RW, Interrupt flag after word scanning is completed.
     bit_offset: 1
     bit_size: 1

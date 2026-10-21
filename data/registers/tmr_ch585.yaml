@@ -3,198 +3,198 @@
 block/TMR_FULL:
   description: Timer register.
   items:
-  - name: R8_TMR_CTRL_MOD
+  - name: CTRL_MOD
     description: RW, TMR mode control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_TMR_CTRL_MOD
-  - name: R8_TMR_CTRL_DMA
+    fieldset: CTRL_MOD
+  - name: CTRL_DMA
     description: RO/WO, DMA control register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_TMR_CTRL_DMA
-  - name: R8_TMR_INTER_EN
+    fieldset: CTRL_DMA
+  - name: INTER_EN
     description: RW, TMR interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_TMR_INTER_EN
-  - name: R8_TMR_INT_FLAG
+    fieldset: INTER_EN
+  - name: INT_FLAG
     description: RW1, TMR interrupt flag.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_TMR_INT_FLAG
-  - name: R8_TMR_FIFO_COUNT
+    fieldset: INT_FLAG
+  - name: FIFO_COUNT
     description: RO, TMR FIFO count status.
     byte_offset: 7
     access: Read
     bit_size: 8
-    fieldset: R8_TMR_FIFO_COUNT
-  - name: R32_TMR_COUNT
+    fieldset: FIFO_COUNT
+  - name: COUNT
     description: RO, TMR current count.
     byte_offset: 8
     access: Read
-    fieldset: R32_TMR_COUNT
-  - name: R32_TMR_CNT_END
+    fieldset: COUNT
+  - name: CNT_END
     description: RW, TMR end count value, only low 26 bit.
     byte_offset: 12
-    fieldset: R32_TMR_CNT_END
-  - name: R32_TMR_FIFO
+    fieldset: CNT_END
+  - name: FIFO
     description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
     access: Read
-    fieldset: R32_TMR_FIFO
-  - name: R32_TMR_DMA_NOW
+    fieldset: FIFO
+  - name: DMA_NOW
     description: RO, DMA current buffer address.
     byte_offset: 20
     access: Read
-    fieldset: R32_TMR_DMA_NOW
-  - name: R32_TMR_DMA_BEG
+    fieldset: DMA_NOW
+  - name: DMA_BEG
     description: RW, DMA start buffer address.
     byte_offset: 24
-    fieldset: R32_TMR_DMA_BEG
-  - name: R32_TMR_DMA_END
+    fieldset: DMA_BEG
+  - name: DMA_END
     description: RW, DMA end buffer address.
     byte_offset: 28
-    fieldset: R32_TMR_DMA_END
-fieldset/R32_TMR_CNT_END:
+    fieldset: DMA_END
+fieldset/CNT_END:
   description: RW, TMR end count value, only low 26 bit.
   fields:
-  - name: R32_TMR_CNT_END
+  - name: CNT_END
     description: RW1,TMR end count value.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_TMR_COUNT:
+fieldset/COUNT:
   description: RO, TMR current count.
   fields:
-  - name: R32_TMR_COUNT
+  - name: COUNT
     description: RW1,TMR current count.
     bit_offset: 0
     bit_size: 26
-fieldset/R32_TMR_DMA_BEG:
+fieldset/DMA_BEG:
   description: RW, DMA start buffer address.
   fields:
-  - name: RB_TMR_DMA_BEG
+  - name: TMR_DMA_BEG
     description: RW, The starting address of the DMA data buffer must be aligned with 4 bytes.
     bit_offset: 2
     bit_size: 15
-fieldset/R32_TMR_DMA_END:
+fieldset/DMA_END:
   description: RW, DMA end buffer address.
   fields:
-  - name: RB_TMR_DMA_END
+  - name: TMR_DMA_END
     description: RW, DMA data buffer end address (excluding), the address must be aligned with 4 bytes.
     bit_offset: 2
     bit_size: 15
-fieldset/R32_TMR_DMA_NOW:
+fieldset/DMA_NOW:
   description: RO, DMA current buffer address.
   fields:
-  - name: RB_TMR_DMA_NOW
+  - name: TMR_DMA_NOW
     description: RW, DMA data buffer current address.
     bit_offset: 2
     bit_size: 15
-fieldset/R32_TMR_FIFO:
+fieldset/FIFO:
   description: RO/WO, TMR FIFO register, only low 26 bit.
   fields:
-  - name: R32_TMR_FIFO
+  - name: FIFO
     description: RW1,TMR FIFO register.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_TMR_CTRL_DMA:
+fieldset/CTRL_DMA:
   description: RO/WO, DMA control register.
   bit_size: 8
   fields:
-  - name: RB_TMR_DMA_ENABLE
+  - name: TMR_DMA_ENABLE
     description: RW, DMA function enable bit.
     bit_offset: 0
     bit_size: 1
-  - name: RB_TMR_DMA_LOOP
+  - name: TMR_DMA_LOOP
     description: RW, Enable bit for DMA address loop function.
     bit_offset: 2
     bit_size: 1
-fieldset/R8_TMR_CTRL_MOD:
+fieldset/CTRL_MOD:
   description: RW, TMR mode control.
   bit_size: 8
   fields:
-  - name: RB_TMR_MODE_IN
+  - name: TMR_MODE_IN
     description: 'RW, timer in mode: 0=timer/PWM, 1=capture/count.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_TMR_ALL_CLEAR
+  - name: TMR_ALL_CLEAR
     description: RW, force clear timer FIFO and count.
     bit_offset: 1
     bit_size: 1
-  - name: RB_TMR_COUNT_EN
+  - name: TMR_COUNT_EN
     description: RW, timer count enable.
     bit_offset: 2
     bit_size: 1
-  - name: RB_TMR_OUT_EN
+  - name: TMR_OUT_EN
     description: RW, timer output enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_TMR_OUT_POLAR__TMR_CAP_COUNT
+  - name: TMR_OUT_POLAR__TMR_CAP_COUNT
     description: 'RW, timer PWM output polarity: 0=default low and high action, 1=default high and low action;RW, count sub-mode if RB_TMR_MODE_IN=1: 0=capture, 1=count.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_TMR_FREQ_13_56
+  - name: TMR_FREQ_13_56
     description: RW,Counting frequency setting bits for TMR and TMR3.
     bit_offset: 5
     bit_size: 1
-  - name: RB_TMR_PWM_REPEAT__TMR_CAP_EDGE
+  - name: TMR_PWM_REPEAT__TMR_CAP_EDGE
     description: 'RW, timer PWM repeat mode: 00=1, 01=4, 10=8, 11-16;RW, timer capture edge mode: 00=disable, 01=edge change, 10=fall to fall, 11-rise to rise.'
     bit_offset: 6
     bit_size: 2
-fieldset/R8_TMR_FIFO_COUNT:
+fieldset/FIFO_COUNT:
   description: RO, TMR FIFO count status.
   bit_size: 8
   fields:
-  - name: R8_TMR_FIFO_COUNT
+  - name: FIFO_COUNT
     description: R0,TMR FIFO count status.
     bit_offset: 0
     bit_size: 4
-fieldset/R8_TMR_INTER_EN:
+fieldset/INTER_EN:
   description: RW, TMR interrupt enable.
   bit_size: 8
   fields:
-  - name: RB_TMR_IE_CYC_END
+  - name: TMR_IE_CYC_END
     description: RW, enable interrupt for timer capture count timeout or PWM cycle end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_TMR_IE_DATA_ACT
+  - name: TMR_IE_DATA_ACT
     description: RW, enable interrupt for timer capture input action or PWM trigger.
     bit_offset: 1
     bit_size: 1
-  - name: RB_TMR_IE_FIFO_HF
+  - name: TMR_IE_FIFO_HF
     description: RW, enable interrupt for timer FIFO half (capture fifo >=4 or PWM fifo less than 3).
     bit_offset: 2
     bit_size: 1
-  - name: RB_TMR_IE_DMA_END
+  - name: TMR_IE_DMA_END
     description: RW, enable interrupt for timer1/2 DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_TMR_IE_FIFO_OV
+  - name: TMR_IE_FIFO_OV
     description: RW, enable interrupt for timer FIFO overflow.
     bit_offset: 4
     bit_size: 1
-fieldset/R8_TMR_INT_FLAG:
+fieldset/INT_FLAG:
   description: RW1, TMR interrupt flag.
   bit_size: 8
   fields:
-  - name: RB_TMR_IF_CYC_END
+  - name: TMR_IF_CYC_END
     description: RW1, interrupt flag for timer capture count timeout or PWM cycle end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_TMR_IF_DATA_ACT
+  - name: TMR_IF_DATA_ACT
     description: RW1, interrupt flag for timer capture input action or PWM trigger.
     bit_offset: 1
     bit_size: 1
-  - name: RB_TMR_IF_FIFO_HF
+  - name: TMR_IF_FIFO_HF
     description: RW1, interrupt flag for timer FIFO half (capture fifo >=4 or PWM fifo less than 3.
     bit_offset: 2
     bit_size: 1
-  - name: RB_TMR_IF_DMA_END
+  - name: TMR_IF_DMA_END
     description: RW1, interrupt flag for timer1/2 DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_TMR_IF_FIFO_OV
+  - name: TMR_IF_FIFO_OV
     description: RW1, interrupt flag for timer FIFO overflow.
     bit_offset: 4
     bit_size: 1

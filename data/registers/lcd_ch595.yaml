@@ -1,23 +1,23 @@
 block/LCD:
   description: LCD register.
   items:
-  - name: R32_LCD_CMD
+  - name: CMD
     description: RW, LCD Command Register.
     byte_offset: 0
-    fieldset: R32_LCD_CMD
-  - name: R32_LCD_RAM0
+    fieldset: CMD
+  - name: RAM0
     description: RW, LCD RAM0 register.
     byte_offset: 4
-    fieldset: R32_LCD_RAM0
-  - name: R32_LCD_RAM1
+    fieldset: RAM0
+  - name: RAM1
     description: RW, LCD RAM1 register.
     byte_offset: 8
-    fieldset: R32_LCD_RAM1
-  - name: R32_LCD_RAM2
+    fieldset: RAM1
+  - name: RAM2
     description: RW, LCD RAM2 register.
     byte_offset: 12
-    fieldset: R32_LCD_RAM2
-fieldset/R32_LCD_CMD:
+    fieldset: RAM2
+fieldset/CMD:
   description: RW, LCD Command Register.
   fields:
   - name: SYS_EN
@@ -56,21 +56,21 @@ fieldset/R32_LCD_CMD:
     description: RW, SEG16-SEG19 section enable.
     bit_offset: 24
     bit_size: 4
-fieldset/R32_LCD_RAM0:
+fieldset/RAM0:
   description: RW, LCD RAM0 register.
   fields:
   - name: LCD_SEGX
     description: RW, SEG0-SEG7 segment data.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_LCD_RAM1:
+fieldset/RAM1:
   description: RW, LCD RAM1 register.
   fields:
   - name: LCD_SEGX
     description: RW, SEG8-SEG15 segment data.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_LCD_RAM2:
+fieldset/RAM2:
   description: RW, LCD RAM2 register.
   fields:
   - name: LCD_SEGX

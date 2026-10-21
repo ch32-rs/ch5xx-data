@@ -1,129 +1,129 @@
 block/UART_FULL:
   description: UART_FULL register.
   items:
-  - name: R8_UART_FULL_RBR_R8_UART_FULL_THR_R8_UART_FULL_DLL
+  - name: RBR_THR_DLL
     description: UART_FULL receiver buffer, receiving byte / UART_FULL transmitter holding,. transmittal byte/DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
     byte_offset: 0
     access: Read
     bit_size: 8
-    fieldset: R8_UART_FULL_RBR_R8_UART_FULL_THR_R8_UART_FULL_DLL
-  - name: R8_UART_FULL_IER__UART_FULL_DLM
+    fieldset: RBR_THR_DLL
+  - name: IER__DLM
     description: UART_FULL interrupt enable/baud rate divisor register,. DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_UART_FULL_IER__UART_FULL_DLM
-  - name: R8_UART_FULL_IIR_R8_UART_FULL_FCR
+    fieldset: IER__DLM
+  - name: IIR_FCR
     description: UART_FULL interrupt identification/FIFO control register.
     byte_offset: 2
     access: Read
     bit_size: 8
-    fieldset: R8_UART_FULL_IIR_R8_UART_FULL_FCR
-  - name: R8_UART_FULL_LCR
+    fieldset: IIR_FCR
+  - name: LCR
     description: UART_FULL line control.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_UART_FULL_LCR
-  - name: R8_UART_FULL_MCR
+    fieldset: LCR
+  - name: MCR
     description: UART_FULL modem control.
     byte_offset: 4
     bit_size: 8
-    fieldset: R8_UART_FULL_MCR
-  - name: R8_UART_FULL_LSR
+    fieldset: MCR
+  - name: LSR
     description: UART_FULL line status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_UART_FULL_LSR
-  - name: R8_UART_FULL_MSR
+    fieldset: LSR
+  - name: MSR
     description: UART_FULL modem status.
     byte_offset: 6
     access: Read
     bit_size: 8
-    fieldset: R8_UART_FULL_MSR
-  - name: R8_UART_FULL_DIV
+    fieldset: MSR
+  - name: DIV
     description: UART_FULL pre-frequency divisiono register.
     byte_offset: 7
     bit_size: 8
-    fieldset: R8_UART_FULL_DIV
-  - name: R8_UART_FULL_DMA_CTRL
+    fieldset: DIV
+  - name: DMA_CTRL
     description: DMA Control register.
     byte_offset: 8
     bit_size: 8
-    fieldset: R8_UART_FULL_DMA_CTRL
-  - name: R8_UART_FULL_DMA_IF
+    fieldset: DMA_CTRL
+  - name: DMA_IF
     description: DMA status register.
     byte_offset: 9
     bit_size: 8
-    fieldset: R8_UART_FULL_DMA_IF
-  - name: R32_UART_FULL_DMA_WR_NOW_ADDR
+    fieldset: DMA_IF
+  - name: DMA_WR_NOW_ADDR
     description: DMA receive mode current address register.
     byte_offset: 12
     access: Read
-    fieldset: R32_UART_FULL_DMA_WR_NOW_ADDR
-  - name: R32_UART_FULL_DMA_WR_START_ADDR
+    fieldset: DMA_WR_NOW_ADDR
+  - name: DMA_WR_START_ADDR
     description: DMA receive mode start address register.
     byte_offset: 16
-    fieldset: R32_UART_FULL_DMA_WR_START_ADDR
-  - name: R32_UART_FULL_DMA_WR_END_ADDR
+    fieldset: DMA_WR_START_ADDR
+  - name: DMA_WR_END_ADDR
     description: DMA received mode end address register.
     byte_offset: 20
-    fieldset: R32_UART_FULL_DMA_WR_END_ADDR
-  - name: R32_UART_FULL_DMA_RD_NOW_ADDR
+    fieldset: DMA_WR_END_ADDR
+  - name: DMA_RD_NOW_ADDR
     description: DMA send mode current address register.
     byte_offset: 24
     access: Read
-    fieldset: R32_UART_FULL_DMA_RD_NOW_ADDR
-  - name: R32_UART_FULL_DMA_RD_START_ADDR
+    fieldset: DMA_RD_NOW_ADDR
+  - name: DMA_RD_START_ADDR
     description: DMA send mode start address register.
     byte_offset: 28
-    fieldset: R32_UART_FULL_DMA_RD_START_ADDR
-  - name: R32_UART_FULL_DMA_RD_END_ADDR
+    fieldset: DMA_RD_START_ADDR
+  - name: DMA_RD_END_ADDR
     description: DMA send mode end address register.
     byte_offset: 32
-    fieldset: R32_UART_FULL_DMA_RD_END_ADDR
-fieldset/R32_UART_FULL_DMA_RD_END_ADDR:
+    fieldset: DMA_RD_END_ADDR
+fieldset/DMA_RD_END_ADDR:
   description: DMA send mode end address register.
   fields:
   - name: DMA_RD_END_ADDR
     description: DMA send mode end address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_UART_FULL_DMA_RD_NOW_ADDR:
+fieldset/DMA_RD_NOW_ADDR:
   description: DMA send mode current address register.
   fields:
   - name: DMA_WR_RD_ADDR
     description: DMA send mode current address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_UART_FULL_DMA_RD_START_ADDR:
+fieldset/DMA_RD_START_ADDR:
   description: DMA send mode start address register.
   fields:
   - name: DMA_RD_START_ADDR
     description: DMA send mode start address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_UART_FULL_DMA_WR_END_ADDR:
+fieldset/DMA_WR_END_ADDR:
   description: DMA received mode end address register.
   fields:
   - name: DMA_WR_END_ADDR
     description: DMA receivek mode end address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_UART_FULL_DMA_WR_NOW_ADDR:
+fieldset/DMA_WR_NOW_ADDR:
   description: DMA receive mode current address register.
   fields:
   - name: DMA_WR_NOW_ADDR
     description: DMA receive mode current address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_UART_FULL_DMA_WR_START_ADDR:
+fieldset/DMA_WR_START_ADDR:
   description: DMA receive mode start address register.
   fields:
   - name: DMA_WR_START_ADDR
     description: DMA receive mode start address.
     bit_offset: 0
     bit_size: 18
-fieldset/R8_UART_FULL_DIV:
+fieldset/DIV:
   description: UART_FULL pre-frequency divisiono register.
   bit_size: 8
   fields:
@@ -131,259 +131,259 @@ fieldset/R8_UART_FULL_DIV:
     description: System clock is pre-divided after frequency doubling to. generate the internal reference clock of the serial port.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UART_FULL_DMA_CTRL:
+fieldset/DMA_CTRL:
   description: DMA Control register.
   bit_size: 8
   fields:
-  - name: RB_DMA_WR_EN
+  - name: DMA_WR_EN
     description: DMA enabled when receiving data.
     bit_offset: 0
     bit_size: 1
-  - name: RB_DMA_WR_LOOP_EN
+  - name: DMA_WR_LOOP_EN
     description: DMA loop mode enabled when receiving data.
     bit_offset: 1
     bit_size: 1
-  - name: RB_DMA_WR_END_EN
+  - name: DMA_WR_END_EN
     description: the end of DMA interrupt when receiving data is enabled.
     bit_offset: 2
     bit_size: 1
-  - name: RB_DMA_WR_ERR_EN
+  - name: DMA_WR_ERR_EN
     description: DMA data transfer error interrupt when receiving data is. enabled.
     bit_offset: 3
     bit_size: 1
-  - name: RB_DMA_RD_EN
+  - name: DMA_RD_EN
     description: DMA enabled when sending data.
     bit_offset: 4
     bit_size: 1
-  - name: RB_DMA_RD_LOOP_EN
+  - name: DMA_RD_LOOP_EN
     description: DMA loop mode enabled when sending data.
     bit_offset: 5
     bit_size: 1
-  - name: RB_DMA_RD_END_EN
+  - name: DMA_RD_END_EN
     description: the end of DMA interrupt when sending data is enabled.
     bit_offset: 6
     bit_size: 1
-  - name: RB_DMA_RD_ERR_EN
+  - name: DMA_RD_ERR_EN
     description: DMA data transfer error interrupt when sending data is. enabled.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UART_FULL_DMA_IF:
+fieldset/DMA_IF:
   description: DMA status register.
   bit_size: 8
   fields:
-  - name: RB_DMA_IF_RX_END
+  - name: DMA_IF_RX_END
     description: DMA end flag when data is received.
     bit_offset: 0
     bit_size: 1
-  - name: RB_DMA_IF_RX_ERR
+  - name: DMA_IF_RX_ERR
     description: DMA transfer error flag while receiving data.
     bit_offset: 1
     bit_size: 1
-  - name: RB_DMA_IF_TX_END
+  - name: DMA_IF_TX_END
     description: DMA end flag when data is sended.
     bit_offset: 2
     bit_size: 1
-  - name: RB_DMA_IF_TX_ERR
+  - name: DMA_IF_TX_ERR
     description: DMA transfer error flag while sending data.
     bit_offset: 3
     bit_size: 1
-fieldset/R8_UART_FULL_IER__UART_FULL_DLM:
+fieldset/IER__DLM:
   description: UART_FULL interrupt enable/baud rate divisor register,. DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
   bit_size: 8
   fields:
-  - name: RB_IER_RECV_RDY_UART_FULL_DLM
+  - name: IER_RECV_RDY_UART_FULL_DLM
     description: UART interrupt enable for receiver data ready.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IER_THR_EMPTY_UART_FULL_DLM
+  - name: IER_THR_EMPTY_UART_FULL_DLM
     description: UART interrupt enable for THR empty.
     bit_offset: 1
     bit_size: 1
-  - name: RB_IER_LINE_STAT_UART_FULL_DLM
+  - name: IER_LINE_STAT_UART_FULL_DLM
     description: UART interrupt enable for receiver line status.
     bit_offset: 2
     bit_size: 1
-  - name: RB_IER_MODEM_CHG_UART_FULL_DLM
+  - name: IER_MODEM_CHG_UART_FULL_DLM
     description: UART_FULL interrupt enable for modem status change.
     bit_offset: 3
     bit_size: 1
-  - name: RB_IER_MODEM_IO_UART_FULL_DLM
+  - name: IER_MODEM_IO_UART_FULL_DLM
     description: serial modem MODEM signal pin selection bit.
     bit_offset: 4
     bit_size: 1
-  - name: RB_IER_MOUT_EN_UART_FULL_DLM
+  - name: IER_MOUT_EN_UART_FULL_DLM
     description: UART_FULL RTS/DTR output pin enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_IER_TXD_EN_UART_FULL_DLM
+  - name: IER_TXD_EN_UART_FULL_DLM
     description: UART TXD pin enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_IER_RESET_UART_FULL_DLM
+  - name: IER_RESET_UART_FULL_DLM
     description: UART software reset control, high action, auto clear.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UART_FULL_IIR_R8_UART_FULL_FCR:
+fieldset/IIR_FCR:
   description: UART_FULL interrupt identification/FIFO control register.
   bit_size: 8
   fields:
-  - name: RB_IIR_NO_INT_RB_FCR_FIFO_EN
+  - name: IIR_NO_INT_RB_FCR_FIFO_EN
     description: UART interrupt status flag/FIFO enable bit.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IIR_INT_MASK_RB_FCR_RX_FIFO_CLR
+  - name: IIR_INT_MASK_RB_FCR_RX_FIFO_CLR
     description: UART interrupt flag bit mask/clear UART receiver FIFO, high. action, auto clear.
     bit_offset: 1
     bit_size: 1
-  - name: RB_IIR_INT_MASK_RB_FCR_TX_FIFO_CLR
+  - name: IIR_INT_MASK_RB_FCR_TX_FIFO_CLR
     description: UART interrupt flag bit mask/clear UART transmitter FIFO,. high action, auto clear.
     bit_offset: 2
     bit_size: 1
-  - name: RB_IIR_INT_MASK
+  - name: IIR_INT_MASK
     description: UART interrupt flag bit mask.
     bit_offset: 3
     bit_size: 1
-  - name: RB_IIR_FIFO_EN_RB_FCR_FIFO_TRIG
+  - name: IIR_FIFO_EN_RB_FCR_FIFO_TRIG
     description: UART FIFO enabled flag/UART receiver FIFO trigger level.
     bit_offset: 6
     bit_size: 2
-fieldset/R8_UART_FULL_LCR:
+fieldset/LCR:
   description: UART_FULL line control.
   bit_size: 8
   fields:
-  - name: RB_LCR_WORD_SZ
+  - name: LCR_WORD_SZ
     description: UART word bit length.
     bit_offset: 0
     bit_size: 2
-  - name: RB_LCR_STOP_BIT
+  - name: LCR_STOP_BIT
     description: UART stop bit length.
     bit_offset: 2
     bit_size: 1
-  - name: RB_LCR_PAR_EN
+  - name: LCR_PAR_EN
     description: UART parity enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_LCR_PAR_MOD
+  - name: LCR_PAR_MOD
     description: UART parity mode.
     bit_offset: 4
     bit_size: 2
-  - name: RB_LCR_BREAK_EN
+  - name: LCR_BREAK_EN
     description: UART break control enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LCR_DLAB
+  - name: LCR_DLAB
     description: UART divisor latch access enable bit.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UART_FULL_LSR:
+fieldset/LSR:
   description: UART_FULL line status.
   bit_size: 8
   fields:
-  - name: RB_LSR_DATA_RDY
+  - name: LSR_DATA_RDY
     description: UART receiver fifo data ready status.
     bit_offset: 0
     bit_size: 1
-  - name: RB_LSR_OVER_ERR
+  - name: LSR_OVER_ERR
     description: UART receiver overrun error.
     bit_offset: 1
     bit_size: 1
-  - name: RB_LSR_PAR_ERR
+  - name: LSR_PAR_ERR
     description: UART receiver frame error.
     bit_offset: 2
     bit_size: 1
-  - name: RB_LSR_FRAME_ERR
+  - name: LSR_FRAME_ERR
     description: UART receiver frame error.
     bit_offset: 3
     bit_size: 1
-  - name: RB_LSR_BREAK_ERR
+  - name: LSR_BREAK_ERR
     description: UART receiver break error.
     bit_offset: 4
     bit_size: 1
-  - name: RB_LSR_TX_FIFO_EMP
+  - name: LSR_TX_FIFO_EMP
     description: UART transmitter fifo empty status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_LSR_TX_ALL_EMP
+  - name: LSR_TX_ALL_EMP
     description: UART transmitter all empty status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LSR_ERR_RX_FIFO
+  - name: LSR_ERR_RX_FIFO
     description: indicate error in UART receiver fifo.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UART_FULL_MCR:
+fieldset/MCR:
   description: UART_FULL modem control.
   bit_size: 8
   fields:
-  - name: RB_MCR_DTR
+  - name: MCR_DTR
     description: UART_FULL control DTR output.
     bit_offset: 0
     bit_size: 1
-  - name: RB_MCR_RTS
+  - name: MCR_RTS
     description: UART_FULL control RTS output.
     bit_offset: 1
     bit_size: 1
-  - name: RB_MCR_OUT1
+  - name: MCR_OUT1
     description: UART_FULL MODEM Control bit.
     bit_offset: 2
     bit_size: 1
-  - name: RB_MCR_OUT2
+  - name: MCR_OUT2
     description: UART interrupt required output control.
     bit_offset: 3
     bit_size: 1
-  - name: RB_MCR_LOOP
+  - name: MCR_LOOP
     description: UART_FULL enable local loop back.
     bit_offset: 4
     bit_size: 1
-  - name: RB_MCR_AU_FLOW_EN
+  - name: MCR_AU_FLOW_EN
     description: UART_FULL enable autoflow control.
     bit_offset: 5
     bit_size: 1
-  - name: RB_MCR_TNOW
+  - name: MCR_TNOW
     description: UART_FULL enable TNOW output on DTR pin.
     bit_offset: 6
     bit_size: 1
-fieldset/R8_UART_FULL_MSR:
+fieldset/MSR:
   description: UART_FULL modem status.
   bit_size: 8
   fields:
-  - name: RB_MSR_CTS_CHG
+  - name: MSR_CTS_CHG
     description: UART_FULL CTS changed status, high action.
     bit_offset: 0
     bit_size: 1
-  - name: RB_MSR_DSR_CHG
+  - name: MSR_DSR_CHG
     description: UART_FULL DSR changed status, high action.
     bit_offset: 1
     bit_size: 1
-  - name: RB_MSR_RI_CHG
+  - name: MSR_RI_CHG
     description: UART_FULL RI changed status, high action.
     bit_offset: 2
     bit_size: 1
-  - name: RB_MSR_DCD_CHG
+  - name: MSR_DCD_CHG
     description: UART_FULL DCD changed status, high action.
     bit_offset: 3
     bit_size: 1
-  - name: RB_MSR_CTS
+  - name: MSR_CTS
     description: UART_FULL CTS action status.
     bit_offset: 4
     bit_size: 1
-  - name: RB_MSR_DSR
+  - name: MSR_DSR
     description: UART_FULL DSR action status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_MSR_RI
+  - name: MSR_RI
     description: UART_FULL RI action status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_MSR_DCD
+  - name: MSR_DCD
     description: UART_FULL DCD action status.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UART_FULL_RBR_R8_UART_FULL_THR_R8_UART_FULL_DLL:
+fieldset/RBR_THR_DLL:
   description: UART_FULL receiver buffer, receiving byte / UART_FULL transmitter holding,. transmittal byte/DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
   bit_size: 8
   fields:
-  - name: R8_UART_FULL_RBR__UART_FULL_THR_UART_FULL_DLL
+  - name: RBR__THR_DLL
     description: UART receiver buffer, receiving byte. / UART transmitter holding, transmittal byte.
     bit_offset: 0
     bit_size: 8

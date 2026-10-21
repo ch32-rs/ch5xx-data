@@ -1,42 +1,42 @@
 block/CMP:
   description: Comparer.
   items:
-  - name: R32_CMP_CTRL
+  - name: CTRL
     description: RW, Comparator control register.
     byte_offset: 84
-    fieldset: R32_CMP_CTRL
-fieldset/R32_CMP_CTRL:
+    fieldset: CTRL
+fieldset/CTRL:
   description: RW, Comparator control register.
   fields:
-  - name: RB_CMP_EN
+  - name: CMP_EN
     description: RW, Comparator enabled.
     bit_offset: 0
     bit_size: 1
-  - name: RB_CMP_CAP
+  - name: CMP_CAP
     description: RW, Timer captures channel signal source selection.
     bit_offset: 1
     bit_size: 1
-  - name: RB_CMP_SW
+  - name: CMP_SW
     description: RW, Comparator channel selection.
     bit_offset: 2
     bit_size: 2
-  - name: RB_CMP_NREF_LEVEL
+  - name: CMP_NREF_LEVEL
     description: RW, Selection of negative reference level for comparator.
     bit_offset: 4
     bit_size: 4
-  - name: RB_CMP_INT
+  - name: CMP_INT
     description: RW, Comparator interrupt enable.
     bit_offset: 8
     bit_size: 1
-  - name: RB_CMP_OUT_SEL
+  - name: CMP_OUT_SEL
     description: RW, Comparator interrupt generates event selection.
     bit_offset: 10
     bit_size: 2
-  - name: RB_CMP_IF
+  - name: CMP_IF
     description: RW1, Comparator interrupt flag, write 1 to reset to zero.
     bit_offset: 16
     bit_size: 1
-  - name: RB_APR_OUT_CMP
+  - name: APR_OUT_CMP
     description: RW, Real time output signal of comparator.
     bit_offset: 25
     bit_size: 1

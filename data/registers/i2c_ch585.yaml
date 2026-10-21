@@ -1,290 +1,290 @@
 block/I2C:
   description: I2C register.
   items:
-  - name: R16_I2C_CTRL1
+  - name: CTRL1
     description: RW, I2C control 1.
     byte_offset: 0
     bit_size: 16
-    fieldset: R16_I2C_CTRL1
-  - name: R16_I2C_CTRL2
+    fieldset: CTRL1
+  - name: CTRL2
     description: RW, I2C control 2.
     byte_offset: 4
     bit_size: 16
-    fieldset: R16_I2C_CTRL2
-  - name: R16_I2C_OADDR1
+    fieldset: CTRL2
+  - name: OADDR1
     description: RW, I2C own address register 1.
     byte_offset: 8
     bit_size: 16
-    fieldset: R16_I2C_OADDR1
-  - name: R16_I2C_OADDR2
+    fieldset: OADDR1
+  - name: OADDR2
     description: RW, I2C own address register 2.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_I2C_OADDR2
-  - name: R16_I2C_DATAR
+    fieldset: OADDR2
+  - name: DATAR
     description: RW, I2C data register.
     byte_offset: 16
     bit_size: 16
-    fieldset: R16_I2C_DATAR
-  - name: R16_I2C_STAR1
+    fieldset: DATAR
+  - name: STAR1
     description: RO, I2C stauts register 1.
     byte_offset: 20
     access: Read
     bit_size: 16
-    fieldset: R16_I2C_STAR1
-  - name: R16_I2C_STAR2
+    fieldset: STAR1
+  - name: STAR2
     description: RO, I2C status register 2.
     byte_offset: 24
     access: Read
     bit_size: 16
-    fieldset: R16_I2C_STAR2
-  - name: R16_I2C_CKCFGR
+    fieldset: STAR2
+  - name: CKCFGR
     description: RW, I2C clock control register.
     byte_offset: 28
     bit_size: 16
-    fieldset: R16_I2C_CKCFGR
-  - name: R16_I2C_RTR
+    fieldset: CKCFGR
+  - name: RTR
     description: RW, I2C trise register.
     byte_offset: 32
     bit_size: 16
-    fieldset: R16_I2C_RTR
-fieldset/R16_I2C_CKCFGR:
+    fieldset: RTR
+fieldset/CKCFGR:
   description: RW, I2C clock control register.
   bit_size: 16
   fields:
-  - name: RB_I2C_CCR
+  - name: I2C_CCR
     description: RW, Controls the SCL clock in Fm/Sm mode (Master mode).
     bit_offset: 0
     bit_size: 12
-  - name: RB_I2C_DUTY
+  - name: I2C_DUTY
     description: 'RW, Fm mode duty cycle: 0=L/H=2, 1=L/H=16/9.'
     bit_offset: 14
     bit_size: 1
-  - name: RB_I2C_F__S
+  - name: I2C_F__S
     description: 'RW, I2C master mode selection: 0=standard mode, 1=fast mode.'
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_CTRL1:
+fieldset/CTRL1:
   description: RW, I2C control 1.
   bit_size: 16
   fields:
-  - name: RB_I2C_PE
+  - name: I2C_PE
     description: RW, Peripheral enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_I2C_SMBUS
+  - name: I2C_SMBUS
     description: 'RW, SMBUS mode: 0=I2C mode, 1=SMBUS mode.'
     bit_offset: 1
     bit_size: 1
-  - name: RB_I2C_SMBTYPE
+  - name: I2C_SMBTYPE
     description: 'RW, SMBus type: 0=Device, 1=Host.'
     bit_offset: 3
     bit_size: 1
-  - name: RB_I2C_EBARP
+  - name: I2C_EBARP
     description: RW, ARP enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_I2C_ENPEC
+  - name: I2C_ENPEC
     description: RW, PEC ebable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_I2C_ENGC
+  - name: I2C_ENGC
     description: RW, General call enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_I2C_NOSTRETCH
+  - name: I2C_NOSTRETCH
     description: RW, Clock stretching disable (Slave mode).
     bit_offset: 7
     bit_size: 1
-  - name: RB_I2C_START
+  - name: I2C_START
     description: 'RW, Start generation: master mode: 0=no start, 1=repeated start; slave mode: 0=no start, 1=start at bus free.'
     bit_offset: 8
     bit_size: 1
-  - name: RB_I2C_STOP
+  - name: I2C_STOP
     description: 'RW, Stop generation: master mode: 0=no stop, 1=stop after the current byte transfer or after the current Start condition is sent; slave mode: 0=no stop, 1=Release the SCL and SDA lines after the current byte transfer.'
     bit_offset: 9
     bit_size: 1
-  - name: RB_I2C_ACK
+  - name: I2C_ACK
     description: RW, Acknowledge enable.
     bit_offset: 10
     bit_size: 1
-  - name: RB_I2C_POS
+  - name: I2C_POS
     description: RW, Acknowledge/PEC Position (for data reception).
     bit_offset: 11
     bit_size: 1
-  - name: RB_I2C_PEC
+  - name: I2C_PEC
     description: 'RW, Packet error checking: 0=No PEC transfer, 1=PEC transfer (in Tx or Rx mode).'
     bit_offset: 12
     bit_size: 1
-  - name: RB_I2C_ALERT
+  - name: I2C_ALERT
     description: 'RW, SMBus alert: 0=Releases SMBA pin high, 1=Drives SMBA pin low.'
     bit_offset: 13
     bit_size: 1
-  - name: RB_I2C_SWRST
+  - name: I2C_SWRST
     description: RW, Software reset.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_CTRL2:
+fieldset/CTRL2:
   description: RW, I2C control 2.
   bit_size: 16
   fields:
-  - name: RB_I2C_FREQ
+  - name: I2C_FREQ
     description: RW, Peripheral clock frequency, The minimum allowed frequency is 2 MHz,the maximum frequency is 36 MHz.
     bit_offset: 0
     bit_size: 6
-  - name: RB_I2C_ITERREN
+  - name: I2C_ITERREN
     description: RW, Error interrupt enable.
     bit_offset: 8
     bit_size: 1
-  - name: RB_I2C_ITEVTEN
+  - name: I2C_ITEVTEN
     description: RW, Event interrupt enable.
     bit_offset: 9
     bit_size: 1
-  - name: RB_I2C_ITBUFEN
+  - name: I2C_ITBUFEN
     description: RW, Buffer interrupt enable.
     bit_offset: 10
     bit_size: 1
-fieldset/R16_I2C_DATAR:
+fieldset/DATAR:
   description: RW, I2C data register.
   bit_size: 16
   fields:
-  - name: R16_I2C_DATAR
+  - name: DATAR
     description: RW, I2C data register.
     bit_offset: 0
     bit_size: 8
-fieldset/R16_I2C_OADDR1:
+fieldset/OADDR1:
   description: RW, I2C own address register 1.
   bit_size: 16
   fields:
-  - name: RB_I2C_ADD0
+  - name: I2C_ADD0
     description: RW, bit0 of address in 10-bit addressing mode.
     bit_offset: 0
     bit_size: 1
-  - name: RB_I2C_ADD7_1
+  - name: I2C_ADD7_1
     description: RW, bit[7:1] of address.
     bit_offset: 1
     bit_size: 7
-  - name: RB_I2C_ADD9_8
+  - name: I2C_ADD9_8
     description: RW, bit[9:8] of address in 10-bit addressing mode.
     bit_offset: 8
     bit_size: 2
-  - name: RB_I2C_ADDMODE
+  - name: I2C_ADDMODE
     description: 'RW, Addressing mode (slave mode): 0=7-bit slave address, 1=10-bit slave address.'
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_OADDR2:
+fieldset/OADDR2:
   description: RW, I2C own address register 2.
   bit_size: 16
   fields:
-  - name: RB_I2C_ENDUAL
+  - name: I2C_ENDUAL
     description: RW, Dual addressing mode enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_I2C_ADD2
+  - name: I2C_ADD2
     description: RW, bit[7:1] of address2.
     bit_offset: 1
     bit_size: 7
-fieldset/R16_I2C_RTR:
+fieldset/RTR:
   description: RW, I2C trise register.
   bit_size: 16
   fields:
-  - name: RB_I2C_TRISE
+  - name: I2C_TRISE
     description: RW, Maximum rise time in Fm/Sm mode (Master mode).
     bit_offset: 0
     bit_size: 6
-fieldset/R16_I2C_STAR1:
+fieldset/STAR1:
   description: RO, I2C stauts register 1.
   bit_size: 16
   fields:
-  - name: RB_I2C_SB
+  - name: I2C_SB
     description: RW0, Start bit flag (Master mode).
     bit_offset: 0
     bit_size: 1
-  - name: RB_I2C_ADDR
+  - name: I2C_ADDR
     description: RW0, Address sent (master mode)/matched (slave mode) flag.
     bit_offset: 1
     bit_size: 1
-  - name: RB_I2C_BTF
+  - name: I2C_BTF
     description: RO, Byte transfer finished flag.
     bit_offset: 2
     bit_size: 1
-  - name: RB_I2C_ADD10
+  - name: I2C_ADD10
     description: RO, 10-bit header sent flag (Master mode).
     bit_offset: 3
     bit_size: 1
-  - name: RB_I2C_STOPF
+  - name: I2C_STOPF
     description: RO, Stop detection flag (slave mode).
     bit_offset: 4
     bit_size: 1
-  - name: RB_I2C_RxNE
+  - name: I2C_RxNE
     description: RO, Data register not empty flag (receivers).
     bit_offset: 6
     bit_size: 1
-  - name: RB_I2C_TxE
+  - name: I2C_TxE
     description: RO, Data register empty flag (transmitters).
     bit_offset: 7
     bit_size: 1
-  - name: RB_I2C_BERR
+  - name: I2C_BERR
     description: RW0, Bus error flag.
     bit_offset: 8
     bit_size: 1
-  - name: RB_I2C_ARLO
+  - name: I2C_ARLO
     description: RW0, Arbitration lost flag (master mode).
     bit_offset: 9
     bit_size: 1
-  - name: RB_I2C_AF
+  - name: I2C_AF
     description: RW0, Acknowledge failure flag.
     bit_offset: 10
     bit_size: 1
-  - name: RB_I2C_OVR
+  - name: I2C_OVR
     description: RW0, Overrun/Underrun flag.
     bit_offset: 11
     bit_size: 1
-  - name: RB_I2C_PECERR
+  - name: I2C_PECERR
     description: RW0, PEC Error flag in reception.
     bit_offset: 12
     bit_size: 1
-  - name: RB_I2C_TIMEOUT
+  - name: I2C_TIMEOUT
     description: RW0, Timeout or Tlow error flag.
     bit_offset: 13
     bit_size: 1
-  - name: RB_I2C_SMBALERT
+  - name: I2C_SMBALERT
     description: RW0, SMBus alert flag.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_STAR2:
+fieldset/STAR2:
   description: RO, I2C status register 2.
   bit_size: 16
   fields:
-  - name: RB_I2C_MSL
+  - name: I2C_MSL
     description: 'RO, Mode statu: 0=Slave mode, 1=Master mode.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_I2C_BUSY
+  - name: I2C_BUSY
     description: RO, Bus busy flag.
     bit_offset: 1
     bit_size: 1
-  - name: RB_I2C_TRA
+  - name: I2C_TRA
     description: 'RO, Trans flag: 0=data bytes received, 1=data bytes transmitted.'
     bit_offset: 2
     bit_size: 1
-  - name: RB_I2C_GENCALL
+  - name: I2C_GENCALL
     description: RO, General call address (Slave mode) received flag.
     bit_offset: 4
     bit_size: 1
-  - name: RB_I2C_SMBDEFAULT
+  - name: I2C_SMBDEFAULT
     description: RO, SMBus device default address (Slave mode) received flag.
     bit_offset: 5
     bit_size: 1
-  - name: RB_I2C_SMBHOST
+  - name: I2C_SMBHOST
     description: RO, SMBus host header (Slave mode) received flag.
     bit_offset: 6
     bit_size: 1
-  - name: RB_I2C_DUALF
+  - name: I2C_DUALF
     description: 'RO, Dual flag (Slave mode): 0=Received address matched with OAR1, 1=Received address matched with OAR2.'
     bit_offset: 7
     bit_size: 1
-  - name: RB_I2C_PECX
+  - name: I2C_PECX
     description: RO, Packet error checking register.
     bit_offset: 8
     bit_size: 8

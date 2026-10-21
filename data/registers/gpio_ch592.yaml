@@ -1,316 +1,316 @@
+# GPIO on CH592. The PA/PB interrupt edge-type registers (0x98, 0x9A) come from
+# CH592/CH591 DS v1.9 and the SDK CH592SFR.h; the MounRiver CH59X SVD omits them.
 block/GPIO:
   description: General porpose intput output.
   items:
-  - name: R16_PA_INT_EN
+  - name: PA_INT_EN
     description: RW, GPIO PA interrupt enable.
     byte_offset: 144
     bit_size: 16
-    fieldset: R16_PA_INT_EN
-  - name: R16_PB_INT_EN
+    fieldset: PA_INT_EN
+  - name: PB_INT_EN
     description: RW, GPIO PB interrupt enable.
     byte_offset: 146
     bit_size: 16
-    fieldset: R16_PB_INT_EN
-  - name: R16_PA_INT_MODE
+    fieldset: PB_INT_EN
+  - name: PA_INT_MODE
     description: 'RW, GPIO PA interrupt mode: 0=level action, 1=edge action.'
     byte_offset: 148
     bit_size: 16
-    fieldset: R16_PA_INT_MODE
-  - name: R16_PB_INT_MODE
+    fieldset: PA_INT_MODE
+  - name: PB_INT_MODE
     description: 'RW, GPIO PB interrupt mode: 0=level action, 1=edge action;RW, status for parallel slave read.'
     byte_offset: 150
     bit_size: 16
-    fieldset: R16_PB_INT_MODE
-  # CH592/CH591 DS v1.9 (Chinese), GPIO tables (pp. 42, 45), and SDK CH592SFR.h.
-  # These edge-type registers are missing from the older MounRiver CH59X SVD.
-  - name: R16_PA_INT_EDGE_TYPE
+    fieldset: PB_INT_MODE
+  - name: PA_INT_EDGE_TYPE
     description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
     byte_offset: 152
     bit_size: 16
-    fieldset: R16_PA_INT_EDGE_TYPE
-  - name: R16_PB_INT_EDGE_TYPE
+    fieldset: PA_INT_EDGE_TYPE
+  - name: PB_INT_EDGE_TYPE
     description: 'RW, GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
     byte_offset: 154
     bit_size: 16
-    fieldset: R16_PB_INT_EDGE_TYPE
-  - name: R16_PA_INT_IF
+    fieldset: PB_INT_EDGE_TYPE
+  - name: PA_INT_IF
     description: RW1, GPIO PA interrupt flag.
     byte_offset: 156
     bit_size: 16
-    fieldset: R16_PA_INT_IF
-  - name: R16_PB_INT_IF
+    fieldset: PA_INT_IF
+  - name: PB_INT_IF
     description: RW1, GPIO PB interrupt flag.
     byte_offset: 158
     bit_size: 16
-    fieldset: R16_PB_INT_IF
-  - name: R32_PA_DIR
+    fieldset: PB_INT_IF
+  - name: PA_DIR
     description: 'RW, GPIO PA I/O direction: 0=in, 1=out.'
     byte_offset: 160
-    fieldset: R32_PA_DIR
-  - name: R32_PA_PIN
+    fieldset: PA_DIR
+  - name: PA_PIN
     description: RO, GPIO PA input.
     byte_offset: 164
     access: Read
-    fieldset: R32_PA_PIN
-  - name: R32_PA_OUT
+    fieldset: PA_PIN
+  - name: PA_OUT
     description: RW, GPIO PA output.
     byte_offset: 168
-    fieldset: R32_PA_OUT
-  - name: R32_PA_CLR
+    fieldset: PA_OUT
+  - name: PA_CLR
     description: 'WZ, GPIO PA clear output: 0=keep, 1=clear.'
     byte_offset: 172
     access: Write
-    fieldset: R32_PA_CLR
-  - name: R32_PA_PU
+    fieldset: PA_CLR
+  - name: PA_PU
     description: RW, GPIO PA pullup resistance enable.
     byte_offset: 176
-    fieldset: R32_PA_PU
-  - name: R32_PA_PD_DRV
+    fieldset: PA_PU
+  - name: PA_PD_DRV
     description: RW, PA pulldown for input or PA driving capability for output.
     byte_offset: 180
-    fieldset: R32_PA_PD_DRV
-  - name: R32_PB_DIR
+    fieldset: PA_PD_DRV
+  - name: PB_DIR
     description: 'RW, GPIO PB I/O direction: 0=in, 1=out.'
     byte_offset: 192
-    fieldset: R32_PB_DIR
-  - name: R32_PB_PIN
+    fieldset: PB_DIR
+  - name: PB_PIN
     description: RO, GPIO PB input.
     byte_offset: 196
     access: Read
-    fieldset: R32_PB_PIN
-  - name: R32_PB_OUT
+    fieldset: PB_PIN
+  - name: PB_OUT
     description: RW, GPIO PB output;RW, data for parallel slave read.
     byte_offset: 200
-    fieldset: R32_PB_OUT
-  - name: R32_PB_CLR
+    fieldset: PB_OUT
+  - name: PB_CLR
     description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
     byte_offset: 204
-    fieldset: R32_PB_CLR
-  - name: R32_PB_PU
+    fieldset: PB_CLR
+  - name: PB_PU
     description: RW, GPIO PB pullup resistance enable.
     byte_offset: 208
-    fieldset: R32_PB_PU
-  - name: R32_PB_PD_DRV
+    fieldset: PB_PU
+  - name: PB_PD_DRV
     description: RW, PB pulldown for input or PB driving capability for output.
     byte_offset: 212
-    fieldset: R32_PB_PD_DRV
-fieldset/R16_PA_INT_EDGE_TYPE:
+    fieldset: PB_PD_DRV
+fieldset/PA_INT_EDGE_TYPE:
   description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
   bit_size: 16
   fields:
-  - name: R16_PA_INT_EDGE_TYPE
+  - name: PA_INT_EDGE_TYPE
     description: 'GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PA_INT_EN:
+fieldset/PA_INT_EN:
   description: RW, GPIO PA interrupt enable.
   bit_size: 16
   fields:
-  - name: R16_PA_INT_EN
+  - name: PA_INT_EN
     description: GPIO PA interrupt enable.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PA_INT_IF:
+fieldset/PA_INT_IF:
   description: RW1, GPIO PA interrupt flag.
   bit_size: 16
   fields:
-  - name: R16_PA_INT_IF
+  - name: PA_INT_IF
     description: GPIO PA interrupt flag.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PA_INT_MODE:
+fieldset/PA_INT_MODE:
   description: 'RW, GPIO PA interrupt mode: 0=level action, 1=edge action.'
   bit_size: 16
   fields:
-  - name: R16_PA_INT_MODE
+  - name: PA_INT_MODE
     description: GPIO PA interrupt mode.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PB_INT_EDGE_TYPE:
+fieldset/PB_INT_EDGE_TYPE:
   description: 'RW, GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
   bit_size: 16
   fields:
-  - name: R16_PB_INT_EDGE_TYPE
+  - name: PB_INT_EDGE_TYPE
     description: 'GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PB_INT_EN:
+fieldset/PB_INT_EN:
   description: RW, GPIO PB interrupt enable.
   bit_size: 16
   fields:
-  - name: R16_PB_INT_EN
+  - name: PB_INT_EN
     description: GPIO PB interrupt enable.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PB_INT_IF:
+fieldset/PB_INT_IF:
   description: RW1, GPIO PB interrupt flag.
   bit_size: 16
   fields:
-  - name: R16_PB_INT_IF
+  - name: PB_INT_IF
     description: GPIO PB interrupt flag.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_PB_INT_MODE:
+fieldset/PB_INT_MODE:
   description: 'RW, GPIO PB interrupt mode: 0=level action, 1=edge action;RW, status for parallel slave read.'
   bit_size: 16
   fields:
-  - name: R16_PB_INT_MODE
+  - name: PB_INT_MODE
     description: GPIO PB interrupt mode.
     bit_offset: 0
     bit_size: 16
-fieldset/R32_PA_CLR:
+fieldset/PA_CLR:
   description: 'WZ, GPIO PA clear output: 0=keep, 1=clear.'
   fields:
-  - name: R8_PA_CLR_0
+  - name: PA_CLR_0
     description: GPIO PA clear output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_CLR_1
+  - name: PA_CLR_1
     description: GPIO PA clear output byte 1.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PA_DIR:
+fieldset/PA_DIR:
   description: 'RW, GPIO PA I/O direction: 0=in, 1=out.'
   fields:
-  - name: R8_PA_DIR_0
+  - name: PA_DIR_0
     description: GPIO PA I/O direction byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_DIR_1
+  - name: PA_DIR_1
     description: GPIO PA I/O direction byte 1.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PA_OUT:
+fieldset/PA_OUT:
   description: RW, GPIO PA output.
   fields:
-  - name: R8_PA_OUT_0
+  - name: PA_OUT_0
     description: GPIO PA output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_OUT_1
+  - name: PA_OUT_1
     description: GPIO PA output byte 1.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PA_PD_DRV:
+fieldset/PA_PD_DRV:
   description: RW, PA pulldown for input or PA driving capability for output.
   fields:
-  - name: R8_PA_PD_DRV_0
+  - name: PA_PD_DRV_0
     description: PA pulldown for input or PA driving capability for output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_PD_DRV_1
+  - name: PA_PD_DRV_1
     description: PA pulldown for input or PA driving capability for output byte 1.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PA_PIN:
+fieldset/PA_PIN:
   description: RO, GPIO PA input.
   fields:
-  - name: R8_PA_PIN_0
+  - name: PA_PIN_0
     description: GPIO PA input byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_PIN_1
+  - name: PA_PIN_1
     description: GPIO PA input byte 1.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PA_PU:
+fieldset/PA_PU:
   description: RW, GPIO PA pullup resistance enable.
   fields:
-  - name: R8_PA_PU_0
+  - name: PA_PU_0
     description: GPIO PA pullup resistance enable byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PA_PU_1
+  - name: PA_PU_1
     description: GPIO PA pullup resistance enable byte 0.
     bit_offset: 8
     bit_size: 8
-fieldset/R32_PB_CLR:
+fieldset/PB_CLR:
   description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
   fields:
-  - name: R8_PB_CLR_0
+  - name: PB_CLR_0
     description: GPIO PB clear output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_CLR_1
+  - name: PB_CLR_1
     description: GPIO PB clear output byte 1.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_CLR_2
+  - name: PB_CLR_2
     description: GPIO PB clear output byte 2.
     bit_offset: 16
     bit_size: 8
-fieldset/R32_PB_DIR:
+fieldset/PB_DIR:
   description: 'RW, GPIO PB I/O direction: 0=in, 1=out.'
   fields:
-  - name: R8_PB_DIR_0
+  - name: PB_DIR_0
     description: GPIO PB I/O direction byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_DIR_1
+  - name: PB_DIR_1
     description: GPIO PB I/O direction byte 1.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_DIR_2
+  - name: PB_DIR_2
     description: GPIO PB I/O direction byte 2.
     bit_offset: 16
     bit_size: 8
-fieldset/R32_PB_OUT:
+fieldset/PB_OUT:
   description: RW, GPIO PB output;RW, data for parallel slave read.
   fields:
-  - name: R8_PB_OUT_0
+  - name: PB_OUT_0
     description: GPIO PB output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_OUT_1
+  - name: PB_OUT_1
     description: GPIO PB output byte 1.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_OUT_2
+  - name: PB_OUT_2
     description: GPIO PB output byte 2.
     bit_offset: 16
     bit_size: 8
-fieldset/R32_PB_PD_DRV:
+fieldset/PB_PD_DRV:
   description: RW, PB pulldown for input or PB driving capability for output.
   fields:
-  - name: R8_PB_PD_DRV_0
+  - name: PB_PD_DRV_0
     description: PB pulldown for input or PB driving capability for output byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_PD_DRV_1
+  - name: PB_PD_DRV_1
     description: PB pulldown for input or PB driving capability for output byte 0.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_PD_DRV_2
+  - name: PB_PD_DRV_2
     description: PB pulldown for input or PB driving capability for output byte 0.
     bit_offset: 16
     bit_size: 8
-fieldset/R32_PB_PIN:
+fieldset/PB_PIN:
   description: RO, GPIO PB input.
   fields:
-  - name: R8_PB_PIN_0
+  - name: PB_PIN_0
     description: GPIO PB input byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_PIN_1
+  - name: PB_PIN_1
     description: GPIO PB input byte 1.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_PIN_2
+  - name: PB_PIN_2
     description: GPIO PB input byte 2.
     bit_offset: 16
     bit_size: 8
-fieldset/R32_PB_PU:
+fieldset/PB_PU:
   description: RW, GPIO PB pullup resistance enable.
   fields:
-  - name: R8_PB_PU_0
+  - name: PB_PU_0
     description: GPIO PB pullup resistance enable byte 0.
     bit_offset: 0
     bit_size: 8
-  - name: R8_PB_PU_1
+  - name: PB_PU_1
     description: GPIO PB pullup resistance enable byte 1.
     bit_offset: 8
     bit_size: 8
-  - name: R8_PB_PU_2
+  - name: PB_PU_2
     description: GPIO PB pullup resistance enable byte 2.
     bit_offset: 16
     bit_size: 8

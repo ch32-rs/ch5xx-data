@@ -1,70 +1,70 @@
 block/USBHS_DEV:
   description: USB register.
   items:
-  - name: R8_USB_CTRL
+  - name: USB_CTRL
     description: USB base control register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_USB_CTRL
-  - name: R8_USB_BASE_MODE
+    fieldset: USB_CTRL
+  - name: USB_BASE_MODE
     description: USB mode control register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_USB_BASE_MODE
-  - name: R8_USB_INT_EN
+    fieldset: USB_BASE_MODE
+  - name: USB_INT_EN
     description: USB interrupt enable register.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_USB_INT_EN
-  - name: R8_USB_DEV_AD
+    fieldset: USB_INT_EN
+  - name: USB_DEV_AD
     description: USB device address.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_USB_DEV_AD
-  - name: R8_USB_WAKE_CTRL
+    fieldset: USB_DEV_AD
+  - name: USB_WAKE_CTRL
     description: USB remote wake up register.
     byte_offset: 4
     access: Read
     bit_size: 16
-    fieldset: R8_USB_WAKE_CTRL
-  - name: R8_USB_TEST_MODE
+    fieldset: USB_WAKE_CTRL
+  - name: USB_TEST_MODE
     description: USB test mode register.
     byte_offset: 5
     bit_size: 8
-    fieldset: R8_USB_TEST_MODE
+    fieldset: USB_TEST_MODE
   - name: LPM_DATA
     description: USB power management register.
     byte_offset: 6
     bit_size: 16
     fieldset: LPM_DATA
-  - name: R8_USB_INT_FG
+  - name: USB_INT_FG
     description: USB interrupt flag register.
     byte_offset: 8
     bit_size: 8
-    fieldset: R8_USB_INT_FG
-  - name: R8_USB_INT_ST
+    fieldset: USB_INT_FG
+  - name: USB_INT_ST
     description: USB interrupt status.
     byte_offset: 9
     access: Read
     bit_size: 8
-    fieldset: R8_USB_INT_ST
-  - name: R8_USB_MIS_ST
+    fieldset: USB_INT_ST
+  - name: USB_MIS_ST
     description: USB miscellaneous status.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: R8_USB_MIS_ST
-  - name: R16_USB_FRAM_NO
+    fieldset: USB_MIS_ST
+  - name: USB_FRAM_NO
     description: USB frame number.
     byte_offset: 12
     access: Read
     bit_size: 16
-    fieldset: R16_USB_FRAM_NO
-  - name: R16_USB_BUS
+    fieldset: USB_FRAM_NO
+  - name: USB_BUS
     description: USB bus.
     byte_offset: 14
     bit_size: 16
-    fieldset: R16_USB_BUS
+    fieldset: USB_BUS
   - name: UEP_TX_EN
     description: USB endpoint sends the enable register.
     byte_offset: 16
@@ -418,7 +418,7 @@ fieldset/LPM_DATA:
     description: power management busy.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_USB_BUS:
+fieldset/USB_BUS:
   description: USB bus.
   bit_size: 16
   fields:
@@ -434,7 +434,7 @@ fieldset/R16_USB_BUS:
     description: UDM status.
     bit_offset: 3
     bit_size: 1
-fieldset/R16_USB_FRAM_NO:
+fieldset/USB_FRAM_NO:
   description: USB frame number.
   bit_size: 16
   fields:
@@ -446,7 +446,7 @@ fieldset/R16_USB_FRAM_NO:
     description: Received micro frame number.
     bit_offset: 13
     bit_size: 3
-fieldset/R8_USB_BASE_MODE:
+fieldset/USB_BASE_MODE:
   description: USB mode control register.
   bit_size: 8
   fields:
@@ -454,7 +454,7 @@ fieldset/R8_USB_BASE_MODE:
     description: The desired speed mode of the device.
     bit_offset: 0
     bit_size: 2
-fieldset/R8_USB_CTRL:
+fieldset/USB_CTRL:
   description: USB base control register.
   bit_size: 8
   fields:
@@ -486,15 +486,15 @@ fieldset/R8_USB_CTRL:
     description: LPM enable.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_DEV_AD:
+fieldset/USB_DEV_AD:
   description: USB device address.
   bit_size: 8
   fields:
-  - name: RB_MASK_USB_ADDR
+  - name: MASK_USB_ADDR
     description: bit mask for USB device address.
     bit_offset: 0
     bit_size: 7
-fieldset/R8_USB_INT_EN:
+fieldset/USB_INT_EN:
   description: USB interrupt enable register.
   bit_size: 8
   fields:
@@ -530,111 +530,111 @@ fieldset/R8_USB_INT_EN:
     description: USB Overflow interrupt enable.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_INT_FG:
+fieldset/USB_INT_FG:
   description: USB interrupt flag register.
   bit_size: 8
   fields:
-  - name: RB_UIF_BUS_RST
+  - name: UIF_BUS_RST
     description: USB bus reset interrupt flag.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UIF_SUSPEND
+  - name: UIF_SUSPEND
     description: USB bus suspend interrupt flag.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UIF_BUS_SLEEP
+  - name: UIF_BUS_SLEEP
     description: USB bus sleep interrupt flag.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UIF_LPM_ACT
+  - name: UIF_LPM_ACT
     description: LPM transmission end interrupt flag.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UIF_RTX_ACT
+  - name: UIF_RTX_ACT
     description: USB transmission end interrupt flag.
     bit_offset: 4
     bit_size: 1
-  - name: RB_UIF_RX_SOF
+  - name: UIF_RX_SOF
     description: Receive SOF packet interrupt flag.
     bit_offset: 5
     bit_size: 1
-  - name: RB_UIF_LINK_RDY
+  - name: UIF_LINK_RDY
     description: USB connection interrupt flag.
     bit_offset: 6
     bit_size: 1
-  - name: RB_UIF_FIFO_OV
+  - name: UIF_FIFO_OV
     description: USB Overflow interrupt flag.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_INT_ST:
+fieldset/USB_INT_ST:
   description: USB interrupt status.
   bit_size: 8
   fields:
-  - name: RB_UIS_EP_ID_MASK
+  - name: UIS_EP_ID_MASK
     description: The endpoint number at which the data transfer occurs.
     bit_offset: 0
     bit_size: 3
-  - name: RB_UIS_EP_DIR
+  - name: UIS_EP_DIR
     description: Endpoint data transmission direction.
     bit_offset: 4
     bit_size: 1
-fieldset/R8_USB_MIS_ST:
+fieldset/USB_MIS_ST:
   description: USB miscellaneous status.
   bit_size: 8
   fields:
-  - name: RB_UMS_READY
+  - name: UMS_READY
     description: USB connection status.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UMS_SUSPEND
+  - name: UMS_SUSPEND
     description: USB suspend status.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UMS_SLEEP
+  - name: UMS_SLEEP
     description: USB sleep status.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UMS_FREE
+  - name: UMS_FREE
     description: USB free status.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UMS_SUSP_REQ
+  - name: UMS_SUSP_REQ
     description: USB suspends the request.
     bit_offset: 4
     bit_size: 1
-  - name: RB_UMS_HS_MOD
+  - name: UMS_HS_MOD
     description: whether the host is high-speed.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_TEST_MODE:
+fieldset/USB_TEST_MODE:
   description: USB test mode register.
   bit_size: 8
   fields:
-  - name: RB_TEST_J
+  - name: TEST_J
     description: test mode,output J.
     bit_offset: 0
     bit_size: 1
-  - name: RB_TEST_K
+  - name: TEST_K
     description: test mode,output K.
     bit_offset: 1
     bit_size: 1
-  - name: RB_TEST_PKT
+  - name: TEST_PKT
     description: test mode,output a packet.
     bit_offset: 2
     bit_size: 1
-  - name: RB_TEST_SE0NAK
+  - name: TEST_SE0NAK
     description: test mode,output SEO.
     bit_offset: 3
     bit_size: 1
-  - name: RB_TEST_EN
+  - name: TEST_EN
     description: test mode enable.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_WAKE_CTRL:
+fieldset/USB_WAKE_CTRL:
   description: USB remote wake up register.
   bit_size: 16
   fields:
-  - name: RB_RMT_WAKE
+  - name: RMT_WAKE
     description: remote wake up.
     bit_offset: 0
     bit_size: 1
@@ -656,7 +656,7 @@ fieldset/UEP0_RX_CTRL:
   description: endpoint 0 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 0 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -664,7 +664,7 @@ fieldset/UEP0_RX_CTRL:
     description: the reception of endpoint 0 expects a synchronous trigger. bit.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SETUP_IS
+  - name: SETUP_IS
     description: whether endpoint 0 receives a SETUP transaction.
     bit_offset: 3
     bit_size: 1
@@ -696,7 +696,7 @@ fieldset/UEP0_TX_CTRL:
   description: endpoint 0 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 0 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -731,7 +731,7 @@ fieldset/UEP1_RX_CTRL:
   description: endpoint 1 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 1 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -782,7 +782,7 @@ fieldset/UEP1_TX_CTRL:
   description: endpoint 1 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 1 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -824,7 +824,7 @@ fieldset/UEP2_RX_CTRL:
   description: endpoint 2 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 2 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -875,7 +875,7 @@ fieldset/UEP2_TX_CTRL:
   description: endpoint 2 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 2 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -917,7 +917,7 @@ fieldset/UEP3_RX_CTRL:
   description: endpoint 3 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 3 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -968,7 +968,7 @@ fieldset/UEP3_TX_CTRL:
   description: endpoint 3 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 3 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -1010,7 +1010,7 @@ fieldset/UEP4_RX_CTRL:
   description: endpoint 4 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 4 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -1061,7 +1061,7 @@ fieldset/UEP4_TX_CTRL:
   description: endpoint 4 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 4 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -1103,7 +1103,7 @@ fieldset/UEP5_RX_CTRL:
   description: endpoint 5 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 5 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -1154,7 +1154,7 @@ fieldset/UEP5_TX_CTRL:
   description: endpoint 5 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 5 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -1196,7 +1196,7 @@ fieldset/UEP6_RX_CTRL:
   description: endpoint 6 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 6 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -1247,7 +1247,7 @@ fieldset/UEP6_TX_CTRL:
   description: endpoint 6 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 6 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2
@@ -1289,7 +1289,7 @@ fieldset/UEP7_RX_CTRL:
   description: endpoint 7 receive control.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 7 has control over the received response.
     bit_offset: 0
     bit_size: 2
@@ -1340,7 +1340,7 @@ fieldset/UEP7_TX_CTRL:
   description: endpoint 7 send control register.
   bit_size: 8
   fields:
-  - name: RB_RES_MASK
+  - name: RES_MASK
     description: endpoint 7 control of the send response to IN transactions.
     bit_offset: 0
     bit_size: 2

@@ -1,361 +1,361 @@
 block/PFIC:
   description: Program Fast Interrupt Controller.
   items:
-  - name: R32_PFIC_ISR1
+  - name: ISR1
     description: RO,Interrupt Status Register.
     byte_offset: 0
-    fieldset: R32_PFIC_ISR1
-  - name: R32_PFIC_ISR2
+    fieldset: ISR1
+  - name: ISR2
     description: RO,Interrupt Status Register.
     byte_offset: 4
-    fieldset: R32_PFIC_ISR2
-  - name: R32_PFIC_IPR1
+    fieldset: ISR2
+  - name: IPR1
     description: RO,Interrupt Pending Register.
     byte_offset: 32
-    fieldset: R32_PFIC_IPR1
-  - name: R32_PFIC_IPR2
+    fieldset: IPR1
+  - name: IPR2
     description: RO,Interrupt Pending Register.
     byte_offset: 36
     access: Read
-    fieldset: R32_PFIC_IPR2
-  - name: R32_PFIC_ITHRESDR
+    fieldset: IPR2
+  - name: ITHRESDR
     description: RW,Interrupt Priority Register.
     byte_offset: 64
-    fieldset: R32_PFIC_ITHRESDR
-  - name: R32_PFIC_FIBADDRR
+    fieldset: ITHRESDR
+  - name: FIBADDRR
     description: RW,Interrupt Fast Address Register.
     byte_offset: 68
-    fieldset: R32_PFIC_FIBADDRR
-  - name: R32_PFIC_CFGR
+    fieldset: FIBADDRR
+  - name: CFGR
     description: Interrupt Config Register.
     byte_offset: 72
-    fieldset: R32_PFIC_CFGR
-  - name: R32_PFIC_GISR
+    fieldset: CFGR
+  - name: GISR
     description: Interrupt Global Register.
     byte_offset: 76
     access: Read
-    fieldset: R32_PFIC_GISR
-  - name: R32_PFIC_FIFOADDRR0
+    fieldset: GISR
+  - name: FIFOADDRR0
     description: Interrupt 0 address Register.
     byte_offset: 96
-    fieldset: R32_PFIC_FIFOADDRR0
-  - name: R32_PFIC_FIFOADDRR1
+    fieldset: FIFOADDRR0
+  - name: FIFOADDRR1
     description: Interrupt 1 address Register.
     byte_offset: 100
-    fieldset: R32_PFIC_FIFOADDRR1
-  - name: R32_PFIC_FIFOADDRR2
+    fieldset: FIFOADDRR1
+  - name: FIFOADDRR2
     description: Interrupt 2 address Register.
     byte_offset: 104
-    fieldset: R32_PFIC_FIFOADDRR2
-  - name: R32_PFIC_FIFOADDRR3
+    fieldset: FIFOADDRR2
+  - name: FIFOADDRR3
     description: Interrupt 3 address Register.
     byte_offset: 108
-    fieldset: R32_PFIC_FIFOADDRR3
-  - name: R32_PFIC_IENR1
+    fieldset: FIFOADDRR3
+  - name: IENR1
     description: Interrupt Setting Register.
     byte_offset: 256
-    fieldset: R32_PFIC_IENR1
-  - name: R32_PFIC_IENR2
+    fieldset: IENR1
+  - name: IENR2
     description: Interrupt Setting Register.
     byte_offset: 260
-    fieldset: R32_PFIC_IENR2
-  - name: R32_PFIC_IRER1
+    fieldset: IENR2
+  - name: IRER1
     description: Interrupt Clear Register.
     byte_offset: 384
-    fieldset: R32_PFIC_IRER1
-  - name: R32_PFIC_IRER2
+    fieldset: IRER1
+  - name: IRER2
     description: Interrupt Clear Register.
     byte_offset: 388
-    fieldset: R32_PFIC_IRER2
-  - name: R32_PFIC_IPSR1
+    fieldset: IRER2
+  - name: IPSR1
     description: Interrupt Pending Register.
     byte_offset: 512
-    fieldset: R32_PFIC_IPSR1
-  - name: R32_PFIC_IPSR2
+    fieldset: IPSR1
+  - name: IPSR2
     description: Interrupt Pending Register.
     byte_offset: 516
-    fieldset: R32_PFIC_IPSR2
-  - name: R32_PFIC_IPRR1
+    fieldset: IPSR2
+  - name: IPRR1
     description: Interrupt Pending Clear Register.
     byte_offset: 640
-    fieldset: R32_PFIC_IPRR1
-  - name: R32_PFIC_IPRR2
+    fieldset: IPRR1
+  - name: IPRR2
     description: Interrupt Pending Clear Register.
     byte_offset: 644
-    fieldset: R32_PFIC_IPRR2
-  - name: R32_PFIC_IACTR1
+    fieldset: IPRR2
+  - name: IACTR1
     description: Interrupt ACTIVE Register.
     byte_offset: 768
-    fieldset: R32_PFIC_IACTR1
-  - name: R32_PFIC_IACTR2
+    fieldset: IACTR1
+  - name: IACTR2
     description: Interrupt ACTIVE Register.
     byte_offset: 772
-    fieldset: R32_PFIC_IACTR2
-  - name: R32_PFIC_IPRIOR0
+    fieldset: IACTR2
+  - name: IPRIOR0
     description: Interrupt Priority configuration Register.
     byte_offset: 1024
-    fieldset: R32_PFIC_IPRIOR0
-  - name: R32_PFIC_IPRIOR1
+    fieldset: IPRIOR0
+  - name: IPRIOR1
     description: Interrupt Priority configuration Register.
     byte_offset: 1056
-    fieldset: R32_PFIC_IPRIOR1
-  - name: R32_PFIC_IPRIOR2
+    fieldset: IPRIOR1
+  - name: IPRIOR2
     description: Interrupt Priority configuration Register.
     byte_offset: 1088
-    fieldset: R32_PFIC_IPRIOR2
-  - name: R32_PFIC_IPRIOR3
+    fieldset: IPRIOR2
+  - name: IPRIOR3
     description: Interrupt Priority configuration Register.
     byte_offset: 1120
-    fieldset: R32_PFIC_IPRIOR3
-  - name: R32_PFIC_IPRIOR4
+    fieldset: IPRIOR3
+  - name: IPRIOR4
     description: Interrupt Priority configuration Register.
     byte_offset: 1152
-    fieldset: R32_PFIC_IPRIOR4
-  - name: R32_PFIC_IPRIOR5
+    fieldset: IPRIOR4
+  - name: IPRIOR5
     description: Interrupt Priority configuration Register.
     byte_offset: 1184
-    fieldset: R32_PFIC_IPRIOR5
-  - name: R32_PFIC_IPRIOR6
+    fieldset: IPRIOR5
+  - name: IPRIOR6
     description: Interrupt Priority configuration Register.
     byte_offset: 1216
-    fieldset: R32_PFIC_IPRIOR6
-  - name: R32_PFIC_IPRIOR7
+    fieldset: IPRIOR6
+  - name: IPRIOR7
     description: Interrupt Priority configuration Register.
     byte_offset: 1248
-    fieldset: R32_PFIC_IPRIOR7
-  - name: R32_PFIC_IPRIOR8
+    fieldset: IPRIOR7
+  - name: IPRIOR8
     description: Interrupt Priority configuration Register.
     byte_offset: 1280
-    fieldset: R32_PFIC_IPRIOR8
-  - name: R32_PFIC_IPRIOR9
+    fieldset: IPRIOR8
+  - name: IPRIOR9
     description: Interrupt Priority configuration Register.
     byte_offset: 1312
-    fieldset: R32_PFIC_IPRIOR9
-  - name: R32_PFIC_IPRIOR10
+    fieldset: IPRIOR9
+  - name: IPRIOR10
     description: Interrupt Priority configuration Register.
     byte_offset: 1344
-    fieldset: R32_PFIC_IPRIOR10
-  - name: R32_PFIC_IPRIOR11
+    fieldset: IPRIOR10
+  - name: IPRIOR11
     description: Interrupt Priority configuration Register.
     byte_offset: 1376
-    fieldset: R32_PFIC_IPRIOR11
-  - name: R32_PFIC_IPRIOR12
+    fieldset: IPRIOR11
+  - name: IPRIOR12
     description: Interrupt Priority configuration Register.
     byte_offset: 1408
-    fieldset: R32_PFIC_IPRIOR12
-  - name: R32_PFIC_IPRIOR13
+    fieldset: IPRIOR12
+  - name: IPRIOR13
     description: Interrupt Priority configuration Register.
     byte_offset: 1440
-    fieldset: R32_PFIC_IPRIOR13
-  - name: R32_PFIC_IPRIOR14
+    fieldset: IPRIOR13
+  - name: IPRIOR14
     description: Interrupt Priority configuration Register.
     byte_offset: 1472
-    fieldset: R32_PFIC_IPRIOR14
-  - name: R32_PFIC_IPRIOR15
+    fieldset: IPRIOR14
+  - name: IPRIOR15
     description: Interrupt Priority configuration Register.
     byte_offset: 1504
-    fieldset: R32_PFIC_IPRIOR15
-  - name: R32_PFIC_IPRIOR16
+    fieldset: IPRIOR15
+  - name: IPRIOR16
     description: Interrupt Priority configuration Register.
     byte_offset: 1536
-    fieldset: R32_PFIC_IPRIOR16
-  - name: R32_PFIC_IPRIOR17
+    fieldset: IPRIOR16
+  - name: IPRIOR17
     description: Interrupt Priority configuration Register.
     byte_offset: 1568
-    fieldset: R32_PFIC_IPRIOR17
-  - name: R32_PFIC_IPRIOR18
+    fieldset: IPRIOR17
+  - name: IPRIOR18
     description: Interrupt Priority configuration Register.
     byte_offset: 1600
-    fieldset: R32_PFIC_IPRIOR18
-  - name: R32_PFIC_IPRIOR19
+    fieldset: IPRIOR18
+  - name: IPRIOR19
     description: Interrupt Priority configuration Register.
     byte_offset: 1632
-    fieldset: R32_PFIC_IPRIOR19
-  - name: R32_PFIC_IPRIOR20
+    fieldset: IPRIOR19
+  - name: IPRIOR20
     description: Interrupt Priority configuration Register.
     byte_offset: 1664
-    fieldset: R32_PFIC_IPRIOR20
-  - name: R32_PFIC_IPRIOR21
+    fieldset: IPRIOR20
+  - name: IPRIOR21
     description: Interrupt Priority configuration Register.
     byte_offset: 1696
-    fieldset: R32_PFIC_IPRIOR21
-  - name: R32_PFIC_IPRIOR22
+    fieldset: IPRIOR21
+  - name: IPRIOR22
     description: Interrupt Priority configuration Register.
     byte_offset: 1728
-    fieldset: R32_PFIC_IPRIOR22
-  - name: R32_PFIC_IPRIOR23
+    fieldset: IPRIOR22
+  - name: IPRIOR23
     description: Interrupt Priority configuration Register.
     byte_offset: 1760
-    fieldset: R32_PFIC_IPRIOR23
-  - name: R32_PFIC_IPRIOR24
+    fieldset: IPRIOR23
+  - name: IPRIOR24
     description: Interrupt Priority configuration Register.
     byte_offset: 1792
-    fieldset: R32_PFIC_IPRIOR24
-  - name: R32_PFIC_IPRIOR25
+    fieldset: IPRIOR24
+  - name: IPRIOR25
     description: Interrupt Priority configuration Register.
     byte_offset: 1824
-    fieldset: R32_PFIC_IPRIOR25
-  - name: R32_PFIC_IPRIOR26
+    fieldset: IPRIOR25
+  - name: IPRIOR26
     description: Interrupt Priority configuration Register.
     byte_offset: 1856
-    fieldset: R32_PFIC_IPRIOR26
-  - name: R32_PFIC_IPRIOR27
+    fieldset: IPRIOR26
+  - name: IPRIOR27
     description: Interrupt Priority configuration Register.
     byte_offset: 1888
-    fieldset: R32_PFIC_IPRIOR27
-  - name: R32_PFIC_IPRIOR28
+    fieldset: IPRIOR27
+  - name: IPRIOR28
     description: Interrupt Priority configuration Register.
     byte_offset: 1920
-    fieldset: R32_PFIC_IPRIOR28
-  - name: R32_PFIC_IPRIOR29
+    fieldset: IPRIOR28
+  - name: IPRIOR29
     description: Interrupt Priority configuration Register.
     byte_offset: 1952
-    fieldset: R32_PFIC_IPRIOR29
-  - name: R32_PFIC_IPRIOR30
+    fieldset: IPRIOR29
+  - name: IPRIOR30
     description: Interrupt Priority configuration Register.
     byte_offset: 1984
-    fieldset: R32_PFIC_IPRIOR30
-  - name: R32_PFIC_IPRIOR31
+    fieldset: IPRIOR30
+  - name: IPRIOR31
     description: Interrupt Priority configuration Register.
     byte_offset: 2016
-    fieldset: R32_PFIC_IPRIOR31
-  - name: R32_PFIC_IPRIOR32
+    fieldset: IPRIOR31
+  - name: IPRIOR32
     description: Interrupt Priority configuration Register.
     byte_offset: 2048
-    fieldset: R32_PFIC_IPRIOR32
-  - name: R32_PFIC_IPRIOR33
+    fieldset: IPRIOR32
+  - name: IPRIOR33
     description: Interrupt Priority configuration Register.
     byte_offset: 2080
-    fieldset: R32_PFIC_IPRIOR33
-  - name: R32_PFIC_IPRIOR34
+    fieldset: IPRIOR33
+  - name: IPRIOR34
     description: Interrupt Priority configuration Register.
     byte_offset: 2112
-    fieldset: R32_PFIC_IPRIOR34
-  - name: R32_PFIC_IPRIOR35
+    fieldset: IPRIOR34
+  - name: IPRIOR35
     description: Interrupt Priority configuration Register.
     byte_offset: 2144
-    fieldset: R32_PFIC_IPRIOR35
-  - name: R32_PFIC_IPRIOR36
+    fieldset: IPRIOR35
+  - name: IPRIOR36
     description: Interrupt Priority configuration Register.
     byte_offset: 2176
-    fieldset: R32_PFIC_IPRIOR36
-  - name: R32_PFIC_IPRIOR37
+    fieldset: IPRIOR36
+  - name: IPRIOR37
     description: Interrupt Priority configuration Register.
     byte_offset: 2208
-    fieldset: R32_PFIC_IPRIOR37
-  - name: R32_PFIC_IPRIOR38
+    fieldset: IPRIOR37
+  - name: IPRIOR38
     description: Interrupt Priority configuration Register.
     byte_offset: 2240
-    fieldset: R32_PFIC_IPRIOR38
-  - name: R32_PFIC_IPRIOR39
+    fieldset: IPRIOR38
+  - name: IPRIOR39
     description: Interrupt Priority configuration Register.
     byte_offset: 2272
-    fieldset: R32_PFIC_IPRIOR39
-  - name: R32_PFIC_IPRIOR40
+    fieldset: IPRIOR39
+  - name: IPRIOR40
     description: Interrupt Priority configuration Register.
     byte_offset: 2304
-    fieldset: R32_PFIC_IPRIOR40
-  - name: R32_PFIC_IPRIOR41
+    fieldset: IPRIOR40
+  - name: IPRIOR41
     description: Interrupt Priority configuration Register.
     byte_offset: 2336
-    fieldset: R32_PFIC_IPRIOR41
-  - name: R32_PFIC_IPRIOR42
+    fieldset: IPRIOR41
+  - name: IPRIOR42
     description: Interrupt Priority configuration Register.
     byte_offset: 2368
-    fieldset: R32_PFIC_IPRIOR42
-  - name: R32_PFIC_IPRIOR43
+    fieldset: IPRIOR42
+  - name: IPRIOR43
     description: Interrupt Priority configuration Register.
     byte_offset: 2400
-    fieldset: R32_PFIC_IPRIOR43
-  - name: R32_PFIC_IPRIOR44
+    fieldset: IPRIOR43
+  - name: IPRIOR44
     description: Interrupt Priority configuration Register.
     byte_offset: 2432
-    fieldset: R32_PFIC_IPRIOR44
-  - name: R32_PFIC_IPRIOR45
+    fieldset: IPRIOR44
+  - name: IPRIOR45
     description: Interrupt Priority configuration Register.
     byte_offset: 2464
-    fieldset: R32_PFIC_IPRIOR45
-  - name: R32_PFIC_IPRIOR46
+    fieldset: IPRIOR45
+  - name: IPRIOR46
     description: Interrupt Priority configuration Register.
     byte_offset: 2496
-    fieldset: R32_PFIC_IPRIOR46
-  - name: R32_PFIC_IPRIOR47
+    fieldset: IPRIOR46
+  - name: IPRIOR47
     description: Interrupt Priority configuration Register.
     byte_offset: 2528
-    fieldset: R32_PFIC_IPRIOR47
-  - name: R32_PFIC_IPRIOR48
+    fieldset: IPRIOR47
+  - name: IPRIOR48
     description: Interrupt Priority configuration Register.
     byte_offset: 2560
-    fieldset: R32_PFIC_IPRIOR48
-  - name: R32_PFIC_IPRIOR49
+    fieldset: IPRIOR48
+  - name: IPRIOR49
     description: Interrupt Priority configuration Register.
     byte_offset: 2592
-    fieldset: R32_PFIC_IPRIOR49
-  - name: R32_PFIC_IPRIOR50
+    fieldset: IPRIOR49
+  - name: IPRIOR50
     description: Interrupt Priority configuration Register.
     byte_offset: 2624
-    fieldset: R32_PFIC_IPRIOR50
-  - name: R32_PFIC_IPRIOR51
+    fieldset: IPRIOR50
+  - name: IPRIOR51
     description: Interrupt Priority configuration Register.
     byte_offset: 2656
-    fieldset: R32_PFIC_IPRIOR51
-  - name: R32_PFIC_IPRIOR52
+    fieldset: IPRIOR51
+  - name: IPRIOR52
     description: Interrupt Priority configuration Register.
     byte_offset: 2688
-    fieldset: R32_PFIC_IPRIOR52
-  - name: R32_PFIC_IPRIOR53
+    fieldset: IPRIOR52
+  - name: IPRIOR53
     description: Interrupt Priority configuration Register.
     byte_offset: 2720
-    fieldset: R32_PFIC_IPRIOR53
-  - name: R32_PFIC_IPRIOR54
+    fieldset: IPRIOR53
+  - name: IPRIOR54
     description: Interrupt Priority configuration Register.
     byte_offset: 2768
-    fieldset: R32_PFIC_IPRIOR54
-  - name: R32_PFIC_IPRIOR55
+    fieldset: IPRIOR54
+  - name: IPRIOR55
     description: Interrupt Priority configuration Register.
     byte_offset: 2784
-    fieldset: R32_PFIC_IPRIOR55
-  - name: R32_PFIC_IPRIOR56
+    fieldset: IPRIOR55
+  - name: IPRIOR56
     description: Interrupt Priority configuration Register.
     byte_offset: 2816
-    fieldset: R32_PFIC_IPRIOR56
-  - name: R32_PFIC_IPRIOR57
+    fieldset: IPRIOR56
+  - name: IPRIOR57
     description: Interrupt Priority configuration Register.
     byte_offset: 2848
-    fieldset: R32_PFIC_IPRIOR57
-  - name: R32_PFIC_IPRIOR58
+    fieldset: IPRIOR57
+  - name: IPRIOR58
     description: Interrupt Priority configuration Register.
     byte_offset: 2880
-    fieldset: R32_PFIC_IPRIOR58
-  - name: R32_PFIC_IPRIOR59
+    fieldset: IPRIOR58
+  - name: IPRIOR59
     description: Interrupt Priority configuration Register.
     byte_offset: 2912
-    fieldset: R32_PFIC_IPRIOR59
-  - name: R32_PFIC_IPRIOR60
+    fieldset: IPRIOR59
+  - name: IPRIOR60
     description: Interrupt Priority configuration Register.
     byte_offset: 2944
-    fieldset: R32_PFIC_IPRIOR60
-  - name: R32_PFIC_IPRIOR61
+    fieldset: IPRIOR60
+  - name: IPRIOR61
     description: Interrupt Priority configuration Register.
     byte_offset: 2976
-    fieldset: R32_PFIC_IPRIOR61
-  - name: R32_PFIC_IPRIOR62
+    fieldset: IPRIOR61
+  - name: IPRIOR62
     description: Interrupt Priority configuration Register.
     byte_offset: 3040
-    fieldset: R32_PFIC_IPRIOR62
-  - name: R32_PFIC_IPRIOR63
+    fieldset: IPRIOR62
+  - name: IPRIOR63
     description: Interrupt Priority configuration Register.
     byte_offset: 3072
-    fieldset: R32_PFIC_IPRIOR63
-  - name: R32_PFIC_SCTLR
+    fieldset: IPRIOR63
+  - name: SCTLR
     description: System Control Register.
     byte_offset: 3344
-    fieldset: R32_PFIC_SCTLR
-  - name: R32_PFIC_VTCTLR
+    fieldset: SCTLR
+  - name: VTCTLR
     description: System Control Register.
     byte_offset: 3348
-    fieldset: R32_PFIC_VTCTLR
-fieldset/R32_PFIC_CFGR:
+    fieldset: VTCTLR
+fieldset/CFGR:
   description: Interrupt Config Register.
   fields:
   - name: HWSTKCTRL
@@ -394,14 +394,14 @@ fieldset/R32_PFIC_CFGR:
     description: WO,KEYCODE.
     bit_offset: 16
     bit_size: 16
-fieldset/R32_PFIC_FIBADDRR:
+fieldset/FIBADDRR:
   description: RW,Interrupt Fast Address Register.
   fields:
   - name: BASEADDR
     description: BASEADDR.
     bit_offset: 28
     bit_size: 4
-fieldset/R32_PFIC_FIFOADDRR0:
+fieldset/FIFOADDRR0:
   description: Interrupt 0 address Register.
   fields:
   - name: OFFADDR0
@@ -412,7 +412,7 @@ fieldset/R32_PFIC_FIFOADDRR0:
     description: RW,IRQID0.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_PFIC_FIFOADDRR1:
+fieldset/FIFOADDRR1:
   description: Interrupt 1 address Register.
   fields:
   - name: OFFADDR1
@@ -423,7 +423,7 @@ fieldset/R32_PFIC_FIFOADDRR1:
     description: RW,IRQID1.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_PFIC_FIFOADDRR2:
+fieldset/FIFOADDRR2:
   description: Interrupt 2 address Register.
   fields:
   - name: OFFADDR2
@@ -434,7 +434,7 @@ fieldset/R32_PFIC_FIFOADDRR2:
     description: RW,IRQID2.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_PFIC_FIFOADDRR3:
+fieldset/FIFOADDRR3:
   description: Interrupt 3 address Register.
   fields:
   - name: OFFADDR3
@@ -445,7 +445,7 @@ fieldset/R32_PFIC_FIFOADDRR3:
     description: RW,IRQID3.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_PFIC_GISR:
+fieldset/GISR:
   description: Interrupt Global Register.
   fields:
   - name: NESTSTA
@@ -460,560 +460,560 @@ fieldset/R32_PFIC_GISR:
     description: RO,GPENDSTA.
     bit_offset: 9
     bit_size: 1
-fieldset/R32_PFIC_IACTR1:
+fieldset/IACTR1:
   description: Interrupt ACTIVE Register.
   fields:
   - name: IACTS
     description: RW1,IACTS.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IACTR2:
+fieldset/IACTR2:
   description: Interrupt ACTIVE Register.
   fields:
   - name: IACTS
     description: RW1,IACTS.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_IENR1:
+fieldset/IENR1:
   description: Interrupt Setting Register.
   fields:
   - name: INTEN
     description: RW1,INTEN.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IENR2:
+fieldset/IENR2:
   description: Interrupt Setting Register.
   fields:
   - name: INTEN
     description: RW1,INTEN.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_IPR1:
+fieldset/IPR1:
   description: RO,Interrupt Pending Register.
   fields:
   - name: PENDSTA
     description: PENDSTA.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IPR2:
+fieldset/IPR2:
   description: RO,Interrupt Pending Register.
   fields:
   - name: PENDSTA
     description: PENDSTA.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_IPRIOR0:
+fieldset/IPRIOR0:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR0
     description: RW,IPRIOR0.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR1:
+fieldset/IPRIOR1:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR1
     description: '>RW,IPRIOR1.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR10:
+fieldset/IPRIOR10:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR10
     description: '>RW,IPRIOR10.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR11:
+fieldset/IPRIOR11:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR11
     description: RW,IPRIOR11.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR12:
+fieldset/IPRIOR12:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR12
     description: RW,IPRIOR12.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR13:
+fieldset/IPRIOR13:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR13
     description: RW,IPRIOR13.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR14:
+fieldset/IPRIOR14:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR14
     description: RW,IPRIOR14.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR15:
+fieldset/IPRIOR15:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR15
     description: RW,IPRIOR15.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR16:
+fieldset/IPRIOR16:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR16
     description: RW,IPRIOR16.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR17:
+fieldset/IPRIOR17:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR17
     description: RW,IPRIOR17.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR18:
+fieldset/IPRIOR18:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR18
     description: RW,IPRIOR18.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR19:
+fieldset/IPRIOR19:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR19
     description: RW,IPRIOR19.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR2:
+fieldset/IPRIOR2:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR2
     description: '>RW,IPRIOR2.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR20:
+fieldset/IPRIOR20:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR20
     description: RW,IPRIOR20.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR21:
+fieldset/IPRIOR21:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR21
     description: RW,IPRIOR21.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR22:
+fieldset/IPRIOR22:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR22
     description: RW,IPRIOR22.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR23:
+fieldset/IPRIOR23:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR23
     description: RW,IPRIOR23.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR24:
+fieldset/IPRIOR24:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR24
     description: RW,IPRIOR24.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR25:
+fieldset/IPRIOR25:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR25
     description: RW,IPRIOR25.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR26:
+fieldset/IPRIOR26:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR26
     description: RW,IPRIOR26.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR27:
+fieldset/IPRIOR27:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR27
     description: RW,IPRIOR27.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR28:
+fieldset/IPRIOR28:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR28
     description: RW,IPRIOR28.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR29:
+fieldset/IPRIOR29:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR29
     description: RW,IPRIOR29.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR3:
+fieldset/IPRIOR3:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR3
     description: '>RW,IPRIOR3.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR30:
+fieldset/IPRIOR30:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR30
     description: RW,IPRIOR30.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR31:
+fieldset/IPRIOR31:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR31
     description: RW,IPRIOR31.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR32:
+fieldset/IPRIOR32:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR32
     description: RW,IPRIOR32.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR33:
+fieldset/IPRIOR33:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR33
     description: RW,IPRIOR33.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR34:
+fieldset/IPRIOR34:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR34
     description: RW,IPRIOR34.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR35:
+fieldset/IPRIOR35:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR35
     description: RW,IPRIOR35.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR36:
+fieldset/IPRIOR36:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR36
     description: RW,IPRIOR36.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR37:
+fieldset/IPRIOR37:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR37
     description: RW,IPRIOR37.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR38:
+fieldset/IPRIOR38:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR38
     description: RW,IPRIOR38.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR39:
+fieldset/IPRIOR39:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR39
     description: RW,IPRIOR39.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR4:
+fieldset/IPRIOR4:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR4
     description: '>RW,IPRIOR4.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR40:
+fieldset/IPRIOR40:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR40
     description: RW,IPRIOR40.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR41:
+fieldset/IPRIOR41:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR41
     description: RW,IPRIOR41.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR42:
+fieldset/IPRIOR42:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR42
     description: RW,IPRIOR42.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR43:
+fieldset/IPRIOR43:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR43
     description: RW,IPRIOR43.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR44:
+fieldset/IPRIOR44:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR44
     description: RW,IPRIOR44.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR45:
+fieldset/IPRIOR45:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR45
     description: RW,IPRIOR45.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR46:
+fieldset/IPRIOR46:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR46
     description: RW,IPRIOR46.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR47:
+fieldset/IPRIOR47:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR47
     description: RW,IPRIOR47.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR48:
+fieldset/IPRIOR48:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR48
     description: RW,IPRIOR48.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR49:
+fieldset/IPRIOR49:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR49
     description: RW,IPRIOR49.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR5:
+fieldset/IPRIOR5:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR5
     description: '>RW,IPRIOR5.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR50:
+fieldset/IPRIOR50:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR50
     description: RW,IPRIOR50.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR51:
+fieldset/IPRIOR51:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR51
     description: RW,IPRIOR51.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR52:
+fieldset/IPRIOR52:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR52
     description: RW,IPRIOR52.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR53:
+fieldset/IPRIOR53:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR53
     description: RW,IPRIOR53.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR54:
+fieldset/IPRIOR54:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR54
     description: RW,IPRIOR54.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR55:
+fieldset/IPRIOR55:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR55
     description: RW,IPRIOR55.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR56:
+fieldset/IPRIOR56:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR56
     description: RW,IPRIOR56.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR57:
+fieldset/IPRIOR57:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR57
     description: RW,IPRIOR57.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR58:
+fieldset/IPRIOR58:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR58
     description: RW,IPRIOR58.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR59:
+fieldset/IPRIOR59:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR59
     description: RW,IPRIOR59.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR6:
+fieldset/IPRIOR6:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR6
     description: '>RW,IPRIOR6.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR60:
+fieldset/IPRIOR60:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR60
     description: RW,IPRIOR60.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR61:
+fieldset/IPRIOR61:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR61
     description: RW,IPRIOR61.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR62:
+fieldset/IPRIOR62:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR62
     description: RW,IPRIOR62.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR63:
+fieldset/IPRIOR63:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR63
     description: RW,IPRIOR63.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR7:
+fieldset/IPRIOR7:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR7
     description: '>RW,IPRIOR7.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR8:
+fieldset/IPRIOR8:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR8
     description: '>RW,IPRIOR8.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRIOR9:
+fieldset/IPRIOR9:
   description: Interrupt Priority configuration Register.
   fields:
   - name: IPRIOR9
     description: '>RW,IPRIOR9.'
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PFIC_IPRR1:
+fieldset/IPRR1:
   description: Interrupt Pending Clear Register.
   fields:
   - name: PENDRESET
     description: RW1,PENDRESET.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IPRR2:
+fieldset/IPRR2:
   description: Interrupt Pending Clear Register.
   fields:
   - name: PENDRESET
     description: RW1,PENDRESET.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_IPSR1:
+fieldset/IPSR1:
   description: Interrupt Pending Register.
   fields:
   - name: PENDSET
     description: RW1,PENDSET.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IPSR2:
+fieldset/IPSR2:
   description: Interrupt Pending Register.
   fields:
   - name: PENDSET
     description: RW1,PENDSET.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_IRER1:
+fieldset/IRER1:
   description: Interrupt Clear Register.
   fields:
   - name: INTRESET
     description: RW1,INTRESET.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_IRER2:
+fieldset/IRER2:
   description: Interrupt Clear Register.
   fields:
   - name: INTRESET
     description: RW1,INTRESET.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_ISR1:
+fieldset/ISR1:
   description: RO,Interrupt Status Register.
   fields:
   - name: INTENSTA
     description: Interrupt ID Status.
     bit_offset: 12
     bit_size: 20
-fieldset/R32_PFIC_ISR2:
+fieldset/ISR2:
   description: RO,Interrupt Status Register.
   fields:
   - name: INTENSTA
     description: Interrupt ID Status.
     bit_offset: 0
     bit_size: 4
-fieldset/R32_PFIC_ITHRESDR:
+fieldset/ITHRESDR:
   description: RW,Interrupt Priority Register.
   fields:
   - name: THRESHOLD
     description: RW,THRESHOLD.
     bit_offset: 0
     bit_size: 8
-fieldset/R32_PFIC_SCTLR:
+fieldset/SCTLR:
   description: System Control Register.
   fields:
   - name: SLEEPONEXIT
@@ -1036,7 +1036,7 @@ fieldset/R32_PFIC_SCTLR:
     description: WO,SETEVENT.
     bit_offset: 5
     bit_size: 1
-fieldset/R32_PFIC_VTCTLR:
+fieldset/VTCTLR:
   description: System Control Register.
   fields:
   - name: VTADDR

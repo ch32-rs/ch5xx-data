@@ -1,216 +1,216 @@
 block/ADC:
   description: Analog to Digital Converter.
   items:
-  - name: R8_ADC_CHANNEL
+  - name: CHANNEL
     description: RW, ADC input channel selection.
     byte_offset: 88
     bit_size: 8
-    fieldset: R8_ADC_CHANNEL
-  - name: R8_ADC_CFG
+    fieldset: CHANNEL
+  - name: CFG
     description: RW, ADC configure.
     byte_offset: 89
     bit_size: 8
-    fieldset: R8_ADC_CFG
-  - name: R8_ADC_CONVERT
+    fieldset: CFG
+  - name: CONVERT
     description: RW, ADC convert control.
     byte_offset: 90
     bit_size: 8
-    fieldset: R8_ADC_CONVERT
-  - name: R8_TEM_SENSOR
+    fieldset: CONVERT
+  - name: TEM_SENSOR
     description: RW, temperature sensor control.
     byte_offset: 91
     bit_size: 8
-    fieldset: R8_TEM_SENSOR
-  - name: R16_ADC_DATA
+    fieldset: TEM_SENSOR
+  - name: DATA
     description: RO, ADC data.
     byte_offset: 92
     access: Read
     bit_size: 16
-    fieldset: R16_ADC_DATA
-  - name: R8_ADC_INT_FLAG
+    fieldset: DATA
+  - name: INT_FLAG
     description: RO, ADC interrupt flag register.
     byte_offset: 94
     access: Read
     bit_size: 8
-    fieldset: R8_ADC_INT_FLAG
-  - name: R8_ADC_CTRL_DMA
+    fieldset: INT_FLAG
+  - name: CTRL_DMA
     description: RW, ADC DMA control.
     byte_offset: 97
     bit_size: 8
-    fieldset: R8_ADC_CTRL_DMA
-  - name: R8_ADC_DMA_IF
+    fieldset: CTRL_DMA
+  - name: DMA_IF
     description: RW1, ADC and DMA interrupt flag registers.
     byte_offset: 98
     bit_size: 8
-    fieldset: R8_ADC_DMA_IF
-  - name: R8_ADC_AUTO_CYCLE
+    fieldset: DMA_IF
+  - name: AUTO_CYCLE
     description: RO, ADC interrupt flag.
     byte_offset: 99
     bit_size: 8
-    fieldset: R8_ADC_AUTO_CYCLE
-  - name: R16_ADC_DMA_NOW
+    fieldset: AUTO_CYCLE
+  - name: DMA_NOW
     description: RO, ADC DMA current address.
     byte_offset: 100
     access: Read
-    fieldset: R16_ADC_DMA_NOW
-  - name: R16_ADC_DMA_BEG
+    fieldset: DMA_NOW
+  - name: DMA_BEG
     description: RW, ADC DMA begin address.
     byte_offset: 104
-    fieldset: R16_ADC_DMA_BEG
-  - name: R16_ADC_DMA_END
+    fieldset: DMA_BEG
+  - name: DMA_END
     description: RW, ADC DMA end address.
     byte_offset: 108
-    fieldset: R16_ADC_DMA_END
-fieldset/R16_ADC_DATA:
+    fieldset: DMA_END
+fieldset/DATA:
   description: RO, ADC data.
   bit_size: 16
   fields:
-  - name: RB_ADC_DATA
+  - name: ADC_DATA
     description: RO, ADC conversion data.
     bit_offset: 0
     bit_size: 12
-fieldset/R16_ADC_DMA_BEG:
+fieldset/DMA_BEG:
   description: RW, ADC DMA begin address.
   fields:
-  - name: R16_ADC_DMA_BEG
+  - name: DMA_BEG
     description: ADC DMA begin address.
     bit_offset: 1
     bit_size: 16
-fieldset/R16_ADC_DMA_END:
+fieldset/DMA_END:
   description: RW, ADC DMA end address.
   fields:
-  - name: R16_ADC_DMA_END
+  - name: DMA_END
     description: ADC DMA end address.
     bit_offset: 1
     bit_size: 16
-fieldset/R16_ADC_DMA_NOW:
+fieldset/DMA_NOW:
   description: RO, ADC DMA current address.
   fields:
-  - name: R16_ADC_DMA_NOW
+  - name: DMA_NOW
     description: ADC DMA current address.
     bit_offset: 1
     bit_size: 16
-fieldset/R8_ADC_AUTO_CYCLE:
+fieldset/AUTO_CYCLE:
   description: RO, ADC interrupt flag.
   bit_size: 8
   fields:
-  - name: R8_ADC_AUTO_CYCLE
+  - name: AUTO_CYCLE
     description: auto ADC cycle value, unit is 16 Fsys.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_ADC_CFG:
+fieldset/CFG:
   description: RW, ADC configure.
   bit_size: 8
   fields:
-  - name: RB_ADC_POWER_ON
+  - name: ADC_POWER_ON
     description: 'RW, ADC power control: 0=power down, 1=power on.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_BUF_EN
+  - name: ADC_BUF_EN
     description: RW, ADC input buffer enable.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ADC_DIFF_EN
+  - name: ADC_DIFF_EN
     description: 'RW, ADC input channel mode: 0=single-end, 1=differnetial.'
     bit_offset: 2
     bit_size: 1
-  - name: RB_ADC_OFS_TEST
+  - name: ADC_OFS_TEST
     description: 'RW, enable ADC offset test mode: 0=normal mode, 1=short to test offset.'
     bit_offset: 3
     bit_size: 1
-  - name: RB_ADC_PGA_GAIN10
+  - name: ADC_PGA_GAIN10
     description: 'RW, set ADC input PGA gain: 00=-12dB, 01=-6dB, 10=0dB, 11=6dB.'
     bit_offset: 4
     bit_size: 2
-  - name: RB_ADC_CLK_DIV
+  - name: ADC_CLK_DIV
     description: 'RW, select ADC clock frequency: 00=3.2MHz, 01=2.67MHz, 10=5.33MHz, 11=4MHz.'
     bit_offset: 6
     bit_size: 2
-fieldset/R8_ADC_CHANNEL:
+fieldset/CHANNEL:
   description: RW, ADC input channel selection.
   bit_size: 8
   fields:
-  - name: RB_ADC_CH_INX
+  - name: ADC_CH_INX
     description: RW, ADC input channel index.
     bit_offset: 0
     bit_size: 5
-fieldset/R8_ADC_CONVERT:
+fieldset/CONVERT:
   description: RW, ADC convert control.
   bit_size: 8
   fields:
-  - name: RB_ADC_START
+  - name: ADC_START
     description: 'RW, ADC convert start control: 0=stop ADC convert, 1=start an ADC convert, auto clear.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_PGA_GAIN2
+  - name: ADC_PGA_GAIN2
     description: RW, ADC input PGA gain direction selection, combined with RB_ ADC_ PGA_ GAIN [1:0] usage.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ADC_SAMPLE_TIME
+  - name: ADC_SAMPLE_TIME
     description: RW, ADC sampling period selection.
     bit_offset: 4
     bit_size: 2
-  - name: RB_ADC_EOC_X
+  - name: ADC_EOC_X
     description: RO, end of ADC conversion flag.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_ADC_CTRL_DMA:
+fieldset/CTRL_DMA:
   description: RW, ADC DMA control.
   bit_size: 8
   fields:
-  - name: RB_ADC_DMA_ENABLE
+  - name: ADC_DMA_ENABLE
     description: RW, ADC DMA enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_DMA_LOOP
+  - name: ADC_DMA_LOOP
     description: RW, ADC DMA address loop enable.
     bit_offset: 2
     bit_size: 1
-  - name: RB_ADC_IE_DMA_END
+  - name: ADC_IE_DMA_END
     description: RW, enable interrupt for ADC DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ADC_IE_EOC
+  - name: ADC_IE_EOC
     description: RW, enable interrupt for end of ADC conversion.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SCAN_AUTO_TYPE
+  - name: SCAN_AUTO_TYPE
     description: 'RW, ADC SCAN mode: 1: continuous triggering 0: periodic triggering.'
     bit_offset: 5
     bit_size: 1
-  - name: RB_ADC_CONT_EN
+  - name: ADC_CONT_EN
     description: RW, enable contineous conversion ADC.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ADC_AUTO_EN
+  - name: ADC_AUTO_EN
     description: RW, enable auto continuing ADC for DMA.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_ADC_DMA_IF:
+fieldset/DMA_IF:
   description: RW1, ADC and DMA interrupt flag registers.
   bit_size: 8
   fields:
-  - name: RB_ADC_IF_DMA_END
+  - name: ADC_IF_DMA_END
     description: interrupt flag for ADC DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ADC_IF_END_ADC
+  - name: ADC_IF_END_ADC
     description: interrupt flag for end of ADC conversion.
     bit_offset: 4
     bit_size: 1
-fieldset/R8_ADC_INT_FLAG:
+fieldset/INT_FLAG:
   description: RO, ADC interrupt flag register.
   bit_size: 8
   fields:
-  - name: RB_ADC_IF_EOC
+  - name: ADC_IF_EOC
     description: RO, ADC conversion interrupt flag.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_TEM_SENSOR:
+fieldset/TEM_SENSOR:
   description: RW, temperature sensor control.
   bit_size: 8
   fields:
-  - name: RB_TEM_SEN_PWR_ON
+  - name: TEM_SEN_PWR_ON
     description: 'RW, temperature sensor power control: 0=power down, 1=power on.'
     bit_offset: 7
     bit_size: 1

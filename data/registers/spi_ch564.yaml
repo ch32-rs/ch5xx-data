@@ -3,150 +3,150 @@
 block/SPI_FULL:
   description: SPI_FULL register.
   items:
-  - name: R8_SPI_FULL_CTRL_MOD
+  - name: FULL_CTRL_MOD
     description: SPI_FULL mode control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_SPI_FULL_CTRL_MOD
-  - name: R8_SPI_FULL_CTRL_DMA
+    fieldset: FULL_CTRL_MOD
+  - name: FULL_CTRL_DMA
     description: SPI_FULL DMA control.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_SPI_FULL_CTRL_DMA
-  - name: R8_SPI_FULL_INTER_EN
+    fieldset: FULL_CTRL_DMA
+  - name: FULL_INTER_EN
     description: SPI_FULL interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_SPI_FULL_INTER_EN
-  - name: R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE
+    fieldset: FULL_INTER_EN
+  - name: CLOCK_DIV_SLAVE_PRE
     description: SPI_FULL master clock divisor / SPI_FULL slave preset value.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE
-  - name: R8_SPI_FULL_BUFFER
+    fieldset: CLOCK_DIV_SLAVE_PRE
+  - name: FULL_BUFFER
     description: SPI_FULL data buffer.
     byte_offset: 4
     bit_size: 8
-    fieldset: R8_SPI_FULL_BUFFER
-  - name: R8_SPI_FULL_RUN_FLAG
+    fieldset: FULL_BUFFER
+  - name: FULL_RUN_FLAG
     description: SPI_FULL work flag.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_FULL_RUN_FLAG
-  - name: R8_SPI_FULL_INT_FLAG
+    fieldset: FULL_RUN_FLAG
+  - name: FULL_INT_FLAG
     description: SPI_FULL interrupt flag.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_SPI_FULL_INT_FLAG
-  - name: R8_SPI_FULL_FIFO_COUNT
+    fieldset: FULL_INT_FLAG
+  - name: FULL_FIFO_COUNT
     description: SPI_FULL FIFO count status.
     byte_offset: 7
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_FULL_FIFO_COUNT
-  - name: R8_SPI_FULL_RESET_CMD
+    fieldset: FULL_FIFO_COUNT
+  - name: RESET_CMD
     description: SPI_FULL reset command word register.
     byte_offset: 8
     bit_size: 8
-    fieldset: R8_SPI_FULL_RESET_CMD
-  - name: R8_SPI_FULL_BUSY
+    fieldset: RESET_CMD
+  - name: BUSY
     description: SPI_FULL busy flag register.
     byte_offset: 9
     bit_size: 8
-    fieldset: R8_SPI_FULL_BUSY
-  - name: R16_SPI_FULL_TOTAL_CNT
+    fieldset: BUSY
+  - name: FULL_TOTAL_CNT
     description: SPI_FULL total byte count, only low 12 bit.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_SPI_FULL_TOTAL_CNT
-  - name: R8_SPI_FULL_FIFO
+    fieldset: FULL_TOTAL_CNT
+  - name: FULL_FIFO
     description: SPI_FULL FIFO register.
     byte_offset: 16
     bit_size: 8
-    fieldset: R8_SPI_FULL_FIFO
-  - name: R8_SPI_FULL_FIFO_COUNT1
+    fieldset: FULL_FIFO
+  - name: FULL_FIFO_COUNT1
     description: SPI_FULL FIFO count status.
     byte_offset: 19
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_FULL_FIFO_COUNT1
-  - name: R32_SPI_FULL_DMA_NOW
+    fieldset: FULL_FIFO_COUNT1
+  - name: DMA_NOW
     description: SPI_FULL DMA current address.
     byte_offset: 20
-    fieldset: R32_SPI_FULL_DMA_NOW
-  - name: R32_SPI_FULL_DMA_BEG
+    fieldset: DMA_NOW
+  - name: DMA_BEG
     description: SPI_FULL DMA begin address.
     byte_offset: 24
-    fieldset: R32_SPI_FULL_DMA_BEG
-  - name: R32_SPI_FULL_DMA_END
+    fieldset: DMA_BEG
+  - name: DMA_END
     description: SPI_FULL DMA end address.
     byte_offset: 28
-    fieldset: R32_SPI_FULL_DMA_END
+    fieldset: DMA_END
 
 block/SPI_NODMA:
   description: SPI_NODMA register.
   items:
-  - name: R8_SPI_NODMA_CTRL_MOD
+  - name: NODMA_CTRL_MOD
     description: SPI_NODMA mode control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_SPI_NODMA_CTRL_MOD
-  - name: R8_SPI_NODMA_CTRL_DMA
+    fieldset: NODMA_CTRL_MOD
+  - name: NODMA_CTRL_DMA
     description: SPI_NODMA DMA control.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_SPI_NODMA_CTRL_DMA
-  - name: R8_SPI_NODMA_INTER_EN
+    fieldset: NODMA_CTRL_DMA
+  - name: NODMA_INTER_EN
     description: SPI_NODMA interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_SPI_NODMA_INTER_EN
-  - name: R8_SPI_NODMA_CLOCK_DIV
+    fieldset: NODMA_INTER_EN
+  - name: CLOCK_DIV
     description: SPI_NODMA master clock divisor.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_SPI_NODMA_CLOCK_DIV
-  - name: R8_SPI_NODMA_BUFFER
+    fieldset: CLOCK_DIV
+  - name: NODMA_BUFFER
     description: SPI_NODMA data buffer.
     byte_offset: 4
     bit_size: 8
-    fieldset: R8_SPI_NODMA_BUFFER
-  - name: R8_SPI_NODMA_RUN_FLAG
+    fieldset: NODMA_BUFFER
+  - name: NODMA_RUN_FLAG
     description: SPI_NODMA work flag.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_NODMA_RUN_FLAG
-  - name: R8_SPI_NODMA_INT_FLAG
+    fieldset: NODMA_RUN_FLAG
+  - name: NODMA_INT_FLAG
     description: SPI_NODMA interrupt flag.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_SPI_NODMA_INT_FLAG
-  - name: R8_SPI_NODMA_FIFO_COUNT
+    fieldset: NODMA_INT_FLAG
+  - name: NODMA_FIFO_COUNT
     description: SPI_NODMA FIFO count status.
     byte_offset: 7
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_NODMA_FIFO_COUNT
-  - name: R16_SPI_NODMA_TOTAL_CNT
+    fieldset: NODMA_FIFO_COUNT
+  - name: NODMA_TOTAL_CNT
     description: SPI_NODMA total byte count, only low 12 bit.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_SPI_NODMA_TOTAL_CNT
-  - name: R8_SPI_NODMA_FIFO
+    fieldset: NODMA_TOTAL_CNT
+  - name: NODMA_FIFO
     description: SPI_NODMA FIFO register.
     byte_offset: 16
     bit_size: 8
-    fieldset: R8_SPI_NODMA_FIFO
-  - name: R8_SPI_NODMA_FIFO_COUNT1
+    fieldset: NODMA_FIFO
+  - name: NODMA_FIFO_COUNT1
     description: SPI_NODMA FIFO count status.
     byte_offset: 19
     access: Read
     bit_size: 8
-    fieldset: R8_SPI_NODMA_FIFO_COUNT1
+    fieldset: NODMA_FIFO_COUNT1
 
-fieldset/R16_SPI_FULL_TOTAL_CNT:
+fieldset/FULL_TOTAL_CNT:
   description: SPI_FULL total byte count, only low 12 bit.
   bit_size: 16
   fields:
@@ -155,7 +155,7 @@ fieldset/R16_SPI_FULL_TOTAL_CNT:
     bit_offset: 0
     bit_size: 12
 
-fieldset/R32_SPI_FULL_DMA_BEG:
+fieldset/DMA_BEG:
   description: SPI_FULL DMA begin address.
   fields:
   - name: SPI_FULL_DMA_BEG
@@ -163,7 +163,7 @@ fieldset/R32_SPI_FULL_DMA_BEG:
     bit_offset: 0
     bit_size: 18
 
-fieldset/R32_SPI_FULL_DMA_END:
+fieldset/DMA_END:
   description: SPI_FULL DMA end address.
   fields:
   - name: SPI_FULL_DMA_END
@@ -171,7 +171,7 @@ fieldset/R32_SPI_FULL_DMA_END:
     bit_offset: 0
     bit_size: 18
 
-fieldset/R32_SPI_FULL_DMA_NOW:
+fieldset/DMA_NOW:
   description: SPI_FULL DMA current address.
   fields:
   - name: SPI_FULL_DMA_NOW
@@ -179,7 +179,7 @@ fieldset/R32_SPI_FULL_DMA_NOW:
     bit_offset: 0
     bit_size: 18
 
-fieldset/R8_SPI_FULL_BUFFER:
+fieldset/FULL_BUFFER:
   description: SPI_FULL data buffer.
   bit_size: 8
   fields:
@@ -188,7 +188,7 @@ fieldset/R8_SPI_FULL_BUFFER:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_BUSY:
+fieldset/BUSY:
   description: SPI_FULL busy flag register.
   bit_size: 8
   fields:
@@ -197,7 +197,7 @@ fieldset/R8_SPI_FULL_BUSY:
     bit_offset: 0
     bit_size: 1
 
-fieldset/R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE:
+fieldset/CLOCK_DIV_SLAVE_PRE:
   description: SPI_FULL master clock divisor / SPI_FULL slave preset value.
   bit_size: 8
   fields:
@@ -206,65 +206,65 @@ fieldset/R8_SPI_FULL_CLOCK_DIV_R8_SPI_FULL_SLAVE_PRE:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_CTRL_DMA:
+fieldset/FULL_CTRL_DMA:
   description: SPI_FULL DMA control.
   bit_size: 8
   fields:
-  - name: RB_SPI_DMA_ENABLE
+  - name: SPI_DMA_ENABLE
     description: SPI DMA enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_DMA_BURST
+  - name: SPI_DMA_BURST
     description: DMA block operates on the enable bit.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_DMA_LOOP
+  - name: SPI_DMA_LOOP
     description: SPI DMA address loop enable.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_HS_HOST
+  - name: SPI_HS_HOST
     description: High speed host receive mode control bit.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_FULL_CTRL_MOD:
+fieldset/FULL_CTRL_MOD:
   description: SPI_FULL mode control.
   bit_size: 8
   fields:
-  - name: RB_SPI_MODE_SLAVE
+  - name: SPI_MODE_SLAVE
     description: SPI slave mode.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_ALL_CLEAR
+  - name: SPI_ALL_CLEAR
     description: force clear SPI FIFO and count.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_2WIRE_MOD
+  - name: SPI_2WIRE_MOD
     description: SPI enable 2 wire mode.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_MST_SCK_MOD__SPI_SLV_CMD_MOD
+  - name: SPI_MST_SCK_MOD__SPI_SLV_CMD_MOD
     description: SPI master clock mode _ SPI slave command mode.
     bit_offset: 3
     bit_size: 1
-  - name: RB_SPI_FIFO_DIR
+  - name: SPI_FIFO_DIR
     description: SPI FIFO direction.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_SCK_OE
+  - name: SPI_SCK_OE
     description: SPI SCK output enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_SPI_MOSI_OE
+  - name: SPI_MOSI_OE
     description: SPI MOSI output enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_SPI_MISO_OE
+  - name: SPI_MISO_OE
     description: SPI MISO output enable.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_FULL_FIFO:
+fieldset/FULL_FIFO:
   description: SPI_FULL FIFO register.
   bit_size: 8
   fields:
@@ -273,7 +273,7 @@ fieldset/R8_SPI_FULL_FIFO:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_FIFO_COUNT:
+fieldset/FULL_FIFO_COUNT:
   description: SPI_FULL FIFO count status.
   bit_size: 8
   fields:
@@ -282,7 +282,7 @@ fieldset/R8_SPI_FULL_FIFO_COUNT:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_FIFO_COUNT1:
+fieldset/FULL_FIFO_COUNT1:
   description: SPI_FULL FIFO count status.
   bit_size: 8
   fields:
@@ -291,77 +291,77 @@ fieldset/R8_SPI_FULL_FIFO_COUNT1:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_INTER_EN:
+fieldset/FULL_INTER_EN:
   description: SPI_FULL interrupt enable.
   bit_size: 8
   fields:
-  - name: RB_SPI_IE_CNT_END
+  - name: SPI_IE_CNT_END
     description: enable interrupt for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_IE_BYTE_END
+  - name: SPI_IE_BYTE_END
     description: enable interrupt for SPI single byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_IE_FIFO_HF
+  - name: SPI_IE_FIFO_HF
     description: enable interrupt for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_IE_DMA_END
+  - name: SPI_IE_DMA_END
     description: enable interrupt for SPI DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_SPI_IE_FIFO_OV
+  - name: SPI_IE_FIFO_OV
     description: enable interrupt for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_IE_DMA_ERR
+  - name: SPI_IE_DMA_ERR
     description: enable interrupt for DMA transfer error.
     bit_offset: 5
     bit_size: 1
-  - name: RB_SPI_IE_FST_BYTE
+  - name: SPI_IE_FST_BYTE
     description: enable interrupt for SPI slave mode first byte received.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_FULL_INT_FLAG:
+fieldset/FULL_INT_FLAG:
   description: SPI_FULL interrupt flag.
   bit_size: 8
   fields:
-  - name: RB_SPI_IF_CNT_END
+  - name: SPI_IF_CNT_END
     description: interrupt flag for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_IF_BYTE_END
+  - name: SPI_IF_BYTE_END
     description: interrupt flag for SPI byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_IF_FIFO_HF
+  - name: SPI_IF_FIFO_HF
     description: interrupt flag for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_IF_DMA_END
+  - name: SPI_IF_DMA_END
     description: interrupt flag for SPI DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: RB_SPI_IF_FIFO_OV
+  - name: SPI_IF_FIFO_OV
     description: interrupt flag for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_IF_DMA_ERR
+  - name: SPI_IF_DMA_ERR
     description: interrupt flag for SPI DMA transfer error.
     bit_offset: 5
     bit_size: 1
-  - name: RB_SPI_FREE
+  - name: SPI_FREE
     description: current SPI free status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_SPI_IF_FST_BYTE
+  - name: SPI_IF_FST_BYTE
     description: interrupt flag for SPI slave mode first byte received.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_FULL_RESET_CMD:
+fieldset/RESET_CMD:
   description: SPI_FULL reset command word register.
   bit_size: 8
   fields:
@@ -370,28 +370,28 @@ fieldset/R8_SPI_FULL_RESET_CMD:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_FULL_RUN_FLAG:
+fieldset/FULL_RUN_FLAG:
   description: SPI_FULL work flag.
   bit_size: 8
   fields:
-  - name: RB_SPI_SLV_CMD_ACT
+  - name: SPI_SLV_CMD_ACT
     description: SPI slave command flag.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_FIFO_READY
+  - name: SPI_FIFO_READY
     description: SPI FIFO ready status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_SPI_SLV_CS_LOAD
+  - name: SPI_SLV_CS_LOAD
     description: SPI slave chip-select loading status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_SPI_SLV_SELECT
+  - name: SPI_SLV_SELECT
     description: SPI slave selection status.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R16_SPI_NODMA_TOTAL_CNT:
+fieldset/NODMA_TOTAL_CNT:
   description: SPI_NODMA total byte count, only low 12 bit.
   bit_size: 16
   fields:
@@ -400,7 +400,7 @@ fieldset/R16_SPI_NODMA_TOTAL_CNT:
     bit_offset: 0
     bit_size: 12
 
-fieldset/R8_SPI_NODMA_BUFFER:
+fieldset/NODMA_BUFFER:
   description: SPI_NODMA data buffer.
   bit_size: 8
   fields:
@@ -409,7 +409,7 @@ fieldset/R8_SPI_NODMA_BUFFER:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_NODMA_CLOCK_DIV:
+fieldset/CLOCK_DIV:
   description: SPI_NODMA master clock divisor.
   bit_size: 8
   fields:
@@ -418,45 +418,45 @@ fieldset/R8_SPI_NODMA_CLOCK_DIV:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_NODMA_CTRL_DMA:
+fieldset/NODMA_CTRL_DMA:
   description: SPI_NODMA DMA control.
   bit_size: 8
   fields:
-  - name: RB_SPI_HS_HOST
+  - name: SPI_HS_HOST
     description: High speed host receive mode control bit.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_NODMA_CTRL_MOD:
+fieldset/NODMA_CTRL_MOD:
   description: SPI_NODMA mode control.
   bit_size: 8
   fields:
-  - name: RB_SPI_ALL_CLEAR
+  - name: SPI_ALL_CLEAR
     description: force clear SPI FIFO and count.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_SLV_CMD_MOD
+  - name: SPI_SLV_CMD_MOD
     description: SPI slave command mode.
     bit_offset: 3
     bit_size: 1
-  - name: RB_SPI_FIFO_DIR
+  - name: SPI_FIFO_DIR
     description: SPI FIFO direction.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_SCK_OE
+  - name: SPI_SCK_OE
     description: SPI SCK output enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_SPI_MOSI_OE
+  - name: SPI_MOSI_OE
     description: SPI MOSI output enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_SPI_MISO_OE
+  - name: SPI_MISO_OE
     description: SPI 2 wire or 3 wire SPI mode configuration bits.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_SPI_NODMA_FIFO:
+fieldset/NODMA_FIFO:
   description: SPI_NODMA FIFO register.
   bit_size: 8
   fields:
@@ -465,7 +465,7 @@ fieldset/R8_SPI_NODMA_FIFO:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_NODMA_FIFO_COUNT:
+fieldset/NODMA_FIFO_COUNT:
   description: SPI_NODMA FIFO count status.
   bit_size: 8
   fields:
@@ -474,66 +474,66 @@ fieldset/R8_SPI_NODMA_FIFO_COUNT:
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_NODMA_FIFO_COUNT1:
+fieldset/NODMA_FIFO_COUNT1:
   description: SPI_NODMA FIFO count status.
   bit_size: 8
   fields:
-  - name: R8_SPI_NODMA_FIFO_COUNT1
+  - name: NODMA_FIFO_COUNT1
     description: SPI FIFO count statu.
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_SPI_NODMA_INTER_EN:
+fieldset/NODMA_INTER_EN:
   description: SPI_NODMA interrupt enable.
   bit_size: 8
   fields:
-  - name: RB_SPI_IE_CNT_END
+  - name: SPI_IE_CNT_END
     description: enable interrupt for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_IE_BYTE_END
+  - name: SPI_IE_BYTE_END
     description: enable interrupt for SPI single byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_IE_FIFO_HF
+  - name: SPI_IE_FIFO_HF
     description: enable interrupt for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_IE_FIFO_OV
+  - name: SPI_IE_FIFO_OV
     description: enable interrupt for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
 
-fieldset/R8_SPI_NODMA_INT_FLAG:
+fieldset/NODMA_INT_FLAG:
   description: SPI_NODMA interrupt flag.
   bit_size: 8
   fields:
-  - name: RB_SPI_IF_CNT_END
+  - name: SPI_IF_CNT_END
     description: interrupt flag for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SPI_IF_BYTE_END
+  - name: SPI_IF_BYTE_END
     description: interrupt flag for SPI byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: RB_SPI_IF_FIFO_HF
+  - name: SPI_IF_FIFO_HF
     description: interrupt flag for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: RB_SPI_IF_FIFO_OV
+  - name: SPI_IF_FIFO_OV
     description: interrupt flag for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: RB_SPI_FREE
+  - name: SPI_FREE
     description: current SPI free status.
     bit_offset: 6
     bit_size: 1
 
-fieldset/R8_SPI_NODMA_RUN_FLAG:
+fieldset/NODMA_RUN_FLAG:
   description: SPI_NODMA work flag.
   bit_size: 8
   fields:
-  - name: RB_SPI_FIFO_READY
+  - name: SPI_FIFO_READY
     description: SPI FIFO ready status.
     bit_offset: 5
     bit_size: 1

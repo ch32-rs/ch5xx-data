@@ -92,8 +92,14 @@ These differ from CH32 and drive the data model:
 - No RCC / AFIO. Clock, power, pin function and GPIO live in one SYS region at
   `0x40001000`, split in the SVD into SYS / RTC / System_control / TouchKey /
   ADC / GPIO by register offset. Keep the split; do not merge them back.
-- Register names carry a width prefix (`R8_` / `R16_` / `R32_`) and fields use
-  `RB_`. Mixed widths inside one peripheral are normal.
+- Vendor headers prefix registers with their width (`R8_` / `R16_` / `R32_`)
+  and fields with `RB_`. The YAML drops both, plus the kind token that follows
+  (`R8_TMR_CTRL_MOD` -> `CTRL_MOD`, `RB_ADC_POWER_ON` -> `ADC_POWER_ON`). A
+  capability suffix stays only where the FULL and NODMA layouts differ
+  (`FULL_FIFO_COUNT` vs `NODMA_FIFO_COUNT`); identical layouts share one
+  fieldset. `scripts/strip-register-prefixes.py` does the rewrite, and
+  `gen-from-svd.py` applies it to a fresh extract. Mixed widths inside one
+  peripheral are normal.
 - Flash is not the CH32 model. There is usually no flash register block in the
   SVD. Erase and program go through an ISP library (or, on CH595, a
   memory-mapped controller at `0x40001800` that the SVD omits). Code and data

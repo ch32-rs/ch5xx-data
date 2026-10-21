@@ -1,85 +1,85 @@
 block/ENCODER:
   description: keys scanning.
   items:
-  - name: R8_ENC_REG_CTRL
+  - name: ENC_REG_CTRL
     description: RW, Encoder mode control register.
     byte_offset: 32
     bit_size: 8
-    fieldset: R8_ENC_REG_CTRL
-  - name: R8_ENC_INTER_EN
+    fieldset: ENC_REG_CTRL
+  - name: ENC_INTER_EN
     description: RW, Encoder mode interrupt enable register.
     byte_offset: 33
     bit_size: 8
-    fieldset: R8_ENC_INTER_EN
-  - name: R8_ENC_INT_FLAG
+    fieldset: ENC_INTER_EN
+  - name: ENC_INT_FLAG
     description: RW, Encoder mode interrupt flag register.
     byte_offset: 34
     bit_size: 8
-    fieldset: R8_ENC_INT_FLAG
-  - name: R32_ENC_REG_CEND
+    fieldset: ENC_INT_FLAG
+  - name: ENC_REG_CEND
     description: RW, Encoder mode final value configuration register.
     byte_offset: 36
-    fieldset: R32_ENC_REG_CEND
-  - name: R32_ENC_REG_CCNT
+    fieldset: ENC_REG_CEND
+  - name: ENC_REG_CCNT
     description: RW, Encoder mode current value configuration register.
     byte_offset: 40
     access: Read
-    fieldset: R32_ENC_REG_CCNT
-fieldset/R32_ENC_REG_CCNT:
+    fieldset: ENC_REG_CCNT
+fieldset/ENC_REG_CCNT:
   description: RW, Encoder mode current value configuration register.
   fields:
-  - name: R32_ENC_REG_CCNT
+  - name: ENC_REG_CCNT
     description: RO, Current encoder mode value.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_ENC_REG_CEND:
+fieldset/ENC_REG_CEND:
   description: RW, Encoder mode final value configuration register.
   fields:
-  - name: R32_ENC_REG_CEND
+  - name: ENC_REG_CEND
     description: RW, Preset encoder mode final value.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_ENC_INTER_EN:
+fieldset/ENC_INTER_EN:
   description: RW, Encoder mode interrupt enable register.
   bit_size: 8
   fields:
-  - name: RB_IE_DIR_INC
+  - name: IE_DIR_INC
     description: RW, Encoder mode forward interrupt enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IE_DIR_DEC
+  - name: IE_DIR_DEC
     description: RW, Encoder mode backward interrupt enable.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_ENC_INT_FLAG:
+fieldset/ENC_INT_FLAG:
   description: RW, Encoder mode interrupt flag register.
   bit_size: 8
   fields:
-  - name: RB_IF_DIR_INC
+  - name: IF_DIR_INC
     description: RW, Encoder mode forward interrupt flag.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IF_DIR_DEC
+  - name: IF_DIR_DEC
     description: RW, Encoder mode backward interrupt flag.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_ENC_REG_CTRL:
+fieldset/ENC_REG_CTRL:
   description: RW, Encoder mode control register.
   bit_size: 8
   fields:
-  - name: RB_START_ENC_EN
+  - name: START_ENC_EN
     description: RW, Enable encoder mode operation.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SMS_MODE
+  - name: SMS_MODE
     description: RW, Encoder mode edge working mode.
     bit_offset: 1
     bit_size: 2
-  - name: RB_RD_CLR_EN
+  - name: RD_CLR_EN
     description: RW, Encoder mode reads count and resets to zero.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ENC_DIR
+  - name: ENC_DIR
     description: RO, Current direction of encoder.
     bit_offset: 5
     bit_size: 1

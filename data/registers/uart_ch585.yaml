@@ -5,490 +5,429 @@
 block/UART_FULL:
   description: UART register.
   items:
-  - name: R8_UART_MCR
+  - name: MCR
     description: RW, UART modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_UART_MCR
-  - name: R8_UART_IER
+    fieldset: MCR
+  - name: IER
     description: RW, UART interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_UART_IER
-  - name: R8_UART_FCR
+    fieldset: IER
+  - name: FCR
     description: RW, UART FIFO control.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_UART_FCR
-  - name: R8_UART_LCR
+    fieldset: FCR
+  - name: LCR
     description: RW, UART line control.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_UART_LCR
-  - name: R8_UART_IIR
+    fieldset: LCR
+  - name: IIR
     description: RO, UART interrupt identification.
     byte_offset: 4
     access: Read
     bit_size: 8
-    fieldset: R8_UART_IIR
-  - name: R8_UART_LSR
+    fieldset: IIR
+  - name: LSR
     description: RO, UART line status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_UART_LSR
-  - name: R8_UART_MSR
+    fieldset: LSR
+  - name: MSR
     description: RO, UART modem status.
     byte_offset: 6
     access: Read
     bit_size: 8
-    fieldset: R8_UART_MSR
-  - name: R8_UART_RBR
+    fieldset: MSR
+  - name: RBR
     description: RO, UART receiver buffer, receiving byte.
     byte_offset: 8
     access: Read
     bit_size: 8
-    fieldset: R8_UART_RBR
-  - name: R8_UART_THR
+    fieldset: RBR
+  - name: THR
     description: WO, UART transmitter holding, transmittal byte.
     byte_offset: 8
     access: Write
     bit_size: 8
-    fieldset: R8_UART_THR
-  - name: R8_UART_RFC
+    fieldset: THR
+  - name: RFC
     description: RO, UART receiver FIFO count.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: R8_UART_RFC
-  - name: R8_UART_TFC
+    fieldset: RFC
+  - name: TFC
     description: RO, UART transmitter FIFO count.
     byte_offset: 11
     access: Read
     bit_size: 8
-    fieldset: R8_UART_TFC
-  - name: R16_UART_DL
+    fieldset: TFC
+  - name: DL
     description: RW, UART divisor latch.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_UART_DL
-  - name: R8_UART_DIV
+    fieldset: DL
+  - name: DIV
     description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128.
     byte_offset: 14
     bit_size: 8
-    fieldset: R8_UART_DIV
-  - name: R8_UART_ADR
+    fieldset: DIV
+  - name: ADR
     description: 'RW, UART slave address: 0xFF=disable, other=enable.'
     byte_offset: 15
     bit_size: 8
-    fieldset: R8_UART_ADR
+    fieldset: ADR
 
 block/UART_NOMODEM:
   description: UART register.
   items:
-  - name: R8_UART_MCR
+  - name: MCR
     description: RW, UART modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_UART_MCR_NOMODEM
-  - name: R8_UART_IER
+    fieldset: MCR
+  - name: IER
     description: RW, UART interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_UART_IER_NOMODEM
-  - name: R8_UART_FCR
+    fieldset: IER
+  - name: FCR
     description: RW, UART FIFO control.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_UART_FCR
-  - name: R8_UART_LCR
+    fieldset: FCR
+  - name: LCR
     description: RW, UART line control.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_UART_LCR
-  - name: R8_UART_IIR
+    fieldset: LCR
+  - name: IIR
     description: RO, UART interrupt identification.
     byte_offset: 4
     access: Read
     bit_size: 8
-    fieldset: R8_UART_IIR
-  - name: R8_UART_LSR
+    fieldset: IIR
+  - name: LSR
     description: RO, UART line status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_UART_LSR
-  - name: R8_UART_RBR
+    fieldset: LSR
+  - name: RBR
     description: RO, UART receiver buffer, receiving byte.
     byte_offset: 8
     access: Read
     bit_size: 8
-    fieldset: R8_UART_RBR
-  - name: R8_UART_THR
+    fieldset: RBR
+  - name: THR
     description: WO, UART transmitter holding, transmittal byte.
     byte_offset: 8
     access: Write
     bit_size: 8
-    fieldset: R8_UART_THR_NOMODEM
-  - name: R8_UART_RFC
+    fieldset: THR
+  - name: RFC
     description: RO, UART receiver FIFO count.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: R8_UART_RFC
-  - name: R8_UART_TFC
+    fieldset: RFC
+  - name: TFC
     description: RO, UART transmitter FIFO count.
     byte_offset: 11
     access: Read
     bit_size: 8
-    fieldset: R8_UART_TFC_NOMODEM
-  - name: R16_UART_DL
+    fieldset: TFC
+  - name: DL
     description: RW, UART divisor latch.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_UART_DL
-  - name: R8_UART_DIV
+    fieldset: DL
+  - name: DIV
     description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 128.
     byte_offset: 14
     bit_size: 8
-    fieldset: R8_UART_DIV_NOMODEM
+    fieldset: DIV
 
-fieldset/R16_UART_DL:
+fieldset/DL:
   description: RW, UART divisor latch.
   bit_size: 16
   fields:
-  - name: R16_UART_DL
+  - name: DL
     description: RW, UART divisor latch.
     bit_offset: 0
     bit_size: 16
 
-fieldset/R8_UART_ADR:
+fieldset/ADR:
   description: 'RW, UART slave address: 0xFF=disable, other=enable.'
   bit_size: 8
   fields:
-  - name: R8_UART_ADR
+  - name: ADR
     description: 'RW,UART slave address: 0xFF=disable, other=enable.'
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_UART_DIV:
+fieldset/DIV:
   description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128.
   bit_size: 8
   fields:
-  - name: R8_UART_DIV
+  - name: DIV
     description: RW,UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128.
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_UART_DIV_NOMODEM:
-  description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 128.
-  bit_size: 8
-  fields:
-  - name: R8_UART_DIV
-    description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 128.
-    bit_offset: 0
-    bit_size: 8
-
-fieldset/R8_UART_FCR:
+fieldset/FCR:
   description: RW, UART FIFO control.
   bit_size: 8
   fields:
-  - name: RB_FCR_FIFO_EN
+  - name: FCR_FIFO_EN
     description: RW, UART FIFO enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_FCR_RX_FIFO_CLR
+  - name: FCR_RX_FIFO_CLR
     description: WZ, clear UART receiver FIFO, high action, auto clear.
     bit_offset: 1
     bit_size: 1
-  - name: RB_FCR_TX_FIFO_CLR
+  - name: FCR_TX_FIFO_CLR
     description: WZ, clear UART transmitter FIFO, high action, auto clear.
     bit_offset: 2
     bit_size: 1
-  - name: RB_FCR_FIFO_TRIG
+  - name: FCR_FIFO_TRIG
     description: 'RW, UART receiver FIFO trigger level: 00-1byte, 01-2bytes, 10-4bytes, 11-7bytes.'
     bit_offset: 6
     bit_size: 2
 
-fieldset/R8_UART_IER:
+fieldset/IER:
   description: RW, UART interrupt enable.
   bit_size: 8
   fields:
-  - name: RB_IER_RECV_RDY
+  - name: IER_RECV_RDY
     description: RW, UART interrupt enable for receiver data ready.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IER_THR_EMPTY
+  - name: IER_THR_EMPTY
     description: RW, UART interrupt enable for THR empty.
     bit_offset: 1
     bit_size: 1
-  - name: RB_IER_LINE_STAT
+  - name: IER_LINE_STAT
     description: RW, UART interrupt enable for receiver line status.
     bit_offset: 2
     bit_size: 1
-  - name: RB_IER_MODEM_CHG
+  - name: IER_MODEM_CHG
     description: RW, UART interrupt enable for modem status change.
     bit_offset: 3
     bit_size: 1
-  - name: RB_IER_DTR_EN
+  - name: IER_DTR_EN
     description: RW, UART DTR/TNOW output pin enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_IER_RTS_EN
+  - name: IER_RTS_EN
     description: RW, UART RTS output pin enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_IER_TXD_EN
+  - name: IER_TXD_EN
     description: RW, UART TXD pin enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_IER_RESET
+  - name: IER_RESET
     description: WZ, UART software reset control, high action, auto clear.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_UART_IER_NOMODEM:
-  description: RW, UART interrupt enable.
-  bit_size: 8
-  fields:
-  - name: RB_IER_RECV_RDY
-    description: RW, UART interrupt enable for receiver data ready.
-    bit_offset: 0
-    bit_size: 1
-  - name: RB_IER_THR_EMPTY
-    description: RW, UART interrupt enable for THR empty.
-    bit_offset: 1
-    bit_size: 1
-  - name: RB_IER_LINE_STAT
-    description: RW, UART interrupt enable for receiver line status.
-    bit_offset: 2
-    bit_size: 1
-  - name: RB_IER_TXD_EN
-    description: RW, UART TXD pin enable.
-    bit_offset: 6
-    bit_size: 1
-  - name: RB_IER_RESET
-    description: WZ, UART software reset control, high action, auto clear.
-    bit_offset: 7
-    bit_size: 1
-
-fieldset/R8_UART_IIR:
+fieldset/IIR:
   description: RO, UART interrupt identification.
   bit_size: 8
   fields:
-  - name: RB_IIR_NO_INT
+  - name: IIR_NO_INT
     description: 'RO, UART no interrupt flag: 0=interrupt action, 1=no interrupt.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_IIR_INT_MASK
+  - name: IIR_INT_MASK
     description: RO, UART interrupt flag bit mask.
     bit_offset: 1
     bit_size: 3
-  - name: RB_IIR_FIFO_ID
+  - name: IIR_FIFO_ID
     description: RO, UART FIFO enabled flag.
     bit_offset: 6
     bit_size: 2
 
-fieldset/R8_UART_LCR:
+fieldset/LCR:
   description: RW, UART line control.
   bit_size: 8
   fields:
-  - name: RB_LCR_WORD_SZ
+  - name: LCR_WORD_SZ
     description: 'RW, UART word bit length: 00-5bit, 01-6bit, 10-7bit, 11-8bit.'
     bit_offset: 0
     bit_size: 2
-  - name: RB_LCR_STOP_BIT
+  - name: LCR_STOP_BIT
     description: 'RW, UART stop bit length: 0-1bit, 1-2bit.'
     bit_offset: 2
     bit_size: 1
-  - name: RB_LCR_PAR_EN
+  - name: LCR_PAR_EN
     description: RW, UART parity enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_LCR_PAR_MOD
+  - name: LCR_PAR_MOD
     description: 'RW, UART parity mode: 00-odd, 01-even, 10-mark, 11-space.'
     bit_offset: 4
     bit_size: 2
-  - name: RB_LCR_BREAK_EN
+  - name: LCR_BREAK_EN
     description: RW, UART break control enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LCR_GP_BIT__LCR_DLAB
+  - name: LCR_GP_BIT__LCR_DLAB
     description: RW, UART general purpose bit;RW, UART reserved bit.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_UART_LSR:
+fieldset/LSR:
   description: RO, UART line status.
   bit_size: 8
   fields:
-  - name: RB_LSR_DATA_RDY
+  - name: LSR_DATA_RDY
     description: RO, UART receiver fifo data ready status.
     bit_offset: 0
     bit_size: 1
-  - name: RB_LSR_OVER_ERR
+  - name: LSR_OVER_ERR
     description: RZ, UART receiver overrun error.
     bit_offset: 1
     bit_size: 1
-  - name: RB_LSR_PAR_ERR
+  - name: LSR_PAR_ERR
     description: RZ, UART receiver parity error.
     bit_offset: 2
     bit_size: 1
-  - name: RB_LSR_FRAME_ERR
+  - name: LSR_FRAME_ERR
     description: RZ, UART receiver frame error.
     bit_offset: 3
     bit_size: 1
-  - name: RB_LSR_BREAK_ERR
+  - name: LSR_BREAK_ERR
     description: RZ, UART receiver break error.
     bit_offset: 4
     bit_size: 1
-  - name: RB_LSR_TX_FIFO_EMP
+  - name: LSR_TX_FIFO_EMP
     description: RO, UART transmitter fifo empty status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_LSR_TX_ALL_EMP
+  - name: LSR_TX_ALL_EMP
     description: RO, UART transmitter all empty status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LSR_ERR_RX_FIFO
+  - name: LSR_ERR_RX_FIFO
     description: RO, indicate error in UART receiver fifo.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_UART_MCR:
+fieldset/MCR:
   description: RW, UART modem control.
   bit_size: 8
   fields:
-  - name: RB_MCR_DTR
+  - name: MCR_DTR
     description: RW, UART control DTR.
     bit_offset: 0
     bit_size: 1
-  - name: RB_MCR_RTS
+  - name: MCR_RTS
     description: RW, UART control RTS.
     bit_offset: 1
     bit_size: 1
-  - name: RB_MCR_OUT1
+  - name: MCR_OUT1
     description: RW, UART control OUT1.
     bit_offset: 2
     bit_size: 1
-  - name: RB_MCR_OUT2__MCR_INT_OE
+  - name: MCR_OUT2__MCR_INT_OE
     description: RW, UART control OUT2/ UART interrupt output enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_MCR_LOOP
+  - name: MCR_LOOP
     description: RW, UART enable local loop back.
     bit_offset: 4
     bit_size: 1
-  - name: RB_MCR_AU_FLOW_EN
+  - name: MCR_AU_FLOW_EN
     description: RW, UART enable autoflow control.
     bit_offset: 5
     bit_size: 1
-  - name: RB_MCR_TNOW
+  - name: MCR_TNOW
     description: RW, UART enable TNOW output on DTR pin.
     bit_offset: 6
     bit_size: 1
-  - name: RB_MCR_HALF
+  - name: MCR_HALF
     description: RW, UART enable half-duplex.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_UART_MCR_NOMODEM:
-  description: RW, UART modem control.
-  bit_size: 8
-  fields:
-  - name: RB_MCR_OUT2__MCR_INT_OE
-    description: RW, UART control OUT2/UART interrupt output enable.
-    bit_offset: 3
-    bit_size: 1
-
-fieldset/R8_UART_MSR:
+fieldset/MSR:
   description: RO, UART modem status.
   bit_size: 8
   fields:
-  - name: RB_MSR_CTS_CHG
+  - name: MSR_CTS_CHG
     description: RZ, UART CTS changed status, high action.
     bit_offset: 0
     bit_size: 1
-  - name: RB_MSR_DSR_CHG
+  - name: MSR_DSR_CHG
     description: RZ, UART DSR changed status, high action.
     bit_offset: 1
     bit_size: 1
-  - name: RB_MSR_RI_CHG
+  - name: MSR_RI_CHG
     description: RZ, UART RI changed status, high action.
     bit_offset: 2
     bit_size: 1
-  - name: RB_MSR_DCD_CHG
+  - name: MSR_DCD_CHG
     description: RZ, UART DCD changed status, high action.
     bit_offset: 3
     bit_size: 1
-  - name: RB_MSR_CTS
+  - name: MSR_CTS
     description: RO, UART CTS action status.
     bit_offset: 4
     bit_size: 1
-  - name: RB_MSR_DSR
+  - name: MSR_DSR
     description: RO, UART DSR action statusv.
     bit_offset: 5
     bit_size: 1
-  - name: RB_MSR_RI
+  - name: MSR_RI
     description: RO, UART RI action status.
     bit_offset: 6
     bit_size: 1
-  - name: RB_MSR_DCD
+  - name: MSR_DCD
     description: RO, UART DCD action status.
     bit_offset: 7
     bit_size: 1
 
-fieldset/R8_UART_RBR:
+fieldset/RBR:
   description: RO, UART receiver buffer, receiving byte.
   bit_size: 8
   fields:
-  - name: R8_UART_RBR
+  - name: RBR
     description: RO, UART receiver buffer, receiving byte.
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_UART_RFC:
+fieldset/RFC:
   description: RO, UART receiver FIFO count.
   bit_size: 8
   fields:
-  - name: R8_UART_RFC
+  - name: RFC
     description: RO, UART receiver FIFO count.
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_UART_TFC:
+fieldset/TFC:
   description: RO, UART transmitter FIFO count.
   bit_size: 8
   fields:
-  - name: R8_UART_TFC
+  - name: TFC
     description: RO, UART transmitter FIFO count.
     bit_offset: 0
     bit_size: 8
 
-fieldset/R8_UART_TFC_NOMODEM:
-  description: RO, UART transmitter FIFO count.
-  bit_size: 8
-  fields:
-  - name: R8_UART_TFC
-    description: RO, UART receiver FIFO count.
-    bit_offset: 0
-    bit_size: 8
-
-fieldset/R8_UART_THR:
+fieldset/THR:
   description: WO, UART transmitter holding, transmittal byte.
   bit_size: 8
   fields:
-  - name: R8_UART_THR
+  - name: THR
     description: RO, UART transmitter holding, transmittal byte.
-    bit_offset: 0
-    bit_size: 8
-
-fieldset/R8_UART_THR_NOMODEM:
-  description: WO, UART transmitter holding, transmittal byte.
-  bit_size: 8
-  fields:
-  - name: R8_UART_RBR
-    description: WO, UART transmitter holding, transmittal byte.
     bit_offset: 0
     bit_size: 8
 

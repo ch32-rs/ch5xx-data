@@ -1,153 +1,153 @@
 block/GPIO:
   description: GPIO register.
   items:
-  - name: R32_INT_STATUS_PA
+  - name: INT_STATUS_PA
     description: The interrupt status register at the PA port.
     byte_offset: 80
-    fieldset: R32_INT_STATUS_PA
-  - name: R32_INT_ENABLE_PA
+    fieldset: INT_STATUS_PA
+  - name: INT_ENABLE_PA
     description: The interrupt enable register at the PA port.
     byte_offset: 84
-    fieldset: R32_INT_ENABLE_PA
-  - name: R32_INT_MODE_PA
+    fieldset: INT_ENABLE_PA
+  - name: INT_MODE_PA
     description: The interrupt mode register at the PA port.
     byte_offset: 88
-    fieldset: R32_INT_MODE_PA
-  - name: R32_INT_POLAR_PA
+    fieldset: INT_MODE_PA
+  - name: INT_POLAR_PA
     description: The interrupt polar register at the PA port.
     byte_offset: 92
-    fieldset: R32_INT_POLAR_PA
-  - name: R32_INT_STATUS_PB
+    fieldset: INT_POLAR_PA
+  - name: INT_STATUS_PB
     description: The interrupt status register at the PB port.
     byte_offset: 96
-    fieldset: R32_INT_STATUS_PB
-  - name: R32_INT_ENABLE_PB
+    fieldset: INT_STATUS_PB
+  - name: INT_ENABLE_PB
     description: The interrupt enable register at the PB port.
     byte_offset: 100
-    fieldset: R32_INT_ENABLE_PB
-  - name: R32_INT_MODE_PB
+    fieldset: INT_ENABLE_PB
+  - name: INT_MODE_PB
     description: The interrupt mode register at the PB port.
     byte_offset: 104
-    fieldset: R32_INT_MODE_PB
-  - name: R32_INT_POLAR_PB
+    fieldset: INT_MODE_PB
+  - name: INT_POLAR_PB
     description: The interrupt polar register at the PB port.
     byte_offset: 108
-    fieldset: R32_INT_POLAR_PB
-  - name: R32_INT_STATUS_PD
+    fieldset: INT_POLAR_PB
+  - name: INT_STATUS_PD
     description: The interrupt status register at the PA port.
     byte_offset: 112
-    fieldset: R32_INT_STATUS_PD
-  - name: R32_INT_ENABLE_PD
+    fieldset: INT_STATUS_PD
+  - name: INT_ENABLE_PD
     description: The interrupt enable register at the PD port.
     byte_offset: 116
-    fieldset: R32_INT_ENABLE_PD
-  - name: R32_INT_MODE_PD
+    fieldset: INT_ENABLE_PD
+  - name: INT_MODE_PD
     description: The interrupt mode register at the PD port.
     byte_offset: 120
-    fieldset: R32_INT_MODE_PD
-  - name: R32_INT_POLAR_PD
+    fieldset: INT_MODE_PD
+  - name: INT_POLAR_PD
     description: The interrupt polar register at the PD port.
     byte_offset: 124
-    fieldset: R32_INT_POLAR_PD
-  - name: R32_PA_DIR
+    fieldset: INT_POLAR_PD
+  - name: PA_DIR
     description: GPIO PA I/O direction.
     byte_offset: 128
-    fieldset: R32_PA_DIR
-  - name: R32_PA_PIN
+    fieldset: PA_DIR
+  - name: PA_PIN
     description: GPIO PA input.
     byte_offset: 132
     access: Read
-    fieldset: R32_PA_PIN
-  - name: R32_PA_OUT
+    fieldset: PA_PIN
+  - name: PA_OUT
     description: GPIO PA output.
     byte_offset: 136
-    fieldset: R32_PA_OUT
-  - name: R32_PA_CLR
+    fieldset: PA_OUT
+  - name: PA_CLR
     description: GPIO PA clear output.
     byte_offset: 140
     access: Read
-    fieldset: R32_PA_CLR
-  - name: R32_PA_PU
+    fieldset: PA_CLR
+  - name: PA_PU
     description: GPIO PA pullup resistance enable.
     byte_offset: 144
-    fieldset: R32_PA_PU
-  - name: R32_PA_PD
+    fieldset: PA_PU
+  - name: PA_PD
     description: GPIO PA output open-drain_input pulldown resistance enable.
     byte_offset: 148
-    fieldset: R32_PA_PD
-  - name: R32_PB_DIR
+    fieldset: PA_PD
+  - name: PB_DIR
     description: GPIO PB I/O direction.
     byte_offset: 160
-    fieldset: R32_PB_DIR
-  - name: R32_PB_PIN
+    fieldset: PB_DIR
+  - name: PB_PIN
     description: GPIO PB input.
     byte_offset: 164
     access: Read
-    fieldset: R32_PB_PIN
-  - name: R32_PB_OUT
+    fieldset: PB_PIN
+  - name: PB_OUT
     description: GPIO PB output.
     byte_offset: 168
-    fieldset: R32_PB_OUT
-  - name: R32_PB_CLR
+    fieldset: PB_OUT
+  - name: PB_CLR
     description: GPIO PB clear output.
     byte_offset: 172
     access: Read
-    fieldset: R32_PB_CLR
-  - name: R32_PB_PU
+    fieldset: PB_CLR
+  - name: PB_PU
     description: GPIO PB pullup resistance enable.
     byte_offset: 176
-    fieldset: R32_PB_PU
-  - name: R32_PB_PD
+    fieldset: PB_PU
+  - name: PB_PD
     description: GPIO PB output open-drain_input pulldown resistance enable.
     byte_offset: 180
-    fieldset: R32_PB_PD
-  - name: R32_PD_DIR
+    fieldset: PB_PD
+  - name: PD_DIR
     description: GPIO PD I/O direction.
     byte_offset: 192
-    fieldset: R32_PD_DIR
-  - name: R32_PD_PIN
+    fieldset: PD_DIR
+  - name: PD_PIN
     description: GPIO PD input.
     byte_offset: 196
     access: Read
-    fieldset: R32_PD_PIN
-  - name: R32_PD_OUT
+    fieldset: PD_PIN
+  - name: PD_OUT
     description: GPIO PD output.
     byte_offset: 200
-    fieldset: R32_PD_OUT
-  - name: R32_PD_PU
+    fieldset: PD_OUT
+  - name: PD_PU
     description: GPIO PD pullup resistance enable.
     byte_offset: 208
-    fieldset: R32_PD_PU
-  - name: R32_PD_PD
+    fieldset: PD_PU
+  - name: PD_PD
     description: GPIO PD output open-drain_input pulldown resistance enable.
     byte_offset: 212
-    fieldset: R32_PD_PD
-  - name: R32_AFIO_PCFR1
+    fieldset: PD_PD
+  - name: AFIO_PCFR1
     description: AF remap and debug I/O configuration register (AFIO_PCFR1).
     byte_offset: 320
-    fieldset: R32_AFIO_PCFR1
-  - name: R32_EXTEN_CTLR0
+    fieldset: AFIO_PCFR1
+  - name: EXTEN_CTLR0
     description: Configure the extended control register 0.
     byte_offset: 324
-    fieldset: R32_EXTEN_CTLR0
-  - name: R32_EXTEN_CTLR1
+    fieldset: EXTEN_CTLR0
+  - name: EXTEN_CTLR1
     description: Configure the extended control register 1.
     byte_offset: 340
-    fieldset: R32_EXTEN_CTLR1
-  - name: R32_AFIO_PCFR2
+    fieldset: EXTEN_CTLR1
+  - name: AFIO_PCFR2
     description: AF remap and debug I/O configuration register (AFIO_PCFR2).
     byte_offset: 352
-    fieldset: R32_AFIO_PCFR2
-  - name: R32_EXTEN_CTLR2
+    fieldset: AFIO_PCFR2
+  - name: EXTEN_CTLR2
     description: Configure the extended control register 2.
     byte_offset: 364
-    fieldset: R32_EXTEN_CTLR2
-  - name: R8_ADC_GPIO_MODE
+    fieldset: EXTEN_CTLR2
+  - name: ADC_MODE
     description: ADC port mode configuration register.
     byte_offset: 366
     bit_size: 8
-    fieldset: R8_ADC_GPIO_MODE
-fieldset/R32_AFIO_PCFR1:
+    fieldset: ADC_MODE
+fieldset/AFIO_PCFR1:
   description: AF remap and debug I/O configuration register (AFIO_PCFR1).
   fields:
   - name: SPI0_RM
@@ -214,7 +214,7 @@ fieldset/R32_AFIO_PCFR1:
     description: LINK LED remapping.
     bit_offset: 30
     bit_size: 2
-fieldset/R32_AFIO_PCFR2:
+fieldset/AFIO_PCFR2:
   description: AF remap and debug I/O configuration register (AFIO_PCFR2).
   fields:
   - name: ACT_LED_RM
@@ -261,7 +261,7 @@ fieldset/R32_AFIO_PCFR2:
     description: UART3 MODEM remapping.
     bit_offset: 18
     bit_size: 2
-fieldset/R32_EXTEN_CTLR0:
+fieldset/EXTEN_CTLR0:
   description: Configure the extended control register 0.
   fields:
   - name: SW_CFG
@@ -344,7 +344,7 @@ fieldset/R32_EXTEN_CTLR0:
     description: Core protected moed status bit.
     bit_offset: 30
     bit_size: 1
-fieldset/R32_EXTEN_CTLR1:
+fieldset/EXTEN_CTLR1:
   description: Configure the extended control register 1.
   fields:
   - name: HSEON
@@ -383,7 +383,7 @@ fieldset/R32_EXTEN_CTLR1:
     description: Enables an outage when the VIO power is down.
     bit_offset: 23
     bit_size: 1
-fieldset/R32_EXTEN_CTLR2:
+fieldset/EXTEN_CTLR2:
   description: Configure the extended control register 2.
   fields:
   - name: USBPD_IN_HVT0
@@ -406,21 +406,21 @@ fieldset/R32_EXTEN_CTLR2:
     description: XI/XO pin open-drain_ouput control bit.
     bit_offset: 25
     bit_size: 1
-fieldset/R32_INT_ENABLE_PA:
+fieldset/INT_ENABLE_PA:
   description: The interrupt enable register at the PA port.
   fields:
   - name: PA
     description: The interrupt enable bit of the PA port.
     bit_offset: 8
     bit_size: 14
-fieldset/R32_INT_ENABLE_PB:
+fieldset/INT_ENABLE_PB:
   description: The interrupt enable register at the PB port.
   fields:
   - name: PB
     description: The interrupt enable bit of the PB port.
     bit_offset: 0
     bit_size: 23
-fieldset/R32_INT_ENABLE_PD:
+fieldset/INT_ENABLE_PD:
   description: The interrupt enable register at the PD port.
   fields:
   - name: PD_0_7
@@ -431,21 +431,21 @@ fieldset/R32_INT_ENABLE_PD:
     description: The interrupt enable bit of the PD port.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_INT_MODE_PA:
+fieldset/INT_MODE_PA:
   description: The interrupt mode register at the PA port.
   fields:
   - name: PA
     description: The interrupt mode bit of the PA port.
     bit_offset: 8
     bit_size: 14
-fieldset/R32_INT_MODE_PB:
+fieldset/INT_MODE_PB:
   description: The interrupt mode register at the PB port.
   fields:
   - name: PB
     description: The interrupt mode bit of the PB port.
     bit_offset: 0
     bit_size: 23
-fieldset/R32_INT_MODE_PD:
+fieldset/INT_MODE_PD:
   description: The interrupt mode register at the PD port.
   fields:
   - name: PD_0_7
@@ -456,21 +456,21 @@ fieldset/R32_INT_MODE_PD:
     description: The interrupt mode bit of the PD port.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_INT_POLAR_PA:
+fieldset/INT_POLAR_PA:
   description: The interrupt polar register at the PA port.
   fields:
   - name: PA
     description: The interrupt polar bit of the PA port.
     bit_offset: 8
     bit_size: 14
-fieldset/R32_INT_POLAR_PB:
+fieldset/INT_POLAR_PB:
   description: The interrupt polar register at the PB port.
   fields:
   - name: PB
     description: The interrupt polar bit of the PB port.
     bit_offset: 0
     bit_size: 23
-fieldset/R32_INT_POLAR_PD:
+fieldset/INT_POLAR_PD:
   description: The interrupt polar register at the PD port.
   fields:
   - name: PD_0_7
@@ -481,7 +481,7 @@ fieldset/R32_INT_POLAR_PD:
     description: The interrupt polar bit of the PD port.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_INT_STATUS_PA:
+fieldset/INT_STATUS_PA:
   description: The interrupt status register at the PA port.
   fields:
   - name: VIO_PWD_IF
@@ -492,14 +492,14 @@ fieldset/R32_INT_STATUS_PA:
     description: The interrupt status bit of the PA port.
     bit_offset: 8
     bit_size: 14
-fieldset/R32_INT_STATUS_PB:
+fieldset/INT_STATUS_PB:
   description: The interrupt status register at the PB port.
   fields:
   - name: PB
     description: The interrupt status bit of the PB port.
     bit_offset: 0
     bit_size: 23
-fieldset/R32_INT_STATUS_PD:
+fieldset/INT_STATUS_PD:
   description: The interrupt status register at the PA port.
   fields:
   - name: PD_0_7
@@ -510,56 +510,56 @@ fieldset/R32_INT_STATUS_PD:
     description: The interrupt status bit of the PD port.
     bit_offset: 24
     bit_size: 8
-fieldset/R32_PA_CLR:
+fieldset/PA_CLR:
   description: GPIO PA clear output.
   fields:
   - name: PA_CLR
     description: GPIO PA clear output.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PA_DIR:
+fieldset/PA_DIR:
   description: GPIO PA I/O direction.
   fields:
   - name: PA_DIR
     description: GPIO PA I/O direction.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PA_OUT:
+fieldset/PA_OUT:
   description: GPIO PA output.
   fields:
   - name: PA_OUT
     description: GPIO PA output.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PA_PD:
+fieldset/PA_PD:
   description: GPIO PA output open-drain_input pulldown resistance enable.
   fields:
   - name: PA_PD
     description: GPIO PA output open-drain_input pulldown resistance enable.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PA_PIN:
+fieldset/PA_PIN:
   description: GPIO PA input.
   fields:
   - name: PA_PIN
     description: GPIO PA input.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PA_PU:
+fieldset/PA_PU:
   description: GPIO PA pullup resistance enable.
   fields:
   - name: PA_PU
     description: GPIO PA pullup resistance enable.
     bit_offset: 0
     bit_size: 22
-fieldset/R32_PB_CLR:
+fieldset/PB_CLR:
   description: GPIO PB clear output.
   fields:
   - name: PB_CLR
     description: GPIO PB clear output.
     bit_offset: 0
     bit_size: 23
-fieldset/R32_PB_DIR:
+fieldset/PB_DIR:
   description: GPIO PB I/O direction.
   fields:
   - name: PB_DIR
@@ -574,7 +574,7 @@ fieldset/R32_PB_DIR:
     description: Pin current intput/output direction control domain.
     bit_offset: 24
     bit_size: 1
-fieldset/R32_PB_OUT:
+fieldset/PB_OUT:
   description: GPIO PB output.
   fields:
   - name: PB_OUT
@@ -589,7 +589,7 @@ fieldset/R32_PB_OUT:
     description: Pin output level status.
     bit_offset: 24
     bit_size: 1
-fieldset/R32_PB_PD:
+fieldset/PB_PD:
   description: GPIO PB output open-drain_input pulldown resistance enable.
   fields:
   - name: PB_PD
@@ -604,7 +604,7 @@ fieldset/R32_PB_PD:
     description: Pin function enable /close control bit.
     bit_offset: 24
     bit_size: 1
-fieldset/R32_PB_PIN:
+fieldset/PB_PIN:
   description: GPIO PB input.
   fields:
   - name: PB_PIN
@@ -619,7 +619,7 @@ fieldset/R32_PB_PIN:
     description: Pin intput level status.
     bit_offset: 24
     bit_size: 1
-fieldset/R32_PB_PU:
+fieldset/PB_PU:
   description: GPIO PB pullup resistance enable.
   fields:
   - name: PB_PU
@@ -634,42 +634,42 @@ fieldset/R32_PB_PU:
     description: Pin pull-up function enable /close control bit.
     bit_offset: 24
     bit_size: 1
-fieldset/R32_PD_DIR:
+fieldset/PD_DIR:
   description: GPIO PD I/O direction.
   fields:
   - name: PD_DIR
     description: GPIO PD I/O direction.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PD_OUT:
+fieldset/PD_OUT:
   description: GPIO PD output.
   fields:
   - name: PD_OUT
     description: GPIO PD output.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PD_PD:
+fieldset/PD_PD:
   description: GPIO PD output open-drain_input pulldown resistance enable.
   fields:
   - name: PD_PD
     description: GPIO PD output open-drain_input pulldown resistance enable.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PD_PIN:
+fieldset/PD_PIN:
   description: GPIO PD input.
   fields:
   - name: PD_PIN
     description: GPIO PD input.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_PD_PU:
+fieldset/PD_PU:
   description: GPIO PD pullup resistance enable.
   fields:
   - name: PD_PU
     description: GPIO PD pullup resistance enable.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_ADC_GPIO_MODE:
+fieldset/ADC_MODE:
   description: ADC port mode configuration register.
   bit_size: 8
   fields:
