@@ -1,70 +1,70 @@
 block/USBHS_DEV:
   description: USB register.
   items:
-  - name: USB_CTRL
+  - name: CTRL
     description: USB base control register.
     byte_offset: 0
     bit_size: 8
-    fieldset: USB_CTRL
-  - name: USB_BASE_MODE
+    fieldset: CTRL
+  - name: BASE_MODE
     description: USB mode control register.
     byte_offset: 1
     bit_size: 8
-    fieldset: USB_BASE_MODE
-  - name: USB_INT_EN
+    fieldset: BASE_MODE
+  - name: INT_EN
     description: USB interrupt enable register.
     byte_offset: 2
     bit_size: 8
-    fieldset: USB_INT_EN
-  - name: USB_DEV_AD
+    fieldset: INT_EN
+  - name: DEV_AD
     description: USB device address.
     byte_offset: 3
     bit_size: 8
-    fieldset: USB_DEV_AD
-  - name: USB_WAKE_CTRL
+    fieldset: DEV_AD
+  - name: WAKE_CTRL
     description: USB remote wake up register.
     byte_offset: 4
     access: Read
     bit_size: 16
-    fieldset: USB_WAKE_CTRL
-  - name: USB_TEST_MODE
+    fieldset: WAKE_CTRL
+  - name: TEST_MODE
     description: USB test mode register.
     byte_offset: 5
     bit_size: 8
-    fieldset: USB_TEST_MODE
+    fieldset: TEST_MODE
   - name: LPM_DATA
     description: USB power management register.
     byte_offset: 6
     bit_size: 16
     fieldset: LPM_DATA
-  - name: USB_INT_FG
+  - name: INT_FG
     description: USB interrupt flag register.
     byte_offset: 8
     bit_size: 8
-    fieldset: USB_INT_FG
-  - name: USB_INT_ST
+    fieldset: INT_FG
+  - name: INT_ST
     description: USB interrupt status.
     byte_offset: 9
     access: Read
     bit_size: 8
-    fieldset: USB_INT_ST
-  - name: USB_MIS_ST
+    fieldset: INT_ST
+  - name: MIS_ST
     description: USB miscellaneous status.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: USB_MIS_ST
-  - name: USB_FRAM_NO
+    fieldset: MIS_ST
+  - name: FRAM_NO
     description: USB frame number.
     byte_offset: 12
     access: Read
     bit_size: 16
-    fieldset: USB_FRAM_NO
-  - name: USB_BUS
+    fieldset: FRAM_NO
+  - name: BUS
     description: USB bus.
     byte_offset: 14
     bit_size: 16
-    fieldset: USB_BUS
+    fieldset: BUS
   - name: UEP_TX_EN
     description: USB endpoint sends the enable register.
     byte_offset: 16
@@ -418,27 +418,27 @@ fieldset/LPM_DATA:
     description: power management busy.
     bit_offset: 15
     bit_size: 1
-fieldset/USB_BUS:
+fieldset/BUS:
   description: USB bus.
   bit_size: 16
   fields:
-  - name: USB_WAKEUP
+  - name: WAKEUP
     description: USB wakeup.
     bit_offset: 0
     bit_size: 1
-  - name: USB_DP_ST
+  - name: DP_ST
     description: UDP status.
     bit_offset: 2
     bit_size: 1
-  - name: USB_DM_ST
+  - name: DM_ST
     description: UDM status.
     bit_offset: 3
     bit_size: 1
-fieldset/USB_FRAM_NO:
+fieldset/FRAM_NO:
   description: USB frame number.
   bit_size: 16
   fields:
-  - name: USB_FRAME_NO
+  - name: FRAME_NO
     description: Received frame number.
     bit_offset: 0
     bit_size: 11
@@ -446,7 +446,7 @@ fieldset/USB_FRAM_NO:
     description: Received micro frame number.
     bit_offset: 13
     bit_size: 3
-fieldset/USB_BASE_MODE:
+fieldset/BASE_MODE:
   description: USB mode control register.
   bit_size: 8
   fields:
@@ -454,7 +454,7 @@ fieldset/USB_BASE_MODE:
     description: The desired speed mode of the device.
     bit_offset: 0
     bit_size: 2
-fieldset/USB_CTRL:
+fieldset/CTRL:
   description: USB base control register.
   bit_size: 8
   fields:
@@ -466,7 +466,7 @@ fieldset/USB_CTRL:
     description: USB protocol processor reset.
     bit_offset: 1
     bit_size: 1
-  - name: USB_ALL_CLR
+  - name: ALL_CLR
     description: clear all interrupt flags.
     bit_offset: 2
     bit_size: 1
@@ -486,7 +486,7 @@ fieldset/USB_CTRL:
     description: LPM enable.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_DEV_AD:
+fieldset/DEV_AD:
   description: USB device address.
   bit_size: 8
   fields:
@@ -494,7 +494,7 @@ fieldset/USB_DEV_AD:
     description: bit mask for USB device address.
     bit_offset: 0
     bit_size: 7
-fieldset/USB_INT_EN:
+fieldset/INT_EN:
   description: USB interrupt enable register.
   bit_size: 8
   fields:
@@ -530,7 +530,7 @@ fieldset/USB_INT_EN:
     description: USB Overflow interrupt enable.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_INT_FG:
+fieldset/INT_FG:
   description: USB interrupt flag register.
   bit_size: 8
   fields:
@@ -566,7 +566,7 @@ fieldset/USB_INT_FG:
     description: USB Overflow interrupt flag.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_INT_ST:
+fieldset/INT_ST:
   description: USB interrupt status.
   bit_size: 8
   fields:
@@ -578,7 +578,7 @@ fieldset/USB_INT_ST:
     description: Endpoint data transmission direction.
     bit_offset: 4
     bit_size: 1
-fieldset/USB_MIS_ST:
+fieldset/MIS_ST:
   description: USB miscellaneous status.
   bit_size: 8
   fields:
@@ -606,7 +606,7 @@ fieldset/USB_MIS_ST:
     description: whether the host is high-speed.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_TEST_MODE:
+fieldset/TEST_MODE:
   description: USB test mode register.
   bit_size: 8
   fields:
@@ -630,7 +630,7 @@ fieldset/USB_TEST_MODE:
     description: test mode enable.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_WAKE_CTRL:
+fieldset/WAKE_CTRL:
   description: USB remote wake up register.
   bit_size: 16
   fields:

@@ -4,16 +4,16 @@
 block/UART_FULL:
   description: UART_FULL register.
   items:
-  - name: FULL_MCR
+  - name: MCR
     description: UART_FULL modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: FULL_MCR
-  - name: FULL_IER
+    fieldset: MCR_FULL
+  - name: IER
     description: UART_FULL interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: FULL_IER
+    fieldset: IER_FULL
   - name: FCR
     description: UART_FULL FIFO control.
     byte_offset: 2
@@ -54,12 +54,12 @@ block/UART_FULL:
     access: Write
     bit_size: 8
     fieldset: THR
-  - name: FULL_RFC
+  - name: RFC
     description: UART_FULL receiver FIFO count.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: FULL_RFC
+    fieldset: RFC
   - name: TFC
     description: UART_FULL transmitter FIFO count.
     byte_offset: 11
@@ -71,11 +71,11 @@ block/UART_FULL:
     byte_offset: 12
     bit_size: 16
     fieldset: DL
-  - name: FULL_DIV
+  - name: DIV
     description: UART_FULL pre-divisor latch byte.
     byte_offset: 14
     bit_size: 8
-    fieldset: FULL_DIV
+    fieldset: DIV_FULL
   - name: ADR
     description: UART_FULL slave address.
     byte_offset: 15
@@ -85,16 +85,16 @@ block/UART_FULL:
 block/UART_NOMODEM:
   description: UART_NOMODEM register.
   items:
-  - name: NOMODEM_MCR
+  - name: MCR
     description: UART_NOMODEM modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: NOMODEM_MCR
-  - name: NOMODEM_IER
+    fieldset: MCR_NOMODEM
+  - name: IER
     description: UART_NOMODEM interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: NOMODEM_IER
+    fieldset: IER_NOMODEM
   - name: FCR
     description: UART_NOMODEM FIFO control.
     byte_offset: 2
@@ -129,12 +129,12 @@ block/UART_NOMODEM:
     access: Write
     bit_size: 8
     fieldset: THR
-  - name: NOMODEM_RFC
+  - name: RFC
     description: UART_NOMODEM receiver FIFO count.
     byte_offset: 10
     access: Read
     bit_size: 8
-    fieldset: NOMODEM_RFC
+    fieldset: RFC
   - name: TFC
     description: UART_NOMODEM transmitter FIFO count.
     byte_offset: 11
@@ -146,11 +146,11 @@ block/UART_NOMODEM:
     byte_offset: 12
     bit_size: 16
     fieldset: DL
-  - name: NOMODEM_DIV
+  - name: DIV
     description: UART_NOMODEM pre-divisor latch byte.
     byte_offset: 14
     bit_size: 8
-    fieldset: NOMODEM_DIV
+    fieldset: DIV_NOMODEM
 
 fieldset/DL:
   description: UART_FULL divisor latch.
@@ -170,7 +170,7 @@ fieldset/ADR:
     bit_offset: 0
     bit_size: 8
 
-fieldset/FULL_DIV:
+fieldset/DIV_FULL:
   description: UART_FULL pre-divisor latch byte.
   bit_size: 8
   fields:
@@ -200,7 +200,7 @@ fieldset/FCR:
     bit_offset: 6
     bit_size: 2
 
-fieldset/FULL_IER:
+fieldset/IER_FULL:
   description: UART_FULL interrupt enable.
   bit_size: 8
   fields:
@@ -320,7 +320,7 @@ fieldset/LSR:
     bit_offset: 7
     bit_size: 1
 
-fieldset/FULL_MCR:
+fieldset/MCR_FULL:
   description: UART_FULL modem control.
   bit_size: 8
   fields:
@@ -411,7 +411,7 @@ fieldset/THR:
     bit_offset: 0
     bit_size: 8
 
-fieldset/FULL_RFC:
+fieldset/RFC:
   description: UART_FULL receiver FIFO count.
   bit_size: 8
   fields:
@@ -429,16 +429,16 @@ fieldset/TFC:
     bit_offset: 0
     bit_size: 8
 
-fieldset/NOMODEM_DIV:
+fieldset/DIV_NOMODEM:
   description: UART_NOMODEM pre-divisor latch byte.
   bit_size: 8
   fields:
-  - name: NOMODEM_DIV
+  - name: DIV
     description: UART pre-divisor latch byte.
     bit_offset: 0
     bit_size: 8
 
-fieldset/NOMODEM_IER:
+fieldset/IER_NOMODEM:
   description: UART_NOMODEM interrupt enable.
   bit_size: 8
   fields:
@@ -463,7 +463,7 @@ fieldset/NOMODEM_IER:
     bit_offset: 7
     bit_size: 1
 
-fieldset/NOMODEM_MCR:
+fieldset/MCR_NOMODEM:
   description: UART_NOMODEM modem control.
   bit_size: 8
   fields:
@@ -471,13 +471,4 @@ fieldset/NOMODEM_MCR:
     description: UART_NOMODEM control OUT2.
     bit_offset: 3
     bit_size: 1
-
-fieldset/NOMODEM_RFC:
-  description: UART_NOMODEM receiver FIFO count.
-  bit_size: 8
-  fields:
-  - name: NOMODEM_RFC
-    description: UART receiver FIFO count.
-    bit_offset: 0
-    bit_size: 8
 

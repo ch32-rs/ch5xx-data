@@ -1,21 +1,21 @@
 block/PWMx:
   description: PWMX register.
   items:
-  - name: PWM_CTRL_MOD
+  - name: CTRL_MOD
     description: PWM mode control.
     byte_offset: 0
     bit_size: 8
-    fieldset: PWM_CTRL_MOD
-  - name: PWM_CTRL_CFG
+    fieldset: CTRL_MOD
+  - name: CTRL_CFG
     description: PWM configuration control.
     byte_offset: 1
     bit_size: 8
-    fieldset: PWM_CTRL_CFG
-  - name: PWM_CLOCK_DIV
+    fieldset: CTRL_CFG
+  - name: CLOCK_DIV
     description: PWM clock divisor.
     byte_offset: 2
     bit_size: 8
-    fieldset: PWM_CLOCK_DIV
+    fieldset: CLOCK_DIV
   - name: PWM0_DATA
     description: PWM data holding.
     byte_offset: 4
@@ -68,23 +68,23 @@ fieldset/PWM3_DATA:
     description: PWM3 data holding.
     bit_offset: 0
     bit_size: 8
-fieldset/PWM_CLOCK_DIV:
+fieldset/CLOCK_DIV:
   description: PWM clock divisor.
   bit_size: 8
   fields:
-  - name: PWM_CLOCK_DIV
+  - name: CLOCK_DIV
     description: PWM clock divisor.
     bit_offset: 0
     bit_size: 8
-fieldset/PWM_CTRL_CFG:
+fieldset/CTRL_CFG:
   description: PWM configuration control.
   bit_size: 8
   fields:
-  - name: PWM_CYCLE_SEL
+  - name: CYCLE_SEL
     description: PWM cycle selection.
     bit_offset: 0
     bit_size: 1
-fieldset/PWM_CTRL_MOD:
+fieldset/CTRL_MOD:
   description: PWM mode control.
   bit_size: 8
   fields:

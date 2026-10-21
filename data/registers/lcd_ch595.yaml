@@ -24,15 +24,15 @@ fieldset/CMD:
     description: RW, System Enable.
     bit_offset: 0
     bit_size: 1
-  - name: LCD_ON
+  - name: ON
     description: RW, LCD switch.
     bit_offset: 1
     bit_size: 1
-  - name: LCD_BIAS
+  - name: BIAS
     description: RW, PWM6 Bias ratio selection enable.
     bit_offset: 2
     bit_size: 1
-  - name: LCD_DUTY
+  - name: DUTY
     description: RW, LCD duty cycle selection.
     bit_offset: 3
     bit_size: 2
@@ -44,36 +44,36 @@ fieldset/CMD:
     description: RW, LCD driver voltage selection.
     bit_offset: 7
     bit_size: 1
-  - name: LCD_SEG_EN1
+  - name: SEG_EN1
     description: RW, SEG0-SEG7 section enable.
     bit_offset: 8
     bit_size: 8
-  - name: LCD_SEG_EN2
+  - name: SEG_EN2
     description: RW, SEG8-SEG15 section enable.
     bit_offset: 16
     bit_size: 8
-  - name: LCD_SEG_EN3
+  - name: SEG_EN3
     description: RW, SEG16-SEG19 section enable.
     bit_offset: 24
     bit_size: 4
 fieldset/RAM0:
   description: RW, LCD RAM0 register.
   fields:
-  - name: LCD_SEGX
+  - name: SEGX
     description: RW, SEG0-SEG7 segment data.
     bit_offset: 0
     bit_size: 32
 fieldset/RAM1:
   description: RW, LCD RAM1 register.
   fields:
-  - name: LCD_SEGX
+  - name: SEGX
     description: RW, SEG8-SEG15 segment data.
     bit_offset: 0
     bit_size: 4
 fieldset/RAM2:
   description: RW, LCD RAM2 register.
   fields:
-  - name: LCD_SEGX
+  - name: SEGX
     description: RW, SEG16-SEG19 segment data.
     bit_offset: 0
     bit_size: 16

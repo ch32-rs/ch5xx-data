@@ -403,15 +403,15 @@ fieldset/USB2_BUS:
   description: RO, USBHS bus status memory.
   bit_size: 16
   fields:
-  - name: USB_WAKEUP
+  - name: WAKEUP
     description: USB wake-up (highly effective).
     bit_offset: 0
     bit_size: 1
-  - name: USB_DP_ST
+  - name: DP_ST
     description: UDP status.
     bit_offset: 2
     bit_size: 1
-  - name: USB_DM_ST
+  - name: DM_ST
     description: UDM status.
     bit_offset: 3
     bit_size: 1
@@ -419,7 +419,7 @@ fieldset/USB2_FRAM_NO:
   description: RO, USBHS frame register.
   bit_size: 16
   fields:
-  - name: USB_FRAME_NO100
+  - name: FRAME_NO100
     description: Received frame number.
     bit_offset: 0
     bit_size: 11
@@ -931,7 +931,7 @@ fieldset/UH_INT_EN:
     description: Bus recovery interrupt enable.
     bit_offset: 3
     bit_size: 1
-  - name: USB_ACT_IE
+  - name: ACT_IE
     description: USB end or transfer completion interrupt enable.
     bit_offset: 4
     bit_size: 1
@@ -959,7 +959,7 @@ fieldset/UH_INT_FLAG:
     description: Bus recovery interrupt flag, write 1 to reset to zero.
     bit_offset: 3
     bit_size: 1
-  - name: USB_ACT_IF
+  - name: ACT_IF
     description: USB transaction transfer completion interrupt flag, write 1 to reset to zero.
     bit_offset: 4
     bit_size: 1
@@ -1003,7 +1003,7 @@ fieldset/UH_MIS_ST:
     description: USB bus SOF status.
     bit_offset: 2
     bit_size: 1
-  - name: USB_WAKEUP
+  - name: WAKEUP
     description: USB bus wake-up.
     bit_offset: 3
     bit_size: 1
@@ -1039,7 +1039,7 @@ fieldset/USB2_CTRL:
     description: USB protocol processor reset, including endpoint related registers, highly effective.
     bit_offset: 1
     bit_size: 1
-  - name: USB_ALL_CLR
+  - name: ALL_CLR
     description: Clear all interrupt flags.
     bit_offset: 2
     bit_size: 1
@@ -1215,15 +1215,15 @@ fieldset/PLL_CTRL:
   description: RW, USBHS PLL Clock Control Register.
   bit_size: 8
   fields:
-  - name: USBHS_PLL_CKSEL
+  - name: PLL_CKSEL
     description: Selection of internal reference clock source for USBHS.
     bit_offset: 0
     bit_size: 1
-  - name: USBHS_PLL_LOWPOW
+  - name: PLL_LOWPOW
     description: USBHS PLL low-power mode (can only be enabled when USB20 application is at fixed low full speed, cannot be enabled when not at fixed low full speed).
     bit_offset: 1
     bit_size: 1
-  - name: USBHS_PLL_EN
+  - name: PLL_EN
     description: USBHS PLL Enable.
     bit_offset: 2
     bit_size: 1

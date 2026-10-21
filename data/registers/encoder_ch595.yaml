@@ -1,44 +1,44 @@
 block/ENCODER:
   description: ENCODER register.
   items:
-  - name: ENC_REG_CTRL
+  - name: REG_CTRL
     description: RW, Encoder control register.
     byte_offset: 0
     bit_size: 8
-    fieldset: ENC_REG_CTRL
-  - name: ENC_INTER_EN
+    fieldset: REG_CTRL
+  - name: INTER_EN
     description: RW, Encoder interrupt enable register.
     byte_offset: 1
     bit_size: 8
-    fieldset: ENC_INTER_EN
-  - name: ENC_INT_FLAG
+    fieldset: INTER_EN
+  - name: INT_FLAG
     description: RW, Encoder interrupt flag register.
     byte_offset: 2
     bit_size: 8
-    fieldset: ENC_INT_FLAG
-  - name: ENC_REG_CEND
+    fieldset: INT_FLAG
+  - name: REG_CEND
     description: RW, Encoder final value configuration register.
     byte_offset: 4
-    fieldset: ENC_REG_CEND
-  - name: ENC_REG_CCNT
+    fieldset: REG_CEND
+  - name: REG_CCNT
     description: RW, Encoder current value configuration register.
     byte_offset: 8
-    fieldset: ENC_REG_CCNT
-fieldset/ENC_REG_CCNT:
+    fieldset: REG_CCNT
+fieldset/REG_CCNT:
   description: RW, Encoder current value configuration register.
   fields:
-  - name: ENC_REG_CCNT
+  - name: REG_CCNT
     description: RW, Current encoder value.
     bit_offset: 0
     bit_size: 32
-fieldset/ENC_REG_CEND:
+fieldset/REG_CEND:
   description: RW, Encoder final value configuration register.
   fields:
-  - name: ENC_REG_CEND
+  - name: REG_CEND
     description: RW, Encoder final value configuration.
     bit_offset: 0
     bit_size: 32
-fieldset/ENC_INTER_EN:
+fieldset/INTER_EN:
   description: RW, Encoder interrupt enable register.
   bit_size: 8
   fields:
@@ -50,7 +50,7 @@ fieldset/ENC_INTER_EN:
     description: RW, Encoder backward interrupt enable.
     bit_offset: 1
     bit_size: 1
-fieldset/ENC_INT_FLAG:
+fieldset/INT_FLAG:
   description: RW, Encoder interrupt flag register.
   bit_size: 8
   fields:
@@ -62,7 +62,7 @@ fieldset/ENC_INT_FLAG:
     description: RW, Encoder backward interrupt flag.
     bit_offset: 1
     bit_size: 1
-fieldset/ENC_REG_CTRL:
+fieldset/REG_CTRL:
   description: RW, Encoder control register.
   bit_size: 8
   fields:
@@ -78,15 +78,15 @@ fieldset/ENC_REG_CTRL:
     description: RW, Encoder reads count and resets.
     bit_offset: 3
     bit_size: 1
-  - name: ENC_DIR
+  - name: DIR
     description: RW, Current direction of encoder.
     bit_offset: 5
     bit_size: 1
-  - name: ENC_IN_CH1
+  - name: IN_CH1
     description: RW, Encoder captures the value of channel 1.
     bit_offset: 6
     bit_size: 1
-  - name: ENC_IN_CH2
+  - name: IN_CH2
     description: RW, Encoder captures the value of channel 2.
     bit_offset: 7
     bit_size: 1

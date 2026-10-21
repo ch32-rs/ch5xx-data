@@ -1,26 +1,26 @@
 block/PWMx:
   description: PWMx register.
   items:
-  - name: PWM_OUT_EN
+  - name: OUT_EN
     description: RW, PWM output enable control.
     byte_offset: 0
     bit_size: 8
-    fieldset: PWM_OUT_EN
-  - name: PWM_POLAR
+    fieldset: OUT_EN
+  - name: POLAR
     description: RW, PWM output polarity control.
     byte_offset: 1
     bit_size: 8
-    fieldset: PWM_POLAR
-  - name: PWM_CONFIG
+    fieldset: POLAR
+  - name: CONFIG
     description: RW, PWM configuration.
     byte_offset: 2
     bit_size: 8
-    fieldset: PWM_CONFIG
-  - name: PWM_DMA_CTRL
+    fieldset: CONFIG
+  - name: DMA_CTRL
     description: RW, PWMx DMA control register.
     byte_offset: 3
     bit_size: 8
-    fieldset: PWM_DMA_CTRL
+    fieldset: DMA_CTRL
   - name: PWM1_3_DATA
     description: RW, PWM data retention register group 1.
     byte_offset: 4
@@ -30,42 +30,42 @@ block/PWMx:
     byte_offset: 8
     bit_size: 16
     fieldset: PWM3_DATA
-  - name: PWM_INT_EN
+  - name: INT_EN
     description: RW, PWMx interrupt enable register.
     byte_offset: 12
     bit_size: 8
-    fieldset: PWM_INT_EN
-  - name: PWM_INT_FLAG
+    fieldset: INT_EN
+  - name: INT_FLAG
     description: RW1, PWMx interrupt flag register.
     byte_offset: 13
     bit_size: 8
-    fieldset: PWM_INT_FLAG
+    fieldset: INT_FLAG
   - name: PWM4_5_DATA
     description: RW, PWM data retention register group 3.
     byte_offset: 16
     fieldset: PWM4_5_DATA
-  - name: PWM_CYC_VALUE
+  - name: CYC_VALUE
     description: RW, PWM1/2/3 cycles end register.
     byte_offset: 20
     bit_size: 16
-    fieldset: PWM_CYC_VALUE
-  - name: PWM_CLOCK_DIV
+    fieldset: CYC_VALUE
+  - name: CLOCK_DIV
     description: RW, PWM reference clock frequency division coefficient.
     byte_offset: 24
     bit_size: 16
-    fieldset: PWM_CLOCK_DIV
-  - name: PWM_DMA_NOW
+    fieldset: CLOCK_DIV
+  - name: DMA_NOW
     description: RW, Current address of PWMx DMA buffer.
     byte_offset: 28
-    fieldset: PWM_DMA_NOW
-  - name: PWM_DMA_BEG
+    fieldset: DMA_NOW
+  - name: DMA_BEG
     description: RW, Starting address of PWMx DMA buffer.
     byte_offset: 32
-    fieldset: PWM_DMA_BEG
-  - name: PWM_DMA_END
+    fieldset: DMA_BEG
+  - name: DMA_END
     description: RW, End of PWMx DMA buffer.
     byte_offset: 36
-    fieldset: PWM_DMA_END
+    fieldset: DMA_END
 fieldset/PWM3_DATA:
   description: RW, PWM data retention register group 2.
   bit_size: 16
@@ -74,19 +74,19 @@ fieldset/PWM3_DATA:
     description: RW, PWM3 data retention register.
     bit_offset: 0
     bit_size: 16
-fieldset/PWM_CLOCK_DIV:
+fieldset/CLOCK_DIV:
   description: RW, PWM reference clock frequency division coefficient.
   bit_size: 16
   fields:
-  - name: PWM_CLOCK_DIV
+  - name: CLOCK_DIV
     description: RW, DMA data buffer current address.
     bit_offset: 0
     bit_size: 16
-fieldset/PWM_CYC_VALUE:
+fieldset/CYC_VALUE:
   description: RW, PWM1/2/3 cycles end register.
   bit_size: 16
   fields:
-  - name: PWM_CYC_VALUE
+  - name: CYC_VALUE
     description: RW, PWM1/2/3 clock cycle at 16 data widths.
     bit_offset: 0
     bit_size: 16
@@ -124,36 +124,36 @@ fieldset/PWM4_5_DATA:
     description: RW, PWM5 data holding(16bits wide).
     bit_offset: 16
     bit_size: 17
-fieldset/PWM_DMA_BEG:
+fieldset/DMA_BEG:
   description: RW, Starting address of PWMx DMA buffer.
   fields:
-  - name: PWM_DMA_BEG
+  - name: DMA_BEG
     description: RW, Starting address of PWMx DMA buffer.
     bit_offset: 0
     bit_size: 32
-fieldset/PWM_DMA_END:
+fieldset/DMA_END:
   description: RW, End of PWMx DMA buffer.
   fields:
-  - name: PWM_DMA_END
+  - name: DMA_END
     description: RW, End of PWMx DMA buffer.
     bit_offset: 0
     bit_size: 32
-fieldset/PWM_DMA_NOW:
+fieldset/DMA_NOW:
   description: RW, Current address of PWMx DMA buffer.
   fields:
-  - name: PWM_DMA_NOW
+  - name: DMA_NOW
     description: RW, Current address of PWMx DMA buffer.
     bit_offset: 0
     bit_size: 32
-fieldset/PWM_CONFIG:
+fieldset/CONFIG:
   description: RW, PWM configuration.
   bit_size: 8
   fields:
-  - name: PWM_CYCLE_SEL
+  - name: CYCLE_SEL
     description: 'RW, PWM cycle selection: 0=256;128;64;32 clocks, 1=255;127;63;31 clocks.'
     bit_offset: 0
     bit_size: 1
-  - name: PWM_CYC_MOD
+  - name: CYC_MOD
     description: 'RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=5 bits data.'
     bit_offset: 1
     bit_size: 2
@@ -165,15 +165,15 @@ fieldset/PWM_CONFIG:
     description: RW, PWM4/5 channel output status.
     bit_offset: 4
     bit_size: 1
-  - name: PWM_SYNC_START
+  - name: SYNC_START
     description: RW, Sync Start.
     bit_offset: 6
     bit_size: 1
-  - name: PWM_SYNC_EN
+  - name: SYNC_EN
     description: RW, Synchronization enablement allows.
     bit_offset: 7
     bit_size: 1
-fieldset/PWM_DMA_CTRL:
+fieldset/DMA_CTRL:
   description: RW, PWMx DMA control register.
   bit_size: 8
   fields:
@@ -189,15 +189,15 @@ fieldset/PWM_DMA_CTRL:
     description: RW, DMA output channel selection when RB_PWM_SYNC_EN=0.
     bit_offset: 2
     bit_size: 1
-fieldset/PWM_INT_EN:
+fieldset/INT_EN:
   description: RW, PWMx interrupt enable register.
   bit_size: 8
   fields:
-  - name: PWM_IE_CYC
+  - name: IE_CYC
     description: RW, End of PWM1/2/3 cycle interrupt enable bit.
     bit_offset: 0
     bit_size: 1
-  - name: PWM_CYC_PRE
+  - name: CYC_PRE
     description: RW, Select the interrupt time point at the end of the PWM cycle.
     bit_offset: 1
     bit_size: 1
@@ -205,23 +205,23 @@ fieldset/PWM_INT_EN:
     description: RW, End of PWM4/5 cycle interrupt enable bit.
     bit_offset: 2
     bit_size: 1
-  - name: PWM_IE_FIFO
+  - name: IE_FIFO
     description: RW, FIFO data less than 4 interrupt enable bits.
     bit_offset: 4
     bit_size: 1
-  - name: PWM_IE_DMA
+  - name: IE_DMA
     description: RW, DMA transfer end interrupt enable bit.
     bit_offset: 5
     bit_size: 1
-  - name: PWM_IE_OVER
+  - name: IE_OVER
     description: RW, FIFO read air interrupt enable bit.
     bit_offset: 6
     bit_size: 1
-fieldset/PWM_INT_FLAG:
+fieldset/INT_FLAG:
   description: RW1, PWMx interrupt flag register.
   bit_size: 8
   fields:
-  - name: PWM_IF_CYC
+  - name: IF_CYC
     description: RW1, PWM1/2/3 cycle end flag.
     bit_offset: 0
     bit_size: 1
@@ -229,19 +229,19 @@ fieldset/PWM_INT_FLAG:
     description: RW1, PWM4/5 cycle end flag.
     bit_offset: 1
     bit_size: 1
-  - name: PWM_IF_FIFO
+  - name: IF_FIFO
     description: RW1, FIFO data less than 4 interrupt flag bits.
     bit_offset: 2
     bit_size: 1
-  - name: PWM_IF_DMA
+  - name: IF_DMA
     description: RW1, DMA transfer end interrupt flag bit.
     bit_offset: 3
     bit_size: 1
-  - name: PWM_IF_OVER
+  - name: IF_OVER
     description: RW1, FIFO overflow interrupt flag bit.
     bit_offset: 4
     bit_size: 1
-fieldset/PWM_OUT_EN:
+fieldset/OUT_EN:
   description: RW, PWM output enable control.
   bit_size: 8
   fields:
@@ -265,7 +265,7 @@ fieldset/PWM_OUT_EN:
     description: RW, PWM5 output enable.
     bit_offset: 4
     bit_size: 1
-fieldset/PWM_POLAR:
+fieldset/POLAR:
   description: RW, PWM output polarity control.
   bit_size: 8
   fields:

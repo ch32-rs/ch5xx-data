@@ -168,7 +168,7 @@ fieldset/DMA:
   description: PD buffer start address register.
   bit_size: 16
   fields:
-  - name: USBPD_DMA_ADDR
+  - name: DMA_ADDR
     description: USBPD_DMA_ADDR value.
     bit_offset: 0
     bit_size: 12

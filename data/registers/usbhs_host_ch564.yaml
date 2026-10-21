@@ -1,73 +1,73 @@
 block/USBHS_HOST:
   description: USBHS Host mode functions' registers.
   items:
-  - name: UH_CFG
+  - name: CFG
     description: USB host Configuration register.
     byte_offset: 0
     bit_size: 8
-    fieldset: UH_CFG
-  - name: UH_INT_EN
+    fieldset: CFG
+  - name: INT_EN
     description: USB host interrupt enable register.
     byte_offset: 2
     bit_size: 8
-    fieldset: UH_INT_EN
-  - name: UH_DEV_ADDR
+    fieldset: INT_EN
+  - name: DEV_ADDR
     description: USB host device address register.
     byte_offset: 3
     bit_size: 8
-    fieldset: UH_DEV_ADDR
-  - name: UH_CONTROL
+    fieldset: DEV_ADDR
+  - name: CONTROL
     description: USB host control register.
     byte_offset: 4
-    fieldset: UH_CONTROL
-  - name: UH_INT_FLAG
+    fieldset: CONTROL
+  - name: INT_FLAG
     description: USB HOST interrupt flag register.
     byte_offset: 8
     bit_size: 8
-    fieldset: UH_INT_FLAG
-  - name: UH_INT_ST
+    fieldset: INT_FLAG
+  - name: INT_ST
     description: USB host interrupt status.
     byte_offset: 9
     access: Read
     bit_size: 8
-    fieldset: UH_INT_ST
-  - name: UH_MIS_ST
+    fieldset: INT_ST
+  - name: MIS_ST
     description: USB host miscellaneous status.
     byte_offset: 10
     bit_size: 8
-    fieldset: UH_MIS_ST
-  - name: UH_LPM
+    fieldset: MIS_ST
+  - name: LPM
     description: USB host power management data register.
     byte_offset: 12
-    fieldset: UH_LPM
-  - name: UH_SPLIT
+    fieldset: LPM
+  - name: SPLIT
     description: USB host SPLIT register.
     byte_offset: 16
-    fieldset: UH_SPLIT
-  - name: UH_FRAME
+    fieldset: SPLIT
+  - name: FRAME
     description: USB host frame register.
     byte_offset: 20
-    fieldset: UH_FRAME
-  - name: UH_TX_LEN
+    fieldset: FRAME
+  - name: TX_LEN
     description: USB host send length register.
     byte_offset: 24
-    fieldset: UH_TX_LEN
-  - name: UH_RX_LEN
+    fieldset: TX_LEN
+  - name: RX_LEN
     description: USB host receive length register.
     byte_offset: 28
-    fieldset: UH_RX_LEN
-  - name: UH_RX_MAX_LEN
+    fieldset: RX_LEN
+  - name: RX_MAX_LEN
     description: USB host receives the maximum length register.
     byte_offset: 32
-    fieldset: UH_RX_MAX_LEN
-  - name: UH_RX_DMA
+    fieldset: RX_MAX_LEN
+  - name: RX_DMA
     description: DMA receive address register.
     byte_offset: 36
-    fieldset: UH_RX_DMA
-  - name: UH_TX_DMA
+    fieldset: RX_DMA
+  - name: TX_DMA
     description: DMA send address register.
     byte_offset: 40
-    fieldset: UH_TX_DMA
+    fieldset: TX_DMA
   - name: PORT_CTRL
     description: USB host port control register.
     byte_offset: 44
@@ -223,7 +223,7 @@ fieldset/PORT_TEST_CT:
     description: test mode was enabled.
     bit_offset: 2
     bit_size: 1
-fieldset/UH_CONTROL:
+fieldset/CONTROL:
   description: USB host control register.
   fields:
   - name: PID_MASK
@@ -274,7 +274,7 @@ fieldset/UH_CONTROL:
     description: IN-DATA no answer,used for synchronous transfer or. high-speed SPLIT packets.
     bit_offset: 23
     bit_size: 1
-fieldset/UH_FRAME:
+fieldset/FRAME:
   description: USB host frame register.
   fields:
   - name: FRAME_NO
@@ -293,56 +293,56 @@ fieldset/UH_FRAME:
     description: the SOF count is cleared.
     bit_offset: 25
     bit_size: 1
-fieldset/UH_LPM:
+fieldset/LPM:
   description: USB host power management data register.
   fields:
   - name: LPM_DATA
     description: power management data.
     bit_offset: 0
     bit_size: 11
-fieldset/UH_RX_DMA:
+fieldset/RX_DMA:
   description: DMA receive address register.
   fields:
-  - name: UH_RX_DMA
+  - name: RX_DMA
     description: Received address.
     bit_offset: 0
     bit_size: 17
-fieldset/UH_RX_LEN:
+fieldset/RX_LEN:
   description: USB host receive length register.
   fields:
   - name: RX_LEN
     description: Received data length.
     bit_offset: 0
     bit_size: 11
-fieldset/UH_RX_MAX_LEN:
+fieldset/RX_MAX_LEN:
   description: USB host receives the maximum length register.
   fields:
-  - name: UH_RX_MAX_LEN
+  - name: RX_MAX_LEN
     description: receives the maximum length.
     bit_offset: 0
     bit_size: 11
-fieldset/UH_SPLIT:
+fieldset/SPLIT:
   description: USB host SPLIT register.
   fields:
   - name: SPLIT_DATA
     description: SPLIT management data.
     bit_offset: 0
     bit_size: 19
-fieldset/UH_TX_DMA:
+fieldset/TX_DMA:
   description: DMA send address register.
   fields:
-  - name: UH_TX_DMA
+  - name: TX_DMA
     description: Send address.
     bit_offset: 0
     bit_size: 17
-fieldset/UH_TX_LEN:
+fieldset/TX_LEN:
   description: USB host send length register.
   fields:
   - name: TX_LEN
     description: send data length.
     bit_offset: 0
     bit_size: 11
-fieldset/UH_CFG:
+fieldset/CFG:
   description: USB host Configuration register.
   bit_size: 8
   fields:
@@ -378,7 +378,7 @@ fieldset/UH_CFG:
     description: LPM enable.
     bit_offset: 7
     bit_size: 1
-fieldset/UH_DEV_ADDR:
+fieldset/DEV_ADDR:
   description: USB host device address register.
   bit_size: 8
   fields:
@@ -386,7 +386,7 @@ fieldset/UH_DEV_ADDR:
     description: device address.
     bit_offset: 0
     bit_size: 8
-fieldset/UH_INT_EN:
+fieldset/INT_EN:
   description: USB host interrupt enable register.
   bit_size: 8
   fields:
@@ -414,7 +414,7 @@ fieldset/UH_INT_EN:
     description: FIFO overflow interrupt enable.
     bit_offset: 7
     bit_size: 1
-fieldset/UH_INT_FLAG:
+fieldset/INT_FLAG:
   description: USB HOST interrupt flag register.
   bit_size: 8
   fields:
@@ -442,7 +442,7 @@ fieldset/UH_INT_FLAG:
     description: FIFO overflow interrupt flag.
     bit_offset: 7
     bit_size: 1
-fieldset/UH_INT_ST:
+fieldset/INT_ST:
   description: USB host interrupt status.
   bit_size: 8
   fields:
@@ -454,7 +454,7 @@ fieldset/UH_INT_ST:
     description: A bit of indicates that the port received a wakeup signal.
     bit_offset: 4
     bit_size: 1
-fieldset/UH_MIS_ST:
+fieldset/MIS_ST:
   description: USB host miscellaneous status.
   bit_size: 8
   fields:

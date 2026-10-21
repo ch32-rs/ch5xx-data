@@ -1,4 +1,9 @@
 # Split from CH57X SYS blob for CH573. Kind adc.
+#
+# The vendor SVD lists two registers at 0x5E: R8_ADC_INT_FLAG and a
+# second, identical ADC_DMA_IF. The name belongs to the real
+# interrupt-flag register at 0x62 (R8_ADC_DMA_IF), so the 0x5E copy
+# is a vendor duplication; it is dropped here and 0x5E is INT_FLAG.
 
 block/ADC:
   description: ADC register.
@@ -29,12 +34,6 @@ block/ADC:
     access: Read
     bit_size: 16
     fieldset: DATA
-  - name: ADC_DMA_IF
-    description: RO, ADC interrupt flag register.
-    byte_offset: 94
-    access: Read
-    bit_size: 8
-    fieldset: ADC_DMA_IF
   - name: INT_FLAG
     description: RO, ADC interrupt flag register.
     byte_offset: 94
@@ -78,20 +77,11 @@ block/ADC:
     bit_size: 16
     fieldset: DMA_END
 
-fieldset/ADC_DMA_IF:
-  description: RO, ADC interrupt flag register.
-  bit_size: 8
-  fields:
-  - name: ADC_IF_EOC
-    description: 'RW, ADC conversion interrupt flag: 0=free or converting, 1=end of conversion, interrupt action, write R8_ADC_CONVERT to clear flag.'
-    bit_offset: 7
-    bit_size: 1
-
 fieldset/DATA:
   description: RO, ADC data.
   bit_size: 16
   fields:
-  - name: ADC_DATA
+  - name: DATA
     description: RO, ADC conversion data.
     bit_offset: 0
     bit_size: 12
@@ -145,27 +135,27 @@ fieldset/CFG:
   description: RW, ADC configure.
   bit_size: 8
   fields:
-  - name: ADC_POWER_ON
+  - name: POWER_ON
     description: 'RW, ADC power control: 0=power down, 1=power on.'
     bit_offset: 0
     bit_size: 1
-  - name: ADC_BUF_EN
+  - name: BUF_EN
     description: RW, ADC input buffer enable.
     bit_offset: 1
     bit_size: 1
-  - name: ADC_DIFF_EN
+  - name: DIFF_EN
     description: 'RW, ADC input channel mode: 0=single-end, 1=differnetial.'
     bit_offset: 2
     bit_size: 1
-  - name: ADC_OFS_TEST
+  - name: OFS_TEST
     description: 'RW, enable ADC offset test mode: 0=normal mode, 1=short port4 to test offset.'
     bit_offset: 3
     bit_size: 1
-  - name: ADC_PGA_GAIN
+  - name: PGA_GAIN
     description: 'RW, set ADC input PGA gain: 00=-12dB, 01=-6dB, 10=0dB, 11=6dB.'
     bit_offset: 4
     bit_size: 2
-  - name: ADC_CLK_DIV
+  - name: CLK_DIV
     description: 'RW, select ADC clock frequency: 00=3.2MHz, 01=2.67MHz, 10=5.33MHz, 11=4MHz.'
     bit_offset: 6
     bit_size: 2
@@ -174,7 +164,7 @@ fieldset/CHANNEL:
   description: RW, ADC input channel selection.
   bit_size: 8
   fields:
-  - name: ADC_CH_INX
+  - name: CH_INX
     description: RW, ADC input channel index.
     bit_offset: 0
     bit_size: 4
@@ -183,11 +173,11 @@ fieldset/CONVERT:
   description: RW, ADC convert control.
   bit_size: 8
   fields:
-  - name: ADC_START
+  - name: START
     description: 'RW, ADC convert start control: 0=stop ADC convert, 1=start an ADC convert, auto clear.'
     bit_offset: 0
     bit_size: 1
-  - name: ADC_EOC_X
+  - name: EOC_X
     description: RO, end of ADC conversion flag.
     bit_offset: 7
     bit_size: 1
@@ -196,23 +186,23 @@ fieldset/CTRL_DMA:
   description: RW, ADC DMA control.
   bit_size: 8
   fields:
-  - name: ADC_DMA_ENABLE
+  - name: DMA_ENABLE
     description: RW, ADC DMA enable.
     bit_offset: 0
     bit_size: 1
-  - name: ADC_DMA_LOOP
+  - name: DMA_LOOP
     description: RW, ADC DMA address loop enable.
     bit_offset: 2
     bit_size: 1
-  - name: ADC_IE_DMA_END
+  - name: IE_DMA_END
     description: RW, enable interrupt for ADC DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: ADC_IE_EOC
+  - name: IE_EOC
     description: RW, enable interrupt for end of ADC conversion.
     bit_offset: 4
     bit_size: 1
-  - name: ADC_AUTO_EN
+  - name: AUTO_EN
     description: RW, enable auto continuing ADC for DMA.
     bit_offset: 7
     bit_size: 1
@@ -221,11 +211,11 @@ fieldset/DMA_IF:
   description: RO, ADC interrupt flag.
   bit_size: 8
   fields:
-  - name: ADC_IF_DMA_END
+  - name: IF_DMA_END
     description: interrupt flag for ADC DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: ADC_IF_END_ADC
+  - name: IF_END
     description: interrupt flag for end of ADC conversion.
     bit_offset: 4
     bit_size: 1
@@ -234,7 +224,7 @@ fieldset/INT_FLAG:
   description: RO, ADC interrupt flag register.
   bit_size: 8
   fields:
-  - name: ADC_IF_EOC
+  - name: IF_EOC
     description: 'RO, ADC conversion interrupt flag: 0=free or converting, 1=end of conversion, interrupt action, write R8_ADC_CONVERT to clear flag.'
     bit_offset: 7
     bit_size: 1

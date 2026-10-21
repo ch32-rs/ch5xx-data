@@ -8,31 +8,31 @@ block/CMP:
 fieldset/CTRL:
   description: RW, Comparator control register.
   fields:
-  - name: CMP_EN
+  - name: EN
     description: RW, Comparator enabled.
     bit_offset: 0
     bit_size: 1
-  - name: CMP_CAP
+  - name: CAP
     description: RW, Timer captures channel signal source selection.
     bit_offset: 1
     bit_size: 1
-  - name: CMP_SW
+  - name: SW
     description: RW, Comparator channel selection.
     bit_offset: 2
     bit_size: 2
-  - name: CMP_NREF_LEVEL
+  - name: NREF_LEVEL
     description: RW, Selection of negative reference level for comparator.
     bit_offset: 4
     bit_size: 4
-  - name: CMP_INT
+  - name: INT
     description: RW, Comparator interrupt enable.
     bit_offset: 8
     bit_size: 1
-  - name: CMP_OUT_SEL
+  - name: OUT_SEL
     description: RW, Comparator interrupt generates event selection.
     bit_offset: 10
     bit_size: 2
-  - name: CMP_IF
+  - name: IF
     description: RW1, Comparator interrupt flag, write 1 to reset to zero.
     bit_offset: 16
     bit_size: 1

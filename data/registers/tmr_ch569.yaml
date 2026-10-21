@@ -30,10 +30,10 @@ block/TMR_NODMA:
     byte_offset: 8
     access: Read
     fieldset: COUNT
-  - name: NODMA_CNT_END
+  - name: CNT_END
     description: TMR_NODMA end count value, only low 26 bit.
     byte_offset: 12
-    fieldset: NODMA_CNT_END
+    fieldset: CNT_END_NODMA
   - name: FIFO
     description: TMR_NODMA FIFO register, only low 26 bit.
     byte_offset: 16
@@ -73,10 +73,10 @@ block/TMR_FULL:
     byte_offset: 8
     access: Read
     fieldset: COUNT
-  - name: FULL_CNT_END
+  - name: CNT_END
     description: TMR_FULL end count value, only low 26 bit.
     byte_offset: 12
-    fieldset: FULL_CNT_END
+    fieldset: CNT_END_FULL
   - name: FIFO
     description: TMR_FULL FIFO only low 26 bit.
     byte_offset: 16
@@ -94,7 +94,7 @@ block/TMR_FULL:
     byte_offset: 28
     fieldset: DMA_END
 
-fieldset/NODMA_CNT_END:
+fieldset/CNT_END_NODMA:
   description: TMR_NODMA end count value, only low 26 bit.
   fields:
   - name: COUNT
@@ -122,27 +122,27 @@ fieldset/CTRL_MOD:
   description: TMR_NODMA mode control.
   bit_size: 8
   fields:
-  - name: TMR_MODE_IN
+  - name: MODE_IN
     description: timer in mode.
     bit_offset: 0
     bit_size: 1
-  - name: TMR_ALL_CLEAR
+  - name: ALL_CLEAR
     description: force clear timer FIFO and count.
     bit_offset: 1
     bit_size: 1
-  - name: TMR_COUNT_EN
+  - name: COUNT_EN
     description: timer count enable.
     bit_offset: 2
     bit_size: 1
-  - name: TMR_OUT_EN
+  - name: OUT_EN
     description: timer output enable.
     bit_offset: 3
     bit_size: 1
-  - name: TMR_OUT_POLAR_RB_TMR_CAP_COUNT
+  - name: OUT_POLAR_RB_CAP_COUNT
     description: timer PWM output polarity _ Count sub-mode.
     bit_offset: 4
     bit_size: 1
-  - name: TMR_PWM_REPEAT_RB_TMR_CAP_EDGE
+  - name: PWM_REPEAT_RB_CAP_EDGE
     description: timer PWM repeat mode _ timer capture edge mode.
     bit_offset: 6
     bit_size: 2
@@ -160,23 +160,23 @@ fieldset/INTER_EN:
   description: TMR_NODMA interrupt enable.
   bit_size: 8
   fields:
-  - name: TMR_IE_CYC_END
+  - name: IE_CYC_END
     description: enable interrupt for timer capture count timeout or PWM cycle end.
     bit_offset: 0
     bit_size: 1
-  - name: TMR_IE_DATA_ACT
+  - name: IE_DATA_ACT
     description: enable interrupt for timer capture input action or PWM trigger.
     bit_offset: 1
     bit_size: 1
-  - name: TMR_IE_FIFO_HF
+  - name: IE_FIFO_HF
     description: enable interrupt for timer FIFO half (capture fifo >=4 or PWM fifo lower than3).
     bit_offset: 2
     bit_size: 1
-  - name: TMR_IE_DMA_END
+  - name: IE_DMA_END
     description: enable interrupt for timer1/2 DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: TMR_IE_FIFO_OV
+  - name: IE_FIFO_OV
     description: enable interrupt for timer FIFO overflow.
     bit_offset: 4
     bit_size: 1
@@ -185,31 +185,31 @@ fieldset/INT_FLAG:
   description: TMR_NODMA interrupt flag.
   bit_size: 8
   fields:
-  - name: TMR_IF_CYC_END
+  - name: IF_CYC_END
     description: interrupt flag for timer capture count timeout or PWM cycle end.
     bit_offset: 0
     bit_size: 1
-  - name: TMR_IF_DATA_ACT
+  - name: IF_DATA_ACT
     description: interrupt flag for timer capture input action or PWM trigger.
     bit_offset: 1
     bit_size: 1
-  - name: TMR_IF_FIFO_HF
+  - name: IF_FIFO_HF
     description: interrupt flag for timer FIFO half (capture fifo >=4 or PWM fifo lower than 3).
     bit_offset: 2
     bit_size: 1
-  - name: TMR_IF_DMA_END
+  - name: IF_DMA_END
     description: interrupt flag for timer1/2 DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: TMR_IF_FIFO_OV
+  - name: IF_FIFO_OV
     description: interrupt flag for timer FIFO overflow.
     bit_offset: 4
     bit_size: 1
 
-fieldset/FULL_CNT_END:
+fieldset/CNT_END_FULL:
   description: TMR_FULL end count value, only low 26 bit.
   fields:
-  - name: FULL_CNT_END
+  - name: CNT_END
     description: TMR current count.
     bit_offset: 0
     bit_size: 32
@@ -242,11 +242,11 @@ fieldset/CTRL_DMA:
   description: TMR_FULL DMA control.
   bit_size: 8
   fields:
-  - name: TMR_DMA_ENABLE
+  - name: DMA_ENABLE
     description: timer1/2 DMA enable.
     bit_offset: 0
     bit_size: 1
-  - name: TMR_DMA_LOOP
+  - name: DMA_LOOP
     description: timer1/2 DMA address loop enable.
     bit_offset: 2
     bit_size: 1

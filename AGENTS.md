@@ -48,7 +48,10 @@ kept local until they settle; commits focus on `data/` and the generators.
   `block/SPI_FULL` vs `block/SPI_NODMA`). Same kind on one chip always shares
   one `version`. Put a short header describing full vs reduced layouts.
   Fieldsets that differ between blocks get a capability suffix
-  (`R8_SPI_CTRL_MOD_NODMA`); identical fieldsets are shared.
+  (`CTRL_MOD_FULL` / `CTRL_MOD_NODMA`); identical fieldsets are shared.
+  The suffix goes at the end, never the front. Register names inside a block
+  never carry it — `FULL_CTRL_MOD` is just `CTRL_MOD`, because the block key
+  already says which variant it is.
 - Kind / block / instance are separate:
   - **instance** is the peripheral name in the family list (`I2C0`, `SPI0`,
     `UART0`, `TMR0`).
@@ -94,8 +97,13 @@ These differ from CH32 and drive the data model:
   ADC / GPIO by register offset. Keep the split; do not merge them back.
 - Vendor headers prefix registers with their width (`R8_` / `R16_` / `R32_`)
   and fields with `RB_`. The YAML drops both, plus the kind token that follows
-  (`R8_TMR_CTRL_MOD` -> `CTRL_MOD`, `RB_ADC_POWER_ON` -> `ADC_POWER_ON`). A
-  capability suffix stays only where the FULL and NODMA layouts differ
+  (`R8_TMR_CTRL_MOD` -> `CTRL_MOD`, `RB_ADC_POWER_ON` -> `POWER_ON`). Fields
+  lose the kind even when the vendor gave them no width prefix (`ADC_DATA` ->
+  `DATA`), and the token is the spelling the SVD uses, not the filename:
+  `TKEY_` for touchkey, `PWM_` for pwmx, `ENC_` for encoder, `USB_` for
+  usbfs/usbhs on CH569. The same applies to register and fieldset names, which
+  never carry the kind either (`ADC_CTRL_MOD` -> `CTRL_MOD`). A capability
+  suffix stays only where the FULL and NODMA layouts differ
   (`FULL_FIFO_COUNT` vs `NODMA_FIFO_COUNT`); identical layouts share one
   fieldset. `scripts/strip-register-prefixes.py` does the rewrite, and
   `gen-from-svd.py` applies it to a fresh extract. Mixed widths inside one

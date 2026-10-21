@@ -1,27 +1,27 @@
 block/KEYSCAN:
   description: keys scanning.
   items:
-  - name: KEY_SCAN_CTRL
+  - name: CTRL
     description: RW, Key scan control register.
     byte_offset: 100
     bit_size: 16
-    fieldset: KEY_SCAN_CTRL
-  - name: KEY_SCAN_INT_EN
+    fieldset: CTRL
+  - name: INT_EN
     description: RW, Press button scan interrupt enable register.
     byte_offset: 102
     bit_size: 8
-    fieldset: KEY_SCAN_INT_EN
-  - name: KEY_SCAN_INT_FLAG
+    fieldset: INT_EN
+  - name: INT_FLAG
     description: RW, Press the button to scan the interrupt flag register.
     byte_offset: 103
     bit_size: 8
-    fieldset: KEY_SCAN_INT_FLAG
-  - name: KEY_SCAN_NUMB
+    fieldset: INT_FLAG
+  - name: NUMB
     description: RW, Scan key number register.
     byte_offset: 104
     access: Read
-    fieldset: KEY_SCAN_NUMB
-fieldset/KEY_SCAN_CTRL:
+    fieldset: NUMB
+fieldset/CTRL:
   description: RW, Key scan control register.
   bit_size: 16
   fields:
@@ -49,18 +49,18 @@ fieldset/KEY_SCAN_CTRL:
     description: RW, Enable automatic clearing of wake-up signal after wake-up.
     bit_offset: 14
     bit_size: 1
-fieldset/KEY_SCAN_NUMB:
+fieldset/NUMB:
   description: RW, Scan key number register.
   fields:
-  - name: KEY_SCAN_NUMB
+  - name: NUMB
     description: RO, Current key number value.
     bit_offset: 0
     bit_size: 20
-  - name: KEY_SCAN_CNT
+  - name: CNT
     description: RO, Current number of key scans.
     bit_offset: 20
     bit_size: 3
-fieldset/KEY_SCAN_INT_EN:
+fieldset/INT_EN:
   description: RW, Press button scan interrupt enable register.
   bit_size: 8
   fields:
@@ -72,7 +72,7 @@ fieldset/KEY_SCAN_INT_EN:
     description: RW, Interrupt enable after a single scan is completed.
     bit_offset: 1
     bit_size: 1
-fieldset/KEY_SCAN_INT_FLAG:
+fieldset/INT_FLAG:
   description: RW, Press the button to scan the interrupt flag register.
   bit_size: 8
   fields:

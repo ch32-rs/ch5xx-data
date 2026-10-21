@@ -1,60 +1,60 @@
 block/USBHS:
   description: USBHS register.
   items:
-  - name: USB_CTRL
+  - name: CTRL
     description: USB base control.
     byte_offset: 0
     bit_size: 8
-    fieldset: USB_CTRL
+    fieldset: CTRL
   - name: UHOST_CTRL
     description: USB host control register.
     byte_offset: 1
     bit_size: 8
     fieldset: UHOST_CTRL
-  - name: USB_INT_EN
+  - name: INT_EN
     description: USB interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: USB_INT_EN
-  - name: USB_DEV_AD
+    fieldset: INT_EN
+  - name: DEV_AD
     description: USB device address.
     byte_offset: 3
     bit_size: 8
-    fieldset: USB_DEV_AD
-  - name: USB_FRAME_NO
+    fieldset: DEV_AD
+  - name: FRAME_NO
     description: USB frame number register.
     byte_offset: 4
     access: Read
     bit_size: 16
-    fieldset: USB_FRAME_NO
-  - name: USB_SUSPEND
+    fieldset: FRAME_NO
+  - name: SUSPEND
     description: USB suspend register.
     byte_offset: 6
     bit_size: 8
-    fieldset: USB_SUSPEND
-  - name: USB_SPD_TYPE
+    fieldset: SUSPEND
+  - name: SPD_TYPE
     description: USB actual speed register.
     byte_offset: 8
     access: Read
     bit_size: 8
-    fieldset: USB_SPD_TYPE
-  - name: USB_MIS_ST
+    fieldset: SPD_TYPE
+  - name: MIS_ST
     description: USB miscellaneous status.
     byte_offset: 9
     access: Read
     bit_size: 8
-    fieldset: USB_MIS_ST
-  - name: USB_INT_FG
+    fieldset: MIS_ST
+  - name: INT_FG
     description: USB interrupt flag.
     byte_offset: 10
     bit_size: 8
-    fieldset: USB_INT_FG
-  - name: USB_INT_ST
+    fieldset: INT_FG
+  - name: INT_ST
     description: USB interrupt status.
     byte_offset: 11
     access: Read
     bit_size: 8
-    fieldset: USB_INT_ST
+    fieldset: INT_ST
   - name: R6_USB_RX_LEN
     description: USB receiving length.
     byte_offset: 12
@@ -437,11 +437,11 @@ fieldset/UEP7_T_LEN:
     description: endpoint 7 transmittal length.
     bit_offset: 0
     bit_size: 16
-fieldset/USB_FRAME_NO:
+fieldset/FRAME_NO:
   description: USB frame number register.
   bit_size: 16
   fields:
-  - name: USB_FRAME_NO
+  - name: FRAME_NO
     description: USB frame number.
     bit_offset: 0
     bit_size: 16
@@ -554,7 +554,7 @@ fieldset/R6_USB_RX_LEN:
   description: USB receiving length.
   bit_size: 16
   fields:
-  - name: USB_RX_LEN
+  - name: RX_LEN
     description: length of received bytes.
     bit_offset: 0
     bit_size: 16
@@ -1006,23 +1006,23 @@ fieldset/UHOST_CTRL:
     description: Automatically generate sof packet enable control.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_CTRL:
+fieldset/CTRL:
   description: USB base control.
   bit_size: 8
   fields:
-  - name: USB_DMA_EN
+  - name: DMA_EN
     description: DMA enable and DMA interrupt enable for USB.
     bit_offset: 0
     bit_size: 1
-  - name: USB_CLR_ALL
+  - name: CLR_ALL
     description: force clear FIFO and count of USB.
     bit_offset: 1
     bit_size: 1
-  - name: USB_RESET_SIE
+  - name: RESET_SIE
     description: force reset USB SIE, need software clear.
     bit_offset: 2
     bit_size: 1
-  - name: USB_INT_BUSY
+  - name: INT_BUSY
     description: enable automatic responding busy for device mode or automatic pause for host mode during interrupt flag UIF_TRANSFER valid.
     bit_offset: 3
     bit_size: 1
@@ -1030,91 +1030,91 @@ fieldset/USB_CTRL:
     description: USB device enable and internal pullup resistance enable.
     bit_offset: 4
     bit_size: 1
-  - name: USB_SPTP_MASK
+  - name: SPTP_MASK
     description: enable USB low speed.
     bit_offset: 5
     bit_size: 2
-  - name: USB_MODE
+  - name: MODE
     description: 'enable USB host mode: 0=device mode, 1=host mode.'
     bit_offset: 7
     bit_size: 1
-fieldset/USB_DEV_AD:
+fieldset/DEV_AD:
   description: USB device address.
   bit_size: 8
   fields:
-  - name: USB_ADDR_MASK
+  - name: ADDR_MASK
     description: bit mask for USB device address.
     bit_offset: 0
     bit_size: 7
-fieldset/USB_INT_EN:
+fieldset/INT_EN:
   description: USB interrupt enable.
   bit_size: 8
   fields:
-  - name: USB_IE_BUSRST_RB_USB_IE_DETECT
+  - name: IE_BUSRST_RB_IE_DETECT
     description: enable interrupt for USB bus reset event for USB device mode _ enable interrupt for USB device detected event for USB host mode.
     bit_offset: 0
     bit_size: 1
-  - name: USB_IE_TRANS
+  - name: IE_TRANS
     description: enable interrupt for USB transfer completion.
     bit_offset: 1
     bit_size: 1
-  - name: USB_IE_SUSPEND
+  - name: IE_SUSPEND
     description: enable interrupt for USB suspend or resume event.
     bit_offset: 2
     bit_size: 1
-  - name: USB_IE_SOF
+  - name: IE_SOF
     description: enable interrupt for host SOF timer action for USB host mode.
     bit_offset: 3
     bit_size: 1
-  - name: USB_IE_FIFOOV
+  - name: IE_FIFOOV
     description: enable interrupt for FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: USB_IE_SETUPACT
+  - name: IE_SETUPACT
     description: Setup packet end interrupt.
     bit_offset: 5
     bit_size: 1
-  - name: USB_IE_ISOACT
+  - name: IE_ISOACT
     description: Synchronous transmission received control token packet interrupt.
     bit_offset: 6
     bit_size: 1
-  - name: USB_IE_DEV_NAK
+  - name: IE_DEV_NAK
     description: enable interrupt for NAK responded for USB device mode.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_INT_FG:
+fieldset/INT_FG:
   description: USB interrupt flag.
   bit_size: 8
   fields:
-  - name: USB_IF_BUSRST_RB_USB_IF_DETECT
+  - name: IF_BUSRST_RB_IF_DETECT
     description: bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear.
     bit_offset: 0
     bit_size: 1
-  - name: USB_IF_TRANSFER
+  - name: IF_TRANSFER
     description: USB transfer completion interrupt flag, direct bit address clear or write 1 to clear.
     bit_offset: 1
     bit_size: 1
-  - name: USB_IF_SUSPEND
+  - name: IF_SUSPEND
     description: USB suspend or resume event interrupt flag, direct bit address clear or write 1 to clear.
     bit_offset: 2
     bit_size: 1
-  - name: USB_IF_HST_SOF
+  - name: IF_HST_SOF
     description: host SOF timer interrupt flag for USB host, direct bit address clear or write 1 to clear.
     bit_offset: 3
     bit_size: 1
-  - name: USB_IF_FIFOOV
+  - name: IF_FIFOOV
     description: FIFO overflow interrupt flag for USB, direct bit address clear or write 1 to clear.
     bit_offset: 4
     bit_size: 1
-  - name: USB_IF_SETUOACT
+  - name: IF_SETUOACT
     description: RO, Setup transaction end interrupt flag.
     bit_offset: 5
     bit_size: 1
-  - name: USB_IF_ISOACT
+  - name: IF_ISOACT
     description: RO, Synchronous transmission received control token packet interrupt flag.
     bit_offset: 6
     bit_size: 1
-fieldset/USB_INT_ST:
+fieldset/INT_ST:
   description: USB interrupt status.
   bit_size: 8
   fields:
@@ -1126,23 +1126,23 @@ fieldset/USB_INT_ST:
     description: RO, bit mask of current token PID code received for USB device mode.
     bit_offset: 4
     bit_size: 2
-  - name: USB_ST_TOGOK
+  - name: ST_TOGOK
     description: RO, indicate current USB transfer toggle is OK.
     bit_offset: 6
     bit_size: 1
-  - name: USB_ST_NAK
+  - name: ST_NAK
     description: RO, indicate current USB transfer is NAK received for USB device mode.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_MIS_ST:
+fieldset/MIS_ST:
   description: USB miscellaneous status.
   bit_size: 8
   fields:
-  - name: USB_SPLIT_EN
+  - name: SPLIT_EN
     description: RO,indicate host allow SPLIT packet.
     bit_offset: 0
     bit_size: 1
-  - name: USB_ATTACH
+  - name: ATTACH
     description: RO, indicate device attached status on USB host.
     bit_offset: 1
     bit_size: 1
@@ -1154,23 +1154,23 @@ fieldset/USB_MIS_ST:
     description: RO, indicate USB bus reset status.
     bit_offset: 3
     bit_size: 1
-  - name: USB_FIFO_RDY
+  - name: FIFO_RDY
     description: RO, indicate USB receiving FIFO ready status (not empty).
     bit_offset: 4
     bit_size: 1
-  - name: USB_SIE_FREE
+  - name: SIE_FREE
     description: RO, indicate USB SIE free status.
     bit_offset: 5
     bit_size: 1
-  - name: USB_SOF_ACT
+  - name: SOF_ACT
     description: RO, indicate host SOF timer action status for USB host.
     bit_offset: 6
     bit_size: 1
-  - name: USB_SOF_PRES
+  - name: SOF_PRES
     description: RO, indicate host SOF timer presage status.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_SPD_TYPE:
+fieldset/SPD_TYPE:
   description: USB actual speed register.
   bit_size: 8
   fields:
@@ -1178,7 +1178,7 @@ fieldset/USB_SPD_TYPE:
     description: USB actual speed.
     bit_offset: 0
     bit_size: 2
-fieldset/USB_SUSPEND:
+fieldset/SUSPEND:
   description: USB suspend register.
   bit_size: 8
   fields:

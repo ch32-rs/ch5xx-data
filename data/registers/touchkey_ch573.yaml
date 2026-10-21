@@ -3,57 +3,57 @@
 block/TouchKey:
   description: TouchKey register.
   items:
-  - name: TKEY_COUNT
+  - name: COUNT
     description: RW, Touchkey charge and discharge count.
     byte_offset: 84
     bit_size: 8
-    fieldset: TKEY_COUNT
-  - name: TKEY_CONVERT
+    fieldset: COUNT
+  - name: CONVERT
     description: RW, Touchkey convert start control.
     byte_offset: 86
     bit_size: 8
-    fieldset: TKEY_CONVERT
-  - name: TKEY_CFG
+    fieldset: CONVERT
+  - name: CFG
     description: RW, Touchkey configure.
     byte_offset: 87
     bit_size: 8
-    fieldset: TKEY_CFG
+    fieldset: CFG
 
-fieldset/TKEY_CFG:
+fieldset/CFG:
   description: RW, Touchkey configure.
   bit_size: 8
   fields:
-  - name: TKEY_PWR_ON
+  - name: PWR_ON
     description: RW, Touchkey power on.
     bit_offset: 0
     bit_size: 1
-  - name: TKEY_CURRENT
+  - name: CURRENT
     description: RW, Touchkey charge current selection.
     bit_offset: 1
     bit_size: 1
-  - name: TKEY_PGA_ADJ
+  - name: PGA_ADJ
     description: RW, ADC input PGA speed selection.
     bit_offset: 3
     bit_size: 1
 
-fieldset/TKEY_CONVERT:
+fieldset/CONVERT:
   description: RW, Touchkey convert start control.
   bit_size: 8
   fields:
-  - name: TKEY_START
+  - name: START
     description: RW, Touchkey convert start control.
     bit_offset: 0
     bit_size: 1
 
-fieldset/TKEY_COUNT:
+fieldset/COUNT:
   description: RW, Touchkey charge and discharge count.
   bit_size: 8
   fields:
-  - name: TKEY_CHARG_CNT
+  - name: CHARG_CNT
     description: RW, Touchkey charge count.
     bit_offset: 0
     bit_size: 5
-  - name: TKEY_DISCH_CNT
+  - name: DISCH_CNT
     description: RW, Touchkey discharge count.
     bit_offset: 5
     bit_size: 3

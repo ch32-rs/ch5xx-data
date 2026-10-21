@@ -1,11 +1,11 @@
 block/USBFS:
   description: USBFS register.
   items:
-  - name: USB_CTRL
+  - name: CTRL
     description: USB base control.
     byte_offset: 0
     bit_size: 8
-    fieldset: USB_CTRL
+    fieldset: CTRL
   - name: UDEV_CTRL
     description: USB device physical prot control.
     byte_offset: 1
@@ -16,39 +16,39 @@ block/USBFS:
     byte_offset: 1
     bit_size: 8
     fieldset: UHOST_CTRL
-  - name: USB_INT_EN
+  - name: INT_EN
     description: USB interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: USB_INT_EN
-  - name: USB_DEV_AD
+    fieldset: INT_EN
+  - name: DEV_AD
     description: USB device address.
     byte_offset: 3
     bit_size: 8
-    fieldset: USB_DEV_AD
-  - name: USB_MIS_ST
+    fieldset: DEV_AD
+  - name: MIS_ST
     description: USB miscellaneous status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: USB_MIS_ST
-  - name: USB_INT_FG
+    fieldset: MIS_ST
+  - name: INT_FG
     description: USB interrupt flag.
     byte_offset: 6
     bit_size: 8
-    fieldset: USB_INT_FG
-  - name: USB_INT_ST
+    fieldset: INT_FG
+  - name: INT_ST
     description: USB interrupt status.
     byte_offset: 7
     access: Read
     bit_size: 8
-    fieldset: USB_INT_ST
-  - name: USB_RX_LEN
+    fieldset: INT_ST
+  - name: RX_LEN
     description: USB receiving length.
     byte_offset: 8
     access: Read
     bit_size: 8
-    fieldset: USB_RX_LEN
+    fieldset: RX_LEN
   - name: UEP4_1_MOD
     description: endpoint 1/4 mode.
     byte_offset: 12
@@ -794,7 +794,7 @@ fieldset/UH_TX_LEN:
     description: Set the number of bytes of data to be sent by the USB host sending endpoint.
     bit_offset: 0
     bit_size: 8
-fieldset/USB_CTRL:
+fieldset/CTRL:
   description: USB base control.
   bit_size: 8
   fields:
@@ -830,7 +830,7 @@ fieldset/USB_CTRL:
     description: 'enable USB host mode: 0=device mode, 1=host mode.'
     bit_offset: 7
     bit_size: 1
-fieldset/USB_DEV_AD:
+fieldset/DEV_AD:
   description: USB device address.
   bit_size: 8
   fields:
@@ -842,7 +842,7 @@ fieldset/USB_DEV_AD:
     description: general purpose bit.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_INT_EN:
+fieldset/INT_EN:
   description: USB interrupt enable.
   bit_size: 8
   fields:
@@ -874,7 +874,7 @@ fieldset/USB_INT_EN:
     description: enable interrupt for NAK responded for USB device mode.
     bit_offset: 6
     bit_size: 1
-fieldset/USB_INT_FG:
+fieldset/INT_FG:
   description: USB interrupt flag.
   bit_size: 8
   fields:
@@ -910,7 +910,7 @@ fieldset/USB_INT_FG:
     description: RO, indicate current USB transfer is NAK received.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_INT_ST:
+fieldset/INT_ST:
   description: USB interrupt status.
   bit_size: 8
   fields:
@@ -930,7 +930,7 @@ fieldset/USB_INT_ST:
     description: RO, indicate current USB transfer is NAK received for USB device mode.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_MIS_ST:
+fieldset/MIS_ST:
   description: USB miscellaneous status.
   bit_size: 8
   fields:
@@ -966,11 +966,11 @@ fieldset/USB_MIS_ST:
     description: RO, indicate host SOF timer presage status.
     bit_offset: 7
     bit_size: 1
-fieldset/USB_RX_LEN:
+fieldset/RX_LEN:
   description: USB receiving length.
   bit_size: 8
   fields:
-  - name: USB_RX_LEN
+  - name: RX_LEN
     description: RO,USB receiving length.
     bit_offset: 0
     bit_size: 8

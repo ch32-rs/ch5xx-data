@@ -90,20 +90,20 @@ block/HSPI:
     byte_offset: 42
     bit_size: 8
     fieldset: TX_SC
-  - name: HSPI_RX_SC
+  - name: RX_SC
     description: parallel RX sequence ctrl.
     byte_offset: 43
     bit_size: 8
-    fieldset: HSPI_RX_SC
-fieldset/HSPI_RX_SC:
+    fieldset: RX_SC
+fieldset/RX_SC:
   description: parallel RX sequence ctrl.
   bit_size: 8
   fields:
-  - name: HSPI_RX_NUM
+  - name: RX_NUM
     description: parallel if rx sequence num.
     bit_offset: 0
     bit_size: 4
-  - name: HSPI_RX_TOG
+  - name: RX_TOG
     description: parallel if rx addr toggle flag.
     bit_offset: 4
     bit_size: 1
@@ -111,11 +111,11 @@ fieldset/BURST_CFG:
   description: parallel if tx burst config register.
   bit_size: 16
   fields:
-  - name: HSPI_BURST_EN
+  - name: BURST_EN
     description: burst transmit enable.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_BURST_LEN
+  - name: BURST_LEN
     description: burst transmit length.
     bit_offset: 8
     bit_size: 8
@@ -123,7 +123,7 @@ fieldset/DMA_LEN0:
   description: parallel if dma length0.
   bit_size: 16
   fields:
-  - name: HSPI_DMA_LEN0
+  - name: DMA_LEN0
     description: parallel if dma length0.
     bit_offset: 0
     bit_size: 12
@@ -131,7 +131,7 @@ fieldset/DMA_LEN1:
   description: parallel if dma length1.
   bit_size: 16
   fields:
-  - name: HSPI_DMA_LEN1
+  - name: DMA_LEN1
     description: parallel if dma length1.
     bit_offset: 0
     bit_size: 12
@@ -139,7 +139,7 @@ fieldset/RX_LEN0:
   description: parallel if receive length0.
   bit_size: 16
   fields:
-  - name: HSPI_RX_LEN0
+  - name: RX_LEN0
     description: parallel if dma length0.
     bit_offset: 0
     bit_size: 12
@@ -147,49 +147,49 @@ fieldset/RX_LEN1:
   description: parallel if receive length1.
   bit_size: 16
   fields:
-  - name: HSPI_RX_LEN1
+  - name: RX_LEN1
     description: parallel if dma length1.
     bit_offset: 0
     bit_size: 12
 fieldset/RX_ADDR0:
   description: parallel if dma rx addr0.
   fields:
-  - name: HSPI_RX_ADDR0
+  - name: RX_ADDR0
     description: parallel if dma rx addr0.
     bit_offset: 0
     bit_size: 17
 fieldset/RX_ADDR1:
   description: parallel if dma rx addr1.
   fields:
-  - name: HSPI_RX_ADDR1
+  - name: RX_ADDR1
     description: parallel if dma rx addr1.
     bit_offset: 0
     bit_size: 17
 fieldset/TX_ADDR0:
   description: parallel if dma tx addr0.
   fields:
-  - name: HSPI_TX_ADDR0
+  - name: TX_ADDR0
     description: parallel if dma tx addr0.
     bit_offset: 0
     bit_size: 17
 fieldset/TX_ADDR1:
   description: parallel if dma tx addr1.
   fields:
-  - name: HSPI_TX_ADDR1
+  - name: TX_ADDR1
     description: parallel if dma tx addr1.
     bit_offset: 0
     bit_size: 17
 fieldset/UDF0:
   description: parallel if user defined field 0 register.
   fields:
-  - name: HSPI_UDF0
+  - name: UDF0
     description: parallel if user defined field 0 register.
     bit_offset: 0
     bit_size: 26
 fieldset/UDF1:
   description: parallel if user defined field 1 register.
   fields:
-  - name: HSPI_UDF1
+  - name: UDF1
     description: parallel if user defined field 1 register.
     bit_offset: 0
     bit_size: 26
@@ -197,19 +197,19 @@ fieldset/AUX:
   description: parallel if aux.
   bit_size: 8
   fields:
-  - name: HSPI_TCK_MOD
+  - name: TCK_MOD
     description: parallel if tx clk polar control.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_RCK_MOD
+  - name: RCK_MOD
     description: parallel if rx clk polar control.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_ACK_TX_MOD
+  - name: ACK_TX_MOD
     description: parallel if tx ack mode cfg.
     bit_offset: 2
     bit_size: 1
-  - name: HSPI_ACK_CNT_SEL
+  - name: ACK_CNT_SEL
     description: delay time of parallel if send ack when receive done.
     bit_offset: 3
     bit_size: 2
@@ -217,7 +217,7 @@ fieldset/BURST_CNT:
   description: parallel if tx burst count.
   bit_size: 8
   fields:
-  - name: HSPI_BURST_CNT
+  - name: BURST_CNT
     description: parallel if tx burst count.
     bit_offset: 0
     bit_size: 8
@@ -225,27 +225,27 @@ fieldset/CFG:
   description: parallel if tx or rx cfg.
   bit_size: 8
   fields:
-  - name: HSPI_MODE
+  - name: MODE
     description: parallel if mode.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_DUALDMA
+  - name: DUALDMA
     description: parallel if dualdma mode enable.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_MSK_SIZE
+  - name: MSK_SIZE
     description: parallel if data mode.
     bit_offset: 2
     bit_size: 2
-  - name: HSPI_TX_TOG_EN
+  - name: TX_TOG_EN
     description: parallel if tx addr toggle enable.
     bit_offset: 5
     bit_size: 1
-  - name: HSPI_RX_TOG_EN
+  - name: RX_TOG_EN
     description: parallel if rx addr toggle enable.
     bit_offset: 6
     bit_size: 1
-  - name: HSPI_HW_ACK
+  - name: HW_ACK
     description: parallel if tx ack by hardware.
     bit_offset: 7
     bit_size: 1
@@ -253,23 +253,23 @@ fieldset/CTRL:
   description: parallel if tx or rx control.
   bit_size: 8
   fields:
-  - name: HSPI_ENABLE
+  - name: ENABLE
     description: parallel if enable.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_DMA_EN
+  - name: DMA_EN
     description: parallel if dma enable.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_SW_ACT
+  - name: SW_ACT
     description: parallel if transmit software trigger.
     bit_offset: 2
     bit_size: 1
-  - name: HSPI_ALL_CLR
+  - name: ALL_CLR
     description: parallel if all clear.
     bit_offset: 3
     bit_size: 1
-  - name: HSPI_TRX_RST
+  - name: TRX_RST
     description: parallel if tx and rx logic clear, high action.
     bit_offset: 4
     bit_size: 1
@@ -277,19 +277,19 @@ fieldset/INT_EN:
   description: parallel if interrupt enable register.
   bit_size: 8
   fields:
-  - name: HSPI_IE_T_DONE
+  - name: IE_T_DONE
     description: parallel if transmit done interrupt enable.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_IE_R_DONE
+  - name: IE_R_DONE
     description: parallel if receive done interrupt enable.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_IE_FIFO_OV
+  - name: IE_FIFO_OV
     description: parallel if fifo overflow interrupt enable.
     bit_offset: 2
     bit_size: 1
-  - name: HSPI_IE_B_DONE
+  - name: IE_B_DONE
     description: parallel if tx burst done interrupt enable.
     bit_offset: 3
     bit_size: 1
@@ -297,19 +297,19 @@ fieldset/INT_FLAG:
   description: parallel if interrupt flag.
   bit_size: 8
   fields:
-  - name: HSPI_IF_T_DONE
+  - name: IF_T_DONE
     description: interrupt flag for parallel if transmit done.
     bit_offset: 0
     bit_size: 1
-  - name: HSPI_IF_R_DONE
+  - name: IF_R_DONE
     description: interrupt flag for parallel if receive done.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_IF_FIFO_OV
+  - name: IF_FIFO_OV
     description: interrupt flag for parallel if FIFO overflow.
     bit_offset: 2
     bit_size: 1
-  - name: HSPI_IF_B_DONE
+  - name: IF_B_DONE
     description: interrupt flag for parallel if tx burst done.
     bit_offset: 3
     bit_size: 1
@@ -317,11 +317,11 @@ fieldset/RTX_STATUS:
   description: parallel rtx status.
   bit_size: 8
   fields:
-  - name: HSPI_CRC_ERR
+  - name: CRC_ERR
     description: CRC error occur.
     bit_offset: 1
     bit_size: 1
-  - name: HSPI_NUM_MIS
+  - name: NUM_MIS
     description: rx and tx sequence number mismatch.
     bit_offset: 2
     bit_size: 1
@@ -329,11 +329,11 @@ fieldset/TX_SC:
   description: parallel TX sequence ctrl.
   bit_size: 8
   fields:
-  - name: HSPI_TX_NUM
+  - name: TX_NUM
     description: parallel if tx sequence num.
     bit_offset: 0
     bit_size: 4
-  - name: HSPI_TX_TOG
+  - name: TX_TOG
     description: parallel if tx addr toggle flag.
     bit_offset: 4
     bit_size: 1

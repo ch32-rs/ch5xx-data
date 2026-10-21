@@ -134,19 +134,19 @@ fieldset/CTRL_CFG:
   description: SPI_FULL configuration control.
   bit_size: 8
   fields:
-  - name: SPI_DMA_ENABLE
+  - name: DMA_ENABLE
     description: SPI DMA enable.
     bit_offset: 0
     bit_size: 1
-  - name: SPI_DMA_LOOP
+  - name: DMA_LOOP
     description: SPI DMA address loop enable.
     bit_offset: 2
     bit_size: 1
-  - name: SPI_AUTO_IF
+  - name: AUTO_IF
     description: enable buffer or FIFO accessing to auto clear RB_SPI_IF_BYTE_END interrupt flag.
     bit_offset: 4
     bit_size: 1
-  - name: SPI_BIT_ORDER
+  - name: BIT_ORDER
     description: SPI bit data order.
     bit_offset: 5
     bit_size: 1
@@ -154,35 +154,35 @@ fieldset/CTRL_MOD:
   description: SPI_FULL mode control.
   bit_size: 8
   fields:
-  - name: SPI_MODE_SLAVE
+  - name: MODE_SLAVE
     description: SPI slave mode.
     bit_offset: 0
     bit_size: 1
-  - name: SPI_ALL_CLEAR
+  - name: ALL_CLEAR
     description: force clear SPI FIFO and count.
     bit_offset: 1
     bit_size: 1
-  - name: SPI_2WIRE_MOD
+  - name: 2WIRE_MOD
     description: SPI enable 2 wire mode.
     bit_offset: 2
     bit_size: 1
-  - name: SPI_MST_SCK_MOD_RB_SPI_SLV_CMD_MOD
+  - name: MST_SCK_MOD_RB_SLV_CMD_MOD
     description: SPI master clock mode _SPI slave command mode.
     bit_offset: 3
     bit_size: 1
-  - name: SPI_FIFO_DIR
+  - name: FIFO_DIR
     description: SPI FIFO direction.
     bit_offset: 4
     bit_size: 1
-  - name: SPI_SCK_OE
+  - name: SCK_OE
     description: SPI SCK output enable.
     bit_offset: 5
     bit_size: 1
-  - name: SPI_MOSI_OE
+  - name: MOSI_OE
     description: SPI MOSI output enable.
     bit_offset: 6
     bit_size: 1
-  - name: SPI_MISO_OE
+  - name: MISO_OE
     description: SPI MISO output enable.
     bit_offset: 7
     bit_size: 1
@@ -214,27 +214,27 @@ fieldset/INTER_EN:
   description: SPI_FULL interrupt enable.
   bit_size: 8
   fields:
-  - name: SPI_IE_CNT_END
+  - name: IE_CNT_END
     description: enable interrupt for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: SPI_IE_BYTE_END
+  - name: IE_BYTE_END
     description: enable interrupt for SPI byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: SPI_IE_FIFO_HF
+  - name: IE_FIFO_HF
     description: enable interrupt for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: SPI_IE_DMA_END
+  - name: IE_DMA_END
     description: enable interrupt for SPI DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: SPI_IE_FIFO_OV
+  - name: IE_FIFO_OV
     description: enable interrupt for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: SPI_IE_FST_BYTE
+  - name: IE_FST_BYTE
     description: enable interrupt for SPI slave mode first byte received.
     bit_offset: 7
     bit_size: 1
@@ -242,31 +242,31 @@ fieldset/INT_FLAG:
   description: SPI_FULL interrupt flag.
   bit_size: 8
   fields:
-  - name: SPI_IF_CNT_END
+  - name: IF_CNT_END
     description: interrupt flag for SPI total byte count end.
     bit_offset: 0
     bit_size: 1
-  - name: SPI_IF_BYTE_END
+  - name: IF_BYTE_END
     description: interrupt flag for SPI byte exchanged.
     bit_offset: 1
     bit_size: 1
-  - name: SPI_IF_FIFO_HF
+  - name: IF_FIFO_HF
     description: interrupt flag for SPI FIFO half.
     bit_offset: 2
     bit_size: 1
-  - name: SPI_IF_DMA_END
+  - name: IF_DMA_END
     description: interrupt flag for SPI DMA completion.
     bit_offset: 3
     bit_size: 1
-  - name: SPI_IF_FIFO_OV
+  - name: IF_FIFO_OV
     description: interrupt flag for SPI FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: SPI_FREE
+  - name: FREE
     description: current SPI free status.
     bit_offset: 6
     bit_size: 1
-  - name: SPI_IF_FST_BYTE
+  - name: IF_FST_BYTE
     description: interrupt flag for SPI slave mode first byte received.
     bit_offset: 7
     bit_size: 1
@@ -274,19 +274,19 @@ fieldset/RUN_FLAG:
   description: SPI_FULL work flag.
   bit_size: 8
   fields:
-  - name: SPI_SLV_CMD_ACT
+  - name: SLV_CMD_ACT
     description: SPI slave command flag.
     bit_offset: 4
     bit_size: 1
-  - name: SPI_FIFO_READY
+  - name: FIFO_READY
     description: SPI FIFO ready status.
     bit_offset: 5
     bit_size: 1
-  - name: SPI_SLV_CS_LOAD
+  - name: SLV_CS_LOAD
     description: SPI slave chip-select loading status.
     bit_offset: 6
     bit_size: 1
-  - name: SPI_SLV_SELECT
+  - name: SLV_SELECT
     description: SPI slave selection status.
     bit_offset: 7
     bit_size: 1

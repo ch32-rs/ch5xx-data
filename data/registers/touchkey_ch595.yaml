@@ -1,27 +1,27 @@
 block/TouchKey:
   description: Touch buttons.
   items:
-  - name: TKEY_CFG
+  - name: CFG
     description: RW, Touchkey configure.
     byte_offset: 87
     bit_size: 8
-    fieldset: TKEY_CFG
-  - name: TKEY_CFG2
+    fieldset: CFG
+  - name: CFG2
     description: RW, TouchKey configuration register 2.
     byte_offset: 120
-    fieldset: TKEY_CFG2
-  - name: TKEY_SEL
+    fieldset: CFG2
+  - name: SEL
     description: RW, TouchKey selection register.
     byte_offset: 124
-    fieldset: TKEY_SEL
-fieldset/TKEY_CFG2:
+    fieldset: SEL
+fieldset/CFG2:
   description: RW, TouchKey configuration register 2.
   fields:
-  - name: TKEY_TRANS
+  - name: TRANS
     description: RW, Touch key Capacitive charge moving time.
     bit_offset: 0
     bit_size: 3
-  - name: TKEY_CC
+  - name: CC
     description: RW, Touch key capacitor charging time.
     bit_offset: 3
     bit_size: 2
@@ -29,11 +29,11 @@ fieldset/TKEY_CFG2:
     description: 'RW, Touch the key to start ADC time selection in advance, unit: moving cycle.'
     bit_offset: 5
     bit_size: 2
-  - name: TKEY_EN
+  - name: EN
     description: RW, TKEY module enable.
     bit_offset: 7
     bit_size: 1
-  - name: TKEY_CTRANS_ACT
+  - name: CTRANS_ACT
     description: RW, TKEY module start signal and working status, automatic reset.
     bit_offset: 8
     bit_size: 1
@@ -41,7 +41,7 @@ fieldset/TKEY_CFG2:
     description: RW, Number of moving cycles.
     bit_offset: 16
     bit_size: 10
-fieldset/TKEY_SEL:
+fieldset/SEL:
   description: RW, TouchKey selection register.
   fields:
   - name: SEL_CS
@@ -52,11 +52,11 @@ fieldset/TKEY_SEL:
     description: RW, TouchKey drive shield channel selection switch.
     bit_offset: 16
     bit_size: 14
-fieldset/TKEY_CFG:
+fieldset/CFG:
   description: RW, Touchkey configure.
   bit_size: 8
   fields:
-  - name: TKEY_DRV_EN
+  - name: DRV_EN
     description: RW, Touchkey drive shield enable.
     bit_offset: 2
     bit_size: 1
@@ -64,7 +64,7 @@ fieldset/TKEY_CFG:
     description: RW, Select the running speed of PGA in ADC.
     bit_offset: 3
     bit_size: 1
-  - name: TKEY_DMA_EN
+  - name: DMA_EN
     description: RW, TouchKey DMA Enable.
     bit_offset: 6
     bit_size: 1

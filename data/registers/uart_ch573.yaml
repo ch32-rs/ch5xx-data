@@ -4,16 +4,16 @@
 block/UART_FULL:
   description: UART_FULL register.
   items:
-  - name: FULL_MCR
+  - name: MCR
     description: RW, UART_FULL modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: FULL_MCR
-  - name: FULL_IER
+    fieldset: MCR_FULL
+  - name: IER
     description: RW, UART_FULL interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: FULL_IER
+    fieldset: IER_FULL
   - name: FCR
     description: RW, UART_FULL FIFO control.
     byte_offset: 2
@@ -24,12 +24,12 @@ block/UART_FULL:
     byte_offset: 3
     bit_size: 8
     fieldset: LCR
-  - name: FULL_IIR
+  - name: IIR
     description: RO, UART_FULL interrupt identification.
     byte_offset: 4
     access: Read
     bit_size: 8
-    fieldset: FULL_IIR
+    fieldset: IIR_FULL
   - name: LSR
     description: RO, UART_FULL line status.
     byte_offset: 5
@@ -48,12 +48,12 @@ block/UART_FULL:
     access: Read
     bit_size: 8
     fieldset: RBR
-  - name: FULL_THR
+  - name: THR
     description: WO, UART_FULL transmitter holding, transmittal byte.
     byte_offset: 8
     access: Write
     bit_size: 8
-    fieldset: FULL_THR
+    fieldset: THR_FULL
   - name: RFC
     description: RO, UART_FULL receiver FIFO count.
     byte_offset: 10
@@ -85,16 +85,16 @@ block/UART_FULL:
 block/UART_NOMODEM:
   description: UART_NOMODEM register.
   items:
-  - name: NOMODEM_MCR
+  - name: MCR
     description: RW, UART_NOMODEM modem control.
     byte_offset: 0
     bit_size: 8
-    fieldset: NOMODEM_MCR
-  - name: NOMODEM_IER
+    fieldset: MCR_NOMODEM
+  - name: IER
     description: RW, UART_NOMODEM interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: NOMODEM_IER
+    fieldset: IER_NOMODEM
   - name: FCR
     description: RW, UART_NOMODEM FIFO control.
     byte_offset: 2
@@ -105,12 +105,12 @@ block/UART_NOMODEM:
     byte_offset: 3
     bit_size: 8
     fieldset: LCR
-  - name: NOMODEM_IIR
+  - name: IIR
     description: RO, UART_NOMODEM interrupt identification.
     byte_offset: 4
     access: Read
     bit_size: 8
-    fieldset: NOMODEM_IIR
+    fieldset: IIR_NOMODEM
   - name: LSR
     description: RO, UART_NOMODEM line status.
     byte_offset: 5
@@ -123,12 +123,12 @@ block/UART_NOMODEM:
     access: Read
     bit_size: 8
     fieldset: RBR
-  - name: NOMODEM_THR
+  - name: THR
     description: WO, UART_NOMODEM transmitter holding, transmittal byte.
     byte_offset: 8
     access: Write
     bit_size: 8
-    fieldset: NOMODEM_THR
+    fieldset: THR_NOMODEM
   - name: RFC
     description: RO, UART_NOMODEM receiver FIFO count.
     byte_offset: 10
@@ -200,7 +200,7 @@ fieldset/FCR:
     bit_offset: 6
     bit_size: 2
 
-fieldset/FULL_IER:
+fieldset/IER_FULL:
   description: RW, UART_FULL interrupt enable.
   bit_size: 8
   fields:
@@ -237,7 +237,7 @@ fieldset/FULL_IER:
     bit_offset: 7
     bit_size: 1
 
-fieldset/FULL_IIR:
+fieldset/IIR_FULL:
   description: RO, UART_FULL interrupt identification.
   bit_size: 8
   fields:
@@ -320,7 +320,7 @@ fieldset/LSR:
     bit_offset: 7
     bit_size: 1
 
-fieldset/FULL_MCR:
+fieldset/MCR_FULL:
   description: RW, UART_FULL modem control.
   bit_size: 8
   fields:
@@ -421,16 +421,16 @@ fieldset/TFC:
     bit_offset: 0
     bit_size: 8
 
-fieldset/FULL_THR:
+fieldset/THR_FULL:
   description: WO, UART_FULL transmitter holding, transmittal byte.
   bit_size: 8
   fields:
-  - name: FULL_THR
+  - name: THR
     description: RO, UART_FULL transmitter holding, transmittal byte.
     bit_offset: 0
     bit_size: 8
 
-fieldset/NOMODEM_IER:
+fieldset/IER_NOMODEM:
   description: RW, UART_NOMODEM interrupt enable.
   bit_size: 8
   fields:
@@ -455,7 +455,7 @@ fieldset/NOMODEM_IER:
     bit_offset: 7
     bit_size: 1
 
-fieldset/NOMODEM_IIR:
+fieldset/IIR_NOMODEM:
   description: RO, UART_NOMODEM interrupt identification.
   bit_size: 8
   fields:
@@ -472,7 +472,7 @@ fieldset/NOMODEM_IIR:
     bit_offset: 7
     bit_size: 1
 
-fieldset/NOMODEM_MCR:
+fieldset/MCR_NOMODEM:
   description: RW, UART_NOMODEM modem control.
   bit_size: 8
   fields:
@@ -481,7 +481,7 @@ fieldset/NOMODEM_MCR:
     bit_offset: 3
     bit_size: 1
 
-fieldset/NOMODEM_THR:
+fieldset/THR_NOMODEM:
   description: WO, UART_NOMODEM transmitter holding, transmittal byte.
   bit_size: 8
   fields:

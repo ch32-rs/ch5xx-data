@@ -308,7 +308,7 @@ fieldset/BUSY:
   description: SLV busy flag register.
   bit_size: 8
   fields:
-  - name: SLV_BUSY
+  - name: BUSY
     description: SLV busy flag.
     bit_offset: 0
     bit_size: 1
@@ -316,19 +316,19 @@ fieldset/CONFIG:
   description: SLV configuration register.
   bit_size: 8
   fields:
-  - name: SLV_ENABLE
+  - name: ENABLE
     description: SLV enable bit.
     bit_offset: 0
     bit_size: 1
-  - name: SLV_IE_CMD
+  - name: IE_CMD
     description: The command writes the interrupt enable bit.
     bit_offset: 1
     bit_size: 1
-  - name: SLV_IE_WR
+  - name: IE_WR
     description: Data writes the interrupt enable bit.
     bit_offset: 2
     bit_size: 1
-  - name: SLV_IE_RD
+  - name: IE_RD
     description: Data read the interrupt enable bit.
     bit_offset: 3
     bit_size: 1
@@ -336,7 +336,7 @@ fieldset/DOUT:
   description: SLV data output register.
   bit_size: 8
   fields:
-  - name: SLV_DOUT
+  - name: DOUT
     description: SLV data output.
     bit_offset: 0
     bit_size: 8
@@ -344,7 +344,7 @@ fieldset/RESET_CMD:
   description: DMA reset the command word register.
   bit_size: 8
   fields:
-  - name: SLV_RESET_CMD
+  - name: RESET_CMD
     description: A global reset is generated upon receipt of this command.
     bit_offset: 0
     bit_size: 8
@@ -352,7 +352,7 @@ fieldset/STATUS:
   description: SLV status output register.
   bit_size: 8
   fields:
-  - name: SLV_STATUS
+  - name: STATUS
     description: SLV status output.
     bit_offset: 0
     bit_size: 8

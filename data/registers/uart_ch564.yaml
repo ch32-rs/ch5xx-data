@@ -153,7 +153,7 @@ fieldset/DIV:
   description: UART_FULL pre-frequency divisiono register.
   bit_size: 8
   fields:
-  - name: UART_FULL_DIV
+  - name: DIV
     description: System clock is pre-divided after frequency doubling to. generate the internal reference clock of the serial port.
     bit_offset: 0
     bit_size: 8
