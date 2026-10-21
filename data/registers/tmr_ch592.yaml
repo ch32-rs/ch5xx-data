@@ -185,12 +185,20 @@ fieldset/CTRL_MOD:
     description: RW, timer output enable.
     bit_offset: 3
     bit_size: 1
-  - name: TMR_OUT_POLAR__TMR_CAP_COUNT
-    description: 'RW, timer PWM output polarity: 0=default low and high action, 1=default high and low action;RW, count sub-mode if RB_TMR_MODE_IN=1: 0=capture, 1=count.'
+  - name: TMR_OUT_POLAR
+    description: 'RW, timer PWM output polarity: 0=default low and high action, 1=default high and low action.'
     bit_offset: 4
     bit_size: 1
-  - name: TMR_PWM_REPEAT__TMR_CAP_EDGE
-    description: 'RW, timer PWM repeat mode: 00=1, 01=4, 10=8, 11-16;RW, timer capture edge mode: 00=disable, 01=edge change, 10=fall to fall, 11-rise to rise.'
+  - name: TMR_CAP_COUNT
+    description: 'RW, count sub-mode if TMR_MODE_IN=1: 0=capture, 1=count.'
+    bit_offset: 4
+    bit_size: 1
+  - name: TMR_PWM_REPEAT
+    description: 'RW, timer PWM repeat mode: 00=1, 01=4, 10=8, 11-16.'
+    bit_offset: 6
+    bit_size: 2
+  - name: TMR_CAP_EDGE
+    description: 'RW, timer capture edge mode: 00=disable, 01=edge change, 10=fall to fall, 11-rise to rise.'
     bit_offset: 6
     bit_size: 2
 

@@ -18,11 +18,16 @@ block/SPI_FULL:
     byte_offset: 2
     bit_size: 8
     fieldset: INTER_EN
-  - name: CLOCK_DIV__SLAVE_PRE
-    description: RW, SPI master clock divisor;RW, SPI slave preset value.
+  - name: CLOCK_DIV
+    description: RW, SPI master clock divisor.
     byte_offset: 3
     bit_size: 8
-    fieldset: CLOCK_DIV__SLAVE_PRE
+    fieldset: CLOCK_DIV
+  - name: SLAVE_PRE
+    description: RW, SPI slave preset value.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: SLAVE_PRE
   - name: BUFFER
     description: RW, SPI data buffer.
     byte_offset: 4
@@ -115,12 +120,20 @@ fieldset/BUFFER:
     description: RW, SPI data buffer.
     bit_offset: 0
     bit_size: 8
-fieldset/CLOCK_DIV__SLAVE_PRE:
-  description: RW, SPI master clock divisor;RW, SPI slave preset value.
+fieldset/CLOCK_DIV:
+  description: RW, SPI master clock divisor.
   bit_size: 8
   fields:
-  - name: CLOCK_DIV__SLAVE_PRE
-    description: RW, SPI master clock divisor;RW, SPI slave preset value.
+  - name: CLOCK_DIV
+    description: RW, SPI master clock divisor.
+    bit_offset: 0
+    bit_size: 8
+fieldset/SLAVE_PRE:
+  description: RW, SPI slave preset value.
+  bit_size: 8
+  fields:
+  - name: SLAVE_PRE
+    description: RW, SPI slave preset value.
     bit_offset: 0
     bit_size: 8
 fieldset/CTRL_CFG:
@@ -163,8 +176,12 @@ fieldset/CTRL_MOD:
     description: 'RW, SPI enable 2 wire mode for slave: 0=3wire(SCK0,MOSI,MISO), 1=2wire(SCK0,MISO=MXSX).'
     bit_offset: 2
     bit_size: 1
-  - name: SPI_MST_SCK_MOD__SPI_SLV_CMD_MOD
-    description: 'RW, SPI master clock mode: 0=mode 0, 1=mode 3;RW, SPI slave command mode: 0=byte stream, 1=first byte command.'
+  - name: SPI_MST_SCK_MOD
+    description: 'RW, SPI master clock mode: 0=mode 0, 1=mode 3.'
+    bit_offset: 3
+    bit_size: 1
+  - name: SPI_SLV_CMD_MOD
+    description: 'RW, SPI slave command mode: 0=byte stream, 1=first byte command.'
     bit_offset: 3
     bit_size: 1
   - name: SPI_FIFO_DIR

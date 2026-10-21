@@ -18,11 +18,16 @@ block/SPI_FULL:
     byte_offset: 2
     bit_size: 8
     fieldset: FULL_INTER_EN
-  - name: CLOCK_DIV_SLAVE_PRE
-    description: SPI_FULL master clock divisor / SPI_FULL slave preset value.
+  - name: FULL_CLOCK_DIV
+    description: SPI_FULL master clock divisor.
     byte_offset: 3
     bit_size: 8
-    fieldset: CLOCK_DIV_SLAVE_PRE
+    fieldset: FULL_CLOCK_DIV
+  - name: FULL_SLAVE_PRE
+    description: SPI_FULL slave preset value.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: FULL_SLAVE_PRE
   - name: FULL_BUFFER
     description: SPI_FULL data buffer.
     byte_offset: 4
@@ -197,12 +202,20 @@ fieldset/BUSY:
     bit_offset: 0
     bit_size: 1
 
-fieldset/CLOCK_DIV_SLAVE_PRE:
-  description: SPI_FULL master clock divisor / SPI_FULL slave preset value.
+fieldset/FULL_CLOCK_DIV:
+  description: SPI_FULL master clock divisor.
   bit_size: 8
   fields:
-  - name: SPI_FULL_CLOCK_DIV_SPI_FULL_SLAVE_PRE
-    description: master clock divisor / SPI_FULL slave preset value.
+  - name: CLOCK_DIV
+    description: master clock divisor.
+    bit_offset: 0
+    bit_size: 8
+fieldset/FULL_SLAVE_PRE:
+  description: SPI_FULL slave preset value.
+  bit_size: 8
+  fields:
+  - name: SLAVE_PRE
+    description: slave preset value.
     bit_offset: 0
     bit_size: 8
 
@@ -243,8 +256,12 @@ fieldset/FULL_CTRL_MOD:
     description: SPI enable 2 wire mode.
     bit_offset: 2
     bit_size: 1
-  - name: SPI_MST_SCK_MOD__SPI_SLV_CMD_MOD
-    description: SPI master clock mode _ SPI slave command mode.
+  - name: SPI_MST_SCK_MOD
+    description: SPI master clock mode.
+    bit_offset: 3
+    bit_size: 1
+  - name: SPI_SLV_CMD_MOD
+    description: SPI slave command mode.
     bit_offset: 3
     bit_size: 1
   - name: SPI_FIFO_DIR

@@ -3,12 +3,17 @@
 block/SYS:
   description: SYS register.
   items:
-  - name: RESET_STATUS_GLOB_ROM_CFG
-    description: RWA, reset status, SAM or flash ROM configuration.
+  - name: RESET_STATUS
+    description: RWA, reset status.
     byte_offset: 4
     access: Read
     bit_size: 8
-    fieldset: RESET_STATUS_GLOB_ROM_CFG
+    fieldset: RESET_STATUS
+  - name: GLOB_ROM_CFG
+    description: RWA, flash ROM configuration.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: GLOB_ROM_CFG
   - name: CLK_CFG
     description: RWA, system clock configuration, SAM.
     byte_offset: 8
@@ -322,14 +327,19 @@ fieldset/HFCK_PWR_CTRL:
     bit_offset: 4
     bit_size: 1
 
-fieldset/RESET_STATUS_GLOB_ROM_CFG:
-  description: RWA, reset status, SAM or flash ROM configuration.
+fieldset/RESET_STATUS:
+  description: RWA, reset status.
   bit_size: 8
   fields:
   - name: RESET_FLAG
     description: RO, recent reset flag.
     bit_offset: 0
     bit_size: 3
+
+fieldset/GLOB_ROM_CFG:
+  description: RWA, flash ROM configuration.
+  bit_size: 8
+  fields:
   - name: ROM_CODE_OFS
     description: 'RWA, code offset address selection in Flash ROM: 0=start address 0x000000, 1=start address 0x008000.'
     bit_offset: 4
@@ -346,6 +356,7 @@ fieldset/RESET_STATUS_GLOB_ROM_CFG:
     description: RWA, enable flash ROM code area being erase or write.
     bit_offset: 7
     bit_size: 1
+
 
 fieldset/SLP_CLK_OFF0:
   description: RWA, sleep clock off control byte 0, SAM.

@@ -67,10 +67,10 @@ block/GPIO:
     byte_offset: 196
     access: Read
     fieldset: PB_PIN
-  - name: PB_OUT__SLV_RD_DATA
-    description: RW, GPIO PB output;RW, data for parallel slave read.
+  - name: PB_OUT
+    description: RW, GPIO PB output.
     byte_offset: 200
-    fieldset: PB_OUT__SLV_RD_DATA
+    fieldset: PB_OUT
   - name: PB_CLR
     description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
     byte_offset: 204
@@ -242,8 +242,8 @@ fieldset/PB_DIR:
     bit_offset: 16
     bit_size: 8
 
-fieldset/PB_OUT__SLV_RD_DATA:
-  description: RW, GPIO PB output;RW, data for parallel slave read.
+fieldset/PB_OUT:
+  description: RW, GPIO PB output.
   fields:
   - name: PB_OUT_0
     description: GPIO PB output byte 0.

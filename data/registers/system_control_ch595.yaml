@@ -23,12 +23,17 @@ block/System_control:
     byte_offset: 67
     bit_size: 8
     fieldset: WDOG_COUNT
-  - name: RESET_STATUS__GLOB_ROM_CFG
-    description: RWA, reset status, SAM or flash ROM configuration.
+  - name: RESET_STATUS
+    description: RWA, reset status.
     byte_offset: 68
     access: Read
     bit_size: 8
-    fieldset: RESET_STATUS__GLOB_ROM_CFG
+    fieldset: RESET_STATUS
+  - name: GLOB_ROM_CFG
+    description: RWA, flash ROM configuration.
+    byte_offset: 68
+    bit_size: 8
+    fieldset: GLOB_ROM_CFG
   - name: GLOB_CFG_INFO
     description: RO, global configuration information and status.
     byte_offset: 69
@@ -164,14 +169,18 @@ fieldset/PLL_CONFIG:
     description: RWA, PLL configure data.
     bit_offset: 0
     bit_size: 6
-fieldset/RESET_STATUS__GLOB_ROM_CFG:
-  description: RWA, reset status, SAM or flash ROM configuration.
+fieldset/RESET_STATUS:
+  description: RWA, reset status.
   bit_size: 8
   fields:
   - name: RESET_FLAG
     description: RO, recent reset flag.
     bit_offset: 0
     bit_size: 3
+fieldset/GLOB_ROM_CFG:
+  description: RWA, flash ROM configuration.
+  bit_size: 8
+  fields:
   - name: ROM_CODE_OFS
     description: 'RWA, code offset address selection in Flash ROM: 0=start address 0x000000, 1=start address 0x008000.'
     bit_offset: 4

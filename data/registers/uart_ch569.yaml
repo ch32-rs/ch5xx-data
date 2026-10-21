@@ -42,11 +42,18 @@ block/UART_FULL:
     access: Read
     bit_size: 8
     fieldset: MSR
-  - name: RBR_THR
-    description: UART_FULL receiver buffer, receiving byte _ UART_FULL transmitter holding, transmittal byte.
+  - name: RBR
+    description: UART_FULL receiver buffer, receiving byte.
     byte_offset: 8
+    access: Read
     bit_size: 8
-    fieldset: RBR_THR
+    fieldset: RBR
+  - name: THR
+    description: UART_FULL transmitter holding, transmittal byte.
+    byte_offset: 8
+    access: Write
+    bit_size: 8
+    fieldset: THR
   - name: FULL_RFC
     description: UART_FULL receiver FIFO count.
     byte_offset: 10
@@ -110,11 +117,18 @@ block/UART_NOMODEM:
     access: Read
     bit_size: 8
     fieldset: LSR
-  - name: RBR_THR
-    description: UART_NOMODEM receiver buffer, receiving byte _ UART_NOMODEM transmitter holding, transmittal byte.
+  - name: RBR
+    description: UART_NOMODEM receiver buffer, receiving byte.
     byte_offset: 8
+    access: Read
     bit_size: 8
-    fieldset: RBR_THR
+    fieldset: RBR
+  - name: THR
+    description: UART_NOMODEM transmitter holding, transmittal byte.
+    byte_offset: 8
+    access: Write
+    bit_size: 8
+    fieldset: THR
   - name: NOMODEM_RFC
     description: UART_NOMODEM receiver FIFO count.
     byte_offset: 10
@@ -380,12 +394,20 @@ fieldset/MSR:
     bit_offset: 7
     bit_size: 1
 
-fieldset/RBR_THR:
-  description: UART_FULL receiver buffer, receiving byte _ UART_FULL transmitter holding, transmittal byte.
+fieldset/RBR:
+  description: UART receiver buffer, receiving byte.
   bit_size: 8
   fields:
-  - name: RBR_THR
-    description: UART receiver buffer, receiving byte_ UART transmitter holding, transmittal byte.
+  - name: RBR
+    description: UART receiver buffer, receiving byte.
+    bit_offset: 0
+    bit_size: 8
+fieldset/THR:
+  description: UART transmitter holding, transmittal byte.
+  bit_size: 8
+  fields:
+  - name: THR
+    description: UART transmitter holding, transmittal byte.
     bit_offset: 0
     bit_size: 8
 

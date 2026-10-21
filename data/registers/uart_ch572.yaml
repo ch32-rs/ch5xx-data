@@ -155,8 +155,12 @@ fieldset/LCR:
     description: RW, UART break control enable.
     bit_offset: 6
     bit_size: 1
-  - name: LCR_GP_BIT__LCR_DLAB
-    description: RW, UART general purpose bit;RW, UART reserved bit.
+  - name: LCR_GP_BIT
+    description: RW, UART general purpose bit.
+    bit_offset: 7
+    bit_size: 1
+  - name: LCR_DLAB
+    description: RW, UART divisor latch access bit.
     bit_offset: 7
     bit_size: 1
 fieldset/LSR:
@@ -199,8 +203,12 @@ fieldset/MCR:
   description: RW, UART modem control.
   bit_size: 8
   fields:
-  - name: MCR_OUT2__MCR_INT_OE
-    description: RW, UART control OUT2/UART interrupt output enable.
+  - name: MCR_OUT2
+    description: RW, UART control OUT2.
+    bit_offset: 3
+    bit_size: 1
+  - name: MCR_INT_OE
+    description: RW, UART interrupt output enable.
     bit_offset: 3
     bit_size: 1
 fieldset/RBR:

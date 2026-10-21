@@ -1,23 +1,49 @@
 block/UART_FULL:
   description: UART_FULL register.
   items:
-  - name: RBR_THR_DLL
-    description: UART_FULL receiver buffer, receiving byte / UART_FULL transmitter holding,. transmittal byte/DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
+  # 0x00: RBR (read) / THR (write) / DLL (when LCR.DLAB=1). The vendor SVD packs
+  # all three into one name; split so each function gets its own accessor.
+  - name: RBR
+    description: UART_FULL receiver buffer, receiving byte.
     byte_offset: 0
     access: Read
     bit_size: 8
-    fieldset: RBR_THR_DLL
-  - name: IER__DLM
-    description: UART_FULL interrupt enable/baud rate divisor register,. DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
+    fieldset: RBR
+  - name: THR
+    description: UART_FULL transmitter holding, transmittal byte.
+    byte_offset: 0
+    access: Write
+    bit_size: 8
+    fieldset: THR
+  - name: DLL
+    description: UART_FULL divisor latch low byte, visible when LCR.DLAB=1.
+    byte_offset: 0
+    bit_size: 8
+    fieldset: DLL
+  # 0x01: IER / DLM (when LCR.DLAB=1).
+  - name: IER
+    description: UART_FULL interrupt enable.
     byte_offset: 1
     bit_size: 8
-    fieldset: IER__DLM
-  - name: IIR_FCR
-    description: UART_FULL interrupt identification/FIFO control register.
+    fieldset: IER
+  - name: DLM
+    description: UART_FULL divisor latch high byte, visible when LCR.DLAB=1.
+    byte_offset: 1
+    bit_size: 8
+    fieldset: DLM
+  # 0x02: IIR (read) / FCR (write).
+  - name: IIR
+    description: UART_FULL interrupt identification.
     byte_offset: 2
     access: Read
     bit_size: 8
-    fieldset: IIR_FCR
+    fieldset: IIR
+  - name: FCR
+    description: UART_FULL FIFO control.
+    byte_offset: 2
+    access: Write
+    bit_size: 8
+    fieldset: FCR
   - name: LCR
     description: UART_FULL line control.
     byte_offset: 3
@@ -187,64 +213,84 @@ fieldset/DMA_IF:
     description: DMA transfer error flag while sending data.
     bit_offset: 3
     bit_size: 1
-fieldset/IER__DLM:
-  description: UART_FULL interrupt enable/baud rate divisor register,. DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
+fieldset/IER:
+  description: UART_FULL interrupt enable.
   bit_size: 8
   fields:
-  - name: IER_RECV_RDY_UART_FULL_DLM
+  - name: IER_RECV_RDY
     description: UART interrupt enable for receiver data ready.
     bit_offset: 0
     bit_size: 1
-  - name: IER_THR_EMPTY_UART_FULL_DLM
+  - name: IER_THR_EMPTY
     description: UART interrupt enable for THR empty.
     bit_offset: 1
     bit_size: 1
-  - name: IER_LINE_STAT_UART_FULL_DLM
+  - name: IER_LINE_STAT
     description: UART interrupt enable for receiver line status.
     bit_offset: 2
     bit_size: 1
-  - name: IER_MODEM_CHG_UART_FULL_DLM
+  - name: IER_MODEM_CHG
     description: UART_FULL interrupt enable for modem status change.
     bit_offset: 3
     bit_size: 1
-  - name: IER_MODEM_IO_UART_FULL_DLM
+  - name: IER_MODEM_IO
     description: serial modem MODEM signal pin selection bit.
     bit_offset: 4
     bit_size: 1
-  - name: IER_MOUT_EN_UART_FULL_DLM
+  - name: IER_MOUT_EN
     description: UART_FULL RTS/DTR output pin enable.
     bit_offset: 5
     bit_size: 1
-  - name: IER_TXD_EN_UART_FULL_DLM
+  - name: IER_TXD_EN
     description: UART TXD pin enable.
     bit_offset: 6
     bit_size: 1
-  - name: IER_RESET_UART_FULL_DLM
+  - name: IER_RESET
     description: UART software reset control, high action, auto clear.
     bit_offset: 7
     bit_size: 1
-fieldset/IIR_FCR:
-  description: UART_FULL interrupt identification/FIFO control register.
+fieldset/DLM:
+  description: UART_FULL divisor latch high byte, visible when LCR.DLAB=1.
   bit_size: 8
   fields:
-  - name: IIR_NO_INT_RB_FCR_FIFO_EN
-    description: UART interrupt status flag/FIFO enable bit.
+  - name: DLM
+    description: UART divisor latch high byte.
     bit_offset: 0
-    bit_size: 1
-  - name: IIR_INT_MASK_RB_FCR_RX_FIFO_CLR
-    description: UART interrupt flag bit mask/clear UART receiver FIFO, high. action, auto clear.
-    bit_offset: 1
-    bit_size: 1
-  - name: IIR_INT_MASK_RB_FCR_TX_FIFO_CLR
-    description: UART interrupt flag bit mask/clear UART transmitter FIFO,. high action, auto clear.
-    bit_offset: 2
+    bit_size: 8
+fieldset/IIR:
+  description: UART_FULL interrupt identification (read).
+  bit_size: 8
+  fields:
+  - name: IIR_NO_INT
+    description: 'UART interrupt status flag: 0=interrupt action, 1=no interrupt.'
+    bit_offset: 0
     bit_size: 1
   - name: IIR_INT_MASK
     description: UART interrupt flag bit mask.
-    bit_offset: 3
+    bit_offset: 1
+    bit_size: 3
+  - name: IIR_FIFO_EN
+    description: UART FIFO enabled flag.
+    bit_offset: 6
+    bit_size: 2
+fieldset/FCR:
+  description: UART_FULL FIFO control (write).
+  bit_size: 8
+  fields:
+  - name: FCR_FIFO_EN
+    description: UART FIFO enable bit.
+    bit_offset: 0
     bit_size: 1
-  - name: IIR_FIFO_EN_RB_FCR_FIFO_TRIG
-    description: UART FIFO enabled flag/UART receiver FIFO trigger level.
+  - name: FCR_RX_FIFO_CLR
+    description: clear UART receiver FIFO, high action, auto clear.
+    bit_offset: 1
+    bit_size: 1
+  - name: FCR_TX_FIFO_CLR
+    description: clear UART transmitter FIFO, high action, auto clear.
+    bit_offset: 2
+    bit_size: 1
+  - name: FCR_FIFO_TRIG
+    description: UART receiver FIFO trigger level.
     bit_offset: 6
     bit_size: 2
 fieldset/LCR:
@@ -379,11 +425,27 @@ fieldset/MSR:
     description: UART_FULL DCD action status.
     bit_offset: 7
     bit_size: 1
-fieldset/RBR_THR_DLL:
-  description: UART_FULL receiver buffer, receiving byte / UART_FULL transmitter holding,. transmittal byte/DLL is low-byte,DLM is high-byte,together they from the baud rate divisor register.
+fieldset/RBR:
+  description: UART_FULL receiver buffer, receiving byte.
   bit_size: 8
   fields:
-  - name: RBR__THR_DLL
-    description: UART receiver buffer, receiving byte. / UART transmitter holding, transmittal byte.
+  - name: RBR
+    description: UART receiver buffer, receiving byte.
+    bit_offset: 0
+    bit_size: 8
+fieldset/THR:
+  description: UART_FULL transmitter holding, transmittal byte.
+  bit_size: 8
+  fields:
+  - name: THR
+    description: UART transmitter holding, transmittal byte.
+    bit_offset: 0
+    bit_size: 8
+fieldset/DLL:
+  description: UART_FULL divisor latch low byte, visible when LCR.DLAB=1.
+  bit_size: 8
+  fields:
+  - name: DLL
+    description: UART divisor latch low byte.
     bit_offset: 0
     bit_size: 8

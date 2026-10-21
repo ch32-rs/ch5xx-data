@@ -18,11 +18,16 @@ block/SPI_FULL:
     byte_offset: 2
     bit_size: 8
     fieldset: INTER_EN
-  - name: CLOCK_DIV_SLAVE_PRE
-    description: SPI_FULL master clock divisor_ SPI_FULL slave preset value.
+  - name: CLOCK_DIV
+    description: SPI_FULL master clock divisor.
     byte_offset: 3
     bit_size: 8
-    fieldset: CLOCK_DIV_SLAVE_PRE
+    fieldset: CLOCK_DIV
+  - name: SLAVE_PRE
+    description: SPI_FULL slave preset value.
+    byte_offset: 3
+    bit_size: 8
+    fieldset: SLAVE_PRE
   - name: BUFFER
     description: SPI_FULL data buffer.
     byte_offset: 4
@@ -109,12 +114,20 @@ fieldset/BUFFER:
     description: SPI data buffer.
     bit_offset: 0
     bit_size: 8
-fieldset/CLOCK_DIV_SLAVE_PRE:
-  description: SPI_FULL master clock divisor_ SPI_FULL slave preset value.
+fieldset/CLOCK_DIV:
+  description: SPI_FULL master clock divisor.
   bit_size: 8
   fields:
-  - name: CLOCK_DIV_SLAVE_PRE
-    description: master clock divisor _ SPI_FULL slave preset value.
+  - name: CLOCK_DIV
+    description: master clock divisor.
+    bit_offset: 0
+    bit_size: 8
+fieldset/SLAVE_PRE:
+  description: SPI_FULL slave preset value.
+  bit_size: 8
+  fields:
+  - name: SLAVE_PRE
+    description: slave preset value.
     bit_offset: 0
     bit_size: 8
 fieldset/CTRL_CFG:

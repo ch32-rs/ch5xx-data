@@ -60,7 +60,7 @@ fieldset/CKCFGR:
     description: 'RW, Fm mode duty cycle: 0=L/H=2, 1=L/H=16/9.'
     bit_offset: 14
     bit_size: 1
-  - name: I2C_F__S
+  - name: I2C_F_S
     description: 'RW, I2C master mode selection: 0=standard mode, 1=fast mode.'
     bit_offset: 15
     bit_size: 1

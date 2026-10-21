@@ -308,8 +308,12 @@ fieldset/BAT_DET_CTRL:
   description: RWA, battery voltage detector control, SAM.
   bit_size: 8
   fields:
-  - name: BAT_DET_EN__BAT_LOW_VTHX
-    description: RWA, battery voltage detector enable/select monitor threshold voltage.
+  - name: BAT_DET_EN
+    description: RWA, battery voltage detector enable; used when BAT_MON_EN=0.
+    bit_offset: 0
+    bit_size: 1
+  - name: BAT_LOW_VTHX
+    description: RWA, low-power battery monitor threshold MSB; used when BAT_MON_EN=1.
     bit_offset: 0
     bit_size: 1
   - name: BAT_MON_EN
