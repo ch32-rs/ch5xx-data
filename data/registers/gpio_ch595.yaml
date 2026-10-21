@@ -68,8 +68,9 @@ block/GPIO:
     byte_offset: 180
     fieldset: PA_PD_DRV
   - name: PA_SET
-    description: RW, PA port output set register.
+    description: WZ, PA port output set register.
     byte_offset: 184
+    access: Write
     fieldset: PA_SET
   - name: PB_DIR
     description: 'RW, GPIO PB I/O direction: 0=in, 1=out.'
@@ -87,6 +88,7 @@ block/GPIO:
   - name: PB_CLR
     description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
     byte_offset: 204
+    access: Write
     fieldset: PB_CLR
   - name: PB_PU
     description: RW, GPIO PB pullup resistance enable.
@@ -97,8 +99,9 @@ block/GPIO:
     byte_offset: 212
     fieldset: PB_PD_DRV
   - name: PB_SET
-    description: RW, PB port output set register.
+    description: WZ, PB port output set register.
     byte_offset: 216
+    access: Write
     fieldset: PB_SET
 fieldset/PA_INT_EDGE_TYPE:
   description: RW, PA port interrupt edge type configuration register.
@@ -227,18 +230,18 @@ fieldset/PA_PU:
     bit_offset: 0
     bit_size: 8
   - name: PA_PU_1
-    description: GPIO PA pullup resistance enable byte 0.
+    description: GPIO PA pullup resistance enable byte 1.
     bit_offset: 8
     bit_size: 8
 fieldset/PA_SET:
   description: RW, PA port output set register.
   fields:
   - name: PA_SET_0
-    description: When the corresponding bit of the set register R3_2PA_SET is 0, the output of the PA pin remains unchanged; When it is 1, the PA pin outputs a high level.
+    description: When the corresponding bit of the set register PA_SET is 0, the PA pin output remains unchanged; when it is 1, the PA pin outputs a high level.
     bit_offset: 0
     bit_size: 8
   - name: PA_SET_1
-    description: When the corresponding bit of the set register R3_2PA_SET is 0, the output of the PA pin remains unchanged; When it is 1, the PA pin outputs a high level.
+    description: When the corresponding bit of the set register PA_SET is 0, the PA pin output remains unchanged; when it is 1, the PA pin outputs a high level.
     bit_offset: 8
     bit_size: 8
 fieldset/PB_CLR:
@@ -335,14 +338,14 @@ fieldset/PB_SET:
   description: RW, PB port output set register.
   fields:
   - name: PB_SET_0
-    description: When the corresponding bit of the set register R3_2PA_SET is 0, the output of the PA pin remains unchanged; When it is 1, the PA pin outputs a high level.
+    description: When the corresponding bit of the set register PB_SET is 0, the PB pin output remains unchanged; when it is 1, the PB pin outputs a high level.
     bit_offset: 0
     bit_size: 8
   - name: PB_SET_1
-    description: When the corresponding bit of the set register R3_2PA_SET is 0, the output of the PA pin remains unchanged; When it is 1, the PA pin outputs a high level.
+    description: When the corresponding bit of the set register PB_SET is 0, the PB pin output remains unchanged; when it is 1, the PB pin outputs a high level.
     bit_offset: 8
     bit_size: 8
   - name: PB_SET_2
-    description: When the corresponding bit of the set register R3_2PA_SET is 0, the output of the PA pin remains unchanged; When it is 1, the PA pin outputs a high level.
+    description: When the corresponding bit of the set register PB_SET is 0, the PB pin output remains unchanged; when it is 1, the PB pin outputs a high level.
     bit_offset: 16
     bit_size: 8

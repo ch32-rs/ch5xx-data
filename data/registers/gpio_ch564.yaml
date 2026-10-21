@@ -65,7 +65,7 @@ block/GPIO:
   - name: PA_CLR
     description: GPIO PA clear output.
     byte_offset: 140
-    access: Read
+    access: Write
     fieldset: PA_CLR
   - name: PA_PU
     description: GPIO PA pullup resistance enable.
@@ -91,7 +91,7 @@ block/GPIO:
   - name: PB_CLR
     description: GPIO PB clear output.
     byte_offset: 172
-    access: Read
+    access: Write
     fieldset: PB_CLR
   - name: PB_PU
     description: GPIO PB pullup resistance enable.
