@@ -21,6 +21,18 @@ block/GPIO:
     byte_offset: 150
     bit_size: 16
     fieldset: R16_PB_INT_MODE
+  # CH592/CH591 DS v1.9 (Chinese), GPIO tables (pp. 42, 45), and SDK CH592SFR.h.
+  # These edge-type registers are missing from the older MounRiver CH59X SVD.
+  - name: R16_PA_INT_EDGE_TYPE
+    description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+    byte_offset: 152
+    bit_size: 16
+    fieldset: R16_PA_INT_EDGE_TYPE
+  - name: R16_PB_INT_EDGE_TYPE
+    description: 'RW, GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+    byte_offset: 154
+    bit_size: 16
+    fieldset: R16_PB_INT_EDGE_TYPE
   - name: R16_PA_INT_IF
     description: RW1, GPIO PA interrupt flag.
     byte_offset: 156
@@ -82,6 +94,14 @@ block/GPIO:
     description: RW, PB pulldown for input or PB driving capability for output.
     byte_offset: 212
     fieldset: R32_PB_PD_DRV
+fieldset/R16_PA_INT_EDGE_TYPE:
+  description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+  bit_size: 16
+  fields:
+  - name: R16_PA_INT_EDGE_TYPE
+    description: 'GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+    bit_offset: 0
+    bit_size: 16
 fieldset/R16_PA_INT_EN:
   description: RW, GPIO PA interrupt enable.
   bit_size: 16
@@ -104,6 +124,14 @@ fieldset/R16_PA_INT_MODE:
   fields:
   - name: R16_PA_INT_MODE
     description: GPIO PA interrupt mode.
+    bit_offset: 0
+    bit_size: 16
+fieldset/R16_PB_INT_EDGE_TYPE:
+  description: 'RW, GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+  bit_size: 16
+  fields:
+  - name: R16_PB_INT_EDGE_TYPE
+    description: 'GPIO PB interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
     bit_offset: 0
     bit_size: 16
 fieldset/R16_PB_INT_EN:
