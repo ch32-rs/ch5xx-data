@@ -131,9 +131,9 @@
 - name: USB2
   address: 0x40008400
   registers:
-    kind: usb2
+    kind: usb
     version: ch583
-    block: USB2
+    block: USB
 
 # Placeholder: the vendor SVD lists BLE at this address but gives it no
 # registers, so there is nothing to generate yet. Kept so the base address
