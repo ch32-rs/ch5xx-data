@@ -1,59 +1,59 @@
 block/Systick:
   description: Systick register.
   items:
-  - name: R32_STK_CTLR
+  - name: STK_CTLR
     description: Systick counter control register.
     byte_offset: 0
-    fieldset: R32_STK_CTLR
-  - name: R32_STK_SR
+    fieldset: STK_CTLR
+  - name: STK_SR
     description: Systick count status register.
     byte_offset: 4
-    fieldset: R32_STK_SR
-  - name: R32_STK_CNTL
+    fieldset: STK_SR
+  - name: STK_CNTL
     description: Systick counter low register.
     byte_offset: 8
-    fieldset: R32_STK_CNTL
-  - name: R32_STK_CNTH
+    fieldset: STK_CNTL
+  - name: STK_CNTH
     description: Systick counter high register.
     byte_offset: 12
-    fieldset: R32_STK_CNTH
-  - name: R32_STK_CMPLR
+    fieldset: STK_CNTH
+  - name: STK_CMPLR
     description: Systick compare low register.
     byte_offset: 16
-    fieldset: R32_STK_CMPLR
-  - name: R32_STK_CMPHR
+    fieldset: STK_CMPLR
+  - name: STK_CMPHR
     description: Systick compare high register.
     byte_offset: 20
-    fieldset: R32_STK_CMPHR
-fieldset/R32_STK_CMPHR:
+    fieldset: STK_CMPHR
+fieldset/STK_CMPHR:
   description: Systick compare high register.
   fields:
   - name: CMPH
     description: RW,CMPH.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_STK_CMPLR:
+fieldset/STK_CMPLR:
   description: Systick compare low register.
   fields:
   - name: CMPL
     description: RW,CMPL.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_STK_CNTH:
+fieldset/STK_CNTH:
   description: Systick counter high register.
   fields:
   - name: CNTH
     description: RW,CNTH.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_STK_CNTL:
+fieldset/STK_CNTL:
   description: Systick counter low register.
   fields:
   - name: CNTL
     description: RW,CNTL.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_STK_CTLR:
+fieldset/STK_CTLR:
   description: Systick counter control register.
   fields:
   - name: STE
@@ -84,7 +84,7 @@ fieldset/R32_STK_CTLR:
     description: RW0,System soft interrupt enable.
     bit_offset: 31
     bit_size: 1
-fieldset/R32_STK_SR:
+fieldset/STK_SR:
   description: Systick count status register.
   fields:
   - name: CNTIF

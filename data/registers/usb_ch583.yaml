@@ -1,264 +1,264 @@
 block/USB:
   description: USB register.
   items:
-  - name: R8_USB_CTRL
+  - name: CTRL
     description: USB base control.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_USB_CTRL
-  - name: R8_UDEV_CTRL__UHOST_CTRL
+    fieldset: CTRL
+  - name: UDEV_CTRL__UHOST_CTRL
     description: USB device physical prot control.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_UDEV_CTRL__UHOST_CTRL
-  - name: R8_USB_INT_EN
+    fieldset: UDEV_CTRL__UHOST_CTRL
+  - name: INT_EN
     description: USB interrupt enable.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_USB_INT_EN
-  - name: R8_USB_DEV_AD
+    fieldset: INT_EN
+  - name: DEV_AD
     description: USB device address.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_USB_DEV_AD
-  - name: R8_USB_MIS_ST
+    fieldset: DEV_AD
+  - name: MIS_ST
     description: USB miscellaneous status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_USB_MIS_ST
-  - name: R8_USB_INT_FG
+    fieldset: MIS_ST
+  - name: INT_FG
     description: USB interrupt flag.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_USB_INT_FG
-  - name: R8_USB_INT_ST
+    fieldset: INT_FG
+  - name: INT_ST
     description: USB interrupt status.
     byte_offset: 7
     access: Read
     bit_size: 8
-    fieldset: R8_USB_INT_ST
-  - name: R8_USB_RX_LEN
+    fieldset: INT_ST
+  - name: RX_LEN
     description: USB receiving length.
     byte_offset: 8
     access: Read
     bit_size: 8
-    fieldset: R8_USB_RX_LEN
-  - name: R8_UEP4_1_MOD
+    fieldset: RX_LEN
+  - name: UEP4_1_MOD
     description: endpoint 4/1 mode.
     byte_offset: 12
     bit_size: 8
-    fieldset: R8_UEP4_1_MOD
-  - name: R8_UEP2_3_MOD__UH_EP_MOD
+    fieldset: UEP4_1_MOD
+  - name: UEP2_3_MOD__UH_EP_MOD
     description: endpoint 2_3 mode;host endpoint mode.
     byte_offset: 13
     bit_size: 8
-    fieldset: R8_UEP2_3_MOD__UH_EP_MOD
-  - name: R8_UEP567_MOD
+    fieldset: UEP2_3_MOD__UH_EP_MOD
+  - name: UEP567_MOD
     description: endpoint 5/6/7 mode.
     byte_offset: 14
     bit_size: 8
-    fieldset: R8_UEP567_MOD
-  - name: R16_UEP0_DMA
+    fieldset: UEP567_MOD
+  - name: UEP0_DMA
     description: endpoint 0 DMA buffer address.
     byte_offset: 16
     bit_size: 16
-    fieldset: R16_UEP0_DMA
-  - name: R16_UEP1_DMA
+    fieldset: UEP0_DMA
+  - name: UEP1_DMA
     description: endpoint 1 DMA buffer address.
     byte_offset: 20
     bit_size: 16
-    fieldset: R16_UEP1_DMA
-  - name: R16_UEP2_DMA__UH_RX_DMA
+    fieldset: UEP1_DMA
+  - name: UEP2_DMA__UH_RX_DMA
     description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
     byte_offset: 24
     bit_size: 16
-    fieldset: R16_UEP2_DMA__UH_RX_DMA
-  - name: R16_UEP3_DMA__UH_TX_DMA
+    fieldset: UEP2_DMA__UH_RX_DMA
+  - name: UEP3_DMA__UH_TX_DMA
     description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
     byte_offset: 28
     bit_size: 16
-    fieldset: R16_UEP3_DMA__UH_TX_DMA
-  - name: R8_UEP0_T_LEN
+    fieldset: UEP3_DMA__UH_TX_DMA
+  - name: UEP0_T_LEN
     description: endpoint 0 transmittal length.
     byte_offset: 32
     bit_size: 8
-    fieldset: R8_UEP0_T_LEN
-  - name: R8_UEP0_CTRL
+    fieldset: UEP0_T_LEN
+  - name: UEP0_CTRL
     description: endpoint 0 control.
     byte_offset: 34
     bit_size: 8
-    fieldset: R8_UEP0_CTRL
-  - name: R8_UEP1_T_LEN
+    fieldset: UEP0_CTRL
+  - name: UEP1_T_LEN
     description: endpoint 1 transmittal length.
     byte_offset: 36
     bit_size: 8
-    fieldset: R8_UEP1_T_LEN
-  - name: R8_UEP1_CTRL__UH_SETUP
+    fieldset: UEP1_T_LEN
+  - name: UEP1_CTRL__UH_SETUP
     description: endpoint 1 control;host aux setup.
     byte_offset: 38
     bit_size: 8
-    fieldset: R8_UEP1_CTRL__UH_SETUP
-  - name: R8_UEP2_T_LEN_R8_UH_EP_PID
+    fieldset: UEP1_CTRL__UH_SETUP
+  - name: UEP2_T_LEN_UH_EP_PID
     description: endpoint 2 transmittal length;host endpoint and PID.
     byte_offset: 40
     bit_size: 8
-    fieldset: R8_UEP2_T_LEN_R8_UH_EP_PID
-  - name: R8_UEP2_CTRL_R8_UH_RX_CTRL
+    fieldset: UEP2_T_LEN_UH_EP_PID
+  - name: UEP2_CTRL_UH_RX_CTRL
     description: endpoint 2 control;host receiver endpoint control.
     byte_offset: 42
     bit_size: 8
-    fieldset: R8_UEP2_CTRL_R8_UH_RX_CTRL
-  - name: R8_UEP3_T_LEN__UH_TX_LEN
+    fieldset: UEP2_CTRL_UH_RX_CTRL
+  - name: UEP3_T_LEN__UH_TX_LEN
     description: endpoint 3 transmittal length;host transmittal endpoint transmittal length.
     byte_offset: 44
     bit_size: 8
-    fieldset: R8_UEP3_T_LEN__UH_TX_LEN
-  - name: R8_UEP3_CTRL__UH_TX_CTRL
+    fieldset: UEP3_T_LEN__UH_TX_LEN
+  - name: UEP3_CTRL__UH_TX_CTRL
     description: endpoint 3 control;host transmittal endpoint control.
     byte_offset: 46
     bit_size: 8
-    fieldset: R8_UEP3_CTRL__UH_TX_CTRL
-  - name: R8_UEP4_T_LEN
+    fieldset: UEP3_CTRL__UH_TX_CTRL
+  - name: UEP4_T_LEN
     description: endpoint 4 transmittal length.
     byte_offset: 48
     bit_size: 8
-    fieldset: R8_UEP4_T_LEN
-  - name: R8_UEP4_CTRL
+    fieldset: UEP4_T_LEN
+  - name: UEP4_CTRL
     description: endpoint 4 control.
     byte_offset: 50
     bit_size: 8
-    fieldset: R8_UEP4_CTRL
-  - name: R16_UEP5_DMA
+    fieldset: UEP4_CTRL
+  - name: UEP5_DMA
     description: endpoint 5 DMA buffer address.
     byte_offset: 84
     bit_size: 16
-    fieldset: R16_UEP5_DMA
-  - name: R16_UEP6_DMA
+    fieldset: UEP5_DMA
+  - name: UEP6_DMA
     description: endpoint 6 DMA buffer address.
     byte_offset: 88
     bit_size: 16
-    fieldset: R16_UEP6_DMA
-  - name: R16_UEP7_DMA
+    fieldset: UEP6_DMA
+  - name: UEP7_DMA
     description: endpoint 7 DMA buffer address.
     byte_offset: 92
     bit_size: 16
-    fieldset: R16_UEP7_DMA
-  - name: R8_UEP5_T_LEN
+    fieldset: UEP7_DMA
+  - name: UEP5_T_LEN
     description: endpoint 5 transmittal length.
     byte_offset: 100
     bit_size: 8
-    fieldset: R8_UEP5_T_LEN
-  - name: R8_UEP5_CTRL
+    fieldset: UEP5_T_LEN
+  - name: UEP5_CTRL
     description: endpoint 5 control.
     byte_offset: 102
     bit_size: 8
-    fieldset: R8_UEP5_CTRL
-  - name: R8_UEP6_T_LEN
+    fieldset: UEP5_CTRL
+  - name: UEP6_T_LEN
     description: endpoint 6 transmittal length.
     byte_offset: 104
     bit_size: 8
-    fieldset: R8_UEP6_T_LEN
-  - name: R8_UEP6_CTRL
+    fieldset: UEP6_T_LEN
+  - name: UEP6_CTRL
     description: endpoint 6 control.
     byte_offset: 106
     bit_size: 8
-    fieldset: R8_UEP6_CTRL
-  - name: R8_UEP7_T_LEN
+    fieldset: UEP6_CTRL
+  - name: UEP7_T_LEN
     description: endpoint 7 transmittal length.
     byte_offset: 108
     bit_size: 8
-    fieldset: R8_UEP7_T_LEN
-  - name: R8_UEP7_CTRL
+    fieldset: UEP7_T_LEN
+  - name: UEP7_CTRL
     description: endpoint 7 control.
     byte_offset: 110
     bit_size: 8
-    fieldset: R8_UEP7_CTRL
-fieldset/R16_UEP0_DMA:
+    fieldset: UEP7_CTRL
+fieldset/UEP0_DMA:
   description: endpoint 0 DMA buffer address.
   bit_size: 16
   fields:
-  - name: R16_UEP0_DMA
+  - name: UEP0_DMA
     description: RW,endpoint 0 DMA buffer address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP1_DMA:
+fieldset/UEP1_DMA:
   description: endpoint 1 DMA buffer address.
   bit_size: 16
   fields:
-  - name: R16_UEP1_DMA
+  - name: UEP1_DMA
     description: RW,endpoint 1 DMA buffer address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP2_DMA__UH_RX_DMA:
+fieldset/UEP2_DMA__UH_RX_DMA:
   description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
   bit_size: 16
   fields:
-  - name: R16_UEP2_DMA
+  - name: UEP2_DMA
     description: RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP3_DMA__UH_TX_DMA:
+fieldset/UEP3_DMA__UH_TX_DMA:
   description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
   bit_size: 16
   fields:
-  - name: R16_UEP3_DMA
+  - name: UEP3_DMA
     description: RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP5_DMA:
+fieldset/UEP5_DMA:
   description: endpoint 5 DMA buffer address.
   bit_size: 16
   fields:
-  - name: R16_UEP5_DMA
+  - name: UEP5_DMA
     description: RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP6_DMA:
+fieldset/UEP6_DMA:
   description: endpoint 6 DMA buffer address.
   bit_size: 16
   fields:
-  - name: R16_UEP6_DMA
+  - name: UEP6_DMA
     description: RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_UEP7_DMA:
+fieldset/UEP7_DMA:
   description: endpoint 7 DMA buffer address.
   bit_size: 16
   fields:
-  - name: R16_UEP7_DMA
+  - name: UEP7_DMA
     description: RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
     bit_size: 16
-fieldset/R8_UDEV_CTRL__UHOST_CTRL:
+fieldset/UDEV_CTRL__UHOST_CTRL:
   description: USB device physical prot control.
   bit_size: 8
   fields:
-  - name: RB_UD_PORT_EN__UH_PORT_EN
+  - name: UD_PORT_EN__UH_PORT_EN
     description: 'enable USB physical port I-O: 0=disable, 1=enable;enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached.'
     bit_offset: 0
     bit_size: 1
-  - name: RB_UD_GP_BIT__UH_BUS_RESET
+  - name: UD_GP_BIT__UH_BUS_RESET
     description: 'general purpose bit;control USB bus reset: 0=normal, 1=force bus reset.'
     bit_offset: 1
     bit_size: 1
-  - name: RB_UD_LOW_SPEED__UH_LOW_SPEED
+  - name: UD_LOW_SPEED__UH_LOW_SPEED
     description: 'enable USB physical port low speed: 0=full speed, 1=low speed;enable USB port low speed: 0=full speed, 1=low speed.'
     bit_offset: 2
     bit_size: 1
-  - name: RB_UD_DM_PIN__UH_DM_PIN
+  - name: UD_DM_PIN__UH_DM_PIN
     description: 'ReadOnly: indicate current UDM pin level.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UD_DP_PIN__UH_DP_PIN
+  - name: UD_DP_PIN__UH_DP_PIN
     description: 'ReadOnly: indicate current UDP pin level.'
     bit_offset: 5
     bit_size: 1
-  - name: RB_UD_PD_DIS__UH_PD_DIS
+  - name: UD_PD_DIS__UH_PD_DIS
     description: 'disable USB UDP-UDM pulldown resistance: 0=enable pulldown, 1=disable.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP0_CTRL:
+fieldset/UEP0_CTRL:
   description: endpoint 0 control.
   bit_size: 8
   fields:
@@ -270,27 +270,27 @@ fieldset/R8_UEP0_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP0_T_LEN:
+fieldset/UEP0_T_LEN:
   description: endpoint 0 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP0_T_LEN
+  - name: UEP0_T_LEN
     description: endpoint 0 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP1_CTRL__UH_SETUP:
+fieldset/UEP1_CTRL__UH_SETUP:
   description: endpoint 1 control;host aux setup.
   bit_size: 8
   fields:
@@ -302,55 +302,55 @@ fieldset/R8_UEP1_CTRL__UH_SETUP:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG__UH_SOF_EN
+  - name: UEP_T_TOG__UH_SOF_EN
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1;USB host automatic SOF enable.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG__UH_PRE_PID_EN
+  - name: UEP_R_TOG__UH_PRE_PID_EN
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;RB_UH_PRE_PID_EN;USB host PRE PID enable for low speed device via hub.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP1_T_LEN:
+fieldset/UEP1_T_LEN:
   description: endpoint 1 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP1_T_LEN
+  - name: UEP1_T_LEN
     description: endpoint 1 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP2_3_MOD__UH_EP_MOD:
+fieldset/UEP2_3_MOD__UH_EP_MOD:
   description: endpoint 2_3 mode;host endpoint mode.
   bit_size: 8
   fields:
-  - name: RB_UEP2_BUF_MOD__UH_EP_RBUF_MOD
+  - name: UEP2_BUF_MOD__UH_EP_RBUF_MOD
     description: buffer mode of USB endpoint 2;buffer mode of USB host IN endpoint.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UEP2_TX_EN
+  - name: UEP2_TX_EN
     description: enable USB endpoint 2 transmittal (IN).
     bit_offset: 2
     bit_size: 1
-  - name: RB_UEP2_RX_EN__UH_EP_RX_EN
+  - name: UEP2_RX_EN__UH_EP_RX_EN
     description: enable USB endpoint 2 receiving (OUT);enable USB host IN endpoint receiving.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UEP3_BUF_MOD__UH_EP_TBUF_MOD
+  - name: UEP3_BUF_MOD__UH_EP_TBUF_MOD
     description: buffer mode of USB endpoint 3;buffer mode of USB host OUT endpoint.
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP3_TX_EN__UH_EP_TX_EN
+  - name: UEP3_TX_EN__UH_EP_TX_EN
     description: enable USB endpoint 3 transmittal (IN);enable USB host OUT endpoint transmittal.
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP3_RX_EN
+  - name: UEP3_RX_EN
     description: enable USB endpoint 3 receiving (OUT).
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP2_CTRL_R8_UH_RX_CTRL:
+fieldset/UEP2_CTRL_UH_RX_CTRL:
   description: endpoint 2 control;host receiver endpoint control.
   bit_size: 8
   fields:
@@ -366,19 +366,19 @@ fieldset/R8_UEP2_CTRL_R8_UH_RX_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 1
-  - name: RB_UEP_AUTO_TOG__UH_R_AUTO_TOG
+  - name: UEP_AUTO_TOG__UH_R_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle;enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG__UH_R_TOG
+  - name: UEP_R_TOG__UH_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;expected data toggle flag of host receiving (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP2_T_LEN_R8_UH_EP_PID:
+fieldset/UEP2_T_LEN_UH_EP_PID:
   description: endpoint 2 transmittal length;host endpoint and PID.
   bit_size: 8
   fields:
@@ -386,7 +386,7 @@ fieldset/R8_UEP2_T_LEN_R8_UH_EP_PID:
     description: bit mask of endpoint number for USB host transfer.
     bit_offset: 0
     bit_size: 4
-  - name: R8_UEP2_T_LEN
+  - name: UEP2_T_LEN
     description: endpoint 2 transmittal length;.
     bit_offset: 0
     bit_size: 8
@@ -394,7 +394,7 @@ fieldset/R8_UEP2_T_LEN_R8_UH_EP_PID:
     description: bit mask of token PID for USB host transfer.
     bit_offset: 4
     bit_size: 4
-fieldset/R8_UEP3_CTRL__UH_TX_CTRL:
+fieldset/UEP3_CTRL__UH_TX_CTRL:
   description: endpoint 3 control;host transmittal endpoint control.
   bit_size: 8
   fields:
@@ -402,7 +402,7 @@ fieldset/R8_UEP3_CTRL__UH_TX_CTRL:
     description: bit mask of handshake response type for USB endpoint X transmittal (IN).
     bit_offset: 0
     bit_size: 2
-  - name: RB_UH_T_RES
+  - name: UH_T_RES
     description: bit mask of handshake response type for USB endpoint X transmittal (IN).
     bit_offset: 0
     bit_size: 2
@@ -410,51 +410,51 @@ fieldset/R8_UEP3_CTRL__UH_TX_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG_RB_UH_T_AUTO_TOG
+  - name: UEP_AUTO_TOG_RB_UH_T_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG_RB_UH_T_TOG
+  - name: UEP_T_TOG_RB_UH_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP3_T_LEN__UH_TX_LEN:
+fieldset/UEP3_T_LEN__UH_TX_LEN:
   description: endpoint 3 transmittal length;host transmittal endpoint transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP3_T_LEN__UH_TX_LEN
+  - name: UEP3_T_LEN__UH_TX_LEN
     description: endpoint 1 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP4_1_MOD:
+fieldset/UEP4_1_MOD:
   description: endpoint 4/1 mode.
   bit_size: 8
   fields:
-  - name: RB_UEP4_TX_EN
+  - name: UEP4_TX_EN
     description: enable USB endpoint 4 transmittal (IN).
     bit_offset: 2
     bit_size: 1
-  - name: RB_UEP4_RX_EN
+  - name: UEP4_RX_EN
     description: enable USB endpoint 4 receiving (OUT).
     bit_offset: 3
     bit_size: 1
-  - name: RB_UEP1_BUF_MOD
+  - name: UEP1_BUF_MOD
     description: buffer mode of USB endpoint 1.
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP1_TX_EN
+  - name: UEP1_TX_EN
     description: enable USB endpoint 1 transmittal (IN).
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP1_RX_EN
+  - name: UEP1_RX_EN
     description: enable USB endpoint 1 receiving (OUT).
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP4_CTRL:
+fieldset/UEP4_CTRL:
   description: endpoint 4 control.
   bit_size: 8
   fields:
@@ -466,55 +466,55 @@ fieldset/R8_UEP4_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP4_T_LEN:
+fieldset/UEP4_T_LEN:
   description: endpoint 4 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP4_T_LEN
+  - name: UEP4_T_LEN
     description: endpoint 4 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP567_MOD:
+fieldset/UEP567_MOD:
   description: endpoint 5/6/7 mode.
   bit_size: 8
   fields:
-  - name: RB_UEP5_TX_EN
+  - name: UEP5_TX_EN
     description: enable USB endpoint 5 transmittal (IN).
     bit_offset: 0
     bit_size: 1
-  - name: RB_UEP5_RX_EN
+  - name: UEP5_RX_EN
     description: enable USB endpoint 5 receiving (OUT).
     bit_offset: 1
     bit_size: 1
-  - name: RB_UEP6_TX_EN
+  - name: UEP6_TX_EN
     description: enable USB endpoint 6 transmittal (IN).
     bit_offset: 2
     bit_size: 1
-  - name: RB_UEP6_RX_EN
+  - name: UEP6_RX_EN
     description: enable USB endpoint 6 receiving (OUT).
     bit_offset: 3
     bit_size: 1
-  - name: RB_UEP7_TX_EN
+  - name: UEP7_TX_EN
     description: enable USB endpoint 7 transmittal (IN).
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP7_RX_EN
+  - name: UEP7_RX_EN
     description: enable USB endpoint 7 receiving (OUT).
     bit_offset: 5
     bit_size: 1
-fieldset/R8_UEP5_CTRL:
+fieldset/UEP5_CTRL:
   description: endpoint 5 control.
   bit_size: 8
   fields:
@@ -526,27 +526,27 @@ fieldset/R8_UEP5_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP5_T_LEN:
+fieldset/UEP5_T_LEN:
   description: endpoint 5 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP5_T_LEN
+  - name: UEP5_T_LEN
     description: endpoint 5 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP6_CTRL:
+fieldset/UEP6_CTRL:
   description: endpoint 6 control.
   bit_size: 8
   fields:
@@ -558,27 +558,27 @@ fieldset/R8_UEP6_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP6_T_LEN:
+fieldset/UEP6_T_LEN:
   description: endpoint 6 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP6_T_LEN
+  - name: UEP6_T_LEN
     description: endpoint 6 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_UEP7_CTRL:
+fieldset/UEP7_CTRL:
   description: endpoint 7 control.
   bit_size: 8
   fields:
@@ -590,43 +590,43 @@ fieldset/R8_UEP7_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: RB_UEP_AUTO_TOG
+  - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
     bit_size: 1
-  - name: RB_UEP_T_TOG
+  - name: UEP_T_TOG
     description: 'prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UEP_R_TOG
+  - name: UEP_R_TOG
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_UEP7_T_LEN:
+fieldset/UEP7_T_LEN:
   description: endpoint 7 transmittal length.
   bit_size: 8
   fields:
-  - name: R8_UEP7_T_LEN
+  - name: UEP7_T_LEN
     description: endpoint 7 transmittal length.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_USB_CTRL:
+fieldset/CTRL:
   description: USB base control.
   bit_size: 8
   fields:
-  - name: RB_UC_DMA_EN
+  - name: UC_DMA_EN
     description: DMA enable and DMA interrupt enable for USB.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UC_CLR_ALL
+  - name: UC_CLR_ALL
     description: force clear FIFO and count of USB.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UC_RESET_SIE
+  - name: UC_RESET_SIE
     description: force reset USB SIE, need software clear.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UC_INT_BUSY
+  - name: UC_INT_BUSY
     description: enable automatic responding busy for device mode or automatic pause for host mode during interrupt flag UIF_TRANSFER valid.
     bit_offset: 3
     bit_size: 1
@@ -634,19 +634,19 @@ fieldset/R8_USB_CTRL:
     description: bit mask of USB system control.
     bit_offset: 4
     bit_size: 2
-  - name: RB_UC_DEV_PU_EN
+  - name: UC_DEV_PU_EN
     description: USB device enable and internal pullup resistance enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_UC_LOW_SPEED
+  - name: UC_LOW_SPEED
     description: 'enable USB low speed: 0=12Mbps, 1=1.5Mbps.'
     bit_offset: 6
     bit_size: 1
-  - name: RB_UC_HOST_MODE
+  - name: UC_HOST_MODE
     description: 'enable USB host mode: 0=device mode, 1=host mode.'
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_DEV_AD:
+fieldset/DEV_AD:
   description: USB device address.
   bit_size: 8
   fields:
@@ -654,79 +654,79 @@ fieldset/R8_USB_DEV_AD:
     description: bit mask for USB device address.
     bit_offset: 0
     bit_size: 7
-  - name: RB_UDA_GP_BIT
+  - name: UDA_GP_BIT
     description: general purpose bit.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_INT_EN:
+fieldset/INT_EN:
   description: USB interrupt enable.
   bit_size: 8
   fields:
-  - name: RB_UIE_BUS_RST__UIE_DETECT
+  - name: UIE_BUS_RST__UIE_DETECT
     description: enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UIE_TRANSFER
+  - name: UIE_TRANSFER
     description: enable interrupt for USB transfer completion.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UIE_SUSPEND
+  - name: UIE_SUSPEND
     description: enable interrupt for USB suspend or resume event.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UIE_HST_SOF
+  - name: UIE_HST_SOF
     description: enable interrupt for host SOF timer action for USB host mode.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UIE_FIFO_OV
+  - name: UIE_FIFO_OV
     description: enable interrupt for FIFO overflow.
     bit_offset: 4
     bit_size: 1
-  - name: RB_UIE_DEV_NAK
+  - name: UIE_DEV_NAK
     description: enable interrupt for NAK responded for USB device mode.
     bit_offset: 6
     bit_size: 1
-  - name: RB_UIE_DEV_SOF
+  - name: UIE_DEV_SOF
     description: enable interrupt for SOF received for USB device mode.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_INT_FG:
+fieldset/INT_FG:
   description: USB interrupt flag.
   bit_size: 8
   fields:
-  - name: RB_UIF_BUS_RST__UIF_DETECT
+  - name: UIF_BUS_RST__UIF_DETECT
     description: RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UIF_TRANSFER
+  - name: UIF_TRANSFER
     description: RW,USB transfer completion interrupt flag, direct bit address clear or write 1 to clear.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UIF_SUSPEND
+  - name: UIF_SUSPEND
     description: RW,USB suspend or resume event interrupt flag, direct bit address clear or write 1 to clear.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UIF_HST_SOF
+  - name: UIF_HST_SOF
     description: RW,host SOF timer interrupt flag for USB host, direct bit address clear or write 1 to clear.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UIF_FIFO_OV
+  - name: UIF_FIFO_OV
     description: RW,FIFO overflow interrupt flag for USB, direct bit address clear or write 1 to clear.
     bit_offset: 4
     bit_size: 1
-  - name: RB_U_SIE_FREE
+  - name: U_SIE_FREE
     description: RO, indicate USB SIE free status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_U_TOG_OK
+  - name: U_TOG_OK
     description: RO, indicate current USB transfer toggle is OK.
     bit_offset: 6
     bit_size: 1
-  - name: RB_U_IS_NAK
+  - name: U_IS_NAK
     description: RO, indicate current USB transfer is NAK received.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_INT_ST:
+fieldset/INT_ST:
   description: USB interrupt status.
   bit_size: 8
   fields:
@@ -738,55 +738,55 @@ fieldset/R8_USB_INT_ST:
     description: RO, bit mask of current token PID code received for USB device mode.
     bit_offset: 4
     bit_size: 2
-  - name: RB_UIS_TOG_OK
+  - name: UIS_TOG_OK
     description: RO, indicate current USB transfer toggle is OK.
     bit_offset: 6
     bit_size: 1
-  - name: RB_UIS_SETUP_ACT
+  - name: UIS_SETUP_ACT
     description: RO, indicate current USB transfer is NAK received for USB device mode.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_MIS_ST:
+fieldset/MIS_ST:
   description: USB miscellaneous status.
   bit_size: 8
   fields:
-  - name: RB_UMS_DEV_ATTACH
+  - name: UMS_DEV_ATTACH
     description: RO, indicate device attached status on USB host.
     bit_offset: 0
     bit_size: 1
-  - name: RB_UMS_DM_LEVEL
+  - name: UMS_DM_LEVEL
     description: RO, indicate UDM level saved at device attached to USB host.
     bit_offset: 1
     bit_size: 1
-  - name: RB_UMS_SUSPEND
+  - name: UMS_SUSPEND
     description: RO, indicate USB suspend status.
     bit_offset: 2
     bit_size: 1
-  - name: RB_UMS_BUS_RESET
+  - name: UMS_BUS_RESET
     description: RO, indicate USB bus reset status.
     bit_offset: 3
     bit_size: 1
-  - name: RB_UMS_R_FIFO_RDY
+  - name: UMS_R_FIFO_RDY
     description: RO, indicate USB receiving FIFO ready status (not empty).
     bit_offset: 4
     bit_size: 1
-  - name: RB_UMS_SIE_FREE
+  - name: UMS_SIE_FREE
     description: RO, indicate USB SIE free status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_UMS_SOF_ACT
+  - name: UMS_SOF_ACT
     description: RO, indicate host SOF timer action status for USB host.
     bit_offset: 6
     bit_size: 1
-  - name: RB_UMS_SOF_PRES
+  - name: UMS_SOF_PRES
     description: RO, indicate host SOF timer presage status.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_USB_RX_LEN:
+fieldset/RX_LEN:
   description: USB receiving length.
   bit_size: 8
   fields:
-  - name: R8_USB_RX_LEN
+  - name: RX_LEN
     description: RO,USB receiving length.
     bit_offset: 0
     bit_size: 8

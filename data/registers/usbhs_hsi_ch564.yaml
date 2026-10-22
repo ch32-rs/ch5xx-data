@@ -1,11 +1,11 @@
 block/USBHS_HSI:
   description: USBHS HSI calibration register.
   items:
-  - name: HSI_CAL_CTRL
+  - name: CAL_CTRL
     description: HSI clock calibration control register.
     byte_offset: 40
-    fieldset: HSI_CAL_CTRL
-fieldset/HSI_CAL_CTRL:
+    fieldset: CAL_CTRL
+fieldset/CAL_CTRL:
   description: HSI clock calibration control register.
   fields:
   - name: CAL_RST

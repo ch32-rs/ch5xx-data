@@ -1,12 +1,6 @@
 # CH573, from the MounRiver CH57X SDK (CH573SFR.h, ISP573.h, CH573X Link.ld).
-# QingKe V3A, BLE 4.2. CH571 shares the same register map with 192KB code flash.
-# Studio marketing text claims further CH571 feature cuts; without a datasheet
-# those are not modelled — both parts include data/family/CH573.yaml.
-#
-# Flash geometry from ISP573.h: 448KB code (4KB erase, dword program),
-# 32KB data at 0x70000 (256B erase, byte program). SRAM 18KB at 0x20003800
-# (linker; SFR quotes a 32KB window from 0x20000000).
-# Chip id byte ID_CH573 = 0x73.
+# QingKe V3A, BLE 4.2. CH571 shares this register map (192KB flash). Chip id
+# byte ID_CH573 = 0x73.
 name: CH573
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE4.2 Wireless MCU

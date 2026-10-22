@@ -1,92 +1,92 @@
 block/ENCODER:
   description: ENCODER register.
   items:
-  - name: R8_ENC_REG_CTRL
+  - name: REG_CTRL
     description: RW, Encoder control register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_ENC_REG_CTRL
-  - name: R8_ENC_INTER_EN
+    fieldset: REG_CTRL
+  - name: INTER_EN
     description: RW, Encoder interrupt enable register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_ENC_INTER_EN
-  - name: R8_ENC_INT_FLAG
+    fieldset: INTER_EN
+  - name: INT_FLAG
     description: RW, Encoder interrupt flag register.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_ENC_INT_FLAG
-  - name: R32_ENC_REG_CEND
+    fieldset: INT_FLAG
+  - name: REG_CEND
     description: RW, Encoder final value configuration register.
     byte_offset: 4
-    fieldset: R32_ENC_REG_CEND
-  - name: R32_ENC_REG_CCNT
+    fieldset: REG_CEND
+  - name: REG_CCNT
     description: RW, Encoder current value configuration register.
     byte_offset: 8
-    fieldset: R32_ENC_REG_CCNT
-fieldset/R32_ENC_REG_CCNT:
+    fieldset: REG_CCNT
+fieldset/REG_CCNT:
   description: RW, Encoder current value configuration register.
   fields:
-  - name: R32_ENC_REG_CCNT
+  - name: REG_CCNT
     description: RW, Current encoder value.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_ENC_REG_CEND:
+fieldset/REG_CEND:
   description: RW, Encoder final value configuration register.
   fields:
-  - name: R32_ENC_REG_CEND
+  - name: REG_CEND
     description: RW, Encoder final value configuration.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_ENC_INTER_EN:
+fieldset/INTER_EN:
   description: RW, Encoder interrupt enable register.
   bit_size: 8
   fields:
-  - name: RB_IE_DIR_INC
+  - name: IE_DIR_INC
     description: RW, Encoder forward interrupt enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IE_DIR_DEC
+  - name: IE_DIR_DEC
     description: RW, Encoder backward interrupt enable.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_ENC_INT_FLAG:
+fieldset/INT_FLAG:
   description: RW, Encoder interrupt flag register.
   bit_size: 8
   fields:
-  - name: RB_IF_DIR_INC
+  - name: IF_DIR_INC
     description: RW, Encoder forward interrupt flag.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IF_DIR_DEC
+  - name: IF_DIR_DEC
     description: RW, Encoder backward interrupt flag.
     bit_offset: 1
     bit_size: 1
-fieldset/R8_ENC_REG_CTRL:
+fieldset/REG_CTRL:
   description: RW, Encoder control register.
   bit_size: 8
   fields:
-  - name: RB_START_ENC_EN
+  - name: START_ENC_EN
     description: RW, Encoder work enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_SMS_MODE
+  - name: SMS_MODE
     description: RW, Encoder edge working mode.
     bit_offset: 1
     bit_size: 2
-  - name: RB_RD_CLR_EN
+  - name: RD_CLR_EN
     description: RW, Encoder reads count and resets.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ENC_DIR
+  - name: DIR
     description: RW, Current direction of encoder.
     bit_offset: 5
     bit_size: 1
-  - name: RB_ENC_IN_CH1
+  - name: IN_CH1
     description: RW, Encoder captures the value of channel 1.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ENC_IN_CH2
+  - name: IN_CH2
     description: RW, Encoder captures the value of channel 2.
     bit_offset: 7
     bit_size: 1

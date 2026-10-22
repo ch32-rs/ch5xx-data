@@ -366,13 +366,7 @@ impl MemoryRole {
             MemoryRole::Vendor
         } else if name == "ITCM" || name == "DTCM" {
             MemoryRole::Tcm
-        } else if name == "RAM"
-            || name == "SRAM"
-            || name == "SRAM_SHARED"
-            || name == "RAMS"
-            || name == "RAMX"
-            || name == "SRAMX"
-        {
+        } else if name.starts_with("RAM") || name.starts_with("SRAM") {
             MemoryRole::Ram
         } else if name == "CODEFLASH" {
             // CH5xx code flash: erased in 4KB blocks, programmed a dword at a time.

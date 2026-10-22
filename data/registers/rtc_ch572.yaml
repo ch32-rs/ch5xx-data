@@ -1,112 +1,112 @@
 block/RTC:
   description: Real time clock.
   items:
-  - name: R8_RTC_FLAG_CTRL
+  - name: FLAG_CTRL
     description: RWA, Real time clock.
     byte_offset: 48
     bit_size: 8
-    fieldset: R8_RTC_FLAG_CTRL
-  - name: R8_RTC_MODE_CTRL
+    fieldset: FLAG_CTRL
+  - name: MODE_CTRL
     description: RWA, RTC mode control, SAM.
     byte_offset: 49
     bit_size: 8
-    fieldset: R8_RTC_MODE_CTRL
-  - name: R32_RTC_TRIG
+    fieldset: MODE_CTRL
+  - name: TRIG
     description: RWA, RTC trigger value, SAM.
     byte_offset: 52
-    fieldset: R32_RTC_TRIG
-  - name: R16_RTC_CNT_LSI
+    fieldset: TRIG
+  - name: CNT_LSI
     description: RO, RTC count based lsi.
     byte_offset: 56
     access: Read
     bit_size: 16
-    fieldset: R16_RTC_CNT_LSI
-  - name: R16_RTC_CNT_DIV1
+    fieldset: CNT_LSI
+  - name: CNT_DIV1
     description: RO, RTC count based 65536 LSI clock cycles.
     byte_offset: 58
     access: Read
     bit_size: 16
-    fieldset: R16_RTC_CNT_DIV1
-  - name: R32_RTC_CNT_DIV2
+    fieldset: CNT_DIV1
+  - name: CNT_DIV2
     description: RO, RTC count based 2831155200 LSI clock cycles, only low 14 bit.
     byte_offset: 60
     access: Read
-    fieldset: R32_RTC_CNT_DIV2
-fieldset/R16_RTC_CNT_DIV1:
+    fieldset: CNT_DIV2
+fieldset/CNT_DIV1:
   description: RO, RTC count based 65536 LSI clock cycles.
   bit_size: 16
   fields:
-  - name: R16_RTC_CNT_DIV1
+  - name: CNT_DIV1
     description: RO, RTC count based 65536 LSI clock cycles.
     bit_offset: 0
     bit_size: 16
-fieldset/R16_RTC_CNT_LSI:
+fieldset/CNT_LSI:
   description: RO, RTC count based lsi.
   bit_size: 16
   fields:
-  - name: R16_RTC_CNT_LSI
+  - name: CNT_LSI
     description: R0,RTC count based lsi.
     bit_offset: 0
     bit_size: 16
-fieldset/R32_RTC_CNT_DIV2:
+fieldset/CNT_DIV2:
   description: RO, RTC count based 2831155200 LSI clock cycles, only low 14 bit.
   fields:
-  - name: R32_RTC_CNT_DIV2
+  - name: CNT_DIV2
     description: RWA,RTC count based 2831155200 LSI clock cycles.
     bit_offset: 0
     bit_size: 14
-fieldset/R32_RTC_TRIG:
+fieldset/TRIG:
   description: RWA, RTC trigger value, SAM.
   fields:
-  - name: R32_RTC_TRIG
+  - name: TRIG
     description: RWA, RTC trigger value.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_RTC_FLAG_CTRL:
+fieldset/FLAG_CTRL:
   description: RWA, Real time clock.
   bit_size: 8
   fields:
-  - name: RB_RTC_TMR_CLR
+  - name: TMR_CLR
     description: RW, set 1 to clear RTC timer action flag, auto clear.
     bit_offset: 4
     bit_size: 1
-  - name: RB_RTC_TRIG_CLR
+  - name: TRIG_CLR
     description: RW, set 1 to clear RTC trigger action flag, auto clear.
     bit_offset: 5
     bit_size: 1
-  - name: RB_RTC_TMR_FLAG
+  - name: TMR_FLAG
     description: RO, RTC timer action flag.
     bit_offset: 6
     bit_size: 1
-  - name: RB_RTC_TRIG_FLAG
+  - name: TRIG_FLAG
     description: RO, RTC trigger action flag.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_RTC_MODE_CTRL:
+fieldset/MODE_CTRL:
   description: RWA, RTC mode control, SAM.
   bit_size: 8
   fields:
-  - name: RB_RTC_TMR_MODE
+  - name: TMR_MODE
     description: 'RWA, RTC timer mode: 000=0.125S, 001=0.25S, 010=0.5S, 011=1S, 100=2S, 101=4S, 110=8S, 111=16S.'
     bit_offset: 0
     bit_size: 3
-  - name: RB_RTC_IGNORE_B0
+  - name: IGNORE_B0
     description: 'RWA, force ignore bit0 for trigger mode: 0=compare bit0, 1=ignore bit0.'
     bit_offset: 3
     bit_size: 1
-  - name: RB_RTC_TMR_EN
+  - name: TMR_EN
     description: RWA, RTC timer mode enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_RTC_TRIG_EN
+  - name: TRIG_EN
     description: RWA, RTC trigger mode enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_RTC_LOAD_LO
+  - name: LOAD_LO
     description: RWA, set 1 to load RTC count low word R32_RTC_CNT_32K, auto clear after loaded.
     bit_offset: 6
     bit_size: 1
-  - name: RB_RTC_LOAD_HI
+  - name: LOAD_HI
     description: RWA, set 1 to load RTC count high word R32_RTC_CNT_DAY, auto clear after loaded.
     bit_offset: 7
     bit_size: 1

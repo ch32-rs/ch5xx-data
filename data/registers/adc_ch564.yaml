@@ -1,260 +1,260 @@
 block/ADC:
   description: ADC register.
   items:
-  - name: R8_ADC_CTRL_MOD
+  - name: CTRL_MOD
     description: ADC mode control register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_ADC_CTRL_MOD
-  - name: R8_ADC_CTRL_DMA
+    fieldset: CTRL_MOD
+  - name: CTRL_DMA
     description: DMA control register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_ADC_CTRL_DMA
-  - name: R8_ADC_INTER_EN
+    fieldset: CTRL_DMA
+  - name: INTER_EN
     description: ADC interrupt the enabling register.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_ADC_INTER_EN
-  - name: R8_ADC_CLOCK_DIV
+    fieldset: INTER_EN
+  - name: CLOCK_DIV
     description: ADC clock frequency partition coefficient register.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_ADC_CLOCK_DIV
-  - name: R16_ADC_DATA
+    fieldset: CLOCK_DIV
+  - name: DATA
     description: Convert the data register.
     byte_offset: 4
     bit_size: 16
-    fieldset: R16_ADC_DATA
-  - name: R8_ADC_INT_FLAG
+    fieldset: DATA
+  - name: INT_FLAG
     description: Interrupt the status register.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_ADC_INT_FLAG
-  - name: R8_ADC_FIFO_COUNT
+    fieldset: INT_FLAG
+  - name: FIFO_COUNT
     description: FIFO count register.
     byte_offset: 7
     bit_size: 8
-    fieldset: R8_ADC_FIFO_COUNT
-  - name: R32_ADC_CTRL
+    fieldset: FIFO_COUNT
+  - name: CTRL
     description: ADC control register.
     byte_offset: 8
-    fieldset: R32_ADC_CTRL
-  - name: R16_ADC_CMP_VALUE
+    fieldset: CTRL
+  - name: CMP_VALUE
     description: The comparison mode reference value register.
     byte_offset: 12
     bit_size: 16
-    fieldset: R16_ADC_CMP_VALUE
-  - name: R16_ADC_FIFO
+    fieldset: CMP_VALUE
+  - name: FIFO
     description: ADC FIFO register.
     byte_offset: 16
     bit_size: 16
-    fieldset: R16_ADC_FIFO
-  - name: R32_ADC_DMA_NOW
+    fieldset: FIFO
+  - name: DMA_NOW
     description: DMA current buffer address register.
     byte_offset: 20
-    fieldset: R32_ADC_DMA_NOW
-  - name: R32_ADC_DMA_BEG
+    fieldset: DMA_NOW
+  - name: DMA_BEG
     description: DMA start buffer address register.
     byte_offset: 24
-    fieldset: R32_ADC_DMA_BEG
-  - name: R32_ADC_DMA_END
+    fieldset: DMA_BEG
+  - name: DMA_END
     description: DMA end buffer address register.
     byte_offset: 28
-    fieldset: R32_ADC_DMA_END
-fieldset/R16_ADC_CMP_VALUE:
+    fieldset: DMA_END
+fieldset/CMP_VALUE:
   description: The comparison mode reference value register.
   bit_size: 16
   fields:
-  - name: ADC_CMP_VALUE
+  - name: CMP_VALUE
     description: The comparison mode reference value.
     bit_offset: 0
     bit_size: 12
-fieldset/R16_ADC_DATA:
+fieldset/DATA:
   description: Convert the data register.
   bit_size: 16
   fields:
-  - name: ADC_DATA
+  - name: DATA
     description: ADC collected the data content.
     bit_offset: 0
     bit_size: 12
-fieldset/R16_ADC_FIFO:
+fieldset/FIFO:
   description: ADC FIFO register.
   bit_size: 16
   fields:
-  - name: ADC_FIFO
+  - name: FIFO
     description: ADC Current conversion value.
     bit_offset: 0
     bit_size: 12
-fieldset/R32_ADC_CTRL:
+fieldset/CTRL:
   description: ADC control register.
   fields:
-  - name: ADC_CTL_MOD1
+  - name: CTL_MOD1
     description: Corresponding channel.
     bit_offset: 0
     bit_size: 4
-  - name: ADC_SMAPLE_TIME
+  - name: SMAPLE_TIME
     description: ADC sampling and calibration time.
     bit_offset: 4
     bit_size: 21
-  - name: ADC_CYCLE_BIT_4_6
+  - name: CYCLE_BIT_4_6
     description: Position 4-6 of the automatic sampling period.
     bit_offset: 25
     bit_size: 3
-  - name: ADC_BIT_MODE
+  - name: BIT_MODE
     description: ADC resolution selection bit.
     bit_offset: 28
     bit_size: 1
-fieldset/R32_ADC_DMA_BEG:
+fieldset/DMA_BEG:
   description: DMA start buffer address register.
   fields:
-  - name: ADC_DMA_BEG
+  - name: DMA_BEG
     description: DMA start buffer address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_ADC_DMA_END:
+fieldset/DMA_END:
   description: DMA end buffer address register.
   fields:
-  - name: R32_ADC_DMA_END
+  - name: DMA_END
     description: DMA end buffer address.
     bit_offset: 0
     bit_size: 18
-fieldset/R32_ADC_DMA_NOW:
+fieldset/DMA_NOW:
   description: DMA current buffer address register.
   fields:
-  - name: ADC_DMA_NOW
+  - name: DMA_NOW
     description: DMA current buffer address.
     bit_offset: 0
     bit_size: 18
-fieldset/R8_ADC_CLOCK_DIV:
+fieldset/CLOCK_DIV:
   description: ADC clock frequency partition coefficient register.
   bit_size: 8
   fields:
-  - name: ADC_CLOCK_DIV
+  - name: CLOCK_DIV
     description: sampling the clock frequency division coefficient.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_ADC_CTRL_DMA:
+fieldset/CTRL_DMA:
   description: DMA control register.
   bit_size: 8
   fields:
-  - name: RB_ADC_DMA_ENABLE
+  - name: DMA_ENABLE
     description: DMA function enable bit.
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_DMA_BURST
+  - name: DMA_BURST
     description: DMA block operation enable bit.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ADC_DMA_LOOP
+  - name: DMA_LOOP
     description: DMA address loop function enables.
     bit_offset: 2
     bit_size: 1
-  - name: RB_ADC_CHAN_OE
+  - name: CHAN_OE
     description: ADC channel controls the ADCS output enable bits.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ADC_MAN_SAMPLE
+  - name: MAN_SAMPLE
     description: ADC manually sampled the control bits.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_ADC_CTRL_MOD:
+fieldset/CTRL_MOD:
   description: ADC mode control register.
   bit_size: 8
   fields:
-  - name: RB_ADC_CYCLE_CLK
+  - name: CYCLE_CLK
     description: ADC clock sampling mode setting bit.
     bit_offset: 0
     bit_size: 4
-  - name: RB_ADC_CHAN_MOD
+  - name: CHAN_MOD
     description: ADC channel selection bit.
     bit_offset: 4
     bit_size: 2
-  - name: RB_ADC_SAMPLE_WID
+  - name: SAMPLE_WID
     description: ADC automatically samples the pulse width settings bit.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ADC_POWER_ON
+  - name: POWER_ON
     description: ADC function enable.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_ADC_FIFO_COUNT:
+fieldset/FIFO_COUNT:
   description: FIFO count register.
   bit_size: 8
   fields:
-  - name: ADC_FIFO_COUNT
+  - name: FIFO_COUNT
     description: number of ADC converted data already stored in the FIFO.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_ADC_INTER_EN:
+fieldset/INTER_EN:
   description: ADC interrupt the enabling register.
   bit_size: 8
   fields:
-  - name: RB_ADC_IE_ADC_CMP
+  - name: IE_CMP
     description: current ADC comparison activates the interrupt enable bits.
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_IE_ADC_END
+  - name: IE_END
     description: ADC conversion complete interrupt enable bits.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ADC_IE_FIFO_HF
+  - name: IE_FIFO_HF
     description: FIFO receives half interrupt enable bits.
     bit_offset: 2
     bit_size: 1
-  - name: RB_ADC_IE_DMA_END
+  - name: IE_DMA_END
     description: DMA ends the interrupt enable bits.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ADC_IE_FIFO_OV
+  - name: IE_FIFO_OV
     description: FIFO overflow interruption enable bits.
     bit_offset: 4
     bit_size: 1
-  - name: RB_ADC_IE_DMA_ERR
+  - name: IE_DMA_ERR
     description: DMA transfer process error response interrupt enable bits.
     bit_offset: 5
     bit_size: 1
-  - name: RB_ADC_CMP_MOD_EQ
+  - name: CMP_MOD_EQ
     description: ADC reference value equal comparable enable bits.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ADC_CMP_MOD_GT
+  - name: CMP_MOD_GT
     description: ADC reference size to compare enable bits.
     bit_offset: 7
     bit_size: 1
-fieldset/R8_ADC_INT_FLAG:
+fieldset/INT_FLAG:
   description: Interrupt the status register.
   bit_size: 8
   fields:
-  - name: RB_ADC_IF_ADC_CMP
+  - name: IF_CMP
     description: ADC activated interrupt flag bits comparing the ADC current. value with the reference.
     bit_offset: 0
     bit_size: 1
-  - name: RB_ADC_IF_ADC_END
+  - name: IF_END
     description: The ADC transition-end flag bit.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ADC_IF_FIFO_HF
+  - name: IF_FIFO_HF
     description: FIFO receives half interrupt flag bit.
     bit_offset: 2
     bit_size: 1
-  - name: RB_ADC_IF_DMA_END
+  - name: IF_DMA_END
     description: DMA end flag bit.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ADC_IF_FIFO_OV
+  - name: IF_FIFO_OV
     description: FIFO overflow interrupt flag bit.
     bit_offset: 4
     bit_size: 1
-  - name: RB_ADC_IF_DMA_ERR
+  - name: IF_DMA_ERR
     description: DMA transfer error interrupt flag bit.
     bit_offset: 5
     bit_size: 1
-  - name: RB_ADC_EOC_FLAG
+  - name: EOC_FLAG
     description: The ADC transition-end state bit.
     bit_offset: 6
     bit_size: 1
-  - name: RB_ADC_CHAN_INDEX
+  - name: CHAN_INDEX
     description: The ADC current channel in autoconversion mode.
     bit_offset: 7
     bit_size: 1

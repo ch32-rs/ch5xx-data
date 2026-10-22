@@ -1,8 +1,5 @@
-# CH572 / CH570. Drafted from svd/fixed/ch572.svd (already split SYS).
-# Vendor SVD duplicates (empty UART, KEYSCAN+ENCODER mash-up, Systick
-# double CMPLR, TMR CTRL_MOD offset 0x400) were cleaned before extract.
-# USBFS layout matches CH585 so the block is reused. CH570 is the same
-# map without Bluetooth; the BLE placeholder stays for the address.
+# CH572 / CH570. From svd/fixed/ch572.svd. USBFS / I2C / PFIC reuse ch585.
+# CH570 is the same map without Bluetooth; BLE stays as an address placeholder.
 
 - name: SYS
   address: 0x40001000
@@ -78,7 +75,7 @@
   address: 0x40004800
   registers:
     kind: i2c
-    version: ch572
+    version: ch585
     block: I2C
 
 - name: PWMx
@@ -103,7 +100,7 @@
   address: 0xE000E000
   registers:
     kind: pfic
-    version: ch572
+    version: ch585
     block: PFIC
 
 - name: Systick

@@ -1,158 +1,158 @@
 block/System_control:
   description: System_control register.
   items:
-  - name: R8_SAFE_ACCESS_SIG
+  - name: SAFE_ACCESS_SIG
     description: safe accessing sign register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_SAFE_ACCESS_SIG
-  - name: R8_CHIP_ID
+    fieldset: SAFE_ACCESS_SIG
+  - name: CHIP_ID
     description: chip ID register.
     byte_offset: 1
     access: Read
     bit_size: 8
-    fieldset: R8_CHIP_ID
-  - name: R8_SAFE_ACCESS_ID
+    fieldset: CHIP_ID
+  - name: SAFE_ACCESS_ID
     description: safe accessing ID register.
     byte_offset: 2
     access: Read
     bit_size: 8
-    fieldset: R8_SAFE_ACCESS_ID
-  - name: R8_WDOG_COUNT
+    fieldset: SAFE_ACCESS_ID
+  - name: WDOG_COUNT
     description: watch-dog count register.
     byte_offset: 3
     bit_size: 8
-    fieldset: R8_WDOG_COUNT
-  - name: R8_GLOB_ROM_CFG
+    fieldset: WDOG_COUNT
+  - name: GLOB_ROM_CFG
     description: flash ROM configuration register.
     byte_offset: 4
     bit_size: 8
-    fieldset: R8_GLOB_ROM_CFG
-  - name: R8_RST_BOOT_STAT
+    fieldset: GLOB_ROM_CFG
+  - name: RST_BOOT_STAT
     description: reset status and boot/debug status.
     byte_offset: 5
     access: Read
     bit_size: 8
-    fieldset: R8_RST_BOOT_STAT
-  - name: R8_RST_WDOG_CTRL
+    fieldset: RST_BOOT_STAT
+  - name: RST_WDOG_CTRL
     description: reset and watch-dog control.
     byte_offset: 6
     bit_size: 8
-    fieldset: R8_RST_WDOG_CTRL
-  - name: R8_GLOB_RESET_KEEP
+    fieldset: RST_WDOG_CTRL
+  - name: GLOB_RESET_KEEP
     description: value keeper during global reset.
     byte_offset: 7
     bit_size: 8
-    fieldset: R8_GLOB_RESET_KEEP
-fieldset/R8_CHIP_ID:
+    fieldset: GLOB_RESET_KEEP
+fieldset/CHIP_ID:
   description: chip ID register.
   bit_size: 8
   fields:
-  - name: R8_CHIP_ID
+  - name: CHIP_ID
     description: chip ID.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_GLOB_RESET_KEEP:
+fieldset/GLOB_RESET_KEEP:
   description: value keeper during global reset.
   bit_size: 8
   fields:
-  - name: R8_GLOB_RESET_KEEP
+  - name: GLOB_RESET_KEEP
     description: value keeper during global reset.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_GLOB_ROM_CFG:
+fieldset/GLOB_ROM_CFG:
   description: flash ROM configuration register.
   bit_size: 8
   fields:
-  - name: RB_ROM_EXT_RE
+  - name: ROM_EXT_RE
     description: enable flash ROM being read by external programmer.
     bit_offset: 0
     bit_size: 1
-  - name: RB_CODE_RAM_WE
+  - name: CODE_RAM_WE
     description: enable code RAM being write.
     bit_offset: 1
     bit_size: 1
-  - name: RB_ROM_DATA_WE
+  - name: ROM_DATA_WE
     description: enable flash ROM data area being erase/write.
     bit_offset: 2
     bit_size: 1
-  - name: RB_ROM_CODE_WE
+  - name: ROM_CODE_WE
     description: enable flash ROM code and data area being erase or write.
     bit_offset: 3
     bit_size: 1
-  - name: RB_ROM_CODE_OFS
+  - name: ROM_CODE_OFS
     description: Config the start offset address of user code in Flash.
     bit_offset: 4
     bit_size: 1
-fieldset/R8_RST_BOOT_STAT:
+fieldset/RST_BOOT_STAT:
   description: reset status and boot/debug status.
   bit_size: 8
   fields:
-  - name: RB_RESET_FLAG
+  - name: RESET_FLAG
     description: recent reset flag.
     bit_offset: 0
     bit_size: 2
-  - name: RB_CFG_RESET_EN
+  - name: CFG_RESET_EN
     description: manual reset input enable status.
     bit_offset: 2
     bit_size: 1
-  - name: RB_CFG_BOOT_EN
+  - name: CFG_BOOT_EN
     description: boot-loader enable status.
     bit_offset: 3
     bit_size: 1
-  - name: RB_CFG_DEBUG_EN
+  - name: CFG_DEBUG_EN
     description: debug enable status.
     bit_offset: 4
     bit_size: 1
-  - name: RB_BOOT_LOADER
+  - name: BOOT_LOADER
     description: indicate boot loader status.
     bit_offset: 5
     bit_size: 1
-fieldset/R8_RST_WDOG_CTRL:
+fieldset/RST_WDOG_CTRL:
   description: reset and watch-dog control.
   bit_size: 8
   fields:
-  - name: RB_SOFTWARE_RESET
+  - name: SOFTWARE_RESET
     description: global software reset.
     bit_offset: 0
     bit_size: 1
-  - name: RB_WDOG_RST_EN
+  - name: WDOG_RST_EN
     description: 'enable watch-dog reset if watch-dog timer overflow: 0=as timer only, 1=enable reset if timer overflow.'
     bit_offset: 1
     bit_size: 1
-  - name: RB_WDOG_INT_EN
+  - name: WDOG_INT_EN
     description: 'watch-dog interrupt enable or INT_ID_WDOG interrupt source selection: 0=software interrupt.'
     bit_offset: 2
     bit_size: 1
-  - name: RB_WDOG_INT_FLAG
+  - name: WDOG_INT_FLAG
     description: watch-dog timer overflow interrupt flag.
     bit_offset: 3
     bit_size: 1
-fieldset/R8_SAFE_ACCESS_ID:
+fieldset/SAFE_ACCESS_ID:
   description: safe accessing ID register.
   bit_size: 8
   fields:
-  - name: R8_SAFE_ACCESS_ID
+  - name: SAFE_ACCESS_ID
     description: safe accessing ID.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_SAFE_ACCESS_SIG:
+fieldset/SAFE_ACCESS_SIG:
   description: safe accessing sign register.
   bit_size: 8
   fields:
-  - name: RB_SAFE_ACC_MODE
+  - name: SAFE_ACC_MODE
     description: current safe accessing mode.
     bit_offset: 0
     bit_size: 2
-  - name: RB_SAFE_ACC_TIMER
+  - name: SAFE_ACC_TIMER
     description: safe accessing timer bit mask.
     bit_offset: 4
     bit_size: 3
-fieldset/R8_WDOG_COUNT:
+fieldset/WDOG_COUNT:
   description: watch-dog count register.
   bit_size: 8
   fields:
-  - name: R8_WDOG_COUNT
+  - name: WDOG_COUNT
     description: watch-dog count.
     bit_offset: 0
     bit_size: 8

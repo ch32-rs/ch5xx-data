@@ -1,356 +1,356 @@
 block/EMMC:
   description: EMMC register.
   items:
-  - name: R32_EMMC_ARGUMENT
+  - name: ARGUMENT
     description: SD 32bits command argument register.
     byte_offset: 0
-    fieldset: R32_EMMC_ARGUMENT
-  - name: R16_EMMC_CMD_SET
+    fieldset: ARGUMENT
+  - name: CMD_SET
     description: SD 16bits cmd setting register.
     byte_offset: 4
     bit_size: 16
-    fieldset: R16_EMMC_CMD_SET
-  - name: R32_EMMC_RESPONSE0
+    fieldset: CMD_SET
+  - name: RESPONSE0
     description: SD 128bits response register, [31:0] 32bits.
     byte_offset: 8
     access: Read
-    fieldset: R32_EMMC_RESPONSE0
-  - name: R32_EMMC_RESPONSE1
+    fieldset: RESPONSE0
+  - name: RESPONSE1
     description: SD 128bits response register, [63:32] 32bits.
     byte_offset: 12
     access: Read
-    fieldset: R32_EMMC_RESPONSE1
-  - name: R32_EMMC_RESPONSE2
+    fieldset: RESPONSE1
+  - name: RESPONSE2
     description: SD 128bits response register, [95:64] 32bits.
     byte_offset: 16
     access: Read
-    fieldset: R32_EMMC_RESPONSE2
-  - name: R32_EMMC_RESPONSE3
+    fieldset: RESPONSE2
+  - name: RESPONSE3
     description: SD 128bits response register, [127:96] 32bits.
     byte_offset: 20
     access: Read
-    fieldset: R32_EMMC_RESPONSE3
-  - name: R32_EMMC_WRITE_CONT
+    fieldset: RESPONSE3
+  - name: WRITE_CONT
     description: Multiplexing register of the EMMC_RESPONSE3,[127:96] 32bits.
     byte_offset: 20
     access: Write
-    fieldset: R32_EMMC_WRITE_CONT
-  - name: R8_EMMC_CONTROL
+    fieldset: WRITE_CONT
+  - name: CONTROL
     description: SD 8bits control register.
     byte_offset: 24
     bit_size: 8
-    fieldset: R8_EMMC_CONTROL
-  - name: R8_EMMC_TIMEOUT
+    fieldset: CONTROL
+  - name: TIMEOUT
     description: SD 8bits data timeout value.
     byte_offset: 28
     bit_size: 8
-    fieldset: R8_EMMC_TIMEOUT
-  - name: R32_EMMC_STATUS
+    fieldset: TIMEOUT
+  - name: STATUS
     description: SD status.
     byte_offset: 32
     access: Read
-    fieldset: R32_EMMC_STATUS
-  - name: R16_EMMC_INT_FG
+    fieldset: STATUS
+  - name: INT_FG
     description: SD 16bits interrupt flag register.
     byte_offset: 36
     bit_size: 16
-    fieldset: R16_EMMC_INT_FG
-  - name: R16_EMMC_INT_EN
+    fieldset: INT_FG
+  - name: INT_EN
     description: SD 16bits interrupt enable register.
     byte_offset: 40
     bit_size: 16
-    fieldset: R16_EMMC_INT_EN
-  - name: R32_EMMC_DMA_BEG1
+    fieldset: INT_EN
+  - name: DMA_BEG1
     description: SD 16bits DMA start address register when to operate.
     byte_offset: 44
-    fieldset: R32_EMMC_DMA_BEG1
-  - name: R32_EMMC_BLOCK_CFG
+    fieldset: DMA_BEG1
+  - name: BLOCK_CFG
     description: SD 32bits data counter, [15:0] number of blocks this time will tran/recv, [27:16] block sise(byte number) of every block in this time tran/recv.
     byte_offset: 48
-    fieldset: R32_EMMC_BLOCK_CFG
-  - name: R32_EMMC_TRAN_MODE
+    fieldset: BLOCK_CFG
+  - name: TRAN_MODE
     description: SD TRANSFER MODE register.
     byte_offset: 52
-    fieldset: R32_EMMC_TRAN_MODE
-  - name: R16_EMMC_CLK_DIV
+    fieldset: TRAN_MODE
+  - name: CLK_DIV
     description: SD clock divider register.
     byte_offset: 56
     bit_size: 16
-    fieldset: R16_EMMC_CLK_DIV
-  - name: R32_EMMC_DMA_BEG2
+    fieldset: CLK_DIV
+  - name: DMA_BEG2
     description: SD 16bits DMA start address register when to operate.
     byte_offset: 60
-    fieldset: R32_EMMC_DMA_BEG2
-fieldset/R16_EMMC_CLK_DIV:
+    fieldset: DMA_BEG2
+fieldset/CLK_DIV:
   description: SD clock divider register.
   bit_size: 16
   fields:
-  - name: RB_EMMC_DIV_MASK
+  - name: DIV_MASK
     description: clk div.
     bit_offset: 0
     bit_size: 5
-  - name: RB_EMMC_CLKOE
+  - name: CLKOE
     description: chip output sdclk oe.
     bit_offset: 8
     bit_size: 1
-  - name: RB_EMMC_CLKMode
+  - name: CLKMode
     description: EMMC clock frequency mode selection bit.
     bit_offset: 9
     bit_size: 1
-  - name: RB_EMMC_PHASEINV
+  - name: PHASEINV
     description: invert chip output sdclk phase.
     bit_offset: 10
     bit_size: 1
-fieldset/R16_EMMC_CMD_SET:
+fieldset/CMD_SET:
   description: SD 16bits cmd setting register.
   bit_size: 16
   fields:
-  - name: RB_EMMC_CMDIDX_MASK
+  - name: CMDIDX_MASK
     description: the index number of the currently sent command.
     bit_offset: 0
     bit_size: 6
-  - name: RB_EMMC_RPTY_MASK
+  - name: RPTY_MASK
     description: current respone type.
     bit_offset: 8
     bit_size: 2
-  - name: RB_EMMC_CKCRC
+  - name: CKCRC
     description: check the response CRC.
     bit_offset: 10
     bit_size: 1
-  - name: RB_EMMC_CKIDX
+  - name: CKIDX
     description: check the response command index.
     bit_offset: 11
     bit_size: 1
-fieldset/R16_EMMC_INT_EN:
+fieldset/INT_EN:
   description: SD 16bits interrupt enable register.
   bit_size: 16
   fields:
-  - name: RB_EMMC_IE_RE_TMOUT
+  - name: IE_RE_TMOUT
     description: command response timeout interrupt enable.
     bit_offset: 0
     bit_size: 1
-  - name: RB_EMMC_IE_RECRC_WR
+  - name: IE_RECRC_WR
     description: response CRC check error interrupt enable.
     bit_offset: 1
     bit_size: 1
-  - name: RB_EMMC_IE_REIDX_ER
+  - name: IE_REIDX_ER
     description: response index check error interrupt enable.
     bit_offset: 2
     bit_size: 1
-  - name: RB_EMMC_IE_CMDDONE
+  - name: IE_CMDDONE
     description: command completion interrupt enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_EMMC_IE_DATTMO
+  - name: IE_DATTMO
     description: data timeout interrupt enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_EMMC_IE_TRANERR
+  - name: IE_TRANERR
     description: blocks transfer CRC error interrupt enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_EMMC_IE_TRANDONE
+  - name: IE_TRANDONE
     description: all blocks transfer complete interrupt enable.
     bit_offset: 6
     bit_size: 1
-  - name: RB_EMMC_IE_BKGAP
+  - name: IE_BKGAP
     description: single block transmission completion interrupt enable.
     bit_offset: 7
     bit_size: 1
-  - name: RB_EMMC_IE_FIFO_OV
+  - name: IE_FIFO_OV
     description: FIFO overflow interrupt enable.
     bit_offset: 8
     bit_size: 1
-  - name: RB_EMMC_IE_SDIOINT
+  - name: IE_SDIOINT
     description: SDIO card interrupt enable.
     bit_offset: 9
     bit_size: 1
-fieldset/R16_EMMC_INT_FG:
+fieldset/INT_FG:
   description: SD 16bits interrupt flag register.
   bit_size: 16
   fields:
-  - name: RB_EMMC_IF_RE_TMOUT
+  - name: IF_RE_TMOUT
     description: indicate when expect the response, timeout.
     bit_offset: 0
     bit_size: 1
-  - name: RB_EMMC_IF_RECRC_WR
+  - name: IF_RECRC_WR
     description: indicate CRC error of the response.
     bit_offset: 1
     bit_size: 1
-  - name: RB_EMMC_IF_REIDX_ER
+  - name: IF_REIDX_ER
     description: indicate INDEX error of the response.
     bit_offset: 2
     bit_size: 1
-  - name: RB_EMMC_IF_CMDDONE
+  - name: IF_CMDDONE
     description: when cmd hasn't response, indicate cmd has been sent, when cmd has a response, indicate cmd has bee sent and has received the response.
     bit_offset: 3
     bit_size: 1
-  - name: RB_EMMC_IF_DATTMO
+  - name: IF_DATTMO
     description: data line busy timeout.
     bit_offset: 4
     bit_size: 1
-  - name: RB_EMMC_IF_TRANERR
+  - name: IF_TRANERR
     description: last block have encountered a CRC error.
     bit_offset: 5
     bit_size: 1
-  - name: RB_EMMC_IF_TRANDONE
+  - name: IF_TRANDONE
     description: all the blocks have been tran/recv successfully.
     bit_offset: 6
     bit_size: 1
-  - name: RB_EMMC_IF_BKGAP
+  - name: IF_BKGAP
     description: every block gap interrupt when multiple read or write, allow drive change the DMA address at this moment.
     bit_offset: 7
     bit_size: 1
-  - name: RB_EMMC_IF_FIFO_OV
+  - name: IF_FIFO_OV
     description: fifo overflow, when write sd, indicate empty overflow, when read sd, indicate full overflow.
     bit_offset: 8
     bit_size: 1
-  - name: RB_EMMC_IF_SDIOINT
+  - name: IF_SDIOINT
     description: interrupt from SDIO card inside.
     bit_offset: 9
     bit_size: 1
-fieldset/R32_EMMC_ARGUMENT:
+fieldset/ARGUMENT:
   description: SD 32bits command argument register.
   fields:
-  - name: EMMC_ARGUMENT
+  - name: ARGUMENT
     description: 32 bit command parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_EMMC_BLOCK_CFG:
+fieldset/BLOCK_CFG:
   description: SD 32bits data counter, [15:0] number of blocks this time will tran/recv, [27:16] block sise(byte number) of every block in this time tran/recv.
   fields:
-  - name: RB_EMMC_BKNUM_MASK
+  - name: BKNUM_MASK
     description: the number of blocks to be transferred.
     bit_offset: 0
     bit_size: 16
-  - name: RB_EMMC_BKSIZE_MASK
+  - name: BKSIZE_MASK
     description: single block transfer size.
     bit_offset: 16
     bit_size: 12
-fieldset/R32_EMMC_DMA_BEG1:
+fieldset/DMA_BEG1:
   description: SD 16bits DMA start address register when to operate.
   fields:
-  - name: RB_EMMC_DMAAD1_MASK
+  - name: DMAAD1_MASK
     description: start address of read-write data buffer,the lower 4 bits are fixed to 0.
     bit_offset: 0
     bit_size: 17
-fieldset/R32_EMMC_DMA_BEG2:
+fieldset/DMA_BEG2:
   description: SD 16bits DMA start address register when to operate.
   fields:
-  - name: RB_EMMC_DMAAD2_MASK
+  - name: DMAAD2_MASK
     description: block DMA start address register.
     bit_offset: 0
     bit_size: 17
-fieldset/R32_EMMC_RESPONSE0:
+fieldset/RESPONSE0:
   description: SD 128bits response register, [31:0] 32bits.
   fields:
-  - name: R32_EMMC_RESPONSE0
+  - name: RESPONSE0
     description: response parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_EMMC_RESPONSE1:
+fieldset/RESPONSE1:
   description: SD 128bits response register, [63:32] 32bits.
   fields:
-  - name: R32_EMMC_RESPONSE1
+  - name: RESPONSE1
     description: response parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_EMMC_RESPONSE2:
+fieldset/RESPONSE2:
   description: SD 128bits response register, [95:64] 32bits.
   fields:
-  - name: R32_EMMC_RESPONSE2
+  - name: RESPONSE2
     description: response parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_EMMC_RESPONSE3:
+fieldset/RESPONSE3:
   description: SD 128bits response register, [127:96] 32bits.
   fields:
-  - name: R32_EMMC_RESPONSE3
+  - name: RESPONSE3
     description: response parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R32_EMMC_STATUS:
+fieldset/STATUS:
   description: SD status.
   fields:
   - name: MASK_BLOCK_NUM
     description: the number of blocks successfully transmitted in the current multi-block transmission.
     bit_offset: 0
     bit_size: 16
-  - name: RB_EMMC_CMDSTA
+  - name: CMDSTA
     description: indicate cmd line is high level now.
     bit_offset: 16
     bit_size: 1
-  - name: RB_EMMC_DAT0STA
+  - name: DAT0STA
     description: indicate dat[0] line is high level now.
     bit_offset: 17
     bit_size: 1
-fieldset/R32_EMMC_TRAN_MODE:
+fieldset/TRAN_MODE:
   description: SD TRANSFER MODE register.
   fields:
-  - name: RB_EMMC_DMA_DIR
+  - name: DMA_DIR
     description: set DMA direction is controller to emmc card.
     bit_offset: 0
     bit_size: 1
-  - name: RB_EMMC_GAP_STOP
+  - name: GAP_STOP
     description: clock stop mode after block completion.
     bit_offset: 1
     bit_size: 1
-  - name: RB_EMMC_MODE_BOOT
+  - name: MODE_BOOT
     description: enable emmc boot mode.
     bit_offset: 2
     bit_size: 1
-  - name: RB_EMMC_AUTOGAPSTOP
+  - name: AUTOGAPSTOP
     description: enable auto set bTM_GAP_STOP when tran start.
     bit_offset: 4
     bit_size: 1
-  - name: RB_EMMC_FIFO_RDY
+  - name: FIFO_RDY
     description: FIFO ready select signal when writing EMMC.
     bit_offset: 6
     bit_size: 2
-  - name: RB_EMMC_DMATN_CNT
+  - name: DMATN_CNT
     description: in double buffer mode,set the block count value of buffer switch.
     bit_offset: 8
     bit_size: 7
-  - name: RB_EMMC_DULEDMA_EN
+  - name: DULEDMA_EN
     description: enable double buffer dma.
     bit_offset: 16
     bit_size: 1
-fieldset/R32_EMMC_WRITE_CONT:
+fieldset/WRITE_CONT:
   description: Multiplexing register of the EMMC_RESPONSE3,[127:96] 32bits.
   fields:
-  - name: R32_EMMC_WRITE_CONT
+  - name: WRITE_CONT
     description: response parameter register.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_EMMC_CONTROL:
+fieldset/CONTROL:
   description: SD 8bits control register.
   bit_size: 8
   fields:
-  - name: RB_EMMC_LW_MASK
+  - name: LW_MASK
     description: effctive data width for sending or receiving data.
     bit_offset: 0
     bit_size: 2
-  - name: RB_EMMC_ALL_CLR
+  - name: ALL_CLR
     description: reset all the inner logic, default is valid.
     bit_offset: 2
     bit_size: 1
-  - name: RB_EMMC_DMAEN
+  - name: DMAEN
     description: enable the dma.
     bit_offset: 3
     bit_size: 1
-  - name: RB_EMMC_RST_LGC
+  - name: RST_LGC
     description: reset the data tran/recv logic.
     bit_offset: 4
     bit_size: 1
-  - name: RB_EMMC_NEGSMP
+  - name: NEGSMP
     description: controller use nagedge sample cmd.
     bit_offset: 5
     bit_size: 1
-fieldset/R8_EMMC_TIMEOUT:
+fieldset/TIMEOUT:
   description: SD 8bits data timeout value.
   bit_size: 8
   fields:
-  - name: RB_EMMC_TOCNT_MASK
+  - name: TOCNT_MASK
     description: response /data timeout configuration.
     bit_offset: 0
     bit_size: 4

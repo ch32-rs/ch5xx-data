@@ -1,8 +1,6 @@
-# CH572 / CH570. Numbers follow startup_CH572.S external vectors
-# (QingKe IRQ base 16). Slot 16 is unused in the startup file; a placeholder
-# keeps the PAC vector table from starting on a reserved entry. SVD SYS also
-# claimed UART0 at 26, but startup leaves that slot empty and only wires UART
-# at 27, so 26 is omitted.
+# CH572 / CH570. From startup_CH572.S (QingKe IRQ base 16).
+# Slot 16 is unused; Reserved16 keeps the PAC vector table from starting
+# on a reserved entry. Startup leaves 26 empty (SVD wrongly claimed UART0).
 Reserved16: 16
 GPIO_A: 17
 SPI0: 19

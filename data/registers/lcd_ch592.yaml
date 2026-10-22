@@ -1,38 +1,38 @@
 block/LCD:
   description: LCD register.
   items:
-  - name: R32_LCD_CMD
+  - name: CMD
     description: RW, LCD Command Register.
     byte_offset: 0
-    fieldset: R32_LCD_CMD
-  - name: R32_LCD_RAM0
+    fieldset: CMD
+  - name: RAM0
     description: RW, LCD RAM0 register.
     byte_offset: 4
-    fieldset: R32_LCD_RAM0
-  - name: R32_LCD_RAM1
+    fieldset: RAM0
+  - name: RAM1
     description: RW, LCD RAM1 register.
     byte_offset: 8
-    fieldset: R32_LCD_RAM1
-  - name: R32_LCD_RAM2
+    fieldset: RAM1
+  - name: RAM2
     description: RW, LCD RAM2 register.
     byte_offset: 12
-    fieldset: R32_LCD_RAM2
-fieldset/R32_LCD_CMD:
+    fieldset: RAM2
+fieldset/CMD:
   description: RW, LCD Command Register.
   fields:
   - name: SYS_EN
     description: RW, System Enable.
     bit_offset: 0
     bit_size: 1
-  - name: LCD_ON
+  - name: ON
     description: RW, LCD switch.
     bit_offset: 1
     bit_size: 1
-  - name: LCD_BIAS
+  - name: BIAS
     description: RW, PWM6 Bias ratio selection enable.
     bit_offset: 2
     bit_size: 1
-  - name: LCD_DUTY
+  - name: DUTY
     description: RW, LCD duty cycle selection.
     bit_offset: 3
     bit_size: 2
@@ -44,104 +44,104 @@ fieldset/R32_LCD_CMD:
     description: RW, LCD driver voltage selection.
     bit_offset: 7
     bit_size: 1
-  - name: LCD_SEG_EN1
+  - name: SEG_EN1
     description: RW, Enabling SEG0-SEG7 segments.
     bit_offset: 8
     bit_size: 8
-  - name: LCD_SEG_EN2
+  - name: SEG_EN2
     description: RW, Enabling SEG8-SEG15 segments.
     bit_offset: 16
     bit_size: 8
-  - name: LCD_SEG_EN3
+  - name: SEG_EN3
     description: RW, Enabling SEG16-SEG19 segments.
     bit_offset: 24
     bit_size: 4
-fieldset/R32_LCD_RAM0:
+fieldset/RAM0:
   description: RW, LCD RAM0 register.
   fields:
-  - name: LCD_SEG0
+  - name: SEG0
     description: RW, SEG0 segment data.
     bit_offset: 0
     bit_size: 4
-  - name: LCD_SEG1
+  - name: SEG1
     description: RW, SEG1 segment data.
     bit_offset: 4
     bit_size: 4
-  - name: LCD_SEG2
+  - name: SEG2
     description: RW, SEG2 segment data.
     bit_offset: 8
     bit_size: 4
-  - name: LCD_SEG3
+  - name: SEG3
     description: RW, SEG3 segment data.
     bit_offset: 12
     bit_size: 4
-  - name: LCD_SEG4
+  - name: SEG4
     description: RW, SEG4 segment data.
     bit_offset: 16
     bit_size: 4
-  - name: LCD_SEG5
+  - name: SEG5
     description: RW, SEG5 segment data.
     bit_offset: 20
     bit_size: 4
-  - name: LCD_SEG6
+  - name: SEG6
     description: RW, SEG6 segment data.
     bit_offset: 24
     bit_size: 4
-  - name: LCD_SEG7
+  - name: SEG7
     description: RW, SEG7 segment data.
     bit_offset: 28
     bit_size: 4
-fieldset/R32_LCD_RAM1:
+fieldset/RAM1:
   description: RW, LCD RAM1 register.
   fields:
-  - name: LCD_SEG8
+  - name: SEG8
     description: RW, SEG8 segment data.
     bit_offset: 0
     bit_size: 4
-  - name: LCD_SEG9
+  - name: SEG9
     description: RW, SEG9 segment data.
     bit_offset: 4
     bit_size: 4
-  - name: LCD_SEG10
+  - name: SEG10
     description: RW, SEG10 segment data.
     bit_offset: 8
     bit_size: 4
-  - name: LCD_SEG11
+  - name: SEG11
     description: RW, SEG11 segment data.
     bit_offset: 12
     bit_size: 4
-  - name: LCD_SEG12
+  - name: SEG12
     description: RW, SEG12 segment data.
     bit_offset: 16
     bit_size: 4
-  - name: LCD_SEG13
+  - name: SEG13
     description: RW, SEG13 segment data.
     bit_offset: 20
     bit_size: 4
-  - name: LCD_SEG14
+  - name: SEG14
     description: RW, SEG14 segment data.
     bit_offset: 24
     bit_size: 4
-  - name: LCD_SEG15
+  - name: SEG15
     description: RW, SEG15 segment data.
     bit_offset: 28
     bit_size: 4
-fieldset/R32_LCD_RAM2:
+fieldset/RAM2:
   description: RW, LCD RAM2 register.
   fields:
-  - name: LCD_SEG16
+  - name: SEG16
     description: RW, SEG16 segment data.
     bit_offset: 0
     bit_size: 4
-  - name: LCD_SEG17
+  - name: SEG17
     description: RW, SEG17 segment data.
     bit_offset: 4
     bit_size: 4
-  - name: LCD_SEG18
+  - name: SEG18
     description: RW, SEG18 segment data.
     bit_offset: 8
     bit_size: 4
-  - name: LCD_SEG19
+  - name: SEG19
     description: RW, SEG19 segment data.
     bit_offset: 12
     bit_size: 4

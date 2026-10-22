@@ -1,8 +1,5 @@
-# CH573 / CH571. Drafted from svd/fixed/ch57xxx.svd, then the SYS blob at
-# 0x40001000 was split into SYS / RTC / System_control / TouchKey / ADC /
-# GPIO. gpio / pwmx / rtc layouts match CH583 and live as version ch573
-# (smaller chip number). CH571 shares this full list for now; Studio claims
-# feature cuts without a separate register map, so memory differs only.
+# CH573 / CH571. From svd/fixed/ch57xxx.svd after SYS split. gpio / pwmx / rtc
+# live as version ch573 (smaller than identical ch583).
 
 - name: SYS
   address: 0x40001000

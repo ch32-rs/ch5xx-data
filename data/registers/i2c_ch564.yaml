@@ -1,50 +1,50 @@
 block/I2C:
   description: Inter integrated circuit.
   items:
-  - name: R16_I2C_CTLR1
+  - name: CTLR1
     description: Control register 1.
     byte_offset: 0
     bit_size: 16
-    fieldset: R16_I2C_CTLR1
-  - name: R16_I2C_CTLR2
+    fieldset: CTLR1
+  - name: CTLR2
     description: Control register 2.
     byte_offset: 4
     bit_size: 16
-    fieldset: R16_I2C_CTLR2
-  - name: R16_I2C_OADDR1
+    fieldset: CTLR2
+  - name: OADDR1
     description: Own address register 1.
     byte_offset: 8
     bit_size: 16
-    fieldset: R16_I2C_OADDR1
-  - name: R16_I2C_OADDR2
+    fieldset: OADDR1
+  - name: OADDR2
     description: Own address register 2.
     byte_offset: 12
-    fieldset: R16_I2C_OADDR2
-  - name: R16_I2C_DATAR
+    fieldset: OADDR2
+  - name: DATAR
     description: Data register.
     byte_offset: 16
-    fieldset: R16_I2C_DATAR
-  - name: R16_I2C_STAR1
+    fieldset: DATAR
+  - name: STAR1
     description: Status register 1.
     byte_offset: 20
     bit_size: 16
-    fieldset: R16_I2C_STAR1
-  - name: R16_I2C_STAR2
+    fieldset: STAR1
+  - name: STAR2
     description: Status register 2.
     byte_offset: 24
     access: Read
     bit_size: 16
-    fieldset: R16_I2C_STAR2
-  - name: R16_I2C_CKCFGR
+    fieldset: STAR2
+  - name: CKCFGR
     description: Clock control register.
     byte_offset: 28
-    fieldset: R16_I2C_CKCFGR
-  - name: R16_I2C_RTR
+    fieldset: CKCFGR
+  - name: RTR
     description: Raise time register.
     byte_offset: 32
     bit_size: 16
-    fieldset: R16_I2C_RTR
-fieldset/R16_I2C_CKCFGR:
+    fieldset: RTR
+fieldset/CKCFGR:
   description: Clock control register.
   fields:
   - name: CCR
@@ -59,7 +59,7 @@ fieldset/R16_I2C_CKCFGR:
     description: I2C master mode selection.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_CTLR1:
+fieldset/CTLR1:
   description: Control register 1.
   bit_size: 16
   fields:
@@ -119,7 +119,7 @@ fieldset/R16_I2C_CTLR1:
     description: Software reset.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_CTLR2:
+fieldset/CTLR2:
   description: Control register 2.
   bit_size: 16
   fields:
@@ -139,14 +139,14 @@ fieldset/R16_I2C_CTLR2:
     description: Buffer interrupt enable.
     bit_offset: 10
     bit_size: 1
-fieldset/R16_I2C_DATAR:
+fieldset/DATAR:
   description: Data register.
   fields:
   - name: DR
     description: 8-bit data register.
     bit_offset: 0
     bit_size: 8
-fieldset/R16_I2C_OADDR1:
+fieldset/OADDR1:
   description: Own address register 1.
   bit_size: 16
   fields:
@@ -166,7 +166,7 @@ fieldset/R16_I2C_OADDR1:
     description: Addressing mode (slave. mode).
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_OADDR2:
+fieldset/OADDR2:
   description: Own address register 2.
   fields:
   - name: ENDUAL
@@ -177,7 +177,7 @@ fieldset/R16_I2C_OADDR2:
     description: Interface address.
     bit_offset: 1
     bit_size: 7
-fieldset/R16_I2C_RTR:
+fieldset/RTR:
   description: Raise time register.
   bit_size: 16
   fields:
@@ -185,7 +185,7 @@ fieldset/R16_I2C_RTR:
     description: Maximum rise time in Fast_Standard mode. (Master mode).
     bit_offset: 0
     bit_size: 6
-fieldset/R16_I2C_STAR1:
+fieldset/STAR1:
   description: Status register 1.
   bit_size: 16
   fields:
@@ -245,7 +245,7 @@ fieldset/R16_I2C_STAR1:
     description: SMBus alert.
     bit_offset: 15
     bit_size: 1
-fieldset/R16_I2C_STAR2:
+fieldset/STAR2:
   description: Status register 2.
   bit_size: 16
   fields:

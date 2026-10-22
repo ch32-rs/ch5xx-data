@@ -1,81 +1,81 @@
 block/TouchKey:
   description: Touch buttons.
   items:
-  - name: R8_TKEY_COUNT
+  - name: COUNT
     description: RW, Touchkey charge and discharge count.
     byte_offset: 84
     bit_size: 8
-    fieldset: R8_TKEY_COUNT
-  - name: R8_TKEY_CONVERT
+    fieldset: COUNT
+  - name: CONVERT
     description: RW, Touchkey convert start control.
     byte_offset: 86
     bit_size: 8
-    fieldset: R8_TKEY_CONVERT
-  - name: R8_TKEY_CFG
+    fieldset: CONVERT
+  - name: CFG
     description: RW, Touchkey configure.
     byte_offset: 87
     bit_size: 8
-    fieldset: R8_TKEY_CFG
-  - name: R32_TKEY_SEL
+    fieldset: CFG
+  - name: SEL
     description: RW, TouchKey selection register.
     byte_offset: 124
-    fieldset: R32_TKEY_SEL
-fieldset/R32_TKEY_SEL:
+    fieldset: SEL
+fieldset/SEL:
   description: RW, TouchKey selection register.
   fields:
-  - name: RB_TKEY_DRV_OUTEN
+  - name: DRV_OUTEN
     description: RW, TouchKey multi-channel driver shields each channel to enable.
     bit_offset: 18
     bit_size: 14
-fieldset/R8_TKEY_CFG:
+fieldset/CFG:
   description: RW, Touchkey configure.
   bit_size: 8
   fields:
-  - name: RB_TKEY_PWR_ON
+  - name: PWR_ON
     description: RW, Touchkey power on.
     bit_offset: 0
     bit_size: 1
-  - name: RB_TKEY_CURRENT
+  - name: CURRENT
     description: R0, Touchkey charge current selection.
     bit_offset: 1
     bit_size: 1
-  - name: RB_TKEY_DRV_EN
+  - name: DRV_EN
     description: RW, Touchkey drive shield enable.
     bit_offset: 2
     bit_size: 1
-  - name: RB_TKEY_PGA_ADJ
+  - name: PGA_ADJ
     description: RW, ADC input PGA speed selection.
     bit_offset: 3
     bit_size: 1
-  - name: RB_TKEY_RAND_EN
+  - name: RAND_EN
     description: RW, TouchKey random trigger enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_TKEY_AUTO_EN
+  - name: AUTO_EN
     description: RW, TouchKey automatic trigger enable.
     bit_offset: 5
     bit_size: 1
-  - name: RB_TKEY_DMA_EN
+  - name: DMA_EN
     description: RW, TouchKey DMA Enable.
     bit_offset: 6
     bit_size: 1
-fieldset/R8_TKEY_CONVERT:
+fieldset/CONVERT:
   description: RW, Touchkey convert start control.
   bit_size: 8
   fields:
-  - name: RB_TKEY_START
+  - name: START
     description: RW, Touchkey convert start control.
     bit_offset: 0
     bit_size: 1
-fieldset/R8_TKEY_COUNT:
+fieldset/COUNT:
   description: RW, Touchkey charge and discharge count.
   bit_size: 8
   fields:
-  - name: RB_TKEY_CHARG_CNT
+  - name: CHARG_CNT
     description: RW, Touchkey charge count.
     bit_offset: 0
     bit_size: 5
-  - name: RB_TKEY_DISCH_CNT
+  - name: DISCH_CNT
     description: RW, Touchkey discharge count.
     bit_offset: 5
     bit_size: 3

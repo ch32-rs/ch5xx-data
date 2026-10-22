@@ -1,8 +1,5 @@
-# CH569 / CH565. Drafted from svd/fixed/ch56xxx.svd after splitting the
-# monolithic SYS blob into SYS / System_control / GPIO. USBSS / SERDES /
-# ETH are 0-register placeholders. CH565 shares this full list for now
-# (Studio/docs mention HSPI vs DVP packaging differences without a
-# separate register map).
+# CH569 / CH565. From svd/fixed/ch56xxx.svd after SYS → SYS / System_control /
+# GPIO split. USBSS / SERDES / ETH are 0-register placeholders.
 
 - name: SYS
   address: 0x40001000

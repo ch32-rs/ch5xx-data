@@ -1,166 +1,166 @@
 block/LED:
   description: LED register.
   items:
-  - name: R8_LED_CTRL_MOD
+  - name: CTRL_MOD
     description: RW, LED mode configuration register.
     byte_offset: 0
     bit_size: 8
-    fieldset: R8_LED_CTRL_MOD
-  - name: R8_LED_CLOCK_DIV
+    fieldset: CTRL_MOD
+  - name: CLOCK_DIV
     description: RW, LED serial clock divider register.
     byte_offset: 1
     bit_size: 8
-    fieldset: R8_LED_CLOCK_DIV
-  - name: R8_LED_CTRL_MOD1
+    fieldset: CLOCK_DIV
+  - name: CTRL_MOD1
     description: RW, LED mode configuration register 1.
     byte_offset: 2
     bit_size: 8
-    fieldset: R8_LED_CTRL_MOD1
-  - name: R16_LED_STATUS
+    fieldset: CTRL_MOD1
+  - name: STATUS
     description: RW1, LED status register.
     byte_offset: 4
     bit_size: 16
-    fieldset: R16_LED_STATUS
-  - name: R32_LED_FIFO
+    fieldset: STATUS
+  - name: FIFO
     description: WO, LED data FIFO register.
     byte_offset: 8
     access: Write
-    fieldset: R32_LED_FIFO
-  - name: R16_LED_DMA_LEN
+    fieldset: FIFO
+  - name: DMA_LEN
     description: WO, LED DMA transmission length.
     byte_offset: 16
     access: Write
     bit_size: 16
-    fieldset: R16_LED_DMA_LEN
-  - name: R16_LED_DMA_CNT
+    fieldset: DMA_LEN
+  - name: DMA_CNT
     description: WO, LED DMA remaining count register.
     byte_offset: 20
     access: Write
     bit_size: 16
-    fieldset: R16_LED_DMA_CNT
-  - name: R32_LED_DMA_BEG
+    fieldset: DMA_CNT
+  - name: DMA_BEG
     description: RW, LED DMA starting address.
     byte_offset: 24
-    fieldset: R32_LED_DMA_BEG
-  - name: R32_LED_DMA_CUR
+    fieldset: DMA_BEG
+  - name: DMA_CUR
     description: RO, LED DMA current address.
     byte_offset: 28
     access: Read
-    fieldset: R32_LED_DMA_CUR
-fieldset/R16_LED_DMA_CNT:
+    fieldset: DMA_CUR
+fieldset/DMA_CNT:
   description: WO, LED DMA remaining count register.
   bit_size: 16
   fields:
-  - name: RB_LED_DMA_CNT
+  - name: DMA_CNT
     description: LED_SMA_maIN Main Buffer Current DMA Remaining Words (16 bits) Count.
     bit_offset: 0
     bit_size: 12
-fieldset/R16_LED_DMA_LEN:
+fieldset/DMA_LEN:
   description: WO, LED DMA transmission length.
   bit_size: 16
   fields:
-  - name: R16_LED_DMA_LENGTH
+  - name: DMA_LENGTH
     description: DMA transmission count length.
     bit_offset: 0
     bit_size: 12
-fieldset/R16_LED_STATUS:
+fieldset/STATUS:
   description: RW1, LED status register.
   bit_size: 16
   fields:
-  - name: RB_LED_FIFO_COUNT
+  - name: FIFO_COUNT
     description: The byte count value in the current FIFO must be even.
     bit_offset: 0
     bit_size: 4
-  - name: RB_LED_CLOCK
+  - name: CLOCK
     description: Current LED clock signal level status.
     bit_offset: 5
     bit_size: 1
-  - name: RB_LED_IF_FIFO
+  - name: IF_FIFO
     description: FIFO count over half interrupt flag, write 1 to reset or write R16_SED_LFO to reset.
     bit_offset: 6
     bit_size: 1
-  - name: RB_LED_LOAD_FAIL
+  - name: LOAD_FAIL
     description: Loading data results.
     bit_offset: 7
     bit_size: 1
-  - name: RB_LED_IF_DMA_END
+  - name: IF_DMA_END
     description: DMA completion flag, write 1 to reset or write R16_SED-DMA_CNT to reset.
     bit_offset: 8
     bit_size: 1
-  - name: RB_LED_IF_DMA_INT
+  - name: IF_DMA_INT
     description: DMA transfer end interrupt flag bit.
     bit_offset: 9
     bit_size: 1
-fieldset/R32_LED_DMA_BEG:
+fieldset/DMA_BEG:
   description: RW, LED DMA starting address.
   fields:
-  - name: RB_LED_DMA_BEG
+  - name: DMA_BEG
     description: DMA starting address.
     bit_offset: 2
     bit_size: 15
-fieldset/R32_LED_DMA_CUR:
+fieldset/DMA_CUR:
   description: RO, LED DMA current address.
   fields:
-  - name: RB_LED_DMA_CUR
+  - name: DMA_CUR
     description: LED DMA current address.
     bit_offset: 2
     bit_size: 15
-fieldset/R32_LED_FIFO:
+fieldset/FIFO:
   description: WO, LED data FIFO register.
   fields:
-  - name: R32_LED_FIFO
+  - name: FIFO
     description: LED data FIFO input, 32-bit write.
     bit_offset: 0
     bit_size: 32
-fieldset/R8_LED_CLOCK_DIV:
+fieldset/CLOCK_DIV:
   description: RW, LED serial clock divider register.
   bit_size: 8
   fields:
-  - name: R8_LED_CLOCK_DIV
+  - name: CLOCK_DIV
     description: LED output clock frequency division coefficient.
     bit_offset: 0
     bit_size: 8
-fieldset/R8_LED_CTRL_MOD:
+fieldset/CTRL_MOD:
   description: RW, LED mode configuration register.
   bit_size: 8
   fields:
-  - name: RB_LED_BIT_ORDER
+  - name: BIT_ORDER
     description: Selection of LED serial data bit sequence.
     bit_offset: 0
     bit_size: 1
-  - name: RB_LED_ALL_CLEAR
+  - name: ALL_CLEAR
     description: LED FIFO/counter/interrupt flag reset to zero.
     bit_offset: 1
     bit_size: 1
-  - name: RB_LED_OUT_POLAR
+  - name: OUT_POLAR
     description: LED data output polarity control bit.
     bit_offset: 2
     bit_size: 1
-  - name: RB_LED_OUT_EN
+  - name: OUT_EN
     description: LED signal output enable.
     bit_offset: 3
     bit_size: 1
-  - name: RB_LED_DMA_EN
+  - name: DMA_EN
     description: LED DMA function and DMA interrupt enable.
     bit_offset: 4
     bit_size: 1
-  - name: RB_LED_IE_FIFO
+  - name: IE_FIFO
     description: FIFO count over half interrupt enabled.
     bit_offset: 5
     bit_size: 1
-  - name: RB_LED_CHAN_MOD
+  - name: CHAN_MOD
     description: LED channel mode selection.
     bit_offset: 6
     bit_size: 2
-fieldset/R8_LED_CTRL_MOD1:
+fieldset/CTRL_MOD1:
   description: RW, LED mode configuration register 1.
   bit_size: 8
   fields:
-  - name: R8_LED_DMA_LOOP
+  - name: DMA_LOOP
     description: Enable LED DMA data cycling usage.
     bit_offset: 0
     bit_size: 1
-  - name: RB_IE_SEND_END
+  - name: IE_SEND_END
     description: DMA All Data Transfer End Interrupt Enable.
     bit_offset: 1
     bit_size: 1

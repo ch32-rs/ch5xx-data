@@ -1,8 +1,5 @@
-# CH564. Drafted from svd/fixed/ch564.svd after splitting SYS into SYS /
-# System_control / GPIO / SLV. Peripheral base map is 0x40400000 (ETH
-# stays at 0x40028xxx as in the fixed SVD). TIMER* renamed to TMR*.
-# UART2/UART3 are derivedFrom UART1 in the SVD (same UART_FULL block).
-# Header vs SVD disagree on some ETH/USB_HSI bases — trust the fixed SVD.
+# CH564. From svd/fixed/ch564.svd. Peripheral base map is 0x40400000 (ETH
+# stays at 0x40028xxx). SYS split into SYS / System_control / GPIO / SLV.
 
 - name: SYS
   address: 0x40400000
