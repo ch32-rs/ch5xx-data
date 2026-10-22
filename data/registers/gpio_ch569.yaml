@@ -1,8 +1,10 @@
+# GPIO on CH565/CH569. The DS implements PA[23:0] and PB[24:0]; ports are
+# modelled as 32-bit arrays, with bonded pins left to the pin map.
 block/GPIO:
   description: GPIO register.
   items:
   - name: INT_FLAG
-    description: GPIO interrupt control.
+    description: GPIO interrupt flag; write 1 to clear.
     byte_offset: 28
     bit_size: 8
     fieldset: INT_FLAG
@@ -113,7 +115,7 @@ fieldset/PA_DRV:
   description: GPIO PA driving capability.
   fields:
   - name: PA_DRV
-    description: 'GPIO PA drive-strength select.'
+    description: 'GPIO PA output drive current: 1=max 16mA, 0=max 8mA.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -133,7 +135,7 @@ fieldset/PA_PD:
   description: GPIO PA output open-drain and input pulldown resistance enable.
   fields:
   - name: PA_PD
-    description: 'GPIO PA pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
+    description: 'GPIO PA open-drain output (output mode) / pull-down resistor (input mode): 1=enabled, 0=disabled.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -163,7 +165,7 @@ fieldset/PA_SMT:
   description: GPIO PA output slew rate and input schmitt trigger.
   fields:
   - name: PA_SMT
-    description: 'GPIO PA Schmitt-trigger input: 1=enabled, 0=disabled.'
+    description: 'GPIO PA low-slew-rate output (output mode) / Schmitt-trigger input (input mode): 1=enabled, 0=disabled.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -193,7 +195,7 @@ fieldset/PB_DRV:
   description: GPIO PB driving capability.
   fields:
   - name: PB_DRV
-    description: 'GPIO PB drive-strength select.'
+    description: 'GPIO PB output drive current: 1=max 16mA, 0=max 8mA.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -213,7 +215,7 @@ fieldset/PB_PD:
   description: GPIO PB output open-drain and input pulldown resistance enable.
   fields:
   - name: PB_PD
-    description: 'GPIO PB pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
+    description: 'GPIO PB open-drain output (output mode) / pull-down resistor (input mode): 1=enabled, 0=disabled.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -243,7 +245,7 @@ fieldset/PB_SMT:
   description: GPIO PB output slew rate and input schmitt trigger.
   fields:
   - name: PB_SMT
-    description: 'GPIO PB Schmitt-trigger input: 1=enabled, 0=disabled.'
+    description: 'GPIO PB low-slew-rate output (output mode) / Schmitt-trigger input (input mode): 1=enabled, 0=disabled.'
     bit_offset: 0
     bit_size: 1
     array:
@@ -286,7 +288,7 @@ fieldset/INT_ENABLE:
     bit_offset: 7
     bit_size: 1
 fieldset/INT_FLAG:
-  description: GPIO interrupt control.
+  description: GPIO interrupt flag; write 1 to clear.
   bit_size: 8
   fields:
   - name: PA2_IF
@@ -322,7 +324,7 @@ fieldset/INT_FLAG:
     bit_offset: 7
     bit_size: 1
 fieldset/INT_MODE:
-  description: GPIO interrupt mode.
+  description: 'GPIO interrupt trigger mode: 1=edge, 0=level.'
   bit_size: 8
   fields:
   - name: PA2_IM
@@ -358,38 +360,38 @@ fieldset/INT_MODE:
     bit_offset: 7
     bit_size: 1
 fieldset/INT_POLAR:
-  description: GPIO interrupt polarity.
+  description: 'GPIO interrupt polarity: 1=high level or rising edge, 0=low level or falling edge.'
   bit_size: 8
   fields:
   - name: PA2_IP
-    description: PA2 pin interrupt mode.
+    description: PA2 pin interrupt polarity.
     bit_offset: 0
     bit_size: 1
   - name: PA3_IP
-    description: PA3 pin interrupt mode.
+    description: PA3 pin interrupt polarity.
     bit_offset: 1
     bit_size: 1
   - name: PA4_IP
-    description: PA4 pin interrupt mode.
+    description: PA4 pin interrupt polarity.
     bit_offset: 2
     bit_size: 1
   - name: PB3_IP
-    description: PB3 pin interrupt mode.
+    description: PB3 pin interrupt polarity.
     bit_offset: 3
     bit_size: 1
   - name: PB4_IP
-    description: PB4 pin interrupt mode.
+    description: PB4 pin interrupt polarity.
     bit_offset: 4
     bit_size: 1
   - name: PB11_IP
-    description: PB11 pin interrupt mode.
+    description: PB11 pin interrupt polarity.
     bit_offset: 5
     bit_size: 1
   - name: PB12_IP
-    description: PB12 pin interrupt mode.
+    description: PB12 pin interrupt polarity.
     bit_offset: 6
     bit_size: 1
   - name: PB15_IP
-    description: PB15 pin interrupt mode.
+    description: PB15 pin interrupt polarity.
     bit_offset: 7
     bit_size: 1
