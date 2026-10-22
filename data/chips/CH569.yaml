@@ -1,4 +1,5 @@
 # CH569, from openwch/ch569 EVT (Link.ld) and product docs. QingKe V3A.
+# CH569DS1 V1.3 confirms 448K/32K flash, 96K RAMX + 16K RAMS, QFN68.
 # CH565 shares this register map. Chip id byte = 0x69.
 name: CH569
 family: QingKe RISC-V-based MCU

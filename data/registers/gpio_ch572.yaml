@@ -1,3 +1,5 @@
+# GPIO on CH572/CH570. PA_INT_EDGE_TYPE (0x96) is per the DS table 7-8;
+# the vendor SVD jumps 0x94 -> 0x9C.
 block/GPIO:
   description: General porpose intput output.
   items:
@@ -11,6 +13,11 @@ block/GPIO:
     byte_offset: 148
     bit_size: 16
     fieldset: PA_INT_MODE
+  - name: PA_INT_EDGE_TYPE
+    description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+    byte_offset: 150
+    bit_size: 16
+    fieldset: PA_INT_EDGE_TYPE
   - name: PA_INT_IF
     description: RW1, GPIO PA interrupt flag.
     byte_offset: 156
@@ -55,6 +62,14 @@ fieldset/PA_INT_EN:
     description: GPIO PA interrupt enable.
     bit_offset: 0
     bit_size: 16
+fieldset/PA_INT_EDGE_TYPE:
+  description: 'RW, GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+  bit_size: 16
+  fields:
+  - name: PA_INT_EDGE_TYPE
+    description: 'GPIO PA interrupt edge type: 0=polarity sensitive, 1=non-polarity sensitive.'
+    bit_offset: 0
+    bit_size: 16
 fieldset/PA_INT_IF:
   description: RW1, GPIO PA interrupt flag.
   bit_size: 16
@@ -74,77 +89,70 @@ fieldset/PA_INT_MODE:
 fieldset/PA_CLR:
   description: 'WZ, GPIO PA clear output: 0=keep, 1=clear.'
   fields:
-  - name: PA_CLR_0
-    description: GPIO PA clear output byte 0.
+  - name: PA_CLR
+    description: 'GPIO PA clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_CLR_1
-    description: GPIO PA clear output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_DIR:
   description: 'RW, GPIO PA I/O direction: 0=in, 1=out.'
   fields:
-  - name: PA_DIR_0
-    description: GPIO PA I/O direction byte 0.
+  - name: PA_DIR
+    description: 'GPIO PA I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_DIR_1
-    description: GPIO PA I/O direction byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_OUT:
   description: RW, GPIO PA output.
   fields:
-  - name: PA_OUT_0
-    description: GPIO PA output byte 0.
+  - name: PA_OUT
+    description: 'GPIO PA output level: 1=high, 0=low; when the pin is an input, selects the interrupt polarity (1=high level or rising edge, 0=low level or falling edge).'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_OUT_1
-    description: GPIO PA output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PD_DRV:
   description: RW, PA pulldown for input or PA driving capability for output.
   fields:
-  - name: PA_PD_DRV_0
-    description: PA pulldown for input or PA driving capability for output byte 0.
+  - name: PA_PD_DRV
+    description: 'GPIO PA pull-down enable: 1=enabled, 0=disabled; when the pin is an output, selects the drive strength (1=20mA, 0=5mA).'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PD_DRV_1
-    description: PA pulldown for input or PA driving capability for output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PIN:
   description: RO, GPIO PA input.
   fields:
-  - name: PA_PIN_0
-    description: GPIO PA input byte 0.
+  - name: PA_PIN
+    description: 'GPIO PA input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PIN_1
-    description: GPIO PA input byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PU:
   description: RW, GPIO PA pullup resistance enable.
   fields:
-  - name: PA_PU_0
-    description: GPIO PA pullup resistance enable byte 0.
+  - name: PA_PU
+    description: 'GPIO PA pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PU_1
-    description: GPIO PA pullup resistance enable byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_SET:
-  description: RW, PA port output set register.
+  description: WZ, PA port output set register.
   fields:
-  - name: PA_SET_0
-    description: When the corresponding bit of the set register PA_SET is 0, the PA pin output remains unchanged; when it is 1, the PA pin outputs a high level.
+  - name: PA_SET
+    description: 'GPIO PA set output: write 1 to drive the pin output high, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_SET_1
-    description: When the corresponding bit of the set register PA_SET is 0, the PA pin output remains unchanged; when it is 1, the PA pin outputs a high level.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
