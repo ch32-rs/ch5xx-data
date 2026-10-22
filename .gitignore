@@ -21,3 +21,6 @@ Cargo.lock
 #.idea/
 /build
 /svd
+
+# Local agent instructions; not part of the data repo.
+AGENTS.md
