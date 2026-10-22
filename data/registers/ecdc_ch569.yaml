@@ -1,11 +1,11 @@
 block/ECDC:
   description: ECDC register.
   items:
-  - name: ECEC_CTRL
-    description: ECED AES/SM4 register.
+  - name: CTRL
+    description: ECDC AES/SM4 register.
     byte_offset: 0
     bit_size: 16
-    fieldset: ECEC_CTRL
+    fieldset: CTRL
   - name: INT_EN
     description: Interupt enable register.
     byte_offset: 2
@@ -92,10 +92,10 @@ block/ECDC:
     description: Single encryption and decryption result 0-31 register.
     byte_offset: 88
     fieldset: SGRT_63T32
-  - name: RB_ECDC_SGRT_31T0
+  - name: SGRT_31T0
     description: Single encryption and decryption result 0-31 register.
     byte_offset: 92
-    fieldset: RB_ECDC_SGRT_31T0
+    fieldset: SGRT_31T0
   - name: SRAM_ADDR
     description: encryption and decryption sram start address register.
     byte_offset: 96
@@ -104,8 +104,8 @@ block/ECDC:
     description: encryption and decryption sram size register.
     byte_offset: 100
     fieldset: SRAM_LEN
-fieldset/ECEC_CTRL:
-  description: ECED AES/SM4 register.
+fieldset/CTRL:
+  description: ECDC AES/SM4 register.
   bit_size: 16
   fields:
   - name: KEYEX_EN
@@ -327,7 +327,7 @@ fieldset/INT_FG:
     description: Memory to memory encryption and decryption completion interrupt flag.
     bit_offset: 2
     bit_size: 1
-fieldset/RB_ECDC_SGRT_31T0:
+fieldset/SGRT_31T0:
   description: Single encryption and decryption result 0-31 register.
   fields:
   - name: SGRT_31T0
