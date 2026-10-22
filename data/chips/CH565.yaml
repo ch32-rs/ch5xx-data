@@ -1,4 +1,6 @@
-# CH565. Packages QFN68/QFN40. Chip id byte = 0x65. Shares CH569 family/IRQs.
+# CH565. Chip id byte = 0x65. Shares CH569 family/IRQs.
+# CH565M (QFN40) is absent from CH569DS1 V1.3 (only CH565W, QFN68); kept per
+# the MounRiver Studio 2 project template list.
 name: CH565
 family: QingKe RISC-V-based MCU
 subfamily: USB3.0 Super-Speed Interface MCU
