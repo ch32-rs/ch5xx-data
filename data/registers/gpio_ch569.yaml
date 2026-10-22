@@ -93,114 +93,162 @@ fieldset/PA_CLR:
   description: GPIO PA clear output.
   fields:
   - name: PA_CLR
-    description: GPIO PA clear output.
+    description: 'GPIO PA clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_DIR:
   description: GPIO PA I/O direction.
   fields:
   - name: PA_DIR
-    description: GPIO PA I/O direction.
+    description: 'GPIO PA I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_DRV:
   description: GPIO PA driving capability.
   fields:
   - name: PA_DRV
-    description: GPIO PA driving capability.
+    description: 'GPIO PA drive-strength select.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_OUT:
   description: GPIO PA output.
   fields:
   - name: PA_OUT
-    description: GPIO PA output.
+    description: 'GPIO PA output level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PD:
   description: GPIO PA output open-drain and input pulldown resistance enable.
   fields:
   - name: PA_PD
-    description: GPIO PA output open-drain and input pulldown resistance enable.
+    description: 'GPIO PA pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PIN:
   description: GPIO PA input.
   fields:
   - name: PA_PIN
-    description: GPIO PA input.
+    description: 'GPIO PA input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PU:
   description: GPIO PA pullup resistance enable.
   fields:
   - name: PA_PU
-    description: GPIO PA pullup resistance enable.
+    description: 'GPIO PA pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_SMT:
   description: GPIO PA output slew rate and input schmitt trigger.
   fields:
   - name: PA_SMT
-    description: GPIO PA output slew rate and input schmitt trigger.
+    description: 'GPIO PA Schmitt-trigger input: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 24
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_CLR:
   description: GPIO PB clear output.
   fields:
   - name: PB_CLR
-    description: GPIO PB clear output.
+    description: 'GPIO PB clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_DIR:
   description: GPIO PB I/O direction.
   fields:
   - name: PB_DIR
-    description: GPIO PB I/O direction.
+    description: 'GPIO PB I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_DRV:
   description: GPIO PB driving capability.
   fields:
   - name: PB_DRV
-    description: GPIO PB driving capability.
+    description: 'GPIO PB drive-strength select.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_OUT:
   description: GPIO PB output.
   fields:
   - name: PB_OUT
-    description: GPIO PB output.
+    description: 'GPIO PB output level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PD:
   description: GPIO PB output open-drain and input pulldown resistance enable.
   fields:
   - name: PB_PD
-    description: GPIO PB output open-drain and input pulldown resistance enable.
+    description: 'GPIO PB pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PIN:
   description: GPIO PB input.
   fields:
   - name: PB_PIN
-    description: GPIO PB input.
+    description: 'GPIO PB input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PU:
   description: GPIO PB pullup resistance enable.
   fields:
   - name: PB_PU
-    description: GPIO PB pullup resistance enable.
+    description: 'GPIO PB pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_SMT:
   description: GPIO PB output slew rate and input schmitt trigger.
   fields:
   - name: PB_SMT
-    description: GPIO PB output slew rate and input schmitt trigger.
+    description: 'GPIO PB Schmitt-trigger input: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 25
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/INT_ENABLE:
   description: GPIO interrupt enable.
   bit_size: 8

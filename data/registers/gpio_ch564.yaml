@@ -1,3 +1,5 @@
+# GPIO on CH564. PD interrupt fields PD_0_7 / PD_24_31 are joined into one
+# 32-bit field. PB stops at 23: bits 23/24 are the USB DP/DM functions.
 block/GPIO:
   description: GPIO register.
   items:
@@ -423,14 +425,10 @@ fieldset/INT_ENABLE_PB:
 fieldset/INT_ENABLE_PD:
   description: The interrupt enable register at the PD port.
   fields:
-  - name: PD_0_7
+  - name: PD
     description: The interrupt enable bit of the PD port.
     bit_offset: 0
-    bit_size: 8
-  - name: PD_24_31
-    description: The interrupt enable bit of the PD port.
-    bit_offset: 24
-    bit_size: 8
+    bit_size: 32
 fieldset/INT_MODE_PA:
   description: The interrupt mode register at the PA port.
   fields:
@@ -448,14 +446,10 @@ fieldset/INT_MODE_PB:
 fieldset/INT_MODE_PD:
   description: The interrupt mode register at the PD port.
   fields:
-  - name: PD_0_7
+  - name: PD
     description: The interrupt mode bit of the PD port.
     bit_offset: 0
-    bit_size: 8
-  - name: PD_24_31
-    description: The interrupt mode bit of the PD port.
-    bit_offset: 24
-    bit_size: 8
+    bit_size: 32
 fieldset/INT_POLAR_PA:
   description: The interrupt polar register at the PA port.
   fields:
@@ -473,14 +467,10 @@ fieldset/INT_POLAR_PB:
 fieldset/INT_POLAR_PD:
   description: The interrupt polar register at the PD port.
   fields:
-  - name: PD_0_7
+  - name: PD
     description: The interrupt polar bit of the PD port.
     bit_offset: 0
-    bit_size: 8
-  - name: PD_24_31
-    description: The interrupt polar bit of the PD port.
-    bit_offset: 24
-    bit_size: 8
+    bit_size: 32
 fieldset/INT_STATUS_PA:
   description: The interrupt status register at the PA port.
   fields:
@@ -500,72 +490,92 @@ fieldset/INT_STATUS_PB:
     bit_offset: 0
     bit_size: 23
 fieldset/INT_STATUS_PD:
-  description: The interrupt status register at the PA port.
+  description: The interrupt status register at the PD port.
   fields:
-  - name: PD_0_7
+  - name: PD
     description: The interrupt status bit of the PD port.
     bit_offset: 0
-    bit_size: 8
-  - name: PD_24_31
-    description: The interrupt status bit of the PD port.
-    bit_offset: 24
-    bit_size: 8
+    bit_size: 32
 fieldset/PA_CLR:
   description: GPIO PA clear output.
   fields:
   - name: PA_CLR
-    description: GPIO PA clear output.
+    description: 'GPIO PA clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_DIR:
   description: GPIO PA I/O direction.
   fields:
   - name: PA_DIR
-    description: GPIO PA I/O direction.
+    description: 'GPIO PA I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_OUT:
   description: GPIO PA output.
   fields:
   - name: PA_OUT
-    description: GPIO PA output.
+    description: 'GPIO PA output level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PD:
   description: GPIO PA output open-drain_input pulldown resistance enable.
   fields:
   - name: PA_PD
-    description: GPIO PA output open-drain_input pulldown resistance enable.
+    description: 'GPIO PA pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PIN:
   description: GPIO PA input.
   fields:
   - name: PA_PIN
-    description: GPIO PA input.
+    description: 'GPIO PA input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PU:
   description: GPIO PA pullup resistance enable.
   fields:
   - name: PA_PU
-    description: GPIO PA pullup resistance enable.
+    description: 'GPIO PA pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 22
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_CLR:
   description: GPIO PB clear output.
   fields:
   - name: PB_CLR
-    description: GPIO PB clear output.
+    description: 'GPIO PB clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
 fieldset/PB_DIR:
   description: GPIO PB I/O direction.
   fields:
   - name: PB_DIR
-    description: GPIO PB I/O direction.
+    description: 'GPIO PB I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
   - name: USB_DP_DIR
     description: Pin current intput/output direction control domain.
     bit_offset: 23
@@ -578,9 +588,12 @@ fieldset/PB_OUT:
   description: GPIO PB output.
   fields:
   - name: PB_OUT
-    description: GPIO PB output level status.
+    description: 'GPIO PB output level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
   - name: USB_UDP_OUT
     description: Pin output level status.
     bit_offset: 23
@@ -593,9 +606,12 @@ fieldset/PB_PD:
   description: GPIO PB output open-drain_input pulldown resistance enable.
   fields:
   - name: PB_PD
-    description: GPIO PB output open-drain_input pulldown resistance enable.
+    description: 'GPIO PB pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
   - name: USB_UDP_PD
     description: Pin function enable /close control bit.
     bit_offset: 23
@@ -608,9 +624,12 @@ fieldset/PB_PIN:
   description: GPIO PB input.
   fields:
   - name: PB_PIN
-    description: GPIO PB input level status.
+    description: 'GPIO PB input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
   - name: USB_UDP_IN
     description: Pin intput level status.
     bit_offset: 23
@@ -623,9 +642,12 @@ fieldset/PB_PU:
   description: GPIO PB pullup resistance enable.
   fields:
   - name: PB_PU
-    description: GPIO PB pull-up resistance enable.
+    description: 'GPIO PB pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 23
+    bit_size: 1
+    array:
+      len: 23
+      stride: 1
   - name: USB_UDP_PU
     description: Pin pull-up function enable /close control bit.
     bit_offset: 23
@@ -638,37 +660,52 @@ fieldset/PD_DIR:
   description: GPIO PD I/O direction.
   fields:
   - name: PD_DIR
-    description: GPIO PD I/O direction.
+    description: 'GPIO PD I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 32
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PD_OUT:
   description: GPIO PD output.
   fields:
   - name: PD_OUT
-    description: GPIO PD output.
+    description: 'GPIO PD output level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 32
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PD_PD:
   description: GPIO PD output open-drain_input pulldown resistance enable.
   fields:
   - name: PD_PD
-    description: GPIO PD output open-drain_input pulldown resistance enable.
+    description: 'GPIO PD pull-down resistor (input) or open-drain output enable: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 32
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PD_PIN:
   description: GPIO PD input.
   fields:
   - name: PD_PIN
-    description: GPIO PD input.
+    description: 'GPIO PD input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 32
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PD_PU:
   description: GPIO PD pullup resistance enable.
   fields:
   - name: PD_PU
-    description: GPIO PD pullup resistance enable.
+    description: 'GPIO PD pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 32
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/ADC_MODE:
   description: ADC port mode configuration register.
   bit_size: 8

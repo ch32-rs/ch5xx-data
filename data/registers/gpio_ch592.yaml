@@ -174,182 +174,140 @@ fieldset/PB_INT_MODE:
 fieldset/PA_CLR:
   description: 'WZ, GPIO PA clear output: 0=keep, 1=clear.'
   fields:
-  - name: PA_CLR_0
-    description: GPIO PA clear output byte 0.
+  - name: PA_CLR
+    description: 'GPIO PA clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_CLR_1
-    description: GPIO PA clear output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_DIR:
   description: 'RW, GPIO PA I/O direction: 0=in, 1=out.'
   fields:
-  - name: PA_DIR_0
-    description: GPIO PA I/O direction byte 0.
+  - name: PA_DIR
+    description: 'GPIO PA I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_DIR_1
-    description: GPIO PA I/O direction byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_OUT:
   description: RW, GPIO PA output.
   fields:
-  - name: PA_OUT_0
-    description: GPIO PA output byte 0.
+  - name: PA_OUT
+    description: 'GPIO PA output level: 1=high, 0=low; when the pin is an input, selects the interrupt polarity (1=high level or rising edge, 0=low level or falling edge).'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_OUT_1
-    description: GPIO PA output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PD_DRV:
   description: RW, PA pulldown for input or PA driving capability for output.
   fields:
-  - name: PA_PD_DRV_0
-    description: PA pulldown for input or PA driving capability for output byte 0.
+  - name: PA_PD_DRV
+    description: 'GPIO PA pull-down enable: 1=enabled, 0=disabled; when the pin is an output, selects the drive strength (1=20mA, 0=5mA).'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PD_DRV_1
-    description: PA pulldown for input or PA driving capability for output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PIN:
   description: RO, GPIO PA input.
   fields:
-  - name: PA_PIN_0
-    description: GPIO PA input byte 0.
+  - name: PA_PIN
+    description: 'GPIO PA input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PIN_1
-    description: GPIO PA input byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_PU:
   description: RW, GPIO PA pullup resistance enable.
   fields:
-  - name: PA_PU_0
-    description: GPIO PA pullup resistance enable byte 0.
+  - name: PA_PU
+    description: 'GPIO PA pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_PU_1
-    description: GPIO PA pullup resistance enable byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PA_SET:
   description: 'WZ, GPIO PA set output: 0=keep, 1=set high.'
   fields:
-  - name: PA_SET_0
-    description: GPIO PA set output byte 0.
+  - name: PA_SET
+    description: 'GPIO PA set output: write 1 to drive the pin output high, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PA_SET_1
-    description: GPIO PA set output byte 1.
-    bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_CLR:
   description: 'WZ, GPIO PB clear output: 0=keep, 1=clear.'
   fields:
-  - name: PB_CLR_0
-    description: GPIO PB clear output byte 0.
+  - name: PB_CLR
+    description: 'GPIO PB clear output: write 1 to drive the pin output low, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_CLR_1
-    description: GPIO PB clear output byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_CLR_2
-    description: GPIO PB clear output byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_DIR:
   description: 'RW, GPIO PB I/O direction: 0=in, 1=out.'
   fields:
-  - name: PB_DIR_0
-    description: GPIO PB I/O direction byte 0.
+  - name: PB_DIR
+    description: 'GPIO PB I/O direction: 0=input, 1=output.'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_DIR_1
-    description: GPIO PB I/O direction byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_DIR_2
-    description: GPIO PB I/O direction byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_OUT:
   description: RW, GPIO PB output;RW, data for parallel slave read.
   fields:
-  - name: PB_OUT_0
-    description: GPIO PB output byte 0.
+  - name: PB_OUT
+    description: 'GPIO PB output level: 1=high, 0=low; when the pin is an input, selects the interrupt polarity (1=high level or rising edge, 0=low level or falling edge).'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_OUT_1
-    description: GPIO PB output byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_OUT_2
-    description: GPIO PB output byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PD_DRV:
   description: RW, PB pulldown for input or PB driving capability for output.
   fields:
-  - name: PB_PD_DRV_0
-    description: PB pulldown for input or PB driving capability for output byte 0.
+  - name: PB_PD_DRV
+    description: 'GPIO PB pull-down enable: 1=enabled, 0=disabled; when the pin is an output, selects the drive strength (1=20mA, 0=5mA).'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_PD_DRV_1
-    description: PB pulldown for input or PB driving capability for output byte 0.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_PD_DRV_2
-    description: PB pulldown for input or PB driving capability for output byte 0.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PIN:
   description: RO, GPIO PB input.
   fields:
-  - name: PB_PIN_0
-    description: GPIO PB input byte 0.
+  - name: PB_PIN
+    description: 'GPIO PB input level: 1=high, 0=low.'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_PIN_1
-    description: GPIO PB input byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_PIN_2
-    description: GPIO PB input byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_PU:
   description: RW, GPIO PB pullup resistance enable.
   fields:
-  - name: PB_PU_0
-    description: GPIO PB pullup resistance enable byte 0.
+  - name: PB_PU
+    description: 'GPIO PB pull-up resistor: 1=enabled, 0=disabled.'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_PU_1
-    description: GPIO PB pullup resistance enable byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_PU_2
-    description: GPIO PB pullup resistance enable byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
 fieldset/PB_SET:
   description: 'WZ, GPIO PB set output: 0=keep, 1=set high.'
   fields:
-  - name: PB_SET_0
-    description: GPIO PB set output byte 0.
+  - name: PB_SET
+    description: 'GPIO PB set output: write 1 to drive the pin output high, write 0 leaves it unchanged.'
     bit_offset: 0
-    bit_size: 8
-  - name: PB_SET_1
-    description: GPIO PB set output byte 1.
-    bit_offset: 8
-    bit_size: 8
-  - name: PB_SET_2
-    description: GPIO PB set output byte 2.
-    bit_offset: 16
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 32
+      stride: 1
