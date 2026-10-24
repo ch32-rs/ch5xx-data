@@ -146,9 +146,24 @@ pub fn render_memory_x(regions: &[Region]) -> String {
     writeln!(s).unwrap();
 
     let text_target = if boot_aliased { "CODE" } else { &primary.name };
+    // `qingke-rt`'s link.x places the vector table at `ORIGIN(FLASH)`, so that
+    // name must always exist. Boot-aliased chips (flash at 0x0800_0000) get a
+    // separate `CODE` region at 0x0 to match the reset alias; every other chip
+    // links straight against its primary flash region. CH5xx sits in the
+    // second group — its code flash really is at 0x0. Without this alias the
+    // CH5xx examples fail with "memory region not defined: FLASH".
     if boot_aliased {
         writeln!(s, r#"REGION_ALIAS("FLASH", CODE);"#).unwrap();
-        writeln!(s).unwrap();
+    } else {
+        writeln!(s, r#"REGION_ALIAS("FLASH", {});"#, text_target).unwrap();
+    }
+    writeln!(s).unwrap();
+    // `qingke-rt`'s link.x also hardcodes `>RAM` for .data/.bss/.uninit. CH32's
+    // memory map happens to name its RAM region `RAM`, which hid this; the
+    // CH5xx regions are named after the datasheet (`SRAM`). Alias it so the
+    // same link.x works for both.
+    if ram_name != "RAM" {
+        writeln!(s, r#"REGION_ALIAS("RAM", {});"#, ram_name).unwrap();
     }
     writeln!(s, r#"REGION_ALIAS("REGION_TEXT", {});"#, text_target).unwrap();
     writeln!(s, r#"REGION_ALIAS("REGION_RODATA", {});"#, text_target).unwrap();
