@@ -1,5 +1,9 @@
 # Generated from svd/fixed/ch585.svd by scripts/gen-from-svd.py.
-# Clocks, pins and interrupts-per-signal are filled in by hand.
+# Peripheral clocks, pin muxing and interrupt bindings are not in the SVD;
+# they are filled in from CH585DS1 V1.6: pin functions and LCD segments from
+# tables 1-1 and 1-3, interrupt numbers from table 3-1, and the remap pairs
+# from table 7-8. `remap: 0` is the default pin of table 7-8, `remap: 1` the
+# PIN_ALTERNATE=1 pin.
 
 - name: SYS
   address: 0x40001000
@@ -7,14 +11,18 @@
     kind: sys
     version: ch585
     block: SYS
-
+  interrupts:
+    - signal: BAT
+      interrupt: WDOG_BAT
 - name: RTC
   address: 0x40001000
   registers:
     kind: rtc
     version: ch585
     block: RTC
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: RTC
 - name: System_control
   address: 0x40001000
   registers:
@@ -28,111 +36,482 @@
     kind: touchkey
     version: ch585
     block: TouchKey
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: ADC
+  pins:
+    - pin: PA4
+      signal: A0
+    - pin: PA5
+      signal: A1
+    - pin: PA12
+      signal: A2
+    - pin: PA13
+      signal: A3
+    - pin: PA14
+      signal: A4
+    - pin: PA15
+      signal: A5
+    - pin: PA3
+      signal: A6
+    - pin: PA2
+      signal: A7
+    - pin: PA1
+      signal: A8
+    - pin: PA0
+      signal: A9
+    - pin: PA6
+      signal: A10
+    - pin: PA7
+      signal: A11
+    - pin: PA8
+      signal: A12
+    - pin: PA9
+      signal: A13
 - name: ADC
   address: 0x40001000
   registers:
     kind: adc
     version: ch585
     block: ADC
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: ADC
+  pins:
+    - pin: PA4
+      signal: A0
+    - pin: PA5
+      signal: A1
+    - pin: PA12
+      signal: A2
+    - pin: PA13
+      signal: A3
+    - pin: PA14
+      signal: A4
+    - pin: PA15
+      signal: A5
+    - pin: PA3
+      signal: A6
+    - pin: PA2
+      signal: A7
+    - pin: PA1
+      signal: A8
+    - pin: PA0
+      signal: A9
+    - pin: PA6
+      signal: A10
+    - pin: PA7
+      signal: A11
+    - pin: PA8
+      signal: A12
+    - pin: PA9
+      signal: A13
 - name: GPIO
   address: 0x40001000
   registers:
     kind: gpio
     version: ch585
     block: GPIO
-
+  interrupts:
+    - signal: PORT_A
+      interrupt: GPIO_A
+    - signal: PORT_B
+      interrupt: GPIO_B
 - name: TMR0
   address: 0x40002000
   registers:
     kind: tmr
     version: ch585
     block: TMR_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_TMR0
+  interrupts:
+    - signal: GLOBAL
+      interrupt: TMR0
+  pins:
+    - pin: PA9
+      signal: TMR0
+      remap: 0
+    - pin: PB23
+      signal: TMR0
+      remap: 1
 - name: TMR1
   address: 0x40002400
   registers:
     kind: tmr
     version: ch585
     block: TMR_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_TMR1
+  interrupts:
+    - signal: GLOBAL
+      interrupt: TMR1
+  pins:
+    - pin: PA10
+      signal: TMR1
+      remap: 0
+    - pin: PB10
+      signal: TMR1
+      remap: 1
 - name: TMR2
   address: 0x40002800
   registers:
     kind: tmr
     version: ch585
     block: TMR_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_TMR2
+  interrupts:
+    - signal: GLOBAL
+      interrupt: TMR2
+  pins:
+    - pin: PA11
+      signal: TMR2
+      remap: 0
+    - pin: PB11
+      signal: TMR2
+      remap: 1
 - name: TMR3
   address: 0x40002C00
   registers:
     kind: tmr
     version: ch585
     block: TMR_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_TMR3
+  interrupts:
+    - signal: GLOBAL
+      interrupt: TMR3
+  pins:
+    - pin: PB22
+      signal: TMR3
+      remap: 0
+    - pin: PA2
+      signal: TMR3
+      remap: 1
 - name: UART0
   address: 0x40003000
   registers:
     kind: uart
     version: ch585
     block: UART_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_UART0
+  interrupts:
+    - signal: GLOBAL
+      interrupt: UART0
+  # DSR/DTR are selected by PIN_MODEM (bit 12), not by PIN_UART0 above, so
+  # their alternate pins carry no `remap` value: the schema has one remap
+  # field per peripheral. A driver must set PIN_MODEM=1 for PB14/PB15.
+  pins:
+    - pin: PB4
+      signal: RXD
+      remap: 0
+    - pin: PA15
+      signal: RXD
+      remap: 1
+    - pin: PB7
+      signal: TXD
+      remap: 0
+    - pin: PA14
+      signal: TXD
+      remap: 1
+    - pin: PB0
+      signal: CTS
+    - pin: PB6
+      signal: RTS
+    - pin: PB5
+      signal: DTR
+      remap: 0
+    - pin: PB15
+      signal: DTR
+    - pin: PB1
+      signal: DSR
+      remap: 0
+    - pin: PB14
+      signal: DSR
+    - pin: PB3
+      signal: DCD
+    - pin: PA2
+      signal: RI
 - name: UART1
   address: 0x40003400
   registers:
     kind: uart
     version: ch585
     block: UART_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_UART1
+  interrupts:
+    - signal: GLOBAL
+      interrupt: UART1
+  pins:
+    - pin: PA8
+      signal: RXD
+      remap: 0
+    - pin: PB12
+      signal: RXD
+      remap: 1
+    - pin: PA9
+      signal: TXD
+      remap: 0
+    - pin: PB13
+      signal: TXD
+      remap: 1
 - name: UART2
   address: 0x40003800
   registers:
     kind: uart
     version: ch585
     block: UART_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_UART2
+  interrupts:
+    - signal: GLOBAL
+      interrupt: UART2
+  pins:
+    - pin: PA6
+      signal: RXD
+      remap: 0
+    - pin: PB22
+      signal: RXD
+      remap: 1
+    - pin: PA7
+      signal: TXD
+      remap: 0
+    - pin: PB23
+      signal: TXD
+      remap: 1
 - name: UART3
   address: 0x40003C00
   registers:
     kind: uart
     version: ch585
     block: UART_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_UART3
+  interrupts:
+    - signal: GLOBAL
+      interrupt: UART3
+  pins:
+    - pin: PA4
+      signal: RXD
+      remap: 0
+    - pin: PB20
+      signal: RXD
+      remap: 1
+    - pin: PA5
+      signal: TXD
+      remap: 0
+    - pin: PB21
+      signal: TXD
+      remap: 1
 - name: SPI0
   address: 0x40004000
   registers:
     kind: spi
     version: ch585
     block: SPI_FULL
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_SPI0
+  interrupts:
+    - signal: GLOBAL
+      interrupt: SPI0
+  pins:
+    - pin: PA12
+      signal: SCS
+      remap: 0
+    - pin: PB12
+      signal: SCS
+      remap: 1
+    - pin: PA13
+      signal: SCK
+      remap: 0
+    - pin: PB13
+      signal: SCK
+      remap: 1
+    - pin: PA14
+      signal: MOSI
+      remap: 0
+    - pin: PB14
+      signal: MOSI
+      remap: 1
+    - pin: PA15
+      signal: MISO
+      remap: 0
+    - pin: PB15
+      signal: MISO
+      remap: 1
 - name: SPI1
   address: 0x40004400
   registers:
     kind: spi
     version: ch585
     block: SPI_NODMA
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: PWMX_SPI1
+  pins:
+    - pin: PA0
+      signal: SCK
+    - pin: PA1
+      signal: MOSI
+    - pin: PA2
+      signal: MISO
 - name: I2C0
   address: 0x40004800
   registers:
     kind: i2c
     version: ch585
     block: I2C
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_I2C
+  interrupts:
+    - signal: GLOBAL
+      interrupt: I2C0
+  pins:
+    - pin: PB13
+      signal: SCL
+      remap: 0
+    - pin: PB21
+      signal: SCL
+      remap: 1
+    - pin: PB12
+      signal: SDA
+      remap: 0
+    - pin: PB20
+      signal: SDA
+      remap: 1
 - name: PWMx
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch585
     block: PWMx
-
+  remap:
+    register: PIN_ALTERNATE
+    field: PIN_PWMX
+  interrupts:
+    - signal: GLOBAL
+      interrupt: PWMX_SPI1
+  pins:
+    - pin: PA12
+      signal: PWM4
+      remap: 0
+    - pin: PA6
+      signal: PWM4
+      remap: 1
+    - pin: PA13
+      signal: PWM5
+      remap: 0
+    - pin: PA7
+      signal: PWM5
+      remap: 1
+    - pin: PB0
+      signal: PWM6
+    - pin: PB4
+      signal: PWM7
+      remap: 0
+    - pin: PB1
+      signal: PWM7
+      remap: 1
+    - pin: PB6
+      signal: PWM8
+      remap: 0
+    - pin: PB2
+      signal: PWM8
+      remap: 1
+    - pin: PB7
+      signal: PWM9
+      remap: 0
+    - pin: PB3
+      signal: PWM9
+      remap: 1
+    - pin: PB14
+      signal: PWM10
+    - pin: PB23
+      signal: PWM11
 - name: LCD
   address: 0x40006000
   registers:
     kind: lcd
     version: ch585
     block: LCD
+  pins:
+    - pin: PB4
+      signal: COM0
+    - pin: PB5
+      signal: COM1
+    - pin: PB6
+      signal: COM2
+    - pin: PB7
+      signal: COM3
+    - pin: PB0
+      signal: SEG0
+    - pin: PB1
+      signal: SEG1
+    - pin: PB2
+      signal: SEG2
+    - pin: PB3
+      signal: SEG3
+    - pin: PA0
+      signal: SEG4
+    - pin: PA1
+      signal: SEG5
+    - pin: PA2
+      signal: SEG6
+    - pin: PA3
+      signal: SEG7
+    - pin: PB8
+      signal: SEG8
+    - pin: PB9
+      signal: SEG9
+    - pin: PB10
+      signal: SEG10
+    - pin: PB11
+      signal: SEG11
+    - pin: PB12
+      signal: SEG12
+    - pin: PB13
+      signal: SEG13
+    - pin: PB14
+      signal: SEG14
+    - pin: PB15
+      signal: SEG15
+    - pin: PB16
+      signal: SEG16
+    - pin: PB17
+      signal: SEG17
+    - pin: PB18
+      signal: SEG18
+    - pin: PB19
+      signal: SEG19
+    - pin: PB20
+      signal: SEG20
+    - pin: PB21
+      signal: SEG21
+    - pin: PB22
+      signal: SEG22
+    - pin: PB23
+      signal: SEG23
+    - pin: PA7
+      signal: SEG24
+    - pin: PA8
+      signal: SEG25
+    - pin: PA9
+      signal: SEG26
+    - pin: PA13
+      signal: SEG27
 
 - name: USBFS
   address: 0x40008000
@@ -140,28 +519,79 @@
     kind: usbfs
     version: ch585
     block: USBFS
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: USB
+  pins:
+    - pin: PB11
+      signal: DP
+    - pin: PB10
+      signal: DM
 - name: USBHS
   address: 0x40009000
   registers:
     kind: usbhs
     version: ch585
     block: USBHS
-
-
-# Placeholder: the vendor SVD lists BLE at this address but gives it no
-# registers, so there is nothing to generate yet. Kept so the base address
-# stays recorded.
+  interrupts:
+    - signal: GLOBAL
+      interrupt: USB2DEVICE
+    - signal: HOST
+      interrupt: USB2HOST
+  pins:
+    - pin: PB13
+      signal: DP
+    - pin: PB12
+      signal: DM
 - name: BLE
   address: 0x4000C000
-
+  interrupts:
+    - signal: BB
+      interrupt: BLEB
+    - signal: LLE
+      interrupt: BLEL
 - name: LED
   address: 0x4000F000
   registers:
     kind: led
     version: ch585
     block: LED
-
+  interrupts:
+    - signal: GLOBAL
+      interrupt: LED
+  pins:
+    - pin: PA0
+      signal: LED0
+    - pin: PA1
+      signal: LED1
+    - pin: PA2
+      signal: LED2
+    - pin: PA3
+      signal: LED3
+    - pin: PA4
+      signal: LEDC
+    - pin: PA5
+      signal: LED4
+    - pin: PA6
+      signal: LED5
+    - pin: PA7
+      signal: LED6
+    - pin: PA8
+      signal: LED7
+- name: NFC
+  address: 0x40001000
+  interrupts:
+    - signal: GLOBAL
+      interrupt: NFC
+  pins:
+    - pin: PB9
+      signal: NFCI
+    - pin: PB8
+      signal: NFCM
+    - pin: PB17
+      signal: NFC+
+    - pin: PB16
+      signal: NFC-
 - name: PFIC
   address: 0xE000E000
   registers:
