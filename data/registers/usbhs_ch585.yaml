@@ -113,58 +113,85 @@ block/USBHS:
     description: RW, Starting address register of endpoint 0 buffer.
     byte_offset: 32
     fieldset: UEP0_DMA
-  - name: UEPn_RX_DMAn17
-    description: RW, Endpoint n receives the starting address register of the buffer(n=1~7).
-    byte_offset: 32
-    fieldset: UEPn_RX_DMAn17
-  - name: UEPn_TX_DMAn17
-    description: RW, Endpoint n sends the starting address register of the buffer(n=1~7).
+  - name: UEP_RX_DMA
+    description: RW, Endpoint n receive buffer start address (n=1~7).
+    byte_offset: 36
+    fieldset: UEP_RX_DMA
+    array:
+      len: 7
+      stride: 4
+  - name: UEP_TX_DMA
+    description: RW, Endpoint n transmit buffer start address (n=1~7).
     byte_offset: 64
-    fieldset: UEPn_TX_DMAn17
-  - name: UEPn_MAX_LENn17
-    description: RW, Endpoint n maximum length packet register(n=1~7).
+    fieldset: UEP_TX_DMA
+    array:
+      len: 7
+      stride: 4
+  - name: UEP0_MAX_LEN
+    description: RW, Endpoint 0 maximum packet length.
     byte_offset: 92
-    fieldset: UEPn_MAX_LENn17
+    bit_size: 32
+    fieldset: UEP0_MAX_LEN
+  - name: UEP_MAX_LEN
+    description: RW, Endpoint n maximum packet length (n=1~7).
+    byte_offset: 96
+    bit_size: 32
+    fieldset: UEP_MAX_LEN
+    array:
+      len: 7
+      stride: 4
   - name: UEP0_RX_LEN
-    description: RW, Endpoint 0 receives length register.
+    description: RW, Endpoint 0 received length.
     byte_offset: 124
     bit_size: 16
     fieldset: UEP0_RX_LEN
-  - name: UEPn_RX_LENn17
-    description: RW, Endpoint n single reception length register(n=1~7).
+  - name: UEP_RX_LEN
+    description: RW, Endpoint n received length (n=1~7).
     byte_offset: 128
     bit_size: 16
-    fieldset: UEPn_RX_LENn17
+    fieldset: UEP_RX_LEN
+    array:
+      len: 7
+      stride: 4
   - name: UEP0_T_LEN
-    description: RW, Endpoint 0 sends length register.
+    description: RW, Endpoint 0 transmit length.
     byte_offset: 156
     bit_size: 16
     fieldset: UEP0_T_LEN
   - name: UEP0_TX_CTRL
-    description: RW, Endpoint 0 sends control register.
+    description: RW, Endpoint 0 transmit control.
     byte_offset: 158
     bit_size: 8
     fieldset: UEP0_TX_CTRL
   - name: UEP0_RX_CTRL
-    description: RW, Endpoint 0 receives control register.
+    description: RW, Endpoint 0 receive control.
     byte_offset: 159
     bit_size: 8
     fieldset: UEP0_RX_CTRL
-  - name: UEPn_T_LENn17
-    description: RW, Endpoint n sends data length(n=1~7).
+  - name: UEP_T_LEN
+    description: RW, Endpoint n transmit length (n=1~7).
     byte_offset: 160
     bit_size: 16
-    fieldset: UEPn_T_LENn17
-  - name: UEPn_TX_CTRLn17
-    description: RW, Endpoint n sends data length(n=1~7).
+    fieldset: UEP_T_LEN
+    array:
+      len: 7
+      stride: 4
+  - name: UEP_TX_CTRL
+    description: RW, Endpoint n transmit control (n=1~7).
     byte_offset: 162
     bit_size: 8
-    fieldset: UEPn_TX_CTRLn17
-  - name: UEPn_RX_CTRLn17
-    description: RW, Endpoint n receives control registers(n=1~7).
+    fieldset: UEP_TX_CTRL
+    array:
+      len: 7
+      stride: 4
+  - name: UEP_RX_CTRL
+    description: RW, Endpoint n receive control (n=1~7).
     byte_offset: 163
     bit_size: 8
-    fieldset: UEPn_RX_CTRLn17
+    fieldset: UEP_RX_CTRL
+    array:
+      len: 7
+      stride: 4
   - name: UEP_T_ISO
     description: RW, USBHS endpoint sends synchronization mode enable register.
     byte_offset: 188
@@ -320,11 +347,11 @@ fieldset/PORT_STATUS:
     bit_offset: 11
     bit_size: 1
 fieldset/UEP0_RX_LEN:
-  description: RW, Endpoint 0 receives length register.
+  description: RW, Endpoint 0 received length.
   bit_size: 16
   fields:
-  - name: UEPn_MAX_LEN60
-    description: UEPn_MAX_LEN[6:0].
+  - name: RX_LEN
+    description: Number of bytes received on endpoint 0.
     bit_offset: 0
     bit_size: 16
 fieldset/UEP0_T_LEN:
@@ -383,20 +410,20 @@ fieldset/UEP_T_TOG_AUTO:
     description: 0~7 endpoint synchronization trigger bit automatic flip enable.
     bit_offset: 0
     bit_size: 8
-fieldset/UEPn_RX_LENn17:
-  description: RW, Endpoint n single reception length register(n=1~7).
+fieldset/UEP_RX_LEN:
+  description: RW, Endpoint n received length (n=1~7).
   bit_size: 16
   fields:
-  - name: UEPn_RX_LEN150
-    description: Endpoint n receives data length in a single session(n=1~7).
+  - name: RX_LEN
+    description: Number of bytes received on endpoint n.
     bit_offset: 0
     bit_size: 16
-fieldset/UEPn_T_LENn17:
-  description: RW, Endpoint n sends data length(n=1~7).
+fieldset/UEP_T_LEN:
+  description: RW, Endpoint n transmit length (n=1~7).
   bit_size: 16
   fields:
-  - name: UEPn_T_LEN150
-    description: Endpoint n sends data length(n=1~7).
+  - name: T_LEN
+    description: Number of bytes to transmit on endpoint n.
     bit_offset: 0
     bit_size: 16
 fieldset/USB2_BUS:
@@ -516,10 +543,10 @@ fieldset/ROOT_BC_CTRL:
 fieldset/UEP0_DMA:
   description: RW, Starting address register of endpoint 0 buffer.
   fields:
-  - name: UEP_T_AF60
-    description: 1-7 endpoint reuse enabled.
-    bit_offset: 1
-    bit_size: 7
+  - name: ADDRESS
+    description: Endpoint 0 buffer address, aligned to 4 bytes.
+    bit_offset: 0
+    bit_size: 17
 fieldset/UEP_AF_MODE:
   description: RW, USBHS Endpoint Reuse Register.
   fields:
@@ -527,25 +554,34 @@ fieldset/UEP_AF_MODE:
     description: 1-7 endpoint reuse enabled.
     bit_offset: 1
     bit_size: 7
-fieldset/UEPn_MAX_LENn17:
-  description: RW, Endpoint n maximum length packet register(n=1~7).
+fieldset/UEP0_MAX_LEN:
+  description: RW, Endpoint 0 maximum packet length.
   fields:
-  - name: UEPn_MAX_LEN60
-    description: UEPn_MAX_LEN[6:0].
+  - name: MAX_LEN
+    description: Maximum packet length in bytes.
     bit_offset: 0
     bit_size: 7
-fieldset/UEPn_RX_DMAn17:
-  description: RW, Endpoint n receives the starting address register of the buffer(n=1~7).
+# The inherited SFR mask says seven bits, but the vendor USBHS examples write
+# 512 for high-speed bulk. Keep the full 16-bit length field in the 32-bit register.
+fieldset/UEP_MAX_LEN:
+  description: RW, Endpoint n maximum packet length (n=1~7).
   fields:
-  - name: UEPn_RX_DMA160
-    description: The starting address of the receiving buffer for endpoint n. The address must be aligned with 4 bytes.
+  - name: MAX_LEN
+    description: Maximum packet length in bytes.
+    bit_offset: 0
+    bit_size: 16
+fieldset/UEP_RX_DMA:
+  description: RW, Endpoint n receive buffer start address (n=1~7).
+  fields:
+  - name: ADDRESS
+    description: Receive buffer address, aligned to 4 bytes.
     bit_offset: 0
     bit_size: 17
-fieldset/UEPn_TX_DMAn17:
-  description: RW, Endpoint n sends the starting address register of the buffer(n=1~7).
+fieldset/UEP_TX_DMA:
+  description: RW, Endpoint n transmit buffer start address (n=1~7).
   fields:
-  - name: UEPn_TX_DMA160
-    description: The starting address of the sending buffer for endpoint n. The address must be aligned with 4 bytes.
+  - name: ADDRESS
+    description: Transmit buffer address, aligned to 4 bytes.
     bit_offset: 0
     bit_size: 17
 fieldset/UH_CONTROL:
@@ -827,7 +863,7 @@ fieldset/UEP_T_BURST_MODE:
     description: 0~7 endpoints burst send enable.
     bit_offset: 0
     bit_size: 8
-fieldset/UEPn_RX_CTRLn17:
+fieldset/UEP_RX_CTRL:
   description: RW, Endpoint n receives control registers(n=1~7).
   bit_size: 8
   fields:
@@ -855,7 +891,7 @@ fieldset/UEPn_RX_CTRLn17:
     description: Endpoint n receives the end flag, write 0 to clear(n=1~7).
     bit_offset: 7
     bit_size: 1
-fieldset/UEPn_TX_CTRLn17:
+fieldset/UEP_TX_CTRL:
   description: RW, Endpoint n sends data length(n=1~7).
   bit_size: 8
   fields:
