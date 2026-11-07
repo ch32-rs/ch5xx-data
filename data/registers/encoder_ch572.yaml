@@ -21,12 +21,12 @@ block/ENCODER:
     byte_offset: 36
     fieldset: REG_CEND
   - name: REG_CCNT
-    description: RW, Encoder mode current value configuration register.
+    description: RO, Encoder current count register.
     byte_offset: 40
     access: Read
     fieldset: REG_CCNT
 fieldset/REG_CCNT:
-  description: RW, Encoder mode current value configuration register.
+  description: RO, Encoder current count register.
   fields:
   - name: REG_CCNT
     description: RO, Current encoder mode value.

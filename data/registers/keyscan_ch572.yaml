@@ -17,7 +17,7 @@ block/KEYSCAN:
     bit_size: 8
     fieldset: INT_FLAG
   - name: NUMB
-    description: RW, Scan key number register.
+    description: RO, Scan key number register.
     byte_offset: 104
     access: Read
     fieldset: NUMB
@@ -50,7 +50,7 @@ fieldset/CTRL:
     bit_offset: 14
     bit_size: 1
 fieldset/NUMB:
-  description: RW, Scan key number register.
+  description: RO, Scan key number register.
   fields:
   - name: NUMB
     description: RO, Current key number value.
