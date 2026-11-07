@@ -49,6 +49,11 @@ case "$CMD" in
     ;;
     gen)
         rm -rf build/data
+        # Drop generated outputs so chips removed from data/ do not leave stale files
+        # behind; keep README/LICENSE when regenerating into a metapac clone.
+        rm -rf build/ch5xx-metapac/src
+        rm -f build/ch5xx-metapac/Cargo.toml build/ch5xx-metapac/build.rs \
+              build/ch5xx-metapac/memory_x_render.rs build/ch5xx-metapac/Cargo.lock
         echo "TODO: More chips to be added"
         cargo run -p ch5xx-data-gen && cargo run -p ch5xx-metapac-gen -- "CH5*"
     ;;
