@@ -1,4 +1,11 @@
 # Timer with R32 DMA. Used by TMR0–3 on CH58x. Kind is tmr; full layout is block/TMR_FULL.
+# CH585DS1 V1.6 chapter 8 and CH585 EVT CH585SFR.h:
+# FIFO reads pop capture words; writes enqueue PWM widths. Never read-modify-write.
+# The PDF DMA detail tables retain [14:2]/R16 names, while overview, SDK and
+# NFCA instructions use R32 accesses and [16:2]. Keep the observed SDK layout;
+# upper SRAM address bits require silicon validation before general DMA use.
+# CTRL_MOD bit 5 is reserved in the PDF, but SDK/NFCA use it on TMR0/TMR3 only
+# for 13.56 MHz counting with sysclk >= 42 MHz. Not a TMR1/TMR2 capability.
 
 block/TMR_FULL:
   description: Timer register.
@@ -41,7 +48,6 @@ block/TMR_FULL:
   - name: FIFO
     description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
-    access: Read
     fieldset: FIFO
   - name: DMA_NOW
     description: RO, DMA current buffer address.
@@ -60,7 +66,7 @@ fieldset/CNT_END:
   description: RW, TMR end count value, only low 26 bit.
   fields:
   - name: CNT_END
-    description: RW1,TMR end count value.
+    description: RW, end count value; only low 26 bits valid. Writing clears COUNT.
     bit_offset: 0
     bit_size: 32
 fieldset/COUNT:
@@ -95,7 +101,7 @@ fieldset/FIFO:
   description: RO/WO, TMR FIFO register, only low 26 bit.
   fields:
   - name: FIFO
-    description: RW1,TMR FIFO register.
+    description: Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata.
     bit_offset: 0
     bit_size: 32
 fieldset/CTRL_DMA:
@@ -139,7 +145,7 @@ fieldset/CTRL_MOD:
     bit_offset: 4
     bit_size: 1
   - name: FREQ_13_56
-    description: RW,Counting frequency setting bits for TMR and TMR3.
+    description: SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6.
     bit_offset: 5
     bit_size: 1
   - name: PWM_REPEAT
