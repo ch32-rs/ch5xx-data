@@ -4,7 +4,7 @@ block/SYS:
   description: SYS register.
   items:
   - name: RESET_STATUS
-    description: RWA, reset status.
+    description: RO, reset status.
     byte_offset: 4
     access: Read
     bit_size: 8

@@ -98,10 +98,12 @@ block/PFIC:
   - name: IACTR1
     description: Interrupt ACTIVE Register.
     byte_offset: 768
+    access: Read
     fieldset: IACTR1
   - name: IACTR2
     description: Interrupt ACTIVE Register.
     byte_offset: 772
+    access: Read
     fieldset: IACTR2
   - name: IPRIOR0
     description: Interrupt Priority configuration Register 0.

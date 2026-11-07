@@ -33,9 +33,9 @@ block/LED:
     bit_size: 16
     fieldset: DMA_LEN
   - name: DMA_CNT
-    description: WO, LED DMA remaining count register.
+    description: RO, LED DMA remaining count register.
     byte_offset: 20
-    access: Write
+    access: Read
     bit_size: 16
     fieldset: DMA_CNT
   - name: DMA_BEG
@@ -48,7 +48,7 @@ block/LED:
     access: Read
     fieldset: DMA_CUR
 fieldset/DMA_CNT:
-  description: WO, LED DMA remaining count register.
+  description: RO, LED DMA remaining count register.
   bit_size: 16
   fields:
   - name: DMA_CNT

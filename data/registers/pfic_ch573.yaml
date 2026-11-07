@@ -4,14 +4,17 @@ block/PFIC:
   - name: ISR1
     description: RO,Interrupt Status Register.
     byte_offset: 0
+    access: Read
     fieldset: ISR1
   - name: ISR2
     description: RO,Interrupt Status Register.
     byte_offset: 4
+    access: Read
     fieldset: ISR2
   - name: IPR1
     description: RO,Interrupt Pending Register.
     byte_offset: 32
+    access: Read
     fieldset: IPR1
   - name: IPR2
     description: RO,Interrupt Pending Register.

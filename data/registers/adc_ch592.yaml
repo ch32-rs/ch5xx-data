@@ -44,7 +44,7 @@ block/ADC:
     bit_size: 8
     fieldset: DMA_IF
   - name: AUTO_CYCLE
-    description: RO, ADC interrupt flag.
+    description: RW, ADC auto cycle value.
     byte_offset: 99
     bit_size: 8
     fieldset: AUTO_CYCLE
