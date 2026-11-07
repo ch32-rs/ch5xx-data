@@ -54,13 +54,14 @@ case "$CMD" in
     ;;
     publish)
         # The generator writes no README or license, but the crate manifest
-        # lists all three, so cargo refuses to package without them. They are
-        # copied from the repo root rather than generated.
+        # lists all three, so cargo refuses to package without them. The README
+        # template lives next to the manifest template; the licenses come from
+        # the repo root.
         # `--no-verify` because the build script panics unless exactly one
         # chip feature is enabled, and a plain `cargo publish` enables none.
         # Usage: ./d publish [--dry-run]
         test -d build/ch5xx-metapac || { echo "run ./d gen first" >&2; exit 1; }
-        cp README.md LICENSE-APACHE LICENSE-MIT build/ch5xx-metapac/
+        cp ch5xx-metapac-gen/res/README.md LICENSE-APACHE LICENSE-MIT build/ch5xx-metapac/
         cargo publish --manifest-path build/ch5xx-metapac/Cargo.toml --no-verify "$@"
     ;;
     dump-memory-x)
