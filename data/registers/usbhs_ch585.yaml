@@ -269,20 +269,17 @@ block/USBHS:
     byte_offset: 296
     fieldset: UH_TX_DMA
   - name: PORT_CTRL
-    description: WO, USBHS host port control register.
+    description: RW, USBHS host port control register.
     byte_offset: 300
-    access: Read
     fieldset: PORT_CTRL
   - name: PORT_CFG
-    description: RO, USBHS host port configuration register.
+    description: RW, USBHS host port configuration register.
     byte_offset: 304
-    access: Read
     bit_size: 8
     fieldset: PORT_CFG
   - name: PORT_INT_EN
-    description: RO, USBHS host port configuration register.
+    description: RW, USBHS host port interrupt enable register.
     byte_offset: 306
-    access: Read
     bit_size: 8
     fieldset: PORT_INT_EN
   - name: PORT_TEST_CT
@@ -467,7 +464,7 @@ fieldset/USB2_LPM_DATA:
     bit_offset: 15
     bit_size: 1
 fieldset/PORT_CTRL:
-  description: WO, USBHS host port control register.
+  description: RW, USBHS host port control register.
   fields:
   - name: SET_PORT_RESET
     description: Port sending reset.

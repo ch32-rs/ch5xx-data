@@ -41,7 +41,7 @@ block/ADC:
     bit_size: 8
     fieldset: INT_FLAG
   - name: DMA_CTRL
-    description: RO, ADC DMA control and status register.
+    description: RW, ADC DMA control and status register.
     byte_offset: 96
     bit_size: 8
     fieldset: DMA_CTRL
@@ -51,12 +51,12 @@ block/ADC:
     bit_size: 8
     fieldset: CTRL_DMA
   - name: DMA_IF
-    description: RO, ADC interrupt flag.
+    description: RW1, ADC interrupt flag.
     byte_offset: 98
     bit_size: 8
     fieldset: DMA_IF
   - name: AUTO_CYCLE
-    description: RO, ADC interrupt flag.
+    description: RW, ADC auto cycle value.
     byte_offset: 99
     bit_size: 8
     fieldset: AUTO_CYCLE

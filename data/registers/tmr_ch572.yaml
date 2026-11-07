@@ -39,7 +39,6 @@ block/TMR_FULL:
   - name: FIFO
     description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
-    access: Read
     fieldset: FIFO
   - name: DMA_NOW
     description: RO, DMA current buffer address.

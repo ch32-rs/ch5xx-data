@@ -6,6 +6,7 @@ block/System_control:
   - name: SAFE_ACCESS_SIG
     description: WO, safe accessing sign register, must write SAFE_ACCESS_SIG1 then SAFE_ACCESS_SIG2 to enter safe accessing mode.
     byte_offset: 64
+    access: Write
     bit_size: 8
     fieldset: SAFE_ACCESS_SIG
   - name: CHIP_ID
@@ -26,7 +27,7 @@ block/System_control:
     bit_size: 8
     fieldset: WDOG_COUNT
   - name: RESET_STATUS
-    description: RWA, reset status.
+    description: RO, reset status.
     byte_offset: 68
     access: Read
     bit_size: 8
@@ -188,7 +189,7 @@ fieldset/PLL_CONFIG:
     bit_size: 1
 
 fieldset/RESET_STATUS:
-  description: RWA, reset status.
+  description: RO, reset status.
   bit_size: 8
   fields:
   - name: RESET_FLAG
