@@ -40,9 +40,8 @@ block/TMR_FULL:
     byte_offset: 12
     fieldset: CNT_END
   - name: FIFO
-    description: RO, TMR FIFO register, only low 26 bit.
+    description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
-    access: Read
     fieldset: FIFO
   - name: DMA_NOW
     description: RO, TMR DMA current address.
@@ -77,7 +76,6 @@ block/TMR_NODMA:
   - name: INT_FLAG
     description: RW1, TMR interrupt flag.
     byte_offset: 6
-    access: Read
     bit_size: 8
     fieldset: INT_FLAG
   - name: FIFO_COUNT
@@ -98,7 +96,6 @@ block/TMR_NODMA:
   - name: FIFO
     description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
-    access: Read
     fieldset: FIFO
 
 fieldset/DMA_BEG:
