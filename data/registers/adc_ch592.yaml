@@ -64,6 +64,54 @@ block/ADC:
     byte_offset: 108
     bit_size: 16
     fieldset: DMA_END
+  - name: SCAN_CFG1
+    description: RW, ADC scan sequence, channels 2 through 9.
+    byte_offset: 112
+    bit_size: 32
+    fieldset: SCAN_CFG1
+  - name: SCAN_CFG2
+    description: RW, ADC scan sequence, channels 10 through 12, and scan control.
+    byte_offset: 116
+    bit_size: 32
+    fieldset: SCAN_CFG2
+fieldset/SCAN_CFG1:
+  description: RW, ADC scan sequence, channels 2 through 9.
+  bit_size: 32
+  fields:
+  - name: CH
+    description: Scan sequence entry; entry 0 holds the second channel in the sequence.
+    bit_offset: 0
+    bit_size: 4
+    array:
+      len: 8
+      stride: 4
+fieldset/SCAN_CFG2:
+  description: RW, ADC scan sequence, channels 10 through 12, and scan control.
+  bit_size: 32
+  fields:
+  - name: CH
+    description: Scan sequence entry; entry 0 holds the tenth channel in the sequence.
+    bit_offset: 0
+    bit_size: 4
+    array:
+      len: 3
+      stride: 4
+  - name: SCAN_NUM
+    description: Number of scanned channels minus one.
+    bit_offset: 16
+    bit_size: 4
+  - name: SCAN_SEL
+    description: 'Scan source: 0 selects the touch-key block, 1 selects the ADC.'
+    bit_offset: 20
+    bit_size: 1
+  - name: IE_SCAN_END
+    description: Enable an interrupt when one scan pass ends.
+    bit_offset: 21
+    bit_size: 1
+  - name: IF_SCAN_END
+    description: Scan pass end flag; write 1 to clear.
+    bit_offset: 24
+    bit_size: 1
 fieldset/DATA:
   description: RO, ADC data.
   bit_size: 16
@@ -97,7 +145,7 @@ fieldset/DMA_NOW:
     bit_offset: 1
     bit_size: 14
 fieldset/AUTO_CYCLE:
-  description: RO, ADC interrupt flag.
+  description: RW, auto ADC cycle value, unit is 16 Fsys.
   bit_size: 8
   fields:
   - name: AUTO_CYCLE
