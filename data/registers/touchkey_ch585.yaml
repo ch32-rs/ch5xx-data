@@ -1,4 +1,4 @@
-block/TouchKey:
+block/TOUCH_KEY:
   description: Touch buttons.
   items:
   - name: COUNT

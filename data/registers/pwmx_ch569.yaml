@@ -1,4 +1,4 @@
-block/PWMx:
+block/PWMX:
   description: PWMX register.
   items:
   - name: CTRL_MOD

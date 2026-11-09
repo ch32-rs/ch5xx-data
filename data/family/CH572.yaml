@@ -83,12 +83,12 @@
     version: ch585
     block: I2C
 
-- name: PWMx
+- name: PWMX
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch572
-    block: PWMx
+    block: PWMX
 
 - name: USBFS
   address: 0x40008000

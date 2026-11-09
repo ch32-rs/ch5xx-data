@@ -219,10 +219,10 @@ block/USBFS:
     byte_offset: 110
     bit_size: 8
     fieldset: UEP7_CTRL
-  - name: EPn_MODE
-    description: endpoint n control,（n=8/10/11/12/13/14/15）.
+  - name: EP_MODE
+    description: endpoint 8-15 control.
     byte_offset: 112
-    fieldset: EPn_MODE
+    fieldset: EP_MODE
 fieldset/UEP0_DMA:
   description: endpoint 0 DMA buffer address.
   bit_size: 16
@@ -295,21 +295,30 @@ fieldset/UH_TX_DMA:
     description: Starting address of host endpoint data sending buffer.
     bit_offset: 0
     bit_size: 16
-fieldset/EPn_MODE:
-  description: endpoint n control,（n=8/10/11/12/13/14/15）.
+fieldset/EP_MODE:
+  description: endpoint 8-15 control.
   fields:
   - name: EP_T_EN
     description: '1: Enable endpoint 8-15 to send (IN); 0: Prohibit endpoints 8-15 from sending.'
     bit_offset: 0
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 8
+      stride: 1
   - name: EP_R_EN
     description: '1: Enable endpoints 8-15 to receive (OUT); 0: Prohibit endpoints 8-15 from receiving.'
     bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 8
+      stride: 1
   - name: EP_T_AF
     description: '1: Enable endpoints 8-15 to send multiplexing; 0: Prohibit endpoints 8-15 from sending multiplexed messages.'
     bit_offset: 17
-    bit_size: 7
+    bit_size: 1
+    array:
+      len: 7
+      stride: 1
 fieldset/UDEV_CTRL:
   description: USB device physical prot control.
   bit_size: 8

@@ -1,6 +1,6 @@
 # Split from CH58X SYS blob for CH583. Kind touchkey.
 
-block/TouchKey:
+block/TOUCH_KEY:
   description: TouchKey register.
   items:
   - name: COUNT

@@ -488,7 +488,7 @@ fieldset/PHY_CR:
     description: Even Ethernet speed selection.
     bit_offset: 9
     bit_size: 1
-  - name: DUPlEX
+  - name: DUPLEX
     description: Even Ethernet mode selection.
     bit_offset: 10
     bit_size: 1

@@ -90,12 +90,12 @@
     version: ch569
     block: SPI_FULL
 
-- name: PWMx
+- name: PWMX
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch569
-    block: PWMx
+    block: PWMX
 
 - name: HSPI
   address: 0x40006000

@@ -3,7 +3,7 @@
 #
 # Dropped against sys_ch585: RB_SLP_CLK_SPI1, RB_SLP_CLK_USB2,
 # RB_SLP_CLK_LCD, RB_SLP_USB2_WAKE, RB_CLK_OFF_NFC, RB_RF_ANT_SW_EN,
-# RB_PIN_USB2_EN, RB_PWR_RAM32K. RB_PBHx_IN_DIS is 0xFE00 here (PB17-PB23)
+# RB_PIN_USB2_EN, RB_PWR_RAM32K. RB_PBHX_IN_DIS is 0xFE00 here (PB17-PB23)
 # instead of 0xFF00 (PB16-PB23).
 block/SYS:
   description: System Control Register.
@@ -254,10 +254,13 @@ fieldset/PIN_CONFIG:
     description: RW, Full speed USB pin enable.
     bit_offset: 7
     bit_size: 1
-  - name: PBHx_IN_DIS
+  - name: PBH_IN_DIS
     description: RW, PB17~PB23 channel pin digital input disabled.
     bit_offset: 9
-    bit_size: 7
+    bit_size: 1
+    array:
+      len: 7
+      stride: 1
 fieldset/POWER_PLAN:
   description: RWA, power plan before sleep instruction, SAM.
   bit_size: 16
@@ -347,14 +350,20 @@ fieldset/IWDG_KR:
 fieldset/PIN_IN_DIS:
   description: RW, Function pin digital input disable register.
   fields:
-  - name: PAx_IN_DIS
+  - name: PA_IN_DIS
     description: RW, PA0~PA15 channel pin digital input disabled.
     bit_offset: 0
-    bit_size: 16
-  - name: PBLx_IN_DIS
+    bit_size: 1
+    array:
+      len: 16
+      stride: 1
+  - name: PBL_IN_DIS
     description: RW, PB0~PB15 channel pin digital input disabled.
     bit_offset: 16
-    bit_size: 16
+    bit_size: 1
+    array:
+      len: 16
+      stride: 1
 fieldset/BAT_DET_CFG:
   description: RWA, battery voltage detector configuration, SAM.
   bit_size: 8

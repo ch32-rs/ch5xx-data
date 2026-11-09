@@ -255,10 +255,13 @@ fieldset/PIN_CONFIG:
     description: RW, Full speed USB pin enable.
     bit_offset: 7
     bit_size: 1
-  - name: PBHx_IN_DIS
+  - name: PBH_IN_DIS
     description: RW, PB16~PB23 channel pin digital input disabled.
     bit_offset: 8
-    bit_size: 8
+    bit_size: 1
+    array:
+      len: 8
+      stride: 1
 fieldset/POWER_PLAN:
   description: RWA, power plan before sleep instruction, SAM.
   bit_size: 16
@@ -352,14 +355,20 @@ fieldset/IWDG_KR:
 fieldset/PIN_IN_DIS:
   description: RW, Function pin digital input disable register.
   fields:
-  - name: PAx_IN_DIS
+  - name: PA_IN_DIS
     description: RW, PA0~PA15 channel pin digital input disabled.
     bit_offset: 0
-    bit_size: 16
-  - name: PBLx_IN_DIS
+    bit_size: 1
+    array:
+      len: 16
+      stride: 1
+  - name: PBL_IN_DIS
     description: RW, PB0~PB15 channel pin digital input disabled.
     bit_offset: 16
-    bit_size: 16
+    bit_size: 1
+    array:
+      len: 16
+      stride: 1
 fieldset/BAT_DET_CFG:
   description: RWA, battery voltage detector configuration, SAM.
   bit_size: 8
