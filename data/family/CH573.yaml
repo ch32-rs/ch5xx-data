@@ -22,12 +22,12 @@
     version: ch573
     block: System_control
 
-- name: TouchKey
+- name: TOUCHKEY
   address: 0x40001000
   registers:
     kind: touchkey
     version: ch573
-    block: TouchKey
+    block: TOUCH_KEY
 
 - name: ADC
   address: 0x40001000
@@ -111,12 +111,12 @@
     version: ch573
     block: SPI_FULL
 
-- name: PWMx
+- name: PWMX
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch573
-    block: PWMx
+    block: PWMX
 
 - name: USB
   address: 0x40008000

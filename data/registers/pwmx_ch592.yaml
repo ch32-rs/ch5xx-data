@@ -1,4 +1,4 @@
-block/PWMx:
+block/PWMX:
   description: PWMx register.
   items:
   - name: OUT_EN

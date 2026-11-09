@@ -37,12 +37,12 @@
     version: ch585
     block: System_control
 
-- name: TouchKey
+- name: TOUCHKEY
   address: 0x40001000
   registers:
     kind: touchkey
     version: ch585
-    block: TouchKey
+    block: TOUCH_KEY
   interrupts:
     - signal: GLOBAL
       interrupt: ADC
@@ -403,12 +403,12 @@
       signal: SDA
       remap: 1
 
-- name: PWMx
+- name: PWMX
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch585
-    block: PWMx
+    block: PWMX
   remap:
     register: PIN_ALTERNATE
     field: PIN_PWMX

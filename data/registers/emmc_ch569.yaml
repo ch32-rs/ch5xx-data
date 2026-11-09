@@ -93,7 +93,7 @@ fieldset/CLK_DIV:
     description: chip output sdclk oe.
     bit_offset: 8
     bit_size: 1
-  - name: CLKMode
+  - name: CLKMODE
     description: EMMC clock frequency mode selection bit.
     bit_offset: 9
     bit_size: 1

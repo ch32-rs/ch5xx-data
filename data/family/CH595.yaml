@@ -22,12 +22,12 @@
     version: ch595
     block: System_control
 
-- name: TouchKey
+- name: TOUCHKEY
   address: 0x40001000
   registers:
     kind: touchkey
     version: ch595
-    block: TouchKey
+    block: TOUCH_KEY
 
 - name: ADC
   address: 0x40001000
@@ -118,12 +118,12 @@
     version: ch585
     block: I2C
 
-- name: PWMx
+- name: PWMX
   address: 0x40005000
   registers:
     kind: pwmx
     version: ch585
-    block: PWMx
+    block: PWMX
 
 - name: LCD
   address: 0x40006000
