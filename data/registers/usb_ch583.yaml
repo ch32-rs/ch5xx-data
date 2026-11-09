@@ -99,6 +99,13 @@ block/USB:
     byte_offset: 28
     bit_size: 16
     fieldset: UH_TX_DMA
+  - name: UEP_T_LEN
+    description: Device endpoint transmit length, indexed by endpoint number. In host mode, endpoints 2 and 3 have different meanings.
+    byte_offset: 32
+    array:
+      offsets: [0, 4, 8, 12, 16, 68, 72, 76]
+    bit_size: 8
+    fieldset: UEP_T_LEN
   - name: UEP0_T_LEN
     description: endpoint 0 transmittal length.
     byte_offset: 32
@@ -371,6 +378,14 @@ fieldset/UEP0_CTRL:
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
+fieldset/UEP_T_LEN:
+  description: Device endpoint transmit length.
+  bit_size: 8
+  fields:
+  - name: T_LEN
+    description: Transmit length in bytes.
+    bit_offset: 0
+    bit_size: 8
 fieldset/UEP0_T_LEN:
   description: endpoint 0 transmittal length.
   bit_size: 8
@@ -823,6 +838,14 @@ fieldset/INT_EN:
     description: enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode.
     bit_offset: 0
     bit_size: 1
+  - name: UIE_BUS_RST
+    description: Enable bus reset interrupt in device mode.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIE_DETECT
+    description: Enable device detection interrupt in host mode.
+    bit_offset: 0
+    bit_size: 1
   - name: UIE_TRANSFER
     description: enable interrupt for USB transfer completion.
     bit_offset: 1
@@ -853,6 +876,14 @@ fieldset/INT_FG:
   fields:
   - name: UIF_BUS_RST__UIF_DETECT
     description: RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIF_BUS_RST
+    description: Device bus reset interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIF_DETECT
+    description: Host device detection interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.
     bit_offset: 0
     bit_size: 1
   - name: UIF_TRANSFER
@@ -889,6 +920,14 @@ fieldset/INT_ST:
   fields:
   - name: MASK_UIS_H_RES__MASK_UIS_ENDP
     description: 'RO, bit mask of current transfer handshake response for USB host mode: 0000=no response, time out from device, others=handshake response PID received;RO, bit mask of current transfer endpoint number for USB device mode.'
+    bit_offset: 0
+    bit_size: 4
+  - name: MASK_UIS_H_RES
+    description: Host transfer handshake response PID, or zero on timeout.
+    bit_offset: 0
+    bit_size: 4
+  - name: MASK_UIS_ENDP
+    description: Device transfer endpoint number.
     bit_offset: 0
     bit_size: 4
   - name: MASK_UIS_TOKEN
