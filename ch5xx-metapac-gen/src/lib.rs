@@ -192,8 +192,9 @@ pub(crate) fn stringify<T: Debug>(metadata: T) -> String {
 }
 
 fn gen_opts() -> generate::Options {
-    generate::Options {
-        common_module: CommonModule::External(TokenStream::from_str("crate::common").unwrap()),
-    }
+    generate::Options::new()
+        .with_common_module(CommonModule::External(TokenStream::from_str("crate::common").unwrap()))
+        // The generated crate has no defmt feature; keep the previous output.
+        .with_defmt(generate::DefmtOption::Disabled)
 }
 
