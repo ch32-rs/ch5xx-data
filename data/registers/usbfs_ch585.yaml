@@ -99,6 +99,13 @@ block/USBFS:
     byte_offset: 28
     bit_size: 16
     fieldset: UH_TX_DMA
+  - name: UEP_T_LEN
+    description: Device endpoint transmit length, indexed by endpoint number. In host mode, endpoints 2 and 3 have different meanings.
+    byte_offset: 32
+    array:
+      offsets: [0, 4, 8, 12, 16, 68, 72, 76]
+    bit_size: 8
+    fieldset: UEP_T_LEN
   - name: UEP0_T_LEN
     description: endpoint 0 transmittal length.
     byte_offset: 32
@@ -318,8 +325,8 @@ fieldset/UDEV_CTRL:
     description: 'enable USB physical port I-O: 0=disable, 1=enable;enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached.'
     bit_offset: 0
     bit_size: 1
-  - name: UD_HUB0_RESET
-    description: 'general purpose bit;control USB bus reset: 0=normal, 1=force bus reset.'
+  - name: UD_GP_BIT
+    description: General purpose bit.
     bit_offset: 1
     bit_size: 1
   - name: UD_LOW_SPEED
@@ -362,6 +369,14 @@ fieldset/UEP0_CTRL:
     description: 'expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1.'
     bit_offset: 7
     bit_size: 1
+fieldset/UEP_T_LEN:
+  description: Device endpoint transmit length.
+  bit_size: 8
+  fields:
+  - name: T_LEN
+    description: Transmit length in bytes.
+    bit_offset: 0
+    bit_size: 7
 fieldset/UEP0_T_LEN:
   description: endpoint 0 transmittal length.
   bit_size: 8
@@ -442,10 +457,6 @@ fieldset/UEP2_CTRL:
     description: bit mask of handshake response type for USB endpoint X receiving (OUT).
     bit_offset: 2
     bit_size: 2
-  - name: MASK_UH_R_RES
-    description: bit mask of handshake response type for USB endpoint X receiving (OUT).
-    bit_offset: 2
-    bit_size: 1
   - name: UEP_AUTO_TOG
     description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle;enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle.'
     bit_offset: 4
@@ -466,10 +477,6 @@ fieldset/UEP2_T_LEN:
     description: Set the number of data bytes to be sent by USB endpoint n.
     bit_offset: 0
     bit_size: 7
-  - name: UEP2_HOST_PID3
-    description: The token in host mode identifies the bit3 of the PID.
-    bit_offset: 7
-    bit_size: 1
 fieldset/UEP3_CTRL:
   description: endpoint 3 control;host transmittal endpoint control.
   bit_size: 8
@@ -850,6 +857,14 @@ fieldset/INT_EN:
     description: enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode.
     bit_offset: 0
     bit_size: 1
+  - name: UIE_BUS_RST
+    description: Enable bus reset interrupt in device mode.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIE_DETECT
+    description: Enable device detection interrupt in host mode.
+    bit_offset: 0
+    bit_size: 1
   - name: UIE_TRANSFER
     description: enable interrupt for USB transfer completion.
     bit_offset: 1
@@ -880,6 +895,14 @@ fieldset/INT_FG:
   fields:
   - name: UIF_BUS_RST__UIF_DETECT
     description: RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIF_BUS_RST
+    description: Device bus reset interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.
+    bit_offset: 0
+    bit_size: 1
+  - name: UIF_DETECT
+    description: Host device detection interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.
     bit_offset: 0
     bit_size: 1
   - name: UIF_TRANSFER
@@ -916,6 +939,14 @@ fieldset/INT_ST:
   fields:
   - name: MASK_UIS_H_RES__MASK_UIS_ENDP
     description: 'RO, bit mask of current transfer handshake response for USB host mode: 0000=no response, time out from device, others=handshake response PID received;RO, bit mask of current transfer endpoint number for USB device mode.'
+    bit_offset: 0
+    bit_size: 4
+  - name: MASK_UIS_H_RES
+    description: Host transfer handshake response PID, or zero on timeout.
+    bit_offset: 0
+    bit_size: 4
+  - name: MASK_UIS_ENDP
+    description: Device transfer endpoint number.
     bit_offset: 0
     bit_size: 4
   - name: MASK_UIS_TOKEN
