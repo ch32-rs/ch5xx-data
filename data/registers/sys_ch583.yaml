@@ -445,6 +445,10 @@ fieldset/SLP_CLK_OFF1:
     description: RWA, close USB clock.
     bit_offset: 4
     bit_size: 1
+  - name: SLP_CLK_USB2
+    description: 'RWA, USB2 controller clock gate: 0=enabled, 1=disabled (CH583 datasheet section 5.2).'
+    bit_offset: 5
+    bit_size: 1
   - name: SLP_CLK_BLE
     description: RWA, close BLE clock.
     bit_offset: 7

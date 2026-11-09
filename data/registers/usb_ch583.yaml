@@ -70,12 +70,12 @@ block/USB:
     bit_size: 16
     fieldset: UEP1_DMA
   - name: UEP2_DMA__UH_RX_DMA
-    description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
+    description: endpoint 2 DMA buffer address; host RX endpoint buffer address.
     byte_offset: 24
     bit_size: 16
     fieldset: UEP2_DMA__UH_RX_DMA
   - name: UEP3_DMA__UH_TX_DMA
-    description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
+    description: endpoint 3 DMA buffer address; host TX endpoint buffer address.
     byte_offset: 28
     bit_size: 16
     fieldset: UEP3_DMA__UH_TX_DMA
@@ -191,19 +191,19 @@ fieldset/UEP1_DMA:
     bit_offset: 0
     bit_size: 16
 fieldset/UEP2_DMA__UH_RX_DMA:
-  description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
+  description: endpoint 2 DMA buffer address; host RX endpoint buffer address.
   bit_size: 16
   fields:
   - name: UEP2_DMA
-    description: RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address.
+    description: RW,endpoint 2 DMA buffer address; host RX endpoint buffer address.
     bit_offset: 0
     bit_size: 16
 fieldset/UEP3_DMA__UH_TX_DMA:
-  description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
+  description: endpoint 3 DMA buffer address; host TX endpoint buffer address.
   bit_size: 16
   fields:
   - name: UEP3_DMA
-    description: RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address.
+    description: RW, endpoint 3 DMA buffer address; host TX endpoint buffer address.
     bit_offset: 0
     bit_size: 16
 fieldset/UEP5_DMA:
@@ -211,7 +211,7 @@ fieldset/UEP5_DMA:
   bit_size: 16
   fields:
   - name: UEP5_DMA
-    description: RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address.
+    description: RW, endpoint 5 DMA buffer address.
     bit_offset: 0
     bit_size: 16
 fieldset/UEP6_DMA:
@@ -219,7 +219,7 @@ fieldset/UEP6_DMA:
   bit_size: 16
   fields:
   - name: UEP6_DMA
-    description: RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address.
+    description: RW, endpoint 6 DMA buffer address.
     bit_offset: 0
     bit_size: 16
 fieldset/UEP7_DMA:
@@ -227,7 +227,7 @@ fieldset/UEP7_DMA:
   bit_size: 16
   fields:
   - name: UEP7_DMA
-    description: RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address.
+    description: RW, endpoint 7 DMA buffer address.
     bit_offset: 0
     bit_size: 16
 fieldset/UDEV_CTRL__UHOST_CTRL:
@@ -271,7 +271,7 @@ fieldset/UEP0_CTRL:
     bit_offset: 2
     bit_size: 2
   - name: UEP_AUTO_TOG
-    description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
+    description: Automatic toggle is documented for endpoints 1, 2 and 3 only.
     bit_offset: 4
     bit_size: 1
   - name: UEP_T_TOG
@@ -467,7 +467,7 @@ fieldset/UEP4_CTRL:
     bit_offset: 2
     bit_size: 2
   - name: UEP_AUTO_TOG
-    description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
+    description: Automatic toggle is documented for endpoints 1, 2 and 3 only.
     bit_offset: 4
     bit_size: 1
   - name: UEP_T_TOG
@@ -527,7 +527,7 @@ fieldset/UEP5_CTRL:
     bit_offset: 2
     bit_size: 2
   - name: UEP_AUTO_TOG
-    description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
+    description: Automatic toggle is documented for endpoints 1, 2 and 3 only.
     bit_offset: 4
     bit_size: 1
   - name: UEP_T_TOG
@@ -559,7 +559,7 @@ fieldset/UEP6_CTRL:
     bit_offset: 2
     bit_size: 2
   - name: UEP_AUTO_TOG
-    description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
+    description: Automatic toggle is documented for endpoints 1, 2 and 3 only.
     bit_offset: 4
     bit_size: 1
   - name: UEP_T_TOG
@@ -591,7 +591,7 @@ fieldset/UEP7_CTRL:
     bit_offset: 2
     bit_size: 2
   - name: UEP_AUTO_TOG
-    description: 'enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.'
+    description: Automatic toggle is documented for endpoints 1, 2 and 3 only.
     bit_offset: 4
     bit_size: 1
   - name: UEP_T_TOG
@@ -743,7 +743,7 @@ fieldset/INT_ST:
     bit_offset: 6
     bit_size: 1
   - name: UIS_SETUP_ACT
-    description: RO, indicate current USB transfer is NAK received for USB device mode.
+    description: RO, indicates a SETUP token and 8-byte setup request were received in USB device mode.
     bit_offset: 7
     bit_size: 1
 fieldset/MIS_ST:
