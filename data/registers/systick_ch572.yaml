@@ -31,8 +31,8 @@ fieldset/STK_CMPHR:
 fieldset/STK_CMPLR:
   description: Count reload low register.
   fields:
-  - name: CNTH
-    description: RW,CNTH.
+  - name: CMPL
+    description: RW, set the lower 32 bits of the reload counter value.
     bit_offset: 0
     bit_size: 32
 fieldset/STK_CNTL:
