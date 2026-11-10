@@ -384,30 +384,30 @@ block/PFIC:
     description: System Control Register.
     byte_offset: 3344
     fieldset: SCTLR
-  - name: STK_CTLR
+  - name: CTLR
     description: System counter control register.
     byte_offset: 4096
-    fieldset: STK_CTLR
-  - name: STK_SR
+    fieldset: CTLR
+  - name: SR
     description: System START.
     byte_offset: 4100
-    fieldset: STK_SR
-  - name: STK_CNTL
+    fieldset: SR
+  - name: CNTL
     description: System counter low register.
     byte_offset: 4104
-    fieldset: STK_CNTL
-  - name: STK_CNTH
+    fieldset: CNTL
+  - name: CNTH
     description: System counter high register.
     byte_offset: 4108
-    fieldset: STK_CNTH
-  - name: STK_CMPLR
+    fieldset: CNTH
+  - name: CMPLR
     description: System compare low register.
     byte_offset: 4112
-    fieldset: STK_CMPLR
-  - name: STK_CMPHR
+    fieldset: CMPLR
+  - name: CMPHR
     description: System compare high register.
     byte_offset: 4116
-    fieldset: STK_CMPHR
+    fieldset: CMPHR
 fieldset/CFGR:
   description: Interrupt Config Register.
   fields:
@@ -646,35 +646,35 @@ fieldset/SCTLR:
     description: SYSRESET.
     bit_offset: 31
     bit_size: 1
-fieldset/STK_CMPHR:
+fieldset/CMPHR:
   description: System compare high register.
   fields:
   - name: CMPH
     description: CMPH.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CMPLR:
+fieldset/CMPLR:
   description: System compare low register.
   fields:
   - name: CMPL
     description: CMPL.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CNTH:
+fieldset/CNTH:
   description: System counter high register.
   fields:
   - name: CNTH
     description: CNTH.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CNTL:
+fieldset/CNTL:
   description: System counter low register.
   fields:
   - name: CNTL
     description: CNTL.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CTLR:
+fieldset/CTLR:
   description: System counter control register.
   fields:
   - name: STE
@@ -705,7 +705,7 @@ fieldset/STK_CTLR:
     description: System software triggered interrupts enable.
     bit_offset: 31
     bit_size: 1
-fieldset/STK_SR:
+fieldset/SR:
   description: System START.
   fields:
   - name: CNTIF

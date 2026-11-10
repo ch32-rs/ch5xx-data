@@ -1,48 +1,50 @@
+# CH572/CH570 Systick: one 32-bit counter with an up/down mode and automatic
+# reload. The datasheet lists only CNTL at 0x08 and CMPLR at 0x10; the
+# vendor core header also names the same words CNT and CMP, so both spellings
+# point at one address. The SVD's CMPHR at 0x14 is not in the datasheet and
+# its field is a copy of the low compare word, so it is not modelled.
 block/Systick:
-  description: Systick register.
+  description: Systick register, 32-bit up/down counter.
   items:
-  - name: STK_CTLR
+  - name: CTLR
     description: Systick counter control register.
     byte_offset: 0
-    fieldset: STK_CTLR
-  - name: STK_SR
+    fieldset: CTLR
+  - name: SR
     description: Systick count status register.
     byte_offset: 4
-    fieldset: STK_SR
-  - name: STK_CNTL
+    fieldset: SR
+  - name: CNT
+    description: RW, System counter value, 32-bit view at the CNTL address.
+    byte_offset: 8
+    bit_size: 32
+  - name: CNTL
     description: Systick counter low register.
     byte_offset: 8
-    fieldset: STK_CNTL
-  - name: STK_CMPLR
-    description: Count reload low register.
+    fieldset: CNTL
+  - name: CMP
+    description: RW, System compare value, 32-bit view at the CMPLR address.
     byte_offset: 16
-    fieldset: STK_CMPLR
-  - name: STK_CMPHR
-    description: Systick compare high register.
-    byte_offset: 20
-    fieldset: STK_CMPHR
-fieldset/STK_CMPHR:
-  description: Systick compare high register.
-  fields:
-  - name: CMPH
-    description: RW, Set the reload counter value to the lower 32 bits.
-    bit_offset: 0
     bit_size: 32
-fieldset/STK_CMPLR:
-  description: Count reload low register.
+  - name: CMPLR
+    description: Systick compare low register.
+    byte_offset: 16
+    fieldset: CMPLR
+fieldset/CMPLR:
+  description: Systick compare low register.
   fields:
   - name: CMPL
     description: RW, set the lower 32 bits of the reload counter value.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CNTL:
+fieldset/CNTL:
   description: Systick counter low register.
   fields:
   - name: CNTL
     description: RW, CNTL.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CTLR:
+fieldset/CTLR:
   description: Systick counter control register.
   fields:
   - name: STE
@@ -69,7 +71,7 @@ fieldset/STK_CTLR:
     description: RW0,System soft interrupt enable.
     bit_offset: 31
     bit_size: 1
-fieldset/STK_SR:
+fieldset/SR:
   description: Systick count status register.
   fields:
   - name: CNTIF
