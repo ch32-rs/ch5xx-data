@@ -25,6 +25,16 @@ block/PWMX:
     description: RW, PWM data retention register group 1.
     byte_offset: 4
     fieldset: PWM1_3_DATA
+  - name: PWM1_DATA
+    description: RW, PWM1 data holding, 16 bits wide.
+    byte_offset: 4
+    bit_size: 16
+    fieldset: PWM1_DATA
+  - name: PWM2_DATA
+    description: RW, PWM2 data holding, 16 bits wide.
+    byte_offset: 6
+    bit_size: 16
+    fieldset: PWM2_DATA
   - name: PWM3_DATA
     description: RW, PWM data retention register group 2.
     byte_offset: 8
@@ -44,11 +54,28 @@ block/PWMX:
     description: RW, PWM data retention register group 3.
     byte_offset: 16
     fieldset: PWM4_5_DATA
+  - name: PWM4_DATA
+    description: RW, PWM4 data holding, 16 bits wide.
+    byte_offset: 16
+    bit_size: 16
+    fieldset: PWM4_DATA
+  - name: PWM5_DATA
+    description: RW, PWM5 data holding, 16 bits wide.
+    byte_offset: 18
+    bit_size: 16
+    fieldset: PWM5_DATA
   - name: CYC_VALUE
     description: RW, PWM1/2/3 cycles end register.
     byte_offset: 20
     bit_size: 16
     fieldset: CYC_VALUE
+  # The datasheet register table prints 0x40005015; the SFR header and the
+  # register description put the halfword at 0x40005016.
+  - name: CYC1_VALUE
+    description: RW, PWM4/5 cycles end register.
+    byte_offset: 22
+    bit_size: 16
+    fieldset: CYC1_VALUE
   - name: CLOCK_DIV
     description: RW, PWM reference clock frequency division coefficient.
     byte_offset: 24
@@ -72,6 +99,46 @@ fieldset/PWM3_DATA:
   fields:
   - name: PWM3_DATA
     description: RW, PWM3 data retention register.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWM1_DATA:
+  description: RW, PWM1 data holding, 16 bits wide.
+  bit_size: 16
+  fields:
+  - name: PWM1_DATA
+    description: RW, PWM1 data holding, 16 bits wide.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWM2_DATA:
+  description: RW, PWM2 data holding, 16 bits wide.
+  bit_size: 16
+  fields:
+  - name: PWM2_DATA
+    description: RW, PWM2 data holding, 16 bits wide.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWM4_DATA:
+  description: RW, PWM4 data holding, 16 bits wide.
+  bit_size: 16
+  fields:
+  - name: PWM4_DATA
+    description: RW, PWM4 data holding, 16 bits wide.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWM5_DATA:
+  description: RW, PWM5 data holding, 16 bits wide.
+  bit_size: 16
+  fields:
+  - name: PWM5_DATA
+    description: RW, PWM5 data holding, 16 bits wide.
+    bit_offset: 0
+    bit_size: 16
+fieldset/CYC1_VALUE:
+  description: RW, PWM4/5 cycles end register.
+  bit_size: 16
+  fields:
+  - name: CYC1_VALUE
+    description: RW, PWM4/5 clock cycle at 16 data widths.
     bit_offset: 0
     bit_size: 16
 fieldset/CLOCK_DIV:
@@ -123,7 +190,7 @@ fieldset/PWM4_5_DATA:
   - name: PWM5_DATA
     description: RW, PWM5 data holding(16bits wide).
     bit_offset: 16
-    bit_size: 17
+    bit_size: 16
 fieldset/DMA_BEG:
   description: RW, Starting address of PWMx DMA buffer.
   fields:

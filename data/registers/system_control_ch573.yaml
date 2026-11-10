@@ -26,6 +26,17 @@ block/System_control:
     byte_offset: 67
     bit_size: 8
     fieldset: WDOG_COUNT
+  - name: RESET_STATUS
+    description: RO, reset status.
+    byte_offset: 68
+    access: Read
+    bit_size: 8
+    fieldset: RESET_STATUS
+  - name: GLOB_ROM_CFG
+    description: RWA, FlashROM application configuration.
+    byte_offset: 68
+    bit_size: 8
+    fieldset: GLOB_ROM_CFG
   - name: GLOB_CFG_INFO
     description: RO, global configuration information and status.
     byte_offset: 69
@@ -63,6 +74,36 @@ block/System_control:
     byte_offset: 82
     bit_size: 8
     fieldset: OSC_CAL_CTRL
+
+fieldset/RESET_STATUS:
+  description: RO, reset status.
+  bit_size: 8
+  fields:
+  - name: RESET_FLAG
+    description: RO, recent reset flag.
+    bit_offset: 0
+    bit_size: 3
+
+fieldset/GLOB_ROM_CFG:
+  description: RWA, FlashROM application configuration.
+  bit_size: 8
+  fields:
+  - name: ROM_CODE_OFS
+    description: 'RWA, user code start offset in FlashROM: 0=0x000000, 1=0x040000.'
+    bit_offset: 4
+    bit_size: 1
+  - name: ROM_CTRL_EN
+    description: RWA, enable the FlashROM access control interface.
+    bit_offset: 5
+    bit_size: 1
+  - name: ROM_DATA_WE
+    description: RWA, allow erasing and programming the DataFlash area.
+    bit_offset: 6
+    bit_size: 1
+  - name: ROM_CODE_WE
+    description: RWA, allow erasing and programming the CodeFlash area.
+    bit_offset: 7
+    bit_size: 1
 
 fieldset/OSC_CAL_CNT:
   description: RO, system clock count value for 32KHz 5 cycles.
