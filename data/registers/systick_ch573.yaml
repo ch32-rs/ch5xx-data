@@ -1,45 +1,57 @@
+# CH573 Systick: 64-bit descending counter. The datasheet lists the two
+# halfword pairs; the vendor core header names the same storage CNT and CMP as
+# 64-bit words. STRELOAD (CTLR bit 8) is a write-1 one-shot load, not an
+# automatic reload, and the compare flag sits in CNTFG bit 1.
 block/Systick:
-  description: Systick register.
+  description: Systick register, 64-bit descending counter.
   items:
-  - name: STK_CTLR
+  - name: CTLR
     description: Systick counter control register.
     byte_offset: 0
-    fieldset: STK_CTLR
-  - name: STK_CNTL
+    fieldset: CTLR
+  - name: CNT
+    description: RW, System counter value, 64-bit view over CNTL/CNTH.
+    byte_offset: 4
+    bit_size: 64
+  - name: CNTL
     description: Systick counter low register.
     byte_offset: 4
-    fieldset: STK_CNTL
-  - name: STK_CNTH
+    fieldset: CNTL
+  - name: CNTH
     description: Systick counter high register.
     byte_offset: 8
-    fieldset: STK_CNTH
-  - name: STK_CMPLR
+    fieldset: CNTH
+  - name: CMP
+    description: RW, System compare value, 64-bit view over CMPLR/CMPHR.
+    byte_offset: 12
+    bit_size: 64
+  - name: CMPLR
     description: Systick compare low register.
     byte_offset: 12
-    fieldset: STK_CMPLR
-  - name: STK_CMPHR
+    fieldset: CMPLR
+  - name: CMPHR
     description: Systick compare high register.
     byte_offset: 16
-    fieldset: STK_CMPHR
-  - name: STK_CNTFG
+    fieldset: CMPHR
+  - name: CNTFG
     description: Systick counter flag.
     byte_offset: 20
-    fieldset: STK_CNTFG
-fieldset/STK_CMPHR:
+    fieldset: CNTFG
+fieldset/CMPHR:
   description: Systick compare high register.
   fields:
   - name: CMPH
     description: RW,CMPH.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CMPLR:
+fieldset/CMPLR:
   description: Systick compare low register.
   fields:
   - name: CMPL
     description: RW,CMPL.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CNTFG:
+fieldset/CNTFG:
   description: Systick counter flag.
   fields:
   - name: SWIE
@@ -50,21 +62,21 @@ fieldset/STK_CNTFG:
     description: RW,Systick counter clear zero flag.
     bit_offset: 1
     bit_size: 1
-fieldset/STK_CNTH:
+fieldset/CNTH:
   description: Systick counter high register.
   fields:
   - name: CNTH
     description: RW,CNTH.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CNTL:
+fieldset/CNTL:
   description: Systick counter low register.
   fields:
   - name: CNTL
     description: RW,CNTL.
     bit_offset: 0
     bit_size: 32
-fieldset/STK_CTLR:
+fieldset/CTLR:
   description: Systick counter control register.
   fields:
   - name: STE
@@ -80,6 +92,6 @@ fieldset/STK_CTLR:
     bit_offset: 2
     bit_size: 1
   - name: STRELOAD
-    description: System counter reload control.
+    description: System counter reload control, write 1 to load the counter once.
     bit_offset: 8
     bit_size: 1
