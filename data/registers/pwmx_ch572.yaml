@@ -221,7 +221,7 @@ fieldset/CONFIG:
     bit_offset: 0
     bit_size: 1
   - name: CYC_MOD
-    description: 'RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=5 bits data.'
+    description: 'RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=16 bits data.'
     bit_offset: 1
     bit_size: 2
   - name: PWM4_5_STAG_EN
