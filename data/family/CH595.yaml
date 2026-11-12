@@ -159,7 +159,8 @@
   address: 0x4000C000
 
 - name: LED
-  address: 0x4000F000
+  # Datasheet V1.1 ch.21 / CH595SFR.h: 0x4000E000 (the SVD copied CH585's base).
+  address: 0x4000E000
   registers:
     kind: led
     version: ch595
