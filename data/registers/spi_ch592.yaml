@@ -49,6 +49,17 @@ block/SPI_FULL:
     byte_offset: 7
     bit_size: 8
     fieldset: FIFO_COUNT
+  # CH592 datasheet V1.9 section 10.2; the vendor SVD omits both.
+  - name: CTRL_MOD1
+    description: RW, SPI mode control register 1.
+    byte_offset: 8
+    bit_size: 8
+    fieldset: CTRL_MOD1
+  - name: CTRL_MOD2
+    description: RW, SPI mode control register 2.
+    byte_offset: 9
+    bit_size: 8
+    fieldset: CTRL_MOD2
   - name: TOTAL_CNT
     description: RW, SPI total byte count, only low 12 bit.
     byte_offset: 12
@@ -80,6 +91,27 @@ block/SPI_FULL:
     byte_offset: 28
     bit_size: 16
     fieldset: DMA_END
+fieldset/CTRL_MOD1:
+  description: RW, SPI mode control register 1.
+  bit_size: 8
+  fields:
+  - name: MST_CLK_SEL
+    description: 'RW, master clock polarity select while MODE_SLAVE is clear:
+      1 inverts the polarity, 0 keeps it. In slave mode selects the two-wire
+      input/output direction: 1 input, 0 output.'
+    bit_offset: 0
+    bit_size: 1
+
+fieldset/CTRL_MOD2:
+  description: RW, SPI mode control register 2.
+  bit_size: 8
+  fields:
+  - name: SLV_FAST_MOD
+    description: 'RW, slave fast mode for higher clock rates: 1 enabled, 0
+      default mode.'
+    bit_offset: 0
+    bit_size: 1
+
 fieldset/DMA_BEG:
   description: RW, SPI DMA begin address.
   bit_size: 16
