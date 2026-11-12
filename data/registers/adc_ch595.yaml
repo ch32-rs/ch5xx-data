@@ -66,11 +66,11 @@ block/ADC:
     fieldset: DMA_END
   # CH595 datasheet V1.1 ch.15; the vendor SVD omits both registers.
   - name: SCAN_CFG1
-    description: RW, ADC scan sequence, channels 2 through 9.
+    description: RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.
     byte_offset: 112
     fieldset: SCAN_CFG1
   - name: SCAN_CFG2
-    description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+    description: RW, ADC scan sequence, slots 10 through 14, and scan control.
     byte_offset: 116
     fieldset: SCAN_CFG2
 fieldset/DATA:
@@ -222,26 +222,26 @@ fieldset/TEM_SENSOR:
     bit_offset: 7
     bit_size: 1
 fieldset/SCAN_CFG1:
-  description: RW, ADC scan sequence, channels 2 through 9.
+  description: RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.
   bit_size: 32
   fields:
   - name: CH
-    description: Scan sequence entry; entry 0 holds the second channel in the
+    description: 'Scan sequence slot; entry 0 holds the second slot in the
       sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the
-      temperature sensor.
+      temperature sensor.'
     bit_offset: 0
     bit_size: 4
     array:
       len: 8
       stride: 4
 fieldset/SCAN_CFG2:
-  description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+  description: RW, ADC scan sequence, slots 10 through 14, and scan control.
   bit_size: 32
   fields:
   - name: CH
-    description: Scan sequence entry; entry 0 holds the tenth channel in the
+    description: 'Scan sequence slot; entry 0 holds the tenth slot in the
       sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the
-      temperature sensor.
+      temperature sensor.'
     bit_offset: 0
     bit_size: 4
     array:
@@ -268,7 +268,8 @@ fieldset/SCAN_CFG2:
     bit_offset: 29
     bit_size: 1
   - name: SCAN_MASK_DIS
-    description: Disable the channel mask after the sampled channel ends.
+    description: 'Channel enable after each scan sample: 0 lets the hardware
+      close the sampled channel, 1 forbids closing it.'
     bit_offset: 30
     bit_size: 1
   - name: IF_SCAN_END
