@@ -62,32 +62,32 @@ block/ADC:
     byte_offset: 108
     fieldset: DMA_END
   - name: SCAN_CFG1
-    description: RW, ADC scan sequence, channels 2 through 9.
+    description: RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.
     byte_offset: 112
     bit_size: 32
     fieldset: SCAN_CFG1
   - name: SCAN_CFG2
-    description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+    description: RW, ADC scan sequence, slots 10 through 14, and scan control.
     byte_offset: 116
     bit_size: 32
     fieldset: SCAN_CFG2
 fieldset/SCAN_CFG1:
-  description: RW, ADC scan sequence, channels 2 through 9.
+  description: RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.
   bit_size: 32
   fields:
   - name: CH
-    description: Scan sequence entry; entry 0 holds the second channel in the sequence.
+    description: Scan sequence slot; entry 0 holds the second slot in the sequence.
     bit_offset: 0
     bit_size: 4
     array:
       len: 8
       stride: 4
 fieldset/SCAN_CFG2:
-  description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+  description: RW, ADC scan sequence, slots 10 through 14, and scan control.
   bit_size: 32
   fields:
   - name: CH
-    description: Scan sequence entry; entry 0 holds the tenth channel in the sequence.
+    description: Scan sequence slot; entry 0 holds the tenth slot in the sequence.
     bit_offset: 0
     bit_size: 4
     array:
@@ -106,7 +106,8 @@ fieldset/SCAN_CFG2:
     bit_offset: 29
     bit_size: 1
   - name: SCAN_MASK_DIS
-    description: Disable the channel mask after the sampled channel ends.
+    description: 'Channel enable after each scan sample: 0 lets the hardware close the
+      sampled channel, 1 forbids closing it.'
     bit_offset: 30
     bit_size: 1
   - name: IF_SCAN_END
