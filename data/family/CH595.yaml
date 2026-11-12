@@ -80,28 +80,28 @@
   address: 0x40003000
   registers:
     kind: uart
-    version: ch585
+    version: ch595
     block: UART_FULL
 
 - name: UART1
   address: 0x40003400
   registers:
     kind: uart
-    version: ch585
+    version: ch595
     block: UART_NOMODEM
 
 - name: UART2
   address: 0x40003800
   registers:
     kind: uart
-    version: ch585
+    version: ch595
     block: UART_NOMODEM
 
 - name: UART3
   address: 0x40003C00
   registers:
     kind: uart
-    version: ch585
+    version: ch595
     block: UART_NOMODEM
 
 - name: SPI0
@@ -170,7 +170,7 @@
   address: 0xE000E000
   registers:
     kind: pfic
-    version: ch585
+    version: ch595
     block: PFIC
 
 - name: Systick
