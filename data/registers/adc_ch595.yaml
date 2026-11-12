@@ -64,6 +64,15 @@ block/ADC:
     byte_offset: 108
     bit_size: 16
     fieldset: DMA_END
+  # CH595 datasheet V1.1 ch.15; the vendor SVD omits both registers.
+  - name: SCAN_CFG1
+    description: RW, ADC scan sequence, channels 2 through 9.
+    byte_offset: 112
+    fieldset: SCAN_CFG1
+  - name: SCAN_CFG2
+    description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+    byte_offset: 116
+    fieldset: SCAN_CFG2
 fieldset/DATA:
   description: RO, ADC data.
   bit_size: 16
@@ -211,4 +220,58 @@ fieldset/TEM_SENSOR:
   - name: TEM_SEN_PWR_ON
     description: 'RW, temperature sensor power control: 0=power down, 1=power on.'
     bit_offset: 7
+    bit_size: 1
+fieldset/SCAN_CFG1:
+  description: RW, ADC scan sequence, channels 2 through 9.
+  bit_size: 32
+  fields:
+  - name: CH
+    description: Scan sequence entry; entry 0 holds the second channel in the
+      sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the
+      temperature sensor.
+    bit_offset: 0
+    bit_size: 4
+    array:
+      len: 8
+      stride: 4
+fieldset/SCAN_CFG2:
+  description: RW, ADC scan sequence, channels 10 through 14, and scan control.
+  bit_size: 32
+  fields:
+  - name: CH
+    description: Scan sequence entry; entry 0 holds the tenth channel in the
+      sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the
+      temperature sensor.
+    bit_offset: 0
+    bit_size: 4
+    array:
+      len: 5
+      stride: 4
+  - name: EHCH_TIM
+    description: 'RW, ADC samples taken per scanned channel: 0=1, 1=2, 2=3, 3=4.'
+    bit_offset: 20
+    bit_size: 2
+  - name: SCAN_EN
+    description: RW, enable scan mode.
+    bit_offset: 23
+    bit_size: 1
+  - name: SCAN_NUM
+    description: 'Number of scanned channels; minus one while SCAN_SEL is set.'
+    bit_offset: 24
+    bit_size: 4
+  - name: SCAN_SEL
+    description: 'Scan source: 0 selects the touch-key block, 1 selects the ADC.'
+    bit_offset: 28
+    bit_size: 1
+  - name: IE_SCAN_END
+    description: Enable an interrupt when one scan pass ends.
+    bit_offset: 29
+    bit_size: 1
+  - name: SCAN_MASK_DIS
+    description: Disable the channel mask after the sampled channel ends.
+    bit_offset: 30
+    bit_size: 1
+  - name: IF_SCAN_END
+    description: Scan pass end flag; write 1 to clear.
+    bit_offset: 31
     bit_size: 1
