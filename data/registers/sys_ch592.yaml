@@ -1,6 +1,16 @@
 block/SYS:
   description: System Control Register.
   items:
+  # CH592 datasheet V1.9 ch.14; the vendor SVD omits it (fields match CH585).
+  - name: IWDG_KR
+    description: WO, Watchdog key register, SAM.
+    byte_offset: 0
+    access: Write
+    fieldset: IWDG_KR
+  - name: IWDG_CFG
+    description: RW, Watchdog configuration register, SAM.
+    byte_offset: 4
+    fieldset: IWDG_CFG
   - name: CLK_CFG
     description: RWA, system clock configuration, SAM.
     byte_offset: 8
@@ -29,6 +39,10 @@ block/SYS:
     description: RWA, Sleep control register, SAM.
     byte_offset: 16
     fieldset: SLEEP_CTRL2
+  - name: SLEEP_CTRL3
+    description: RWA, Sleep control register 3, SAM.
+    byte_offset: 20
+    fieldset: SLEEP_CTRL3
   - name: PIN_ALTERNATE
     description: RW, function pin alternate configuration.
     byte_offset: 24
@@ -481,3 +495,50 @@ fieldset/XT32K_TUNE:
     description: 'RWA, External 32KHz oscillator load capacitor tune: Cap = RB_XT32K_C_LOAD + 12pF.'
     bit_offset: 4
     bit_size: 4
+fieldset/IWDG_CFG:
+  description: RW, Watchdog configuration register, SAM.
+  fields:
+  - name: RLR
+    description: 'RW, RL [11:0]: Watchdog counter reload (with write protection).'
+    bit_offset: 0
+    bit_size: 12
+  - name: PR
+    description: RW, Prescaler factor (with write protection).
+    bit_offset: 12
+    bit_size: 3
+  - name: PVU
+    description: RO, Configure register update flag bit (with write protection).
+    bit_offset: 15
+    bit_size: 1
+  - name: COUNT
+    description: RO, Watchdog countdown counter.
+    bit_offset: 16
+    bit_size: 12
+  - name: STOP_EN
+    description: RW, Watchdog stop enabled (with write protection).
+    bit_offset: 29
+    bit_size: 1
+  - name: WR_PROTECT
+    description: RO, Write protection flag.
+    bit_offset: 30
+    bit_size: 1
+  - name: IWDG_EN
+    description: 'RO, Watchdog enable flag: 1 running, 0 stopped.'
+    bit_offset: 31
+    bit_size: 1
+fieldset/IWDG_KR:
+  description: WO, Watchdog key register, SAM.
+  fields:
+  - name: IWDG_KR
+    description: 'WO, KEY [15:0]: Key value; write 0xAAAA to reload, 0x5555 to
+      release write protection, 0xCCCC to start the watchdog.'
+    bit_offset: 0
+    bit_size: 16
+fieldset/SLEEP_CTRL3:
+  description: RWA, Sleep control register 3, SAM.
+  fields:
+  - name: SLP_GPIO_EDGE_MODE
+    description: 'RWA, GPIO wake event selection when GPIO_WAKE_MODE is set: 1
+      wakes on either edge, 0 wakes on the programmed edge only.'
+    bit_offset: 0
+    bit_size: 1

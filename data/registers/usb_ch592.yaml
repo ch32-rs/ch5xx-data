@@ -223,6 +223,34 @@ block/USB:
     byte_offset: 110
     bit_size: 8
     fieldset: UEP7_CTRL
+  # CH592 datasheet V1.9 section 17.2; named EP_MODE to match usbfs_ch585.
+  - name: EP_MODE
+    description: RW, endpoints 8-15 transmit/receive enable.
+    byte_offset: 112
+    fieldset: EP_MODE
+fieldset/EP_MODE:
+  description: RW, endpoints 8-15 transmit/receive enable.
+  fields:
+  - name: EP_T_EN
+    description: 'RW, endpoint 8-15 transmit (IN) enable: 1 enabled, 0 disabled.'
+    bit_offset: 0
+    bit_size: 1
+    array:
+      len: 8
+      stride: 1
+  - name: EP_R_EN
+    description: 'RW, endpoint 8-15 receive (OUT) enable: 1 enabled, 0 disabled.'
+    bit_offset: 8
+    bit_size: 1
+    array:
+      len: 8
+      stride: 1
+  - name: EP_T_AF
+    description: RW, endpoints 8-15 transmit alternate-function (multiplexed
+      transmit) enable, one bit per endpoint.
+    bit_offset: 17
+    bit_size: 7
+
 fieldset/UHOST_CTRL:
   description: USB host physical port control.
   bit_size: 8

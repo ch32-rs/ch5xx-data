@@ -19,6 +19,12 @@ block/TMR_FULL:
     byte_offset: 2
     bit_size: 8
     fieldset: INTER_EN
+  # CH592 datasheet V1.9 section 8.2; the vendor SVD omits it.
+  - name: PWM_MOD
+    description: RW, TMR PWM mode control.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: PWM_MOD
   - name: INT_FLAG
     description: RW1, TMR interrupt flag.
     byte_offset: 6
@@ -73,6 +79,12 @@ block/TMR_NODMA:
     byte_offset: 2
     bit_size: 8
     fieldset: INTER_EN
+  # Same register as the TMR_FULL block; the manual lists it for x = 0/1/2/3.
+  - name: PWM_MOD
+    description: RW, TMR PWM mode control.
+    byte_offset: 4
+    bit_size: 8
+    fieldset: PWM_MOD
   - name: INT_FLAG
     description: RW1, TMR interrupt flag.
     byte_offset: 6
@@ -97,6 +109,16 @@ block/TMR_NODMA:
     description: RO/WO, TMR FIFO register, only low 26 bit.
     byte_offset: 16
     fieldset: FIFO
+
+fieldset/PWM_MOD:
+  description: RW, TMR PWM mode control.
+  bit_size: 8
+  fields:
+  - name: PWM_MOD
+    description: 'RW, first PWM data repeat count when PWM_REPEAT is set: 1
+      follows PWM_REPEAT, 0 repeats once.'
+    bit_offset: 0
+    bit_size: 1
 
 fieldset/DMA_BEG:
   description: RW, TMR DMA begin address.
