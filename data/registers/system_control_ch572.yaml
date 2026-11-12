@@ -78,6 +78,36 @@ block/System_control:
     byte_offset: 83
     bit_size: 8
     fieldset: OSC_CAL_CTRL
+  # CH572 datasheet V1.0 ch.4; the SVD omits it.
+  - name: SAFE_ACCESS_SIG2
+    description: RO, FlashROM safe-access status register 2.
+    byte_offset: 88
+    access: Read
+    fieldset: SAFE_ACCESS_SIG2
+fieldset/SAFE_ACCESS_SIG2:
+  description: RO, FlashROM safe-access status register 2.
+  fields:
+  - name: SAFE_AC_DIS
+    description: 'RO, safe-register auto-close state: 1 auto-close disabled, 0
+      auto-close still active.'
+    bit_offset: 20
+    bit_size: 1
+  - name: RD_PROTECT
+    description: 'RO, read protection: 1 enabled, 0 disabled.'
+    bit_offset: 21
+    bit_size: 1
+  - name: MANU_CFG_LOCK
+    description: 'RO, vendor configuration-word lock: 1 locked, 0 unlocked.'
+    bit_offset: 22
+    bit_size: 1
+  - name: FLASH_HALTED
+    description: 'RO, two-wire Flash operation halt: 1 halted, 0 allowed.'
+    bit_offset: 23
+    bit_size: 1
+  - name: FUN_MODE
+    description: RO, function enable word.
+    bit_offset: 24
+    bit_size: 3
 fieldset/OSC_CAL_CNT:
   description: RO, system clock count value for 32KHz multi-cycles.
   bit_size: 16
