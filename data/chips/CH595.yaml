@@ -17,6 +17,10 @@
 #
 # The three packages differ in peripheral count, not in memory. That split is
 # not described yet; this is the full CH595X set.
+#
+# CH596 shares this controller and memory map (256KB total: 240KB CodeFlash +
+# 16KB BootLoader), but has R8_CHIP_ID = 0x96 instead of 0x97. Both report
+# WCH-Link chip id 0xcb; probe-rs selects CH595 and takes CH596 via --chip.
 name: CH595
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE Wireless MCU
