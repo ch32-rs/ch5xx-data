@@ -29,6 +29,14 @@ memory:
       - type: standard
         erase_size: 4K
         write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x70000
+    size: 32K
+    modes:
+      - type: standard
+        erase_size: 256
+        write_size: 1
   - name: SRAM
     kind: ram
     address: 0x20000000

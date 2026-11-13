@@ -1,11 +1,12 @@
 # CH584X, from CH585/CH584 datasheet V1.6, table 2-2-2. Same peripherals and
 # 96KB SRAM as CH584, but the flash is different: 480KB of code and 512KB of
-# data. The data region is given no address range and the datasheet says to
-# read it through the example code, so only the code region is mapped here.
+# data. The data region has no CPU CODE address; it is reachable only through
+# libISP585. The ISP585 EEPROM path addresses it 0-based and erases in 4 KiB
+# blocks; 0x80000 below is the program-view address used by FLASH_ROM_* and by
+# probe-rs, not a CPU-mapped address.
 #
-# Erase and program granularity is not stated separately for this part. The
-# code region follows the CH584 figures (4KB erase, dword programming); the
-# data region is left out until its geometry is known.
+# R8_CHIP_ID is shared with CH584 (0x92); libISP585 distinguishes this part by
+# (*(uint32_t *)0x7F024 & 0x0F) == 0x08.
 name: CH584X
 family: QingKe RISC-V-based, BLE MCU
 subfamily: RISC-V Core BLE5.4 Wireless MCU
@@ -23,6 +24,14 @@ memory:
       - type: standard
         erase_size: 4K
         write_size: 4
+  - name: DATAFLASH
+    kind: flash
+    address: 0x80000
+    size: 512K
+    modes:
+      - type: standard
+        erase_size: 4K
+        write_size: 1
   - name: SRAM
     kind: ram
     address: 0x20000000
