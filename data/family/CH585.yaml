@@ -117,10 +117,14 @@
       interrupt: GPIO_A
     - signal: PORT_B
       interrupt: GPIO_B
-# FlashROM control engine at 0x4000_1800 (datasheet table 2-5). Address only:
-# the register set is a serial command/data protocol and is not modeled.
+# Serial flash command engine (datasheet table 2-5); a command/data port, not
+# a plain register file.
 - name: FLASHROM
   address: 0x40001800
+  registers:
+    kind: flashrom
+    version: ch570
+    block: FLASHROM
 
 - name: TMR0
   address: 0x40002000
