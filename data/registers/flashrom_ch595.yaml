@@ -1,0 +1,101 @@
+# Page-latch flash controller at 0x40001800, omitted from the vendor SVD.
+#
+# Not the serial command engine used by CH57x/58x/59x: program data goes through
+# a 256-byte latch, and reads are plain memory-mapped loads.
+
+block/FLASHROM:
+  description: Page-latch flash controller.
+  items:
+  - name: PREPG_CTRL
+    description: RW, pre-program mode and start.
+    byte_offset: 0
+    fieldset: PREPG_CTRL
+  - name: BUF_CTRL
+    description: RW, latch clear and auto-increment load.
+    byte_offset: 1
+    fieldset: BUF_CTRL
+  - name: ERASE_CTRL
+    description: RW, erase mode and start.
+    byte_offset: 2
+    fieldset: ERASE_CTRL
+  - name: PROGRAM_CTRL
+    description: WO, page program start.
+    byte_offset: 3
+    fieldset: PROGRAM_CTRL
+  - name: READ_CTRL
+    description: RW, flash clock selection and address auto-increment.
+    byte_offset: 7
+    fieldset: READ_CTRL
+  - name: ADDR
+    description: RW, flash address; auto-increments with latch data.
+    byte_offset: 12
+    bit_size: 32
+  - name: DATA
+    description: RW, 32-bit latch data.
+    byte_offset: 16
+    bit_size: 32
+  - name: STATUS
+    description: R, controller status.
+    byte_offset: 32
+    bit_size: 32
+    fieldset: STATUS
+
+fieldset/PREPG_CTRL:
+  description: Pre-program mode and start.
+  fields:
+  - name: MODE
+    description: 0 = page, 1 = sector, 2 = bank.
+    bit_offset: 1
+    bit_size: 2
+  - name: START
+    bit_offset: 4
+    bit_size: 1
+
+fieldset/BUF_CTRL:
+  description: Latch clear and auto-increment load.
+  fields:
+  - name: CLEAR
+    bit_offset: 0
+    bit_size: 1
+  - name: LOAD_AUTO
+    bit_offset: 5
+    bit_size: 1
+
+fieldset/ERASE_CTRL:
+  description: Erase mode and start.
+  fields:
+  - name: MODE
+    description: 0 = page, 1 = sector, 2 = bank.
+    bit_offset: 0
+    bit_size: 2
+  - name: START
+    bit_offset: 4
+    bit_size: 1
+
+fieldset/PROGRAM_CTRL:
+  description: Page program start.
+  fields:
+  - name: START
+    bit_offset: 0
+    bit_size: 1
+
+fieldset/READ_CTRL:
+  description: Flash clock selection and address auto-increment.
+  fields:
+  - name: CLK
+    description: 0 = one clock, 3 = two clocks high.
+    bit_offset: 4
+    bit_size: 2
+  - name: AUTO_INCREMENT
+    bit_offset: 2
+    bit_size: 1
+
+fieldset/STATUS:
+  description: Controller status.
+  fields:
+  - name: READY
+    bit_offset: 19
+    bit_size: 1
+  - name: BUSY
+    bit_offset: 31
+    bit_size: 1

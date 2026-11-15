@@ -41,6 +41,18 @@ block/SYS:
     byte_offset: 18
     bit_size: 8
     fieldset: PIN_ALTERNATE
+  - name: FLASH_WDATA
+    description: RW, 32-bit flash program data write port.
+    byte_offset: 20
+    bit_size: 32
+  - name: FLASH_DATA
+    description: RW, flash transfer byte port.
+    byte_offset: 24
+    bit_size: 8
+  - name: FLASH_CTRL
+    description: RW, flash engine mode; 0/3 = write, 5 = status, 7 = read.
+    byte_offset: 26
+    bit_size: 8
   - name: SERD_ANA_CFG1
     description: Serdes Analog parameter configuration1.
     byte_offset: 32

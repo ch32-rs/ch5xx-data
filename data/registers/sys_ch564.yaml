@@ -41,6 +41,14 @@ block/SYS:
     byte_offset: 19
     bit_size: 8
     fieldset: XBUS_SETUP_HOLD
+  - name: FLASH_DATA
+    description: RW, flash transfer byte port.
+    byte_offset: 24
+    bit_size: 8
+  - name: FLASH_CTRL
+    description: RW, flash engine mode; 3 = write, 7 = read.
+    byte_offset: 26
+    bit_size: 8
 fieldset/PLL_OUT_DIV:
   description: output clock divider from PLL.
   bit_size: 8
