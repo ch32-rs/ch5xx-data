@@ -43,10 +43,13 @@
     version: ch595
     block: GPIO
 
-# FlashROM control engine at 0x4000_1800 (datasheet table 2-5). Address only:
-# the register set is a serial command/data protocol and is not modeled.
+# Page-latch flash controller at 0x4000_1800 (datasheet table 2-5).
 - name: FLASHROM
   address: 0x40001800
+  registers:
+    kind: flashrom
+    version: ch595
+    block: FLASHROM
 
 - name: TMR0
   address: 0x40002000

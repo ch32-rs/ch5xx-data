@@ -3,8 +3,8 @@
 # Not a plain register file: erase and program are a command byte plus address
 # bytes on DATA_BYTE, program words on DATA, with CTRL bit 7 polled for the
 # handshake. SCK and CFG hold the engine timing and must follow the clock tree.
-# The CH595 family replaced this engine with a page-latch controller, and the
-# CH564/CH569 blocks live elsewhere, so they do not use this version.
+# CH595 replaced this engine with a page-latch controller (flashrom_ch595);
+# CH564 and CH569 put their controller inside SYS instead.
 
 block/FLASHROM:
   description: Serial flash command engine.
