@@ -1,5 +1,4 @@
-# 16-bit USBFS shared by CH572/CH570 and CH595: the datasheet gives R16_UEPn_DMA,
-# [15:0] (section 17.2.2). The CH585 die's R32 variant lives in usbfs_ch585.yaml.
+# CH572/CH570/CH595: UEPn_DMA, UH_RX_DMA and UH_TX_DMA are R16 [15:0].
 block/USBFS:
   description: USBFS register.
   items:

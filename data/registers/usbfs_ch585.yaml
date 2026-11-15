@@ -1,5 +1,4 @@
-# CH585-die USBFS (CH585/CH584/CH581): UEPn_DMA, UH_RX_DMA and UH_TX_DMA are
-# R32 with bit 16 valid (datasheet V1.6 section 17.2.2); the vendor SVD still says R16.
+# CH585/CH584/CH581: UEPn_DMA, UH_RX_DMA and UH_TX_DMA are R32 [16:0]; vendor SVD says R16.
 block/USBFS:
   description: USBFS register.
   items:
