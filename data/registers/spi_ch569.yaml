@@ -31,7 +31,6 @@ block/SPI_FULL:
   - name: BUFFER
     description: SPI_FULL data buffer.
     byte_offset: 4
-    access: Read
     bit_size: 8
     fieldset: BUFFER
   - name: RUN_FLAG

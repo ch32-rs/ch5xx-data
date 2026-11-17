@@ -62,9 +62,8 @@ block/SPI_FULL:
     bit_size: 8
     fieldset: FIFO
   - name: FIFO_COUNT1
-    description: RO, SPI FIFO count status.
+    description: RW, SPI FIFO count status.
     byte_offset: 19
-    access: Read
     bit_size: 8
     fieldset: FIFO_COUNT1
   - name: DMA_NOW
@@ -135,9 +134,8 @@ block/SPI_NODMA:
     bit_size: 8
     fieldset: FIFO
   - name: FIFO_COUNT1
-    description: RO, SPI FIFO count status.
+    description: RW, SPI FIFO count status.
     byte_offset: 19
-    access: Read
     bit_size: 8
     fieldset: FIFO_COUNT1
 
