@@ -174,8 +174,8 @@ fieldset/DIV_FULL:
   description: UART_FULL pre-divisor latch byte.
   bit_size: 8
   fields:
-  - name: ADR
-    description: UART pre-divisor latch byte.
+  - name: DIV
+    description: RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128.
     bit_offset: 0
     bit_size: 8
 
