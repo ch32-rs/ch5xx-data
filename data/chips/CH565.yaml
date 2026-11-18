@@ -33,10 +33,11 @@ memory:
     kind: ram
     address: 0x20000000
     size: 16K
+  # USER_MEM selects 32/64/96K; 32K is the guaranteed minimum.
   - name: RAMX
     kind: ram
     address: 0x20020000
-    size: 96K
+    size: 32K
 docs:
   - type: homepage
     title: CH569 product page
