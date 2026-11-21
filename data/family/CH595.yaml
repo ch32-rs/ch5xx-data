@@ -153,7 +153,7 @@
   address: 0x40008000
   registers:
     kind: usbfs
-    version: ch585
+    version: ch572
     block: USBFS
 
 

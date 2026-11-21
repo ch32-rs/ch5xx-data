@@ -1,4 +1,4 @@
-# CH572 / CH570. From svd/fixed/ch572.svd. USBFS / I2C / PFIC reuse ch585.
+# CH572 / CH570. From svd/fixed/ch572.svd. I2C / PFIC reuse ch585; USBFS is a 16-bit block.
 # CH570 is the same map without Bluetooth; BLE stays as an address placeholder.
 
 - name: SYS
@@ -98,7 +98,7 @@
   address: 0x40008000
   registers:
     kind: usbfs
-    version: ch585
+    version: ch572
     block: USBFS
 
 # Placeholder: vendor SVD lists BLE with no registers. CH570 has no radio.

@@ -1,3 +1,4 @@
+# CH585/CH584/CH581: UEPn_DMA, UH_RX_DMA and UH_TX_DMA are R32 [16:0]; vendor SVD says R16.
 block/USBFS:
   description: USBFS register.
   items:
@@ -72,32 +73,32 @@ block/USBFS:
   - name: UEP0_DMA
     description: endpoint 0 DMA buffer address.
     byte_offset: 16
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP0_DMA
   - name: UEP1_DMA
     description: endpoint 1 DMA buffer address.
     byte_offset: 20
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP1_DMA
   - name: UEP2_DMA
     description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
     byte_offset: 24
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP2_DMA
   - name: UH_RX_DMA
     description: USB host receiving buffer starting address.
     byte_offset: 24
-    bit_size: 16
+    bit_size: 32
     fieldset: UH_RX_DMA
   - name: UEP3_DMA
     description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
     byte_offset: 28
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP3_DMA
   - name: UH_TX_DMA
     description: USB host sends buffer starting address.
     byte_offset: 28
-    bit_size: 16
+    bit_size: 32
     fieldset: UH_TX_DMA
   - name: UEP_T_LEN
     description: Device endpoint transmit length, indexed by endpoint number. In host mode, endpoints 2 and 3 have different meanings.
@@ -184,17 +185,17 @@ block/USBFS:
   - name: UEP5_DMA
     description: endpoint 5 DMA buffer address.
     byte_offset: 84
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP5_DMA
   - name: UEP6_DMA
     description: endpoint 6 DMA buffer address.
     byte_offset: 88
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP6_DMA
   - name: UEP7_DMA
     description: endpoint 7 DMA buffer address.
     byte_offset: 92
-    bit_size: 16
+    bit_size: 32
     fieldset: UEP7_DMA
   - name: UEP5_T_LEN
     description: endpoint 5 transmittal length.
@@ -232,76 +233,76 @@ block/USBFS:
     fieldset: EP_MODE
 fieldset/UEP0_DMA:
   description: endpoint 0 DMA buffer address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP0_DMA
     description: RW,endpoint 0 DMA buffer address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP1_DMA:
   description: endpoint 1 DMA buffer address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP1_DMA
     description: RW,endpoint 1 DMA buffer address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP2_DMA:
   description: endpoint 2 DMA buffer address;host rx endpoint buffer high address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP2_DMA
     description: RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP3_DMA:
   description: endpoint 3 DMA buffer address;host tx endpoint buffer high address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP3_DMA
     description: RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP5_DMA:
   description: endpoint 5 DMA buffer address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP5_DMA
     description: RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP6_DMA:
   description: endpoint 6 DMA buffer address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP6_DMA
     description: RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UEP7_DMA:
   description: endpoint 7 DMA buffer address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UEP7_DMA
     description: RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UH_RX_DMA:
   description: USB host receiving buffer starting address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UH_RX_DMA
     description: USB host receiving endpoint receiving data buffer mode control bit.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/UH_TX_DMA:
   description: USB host sends buffer starting address.
-  bit_size: 16
+  bit_size: 32
   fields:
   - name: UH_TX_DMA
     description: Starting address of host endpoint data sending buffer.
     bit_offset: 0
-    bit_size: 16
+    bit_size: 17
 fieldset/EP_MODE:
   description: endpoint 8-15 control.
   fields:
