@@ -11,22 +11,32 @@ env:
 
 jobs:
   build:
+    name: metapac (${{ matrix.chip }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - chip: ch585
+            target: riscv32imc-unknown-none-elf
+          - chip: ch572
+            target: riscv32imac-unknown-none-elf
+          - chip: ch595
+            target: riscv32imc-unknown-none-elf
     steps:
       - uses: actions/checkout@v4
       - name: Use nightly Rust
         run: |
           rustup default nightly
-          rustup target add riscv32imc-unknown-none-elf
+          rustup target add ${{ matrix.target }}
+      - name: Generate
+        run: ./d gen
       - name: Build
         run: |
-          ./d gen
-      - name: Test
-        run: |
           cd build/ch5xx-metapac/
-          cargo build --features pac,metadata,rt,memory-x,ch585 --target riscv32imc-unknown-none-elf
-          cargo doc --features pac,metadata,rt,memory-x,ch585 --target riscv32imc-unknown-none-elf
+          cargo build --features pac,metadata,rt,memory-x,${{ matrix.chip }} --target ${{ matrix.target }}
+          cargo doc --features pac,metadata,rt,memory-x,${{ matrix.chip }} --target ${{ matrix.target }}
       - name: Unit tests (host)
         run: |
           cd build/ch5xx-metapac/
-          cargo test --features metadata,ch585
+          cargo test --features metadata,${{ matrix.chip }}
